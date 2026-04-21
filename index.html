@@ -41,7 +41,7 @@
           </div>
           <div class="hero-stats-grid">
             <div class="hero-stat"><span class="num">+8</span><span class="label">blocos</span></div>
-            <div class="hero-stat"><span class="num">+15</span><span class="label">exercícios</span></div>
+            <div class="hero-stat"><span class="num">+14</span><span class="label">exercícios</span></div>
             <div class="hero-stat"><span class="num">6h</span><span class="label">mão na massa</span></div>
           </div>
         </div>
@@ -87,14 +87,9 @@
         </div>
         <div class="agenda">
           <div class="agenda-item" data-target="bloco-1">
-            <div class="agenda-time">09:00 · 09:45</div>
-            <div class="agenda-body"><strong>Bloco 1 — Fundamentos</strong><span>Chat vs. Cowork vs. Code</span></div>
+            <div class="agenda-time">09:00 · 09:50</div>
+            <div class="agenda-body"><strong>Bloco 1 — Fundamentos</strong><span>Chat vs. Cowork vs. Code + pensando em tokens</span></div>
             <div class="agenda-tag">Demo + exercício</div>
-          </div>
-          <div class="agenda-item ghost">
-            <div class="agenda-time">09:45 · 09:50</div>
-            <div class="agenda-body"><strong>Como pensar em tokens</strong><span>Conversa rápida de mindset</span></div>
-            <div class="agenda-tag">Mindset</div>
           </div>
           <div class="agenda-item" data-target="bloco-2">
             <div class="agenda-time">09:50 · 10:40</div>
@@ -164,7 +159,6 @@
             <p class="side-label">B L O C O S</p>
             <ol class="side-list">
               <li><a href="#bloco-1"><span class="num">01</span>Fundamentos</a></li>
-              <li><a href="#tokens"><span class="num">··</span>Pensando em tokens</a></li>
               <li><a href="#bloco-2"><span class="num">02</span>Setup do PM</a></li>
               <li><a href="#bloco-3"><span class="num">03</span>MCP e priorização</a></li>
               <li><a href="#bloco-4"><span class="num">04</span>Skills e apresentação</a></li>
@@ -179,7 +173,7 @@
             <!-- BLOCO 1 -->
             <article class="block" id="bloco-1">
               <header class="block-head">
-                <span class="block-pill">B L O C O &nbsp; 0 1 &nbsp; · &nbsp; 09:00–09:45</span>
+                <span class="block-pill">B L O C O &nbsp; 0 1 &nbsp; · &nbsp; 09:00–09:50</span>
                 <h2>Fundamentos: Chat vs. Cowork vs. Code</h2>
                 <p class="block-quote">"Você não está usando o Claude. Está conversando com ele. Tem uma diferença <strong class="shout">enorme</strong>."</p>
                 <p class="block-obj"><strong>Objetivo:</strong> Nivelar o grupo e construir o modelo mental correto. Todo mundo sai sabendo quando usar Chat, Cowork e Code.</p>
@@ -220,60 +214,114 @@
               </section>
 
               <section class="exercises">
-                <h3>Exercícios</h3>
+                <h3>Exercício</h3>
 
-                <details class="exercise">
+                <details class="exercise" open>
                   <summary>
                     <span class="ex-num">01</span>
                     <span class="ex-title">Setup e primeiro contato com a ArenaCash</span>
                     <span class="ex-time">15 min</span>
                   </summary>
                   <div class="ex-body">
-                    <ol>
-                      <li>Criar pasta <code>ArenaCash-PM</code> no computador</li>
-                      <li>Copiar todos os arquivos do kit para dentro da pasta</li>
-                      <li>Abrir Claude Cowork e conectar à pasta</li>
-                      <li>Pedir: <em>"Me diz o que tem nessa pasta e o que você consegue fazer com ela"</em></li>
-                      <li>Observar: Claude lista arquivos, identifica conteúdo, sugere ações</li>
-                      <li>Pedir: <em>"Lê o memo estratégico e o organograma e me faz um resumo executivo da ArenaCash neste quarter"</em></li>
-                      <li>Observar: cruzou dois documentos e entregou contexto — vai ser útil o dia inteiro</li>
-                    </ol>
-                  </div>
-                </details>
+                    <p class="ex-intro">O objetivo é duplo: colocar a pasta funcionando dentro do Cowork <strong>e</strong> fazer a primeira leitura da ArenaCash com o Claude. Ao final, cada aluno vai ter o ambiente pronto e um resumo executivo do quarter na tela.</p>
 
-                <details class="exercise">
-                  <summary>
-                    <span class="ex-num">02</span>
-                    <span class="ex-title">Prompting vs. delegação: qualidade e custo</span>
-                    <span class="ex-time">15 min</span>
-                  </summary>
-                  <div class="ex-body">
-                    <p>Três rodadas com o mesmo objetivo (<em>"entender os dados de churn da ArenaCash"</em>):</p>
-                    <div class="rounds">
-                      <div class="round"><span class="round-tag">R O D A D A &nbsp; 1 &nbsp; · &nbsp; C H A T</span><p>Prompt vago: "me fala sobre o churn da ArenaCash"</p></div>
-                      <div class="round"><span class="round-tag">R O D A D A &nbsp; 2 &nbsp; · &nbsp; C H A T</span><p>Prompt estruturado: "analise o churn do Q1, segmente por plano, identifique os 3 maiores motivos"</p></div>
-                      <div class="round highlight"><span class="round-tag">R O D A D A &nbsp; 3 &nbsp; · &nbsp; C O W O R K</span><p>Delegação com contexto: "na pasta tem dados-quarter-q1.csv. Analisa o churn, cria planilha segmentada por plano e relatório com os 3 maiores motivos e recomendações."</p></div>
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 1</span>
+                        <span class="step-block-time">2 min</span>
+                        <h4 class="step-block-title">Criar a pasta de trabalho</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <div class="two-col">
+                          <div class="pill-card"><h4>🍎 Mac</h4><p>Finder → Documentos → clique direito → Nova Pasta → nomeie <code>ArenaCash-PM</code></p></div>
+                          <div class="pill-card"><h4>🪟 Windows</h4><p>Explorador → Documentos → clique direito → Nova Pasta → nomeie <code>ArenaCash-PM</code></p></div>
+                        </div>
+                        <p>Copie todos os arquivos do kit pra dentro dessa pasta. Ela deve ficar assim:</p>
+                        <pre class="tree">ArenaCash-PM/
+├── memo-estrategico-q2.md
+├── organograma-arenacash.md
+├── dados-quarter-q1.csv
+├── financeiro-q1.xlsx
+├── atendimento-q1.csv
+├── transcricao-cfo.md
+├── transcricao-cmo.md
+├── transcricao-cto.md
+├── template-apresentacao.pptx
+├── design-system-arenacash.md
+└── guia-de-eventos-arenacash.pdf</pre>
+                      </div>
                     </div>
-                    <p><strong>Comparar:</strong> qualidade lado a lado + consumo de tokens (Settings → Usage). Prompt vago obriga a re-promptar 3-4 vezes. <strong class="shout">Delegar bem é mais barato</strong> do que perguntar mal várias vezes.</p>
-                    <p class="file-out">📄 <code>01-fundamentos/comparativo-prompts.md</code></p>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 2</span>
+                        <span class="step-block-time">3 min</span>
+                        <h4 class="step-block-title">Conectar a pasta ao Cowork</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <ol>
+                          <li>Abra o <strong>Claude Desktop App</strong></li>
+                          <li>No menu lateral esquerdo, clique em <strong>Cowork</strong></li>
+                          <li>Clique em <strong>+ New Project</strong> (ou "Novo Projeto")</li>
+                          <li>Dê o nome: <code>ArenaCash — Meu Setup de PM</code></li>
+                          <li>Clique em <strong>Connect Folder</strong> (ou "Conectar Pasta")</li>
+                          <li>Navegue até a pasta <code>ArenaCash-PM</code> que você acabou de criar e selecione-a</li>
+                          <li>Confirme — o Cowork vai listar os arquivos da pasta no painel lateral</li>
+                        </ol>
+                        <p class="tip">💡 <strong>O que acabou de acontecer:</strong> o Claude agora "enxerga" todos os arquivos da pasta. Pode ler, criar e editar ali dentro sem você copiar e colar nada.</p>
+                      </div>
+                    </div>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 3</span>
+                        <span class="step-block-time">5 min</span>
+                        <h4 class="step-block-title">Exploração inicial</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <p>Com a pasta conectada, digite no chat do Cowork:</p>
+                        <div class="prompt-box">
+                          <p>Me diz o que tem nessa pasta e o que você consegue fazer com ela.</p>
+                        </div>
+                        <p><strong>Observe:</strong> o Claude lista os arquivos, identifica o tipo de conteúdo e já sugere o que pode fazer — resumir, analisar, cruzar dados. Ele ainda não leu nada a fundo, só <em>mapeou o terreno</em>.</p>
+                      </div>
+                    </div>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 4</span>
+                        <span class="step-block-time">5 min</span>
+                        <h4 class="step-block-title">Primeira leitura da ArenaCash</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <p>Agora mande a primeira tarefa real:</p>
+                        <div class="prompt-box">
+                          <p>Lê o <code>memo-estrategico-q2.md</code> e o <code>organograma-arenacash.md</code> e me faz um resumo executivo da situação da ArenaCash neste quarter: contexto do negócio, metas do Q2 e quem são os principais líderes.</p>
+                        </div>
+                        <p><strong>Observe:</strong> o Claude leu dois arquivos separados, cruzou as informações e entregou um resumo coerente. Esse resumo vai ser o <strong>ponto de partida</strong> de tudo que vem depois no dia.</p>
+                      </div>
+                    </div>
+
+                    <div class="ex-closing">
+                      <span class="pa-eyebrow pa-eyebrow--red">O &nbsp; Q U E &nbsp; F I X A R</span>
+                      <p>Você não colou nenhum texto no chat. Não resumiu o documento antes de mandar. Só <strong>apontou os arquivos e delegou</strong> a tarefa. Isso é Cowork funcionando — e é assim que vamos trabalhar o dia inteiro.</p>
+                    </div>
                   </div>
                 </details>
               </section>
-            </article>
 
-            <!-- TOKENS -->
-            <article class="block sub-block" id="tokens">
-              <header class="block-head">
-                <span class="block-pill">S E S S Ã O &nbsp; · &nbsp; 5 &nbsp; M I N</span>
-                <h2>Como pensar em tokens</h2>
+              <!-- PENSANDO EM TOKENS — mesclado no fim do Bloco 1 -->
+              <section class="concept tokens-section">
+                <h3>Como pensar em tokens <span class="mins">5 min</span></h3>
                 <p class="block-quote">"Token é como minuto de reunião: o que se mede, se gerencia."</p>
-              </header>
-              <div class="grid-2">
-                <div class="principle"><span class="p-num">1</span><h4>Prompt bom de primeira = economia</h4><p>Um prompt vago vira 4-5 idas e vindas. Cada turno carrega toda a conversa.</p></div>
-                <div class="principle"><span class="p-num">2</span><h4>Contexto no lugar certo</h4><p>Instruções no Projeto &gt; repetir contexto. Referenciar arquivos &gt; colar conteúdo. Output em arquivo &gt; "me mostra na tela".</p></div>
-                <div class="principle"><span class="p-num">3</span><h4>Conversas curtas</h4><p>Terminou a tarefa, abra nova. Edite em vez de regerar — se 90% tá bom, ajuste o parágrafo.</p></div>
-                <div class="principle"><span class="p-num">4</span><h4>Modelo certo pra tarefa</h4><p>Opus = caro, problemas complexos. Sonnet = dia a dia. Haiku = tarefas leves. Skills entregam bem de primeira.</p></div>
-              </div>
+                <p style="margin-bottom: var(--s-5);">No Exercício 1, você mandou um prompt claro com arquivos referenciados e recebeu um resumo executivo de primeira. Isso não é só boa prática — é <strong>economia real</strong>. Quatro princípios pra carregar o dia inteiro:</p>
+                <div class="grid-2">
+                  <div class="principle"><span class="p-num">1</span><h4>Prompt bom de primeira = economia</h4><p>Um prompt vago vira 4-5 idas e vindas. Cada turno carrega toda a conversa acumulada.</p></div>
+                  <div class="principle"><span class="p-num">2</span><h4>Contexto no lugar certo</h4><p>Instruções no Projeto &gt; repetir contexto. Referenciar arquivos &gt; colar conteúdo. Output em arquivo &gt; "me mostra na tela".</p></div>
+                  <div class="principle"><span class="p-num">3</span><h4>Conversas curtas</h4><p>Terminou a tarefa, abra uma nova. Edite em vez de regerar — se 90% tá bom, ajuste o parágrafo ruim.</p></div>
+                  <div class="principle"><span class="p-num">4</span><h4>Modelo certo pra tarefa</h4><p>Opus = complexo. Sonnet = dia a dia. Haiku = tarefas leves. Skills = bom resultado de primeira.</p></div>
+                </div>
+              </section>
             </article>
 
             <!-- BLOCO 2 -->
@@ -307,7 +355,7 @@
                 <h3>Exercícios</h3>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">03</span><span class="ex-title">Criando o Projeto "PM na ArenaCash"</span><span class="ex-time">15 min</span></summary>
+                  <summary><span class="ex-num">02</span><span class="ex-title">Criando o Projeto "PM na ArenaCash"</span><span class="ex-time">15 min</span></summary>
                   <div class="ex-body">
                     <ol>
                       <li><strong>Criar o Projeto</strong> (3 min): no Cowork, "ArenaCash — Meu Setup de PM", conectar à pasta <code>ArenaCash-PM</code></li>
@@ -340,7 +388,7 @@
                 </details>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">04</span><span class="ex-title">Conectar Gmail + Tom de Voz</span><span class="ex-time">20 min</span></summary>
+                  <summary><span class="ex-num">03</span><span class="ex-title">Conectar Gmail + Tom de Voz</span><span class="ex-time">20 min</span></summary>
                   <div class="ex-body">
                     <ol>
                       <li><strong>Conectar Gmail</strong> (5 min): Settings → Connectors → Gmail → Connect. Testar: "busca meus últimos 5 emails enviados"</li>
@@ -393,7 +441,7 @@ Claude analisa e entrega o resumo</pre>
                 <h3>Exercícios</h3>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">05</span><span class="ex-title">Analisando os dados da ArenaCash</span><span class="ex-time">15 min</span></summary>
+                  <summary><span class="ex-num">04</span><span class="ex-title">Analisando os dados da ArenaCash</span><span class="ex-time">15 min</span></summary>
                   <div class="ex-body">
                     <div class="prompt-box">
                       <div class="prompt-box-head">A N Á L I S E &nbsp; C R U Z A D A</div>
@@ -414,7 +462,7 @@ Claude analisa e entrega o resumo</pre>
                 </details>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">06</span><span class="ex-title">Priorizando com o Thinking Partner</span><span class="ex-time">10 min</span></summary>
+                  <summary><span class="ex-num">05</span><span class="ex-title">Priorizando com o Thinking Partner</span><span class="ex-time">10 min</span></summary>
                   <div class="ex-body">
                     <p>O instrutor disponibiliza a skill <code>thinking-partner</code> <strong>pré-instalada</strong> para este exercício. No Bloco 4, os alunos vão entender como ela funciona e construir a própria versão.</p>
                     <div class="prompt-box">
@@ -426,7 +474,7 @@ Claude analisa e entrega o resumo</pre>
                 </details>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">07</span><span class="ex-title">Criando uma tarefa agendada</span><span class="ex-time">10 min</span></summary>
+                  <summary><span class="ex-num">06</span><span class="ex-title">Criando uma tarefa agendada</span><span class="ex-time">10 min</span></summary>
                   <div class="ex-body">
                     <div class="prompt-box">
                       <div class="prompt-box-head">B R I E F I N G &nbsp; S E M A N A L &nbsp; · &nbsp; S E G &nbsp; À S &nbsp; 8 H</div>
@@ -469,7 +517,7 @@ Claude analisa e entrega o resumo</pre>
                 <h3>Exercícios</h3>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">08</span><span class="ex-title">Criando o Thinking Partner com C-Levels</span><span class="ex-time">15 min</span></summary>
+                  <summary><span class="ex-num">07</span><span class="ex-title">Criando o Thinking Partner com C-Levels</span><span class="ex-time">15 min</span></summary>
                   <div class="ex-body">
                     <p>No Bloco 3 os alunos usaram o thinking partner com uma skill pré-instalada. Agora vão entender como ela funciona por dentro — e <strong>criar a própria</strong>.</p>
                     <p>Uma Skill é um arquivo markdown com instruções detalhadas que ensinam o Claude a fazer uma tarefa específica. A analogia: <em>"Você manda briefing de 2 linhas pra um designer e espera trabalho incrível? Não. Skill é o briefing completo, escrito uma vez e reutilizado pra sempre."</em></p>
@@ -489,7 +537,7 @@ Claude analisa e entrega o resumo</pre>
                 </details>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">09</span><span class="ex-title">Instalando a PRD Generator</span><span class="ex-time">10 min</span></summary>
+                  <summary><span class="ex-num">08</span><span class="ex-title">Instalando a PRD Generator</span><span class="ex-time">10 min</span></summary>
                   <div class="ex-body">
                     <ol>
                       <li>Instrutor compartilha a skill <code>prd-generator</code></li>
@@ -502,7 +550,7 @@ Claude analisa e entrega o resumo</pre>
                 </details>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">10</span><span class="ex-title">Apresentação com template ArenaCash</span><span class="ex-time">15 min</span></summary>
+                  <summary><span class="ex-num">09</span><span class="ex-title">Apresentação com template ArenaCash</span><span class="ex-time">15 min</span></summary>
                   <div class="ex-body">
                     <p><strong>Exercício final da manhã:</strong> amarra projeto, memória, tom de voz, skill, template e thinking partner.</p>
                     <div class="prompt-box">
@@ -573,7 +621,7 @@ Claude analisa e entrega o resumo</pre>
               <section class="exercises">
                 <h3>Exercício</h3>
                 <details class="exercise">
-                  <summary><span class="ex-num">11</span><span class="ex-title">Setup do Code + continuidade</span><span class="ex-time">15 min</span></summary>
+                  <summary><span class="ex-num">10</span><span class="ex-title">Setup do Code + continuidade</span><span class="ex-time">15 min</span></summary>
                   <div class="ex-body">
                     <pre class="code-block">npm install -g @anthropic-ai/claude-code
 cd ~/ArenaCash-PM
@@ -602,7 +650,7 @@ claude</pre>
                 <h3>Exercícios</h3>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">12</span><span class="ex-title">Prototipando as telas da iniciativa</span><span class="ex-time">30 min</span></summary>
+                  <summary><span class="ex-num">11</span><span class="ex-title">Prototipando as telas da iniciativa</span><span class="ex-time">30 min</span></summary>
                   <div class="ex-body">
                     <div class="prompt-box">
                       <div class="prompt-box-head">B R I E F I N G &nbsp; D E &nbsp; D E S I G N</div>
@@ -621,7 +669,7 @@ claude</pre>
                 </details>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">13</span><span class="ex-title">Skill Event Mapper + mapeamento das telas</span><span class="ex-time">15 min</span></summary>
+                  <summary><span class="ex-num">12</span><span class="ex-title">Skill Event Mapper + mapeamento das telas</span><span class="ex-time">15 min</span></summary>
                   <div class="ex-body">
                     <p>A skill recebe screenshot, analisa elementos interativos e mapeia eventos (screen views, clicks, state changes). Output: planilha Excel + documento Word.</p>
                     <ol>
@@ -636,7 +684,7 @@ claude</pre>
                 </details>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">14</span><span class="ex-title">Integrando eventos no código</span><span class="ex-time">15 min</span></summary>
+                  <summary><span class="ex-num">13</span><span class="ex-title">Integrando eventos no código</span><span class="ex-time">15 min</span></summary>
                   <div class="ex-body">
                     <div class="prompt-box">
                       <p>Lê <code>eventos-mapeados.xlsx</code>. Integra os eventos no protótipo HTML: screen views no load, clicks nos botões/links, state changes quando muda etapa. Usa <code>console.log()</code> para simular — quero ver no DevTools cada evento disparando.</p>
@@ -662,7 +710,7 @@ claude</pre>
                 <h3>Exercício final</h3>
 
                 <details class="exercise" open>
-                  <summary><span class="ex-num">15</span><span class="ex-title">Do protótipo ao produto</span><span class="ex-time">35 min</span></summary>
+                  <summary><span class="ex-num">14</span><span class="ex-title">Do protótipo ao produto</span><span class="ex-time">35 min</span></summary>
                   <div class="ex-body">
                     <div class="prompt-box">
                       <div class="prompt-box-head">P A S S O &nbsp; 1 &nbsp; · &nbsp; E V O L U I R &nbsp; O &nbsp; C Ó D I G O <span class="mins-sm">20 min</span></div>

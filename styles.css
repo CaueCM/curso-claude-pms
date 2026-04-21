@@ -225,10 +225,13 @@ em { font-style: italic; color: var(--fg-muted); }
   color: var(--pa-white);
   border: 0;
   letter-spacing: var(--tracking-tight);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .brand img { height: 24px; width: auto; }
 .brand-sep { color: var(--pa-gray-500); font-weight: 400; }
-.top-nav { display: flex; gap: var(--s-8); }
+.brand-word-long { white-space: nowrap; }
+.top-nav { display: flex; gap: var(--s-5); flex-shrink: 0; }
 .top-nav a {
   font-size: var(--text-sm);
   font-weight: 500;
@@ -237,6 +240,7 @@ em { font-style: italic; color: var(--fg-muted); }
   padding: 6px 0;
   position: relative;
   transition: color var(--dur-fast) var(--ease-standard);
+  white-space: nowrap;
 }
 .top-nav a:hover { color: var(--pa-white); }
 .top-nav a::after {
@@ -1219,13 +1223,22 @@ pre.flow { background: var(--bg-muted); color: var(--fg); border: 1px solid var(
   white-space: nowrap;
 }
 
-/* Responsivo — esconder barra global em telas pequenas */
+/* Responsivo — compactar barra global conforme tela encolhe */
+@media (max-width: 1280px) {
+  #day-progress .day-label { display: none; }
+  #day-progress { padding: 5px 10px; gap: var(--s-2); }
+}
 @media (max-width: 1100px) {
-  #day-progress .day-label, #day-progress .day-text { display: none; }
+  #day-progress .day-text { display: none; }
   #day-progress .day-bar { width: 60px; }
+  .brand-word-long { display: none; }
+  .brand-sep { display: none; }
+  .top-nav { gap: var(--s-4); }
+}
+@media (max-width: 900px) {
+  #day-progress { display: none; }
 }
 @media (max-width: 720px) {
-  #day-progress { display: none; }
   .ex-progress { display: none; }
 }
 @media (max-width: 980px) {

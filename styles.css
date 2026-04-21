@@ -1048,6 +1048,217 @@ pre.flow { background: var(--bg-muted); color: var(--fg); border: 1px solid var(
 .path-block ol, .path-block ul { padding-left: var(--s-5); }
 .path-block .prompt-box + p { margin-top: var(--s-3); }
 
+/* =========================================================
+   Tracking — checkbox em cada passo + barra por exercício
+   ========================================================= */
+
+/* Custom checkbox na step-block-head */
+.step-check {
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  width: 28px; height: 28px;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+}
+.step-check input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 100%; height: 100%;
+  cursor: pointer;
+  margin: 0;
+}
+.step-check-tick {
+  width: 22px; height: 22px;
+  border: 2px solid var(--pa-gray-600);
+  border-radius: 6px;
+  background: transparent;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  transition: all var(--dur-fast) var(--ease-standard);
+  position: relative;
+}
+.step-check-tick::after {
+  content: "";
+  width: 10px; height: 6px;
+  border-left: 2.5px solid var(--pa-white);
+  border-bottom: 2.5px solid var(--pa-white);
+  transform: rotate(-45deg) translate(1px, -1px);
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease-standard);
+}
+.step-check:hover .step-check-tick { border-color: var(--pa-red); }
+.step-check input:checked + .step-check-tick {
+  background: var(--pa-red);
+  border-color: var(--pa-red);
+}
+.step-check input:checked + .step-check-tick::after { opacity: 1; }
+.step-check input:focus-visible + .step-check-tick {
+  outline: 2px solid var(--pa-red);
+  outline-offset: 2px;
+}
+
+/* Step concluído: fade sutil + barra lateral verde */
+.step-block.step-done {
+  opacity: 0.75;
+}
+.step-block.step-done .step-block-head {
+  background: #0a2517;
+  border-bottom-color: #1FA05B;
+}
+.step-block.step-done .step-block-num {
+  background: rgba(31,160,91,0.15);
+  color: #38c77a;
+}
+.step-block.step-done .step-check-tick {
+  background: #1FA05B;
+  border-color: #1FA05B;
+}
+
+/* Barra de progresso na summary do exercício */
+.ex-progress {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  margin-right: var(--s-3);
+}
+.progress-bar {
+  width: 80px;
+  height: 6px;
+  background: var(--pa-gray-200);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  display: block;
+}
+.progress-fill {
+  display: block;
+  height: 100%;
+  background: var(--pa-red);
+  width: 0;
+  border-radius: var(--radius-pill);
+  transition: width var(--dur-med) var(--ease-standard);
+}
+.progress-text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--fg-subtle);
+  min-width: 32px;
+  text-align: right;
+}
+.exercise.ex-complete .progress-fill { background: #1FA05B; }
+.exercise.ex-complete .progress-text { color: #1FA05B; }
+.exercise.ex-complete .ex-num {
+  background: #1FA05B;
+  color: var(--pa-white);
+  position: relative;
+}
+.exercise.ex-complete .ex-num::after {
+  content: "✓";
+  position: absolute;
+  top: -4px; right: -4px;
+  width: 16px; height: 16px;
+  background: #1FA05B;
+  color: var(--pa-white);
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center; justify-content: center;
+  border: 2px solid var(--bg);
+}
+.exercise.ex-complete summary { background: #f0faf3 !important; }
+
+/* Ajuste na grid do summary pra caber a barra de progresso */
+.exercise summary {
+  grid-template-columns: 52px 1fr auto auto;
+}
+
+/* Barra global de progresso no topbar */
+#day-progress {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--pa-gray-900);
+  border: 1px solid var(--pa-gray-800);
+  cursor: help;
+  user-select: none;
+}
+.day-label {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: var(--tracking-caps);
+  color: var(--pa-gray-400);
+}
+.day-bar {
+  width: 90px;
+  height: 6px;
+  background: var(--pa-gray-800);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  display: block;
+}
+.day-fill {
+  display: block;
+  height: 100%;
+  background: var(--pa-red);
+  width: 0;
+  border-radius: var(--radius-pill);
+  transition: width var(--dur-med) var(--ease-standard);
+}
+.day-text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--pa-gray-300);
+  white-space: nowrap;
+}
+
+/* Responsivo — esconder barra global em telas pequenas */
+@media (max-width: 1100px) {
+  #day-progress .day-label, #day-progress .day-text { display: none; }
+  #day-progress .day-bar { width: 60px; }
+}
+@media (max-width: 720px) {
+  #day-progress { display: none; }
+  .ex-progress { display: none; }
+}
+@media (max-width: 980px) {
+  .exercise summary {
+    grid-template-columns: 44px 1fr auto;
+  }
+  .ex-progress { grid-column: 2; justify-self: start; margin: 4px 0 0; }
+}
+
+/* MCP highlights list */
+.mcp-highlights {
+  list-style: none;
+  padding: 0;
+  margin: var(--s-4) 0;
+}
+.mcp-highlights li {
+  padding: var(--s-3) var(--s-4) var(--s-3) calc(var(--s-6) + 4px);
+  background: var(--bg-muted);
+  border-left: 3px solid var(--pa-red);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-md);
+  color: var(--fg-muted);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--s-2);
+  position: relative;
+}
+.mcp-highlights li::before {
+  content: "→";
+  position: absolute;
+  left: var(--s-3);
+  color: var(--pa-red);
+  font-weight: 700;
+}
+.mcp-highlights li strong { color: var(--fg); }
+
 details.nested {
   margin-top: var(--s-4);
   background: var(--bg-muted);

@@ -455,180 +455,305 @@ Leia a mensagem gerada. Ela soa como você escreveria? Se não, ajuste o `tom-de
 
 ---
 
-## Bloco 3 — MCP, Dados e Priorização de Iniciativas (10:55–11:40)
+## Bloco 3 — MCP e Conexões (10:55–11:40)
 ### "O Claude sozinho é bom. Plugado nas suas ferramentas, é transformador."
 
-**Objetivo:** Entender MCP, conectar ferramentas, e usar os dados da ArenaCash para gerar e priorizar iniciativas. O thinking partner — que os alunos vão construir no Bloco 4 — é disponibilizado pré-instalado aqui para o primeiro uso.
-
-### Parte expositiva — O que é MCP (10 min)
-
-**MCP = Model Context Protocol.** O Claude é um cérebro trancado numa sala. MCP é o corredor que liga a sala às suas ferramentas. É um protocolo aberto (da Anthropic) que define como qualquer ferramenta se conecta ao Claude de forma segura.
-
-```
-Você pede: "Busca nos meus emails o que a Maria mandou essa semana"
-    ↓
-Claude entende o que você quer
-    ↓
-Claude chama o Connector do Gmail via MCP
-    ↓
-Connector autentica com sua conta (OAuth)
-    ↓
-Connector busca e devolve para o Claude
-    ↓
-Claude analisa e te entrega o resumo
-```
-
-Os alunos já usaram MCP sem saber — quando conectaram o Gmail no bloco anterior, era MCP por trás. 50+ connectors disponíveis (Jira, Linear, Figma, Salesforce, Notion...). Qualquer empresa pode criar um connector — é padrão aberto.
-
-**O que connectors fazem:** ler dados, criar rascunhos, buscar e filtrar.
-**O que NÃO fazem sem confirmação:** enviar emails, postar mensagens, deletar, modificar permissões.
-
-### Exercício 6 — Analisando os dados da ArenaCash (15 min)
-
-Agora o PM começa a trabalhar de verdade. Tem os dados do quarter na pasta — hora de entender a situação.
-
-**Passo 1: Análise cruzada (10 min)**
-
-Pedir ao Claude:
-
-> "Lê os arquivos dados-quarter-q1.csv, financeiro-q1.xlsx e atendimento-q1.csv. Cruza as informações e me dá:
-> 1. Estado geral da ArenaCash no Q1 — o que foi bem e o que foi mal
-> 2. Os 3 maiores problemas que precisam de atenção no Q2
-> 3. Onde estão as maiores oportunidades de impacto
-> Compara com as metas do memo-estrategico-q2.md."
-
-Observar: o Claude leu 4 arquivos diferentes e cruzou dados financeiros, de produto e de atendimento. Esse é o poder da delegação com contexto.
-
-**Passo 2: Gerar iniciativas (5 min)**
-
-> "Com base na análise, proponha 5 iniciativas para o Q2 que enderecem os problemas identificados. Para cada uma, estime: Reach, Impact, Confidence e Effort (framework RICE). Ranqueie da mais impactante para a menos."
-
-**Arquivo gerado:** `03-dados/analise-q1-arenacash.md`, `03-dados/iniciativas-q2.md`
-
-### Exercício 7 — Priorizando com o Thinking Partner (10 min)
-
-O instrutor disponibiliza a skill `thinking-partner` pré-instalada para este exercício. No Bloco 4, os alunos vão entender como ela foi construída e criar a própria versão.
-
-> "Usa a skill thinking-partner. Apresenta as 5 iniciativas propostas e quero ouvir a perspectiva do CFO, da CMO e do CTO. Quem apoia o quê? Onde há conflito? Qual deveria ser a prioridade #1?"
-
-Observar: o Claude assume as 3 personas baseadas nas transcrições reais e debate as iniciativas. O PM avalia os argumentos e toma a decisão.
-
-Fechar: o aluno escolhe a iniciativa #1 que vai prototipar e apresentar.
-
-**Arquivo gerado:** `03-dados/validacao-thinking-partner.md`
-
-### Exercício 8 — Criando uma tarefa agendada (10 min)
-
-Todo o fluxo que o aluno acabou de fazer (puxar dados → analisar → gerar iniciativas) pode rodar sozinho em horários definidos. Vamos criar uma scheduled task real.
-
-**Passo 1: Criar a task (5 min)**
-
-Pedir ao Claude:
-
-> "Cria uma tarefa agendada chamada 'Briefing semanal ArenaCash'. Toda segunda-feira às 8h, ela deve:
-> 1. Ler os arquivos de dados mais recentes da pasta (dados-quarter, financeiro, atendimento)
-> 2. Comparar com as metas do memo-estrategico-q2.md
-> 3. Gerar um resumo de 1 página com: o que melhorou, o que piorou, e 1 alerta crítico se houver
-> 4. Salvar em briefings/briefing-semanal-[data].md"
-
-Observar: o Cowork cria a task, mostra a frequência configurada. O aluno pode ver em Tasks → Scheduled.
-
-**Passo 2: Testar manualmente (3 min)**
-
-Clicar em "Run Now" para executar a task imediatamente e ver o resultado. Verificar o arquivo gerado na pasta `briefings/`.
-
-**Passo 3: Boas práticas rápidas (2 min)**
-
-- Sempre teste manualmente antes de confiar no agendamento
-- Tasks que enviam mensagens/emails pedem confirmação humana
-- Revise mensalmente — tasks abandonadas consomem tokens sem entregar valor
-
-**Arquivo gerado:** `03-dados/briefings/briefing-semanal-[data].md`
+**Objetivo:** Entender o que é MCP e por que ele importa, conectar o Google Drive ao Cowork, explorar os arquivos da ArenaCash de dentro do Drive, cruzar esses dados com informações do cenário atual de fintechs buscadas na internet, e gerar um documento Google Doc automaticamente com a análise produzida.
 
 ---
 
-## Bloco 4 — Skills, Apresentação e Validação (11:40–12:30)
-### "Skill = briefing especializado. Sem skill, resultado genérico. Com skill, resultado profissional."
+### Parte expositiva — O que é MCP e como funciona (8 min)
 
-**Objetivo:** Entender o ecossistema de skills (nativas, biblioteca, customizadas), construir o thinking partner do zero, instalar a PRD Generator, criar a apresentação da iniciativa com template ArenaCash, e submeter ao thinking partner para feedback final.
+Nos blocos anteriores, você conectou o Gmail e o Claude buscou emails direto da sua caixa. Isso não foi mágica — foi MCP funcionando. Agora vamos entender o mecanismo.
 
-### Parte expositiva — O ecossistema de Skills (10 min)
+**MCP = Model Context Protocol.** O Claude, por padrão, é um cérebro isolado: ele sabe muita coisa, mas não enxerga o que está fora da conversa. O MCP é o protocolo que abre canais entre o Claude e o mundo externo — suas ferramentas, seus dados, seus sistemas.
 
-**Tipos de Skills:**
+Como funciona na prática:
 
-1. *Skills nativas* — já vêm com o Claude: pptx, xlsx, docx, pdf. Toda vez que você pede "cria uma planilha", uma skill nativa roda por baixo.
+```
+Você pede: "Busca no meu Drive os arquivos da ArenaCash"
+    ↓
+Claude entende o que você quer
+    ↓
+Claude chama o Connector do Google Drive via MCP
+    ↓
+Connector autentica com sua conta Google (OAuth — você autoriza uma vez)
+    ↓
+Connector acessa o Drive, localiza os arquivos e devolve para o Claude
+    ↓
+Claude lê, analisa e entrega o resultado para você
+```
 
-2. *Skills da comunidade / biblioteca* — criadas e compartilhadas. Repositório: github.com/BehiSecc/awesome-claude-skills. Centenas disponíveis.
+O Claude nunca acessa suas ferramentas diretamente — ele sempre passa pelo Connector, que é um intermediário seguro. Você controla quais permissões cada Connector tem, e ações destrutivas (deletar, enviar mensagens, modificar permissões) sempre pedem confirmação antes de executar.
 
-3. *Skills customizadas* — as suas. Quando nenhuma existente faz o que você precisa do jeito que precisa.
+**O ecossistema de Connectors hoje:**
+- Mais de 50 connectors disponíveis nativamente (Google Drive, Gmail, Slack, Notion, Jira, Linear, Figma, Salesforce, HubSpot...)
+- Qualquer empresa pode criar o próprio connector — o protocolo é aberto
+- Você já usou MCP quando conectou o Gmail no Bloco 2. O Drive é o segundo connector do dia
 
-**Quando criar vs. instalar:** se já existe uma skill boa, instale. Crie quando: repete a tarefa 3+ vezes, precisa seguir padrão da empresa, ou qualidade genérica não serve.
+**O que connectors fazem:** ler e listar dados, criar rascunhos e documentos, buscar e filtrar conteúdo.
+**O que NÃO fazem sem confirmação sua:** enviar emails, postar mensagens, deletar arquivos, modificar permissões.
 
-### Demo — Skills nativas e da comunidade (5 min)
+---
 
-Instrutor mostra rapidamente:
-- Pedido genérico "cria planilha com dados de vendas" → resultado OK
-- Mesmo pedido com skill xlsx ativa → formatação profissional, fórmulas, headers estilizados
-- **Newsletter do Arthur:** como a skill captura estilo editorial, o fluxo tópicos → rascunho → versão final. "Criei uma vez e nunca mais expliquei como quero a newsletter."
+### Exercício 5 — Conectar o Google Drive e explorar os arquivos (10 min)
 
-### Exercício 9 — Criando o Thinking Partner com C-Levels (15 min)
+**Entregável:** Google Drive conectado ao Cowork e um resumo dos arquivos da ArenaCash lido diretamente de lá — mostrando que o Claude enxerga o mesmo conteúdo que existe no seu computador, mas acessado via nuvem.
 
-No Bloco 3 os alunos usaram o thinking partner com uma skill pré-instalada. Agora vão entender como ela funciona por dentro — e criar a própria.
+---
 
-**Passo 1: Entender o conceito (3 min)**
+**Passo 1 — Conectar o Google Drive (3 min)**
 
-Uma Skill é um arquivo markdown com instruções detalhadas que ensinam o Claude a fazer uma tarefa específica. A analogia: "Você manda um briefing de 2 linhas pra um designer e espera trabalho incrível? Não. Skill é o briefing completo, escrito uma vez e reutilizado pra sempre."
+1. No Claude Desktop, clique em **Settings** no menu lateral
+2. Vá em **Connectors**
+3. Localize **Google Drive** e clique em **Connect**
+4. Uma janela do Google vai abrir — faça login com a mesma conta onde estão os arquivos da ArenaCash e autorize o acesso
+5. O Google Drive aparece agora como connector ativo no painel
 
-**Passo 2: Criar a skill thinking-partner (12 min)**
+---
 
-Pedir ao Claude:
+**Passo 2 — Verificar que o Claude enxerga os arquivos (3 min)**
 
-> "Cria uma skill chamada `thinking-partner` que funciona assim:
-> - Trigger: quando eu pedir para discutir, avaliar ou validar uma decisão, iniciativa ou priorização
-> - O que faz: lê o organograma-arenacash.md e as transcrições dos C-levels (transcricao-cfo.md, transcricao-cmo.md, transcricao-cto.md). Cria 3 personas — o CFO, a CMO e o CTO — cada uma com o perfil, as preocupações e o estilo de comunicação extraídos das transcrições. Apresenta o ponto de vista de cada um sobre o assunto que eu trouxer, destacando onde concordam e onde divergem.
-> - Output: análise com 3 perspectivas + síntese de consenso + pontos de atenção
-> - Regras: sempre se basear nos dados das transcrições, nunca inventar posições que os C-levels não expressaram"
+Antes de avançar, vamos confirmar que a conexão funcionou e que o Claude acessa os mesmos arquivos:
 
-Observar: o Claude criou a pasta `.claude/skills/thinking-partner/` com o arquivo SKILL.md dentro. Comparar com a skill pré-instalada do Bloco 3 — são idênticas ou têm diferenças? Por quê?
+> *"Acessa meu Google Drive e lista os arquivos da pasta ArenaCash-PM. Me diz o nome de cada arquivo e o tipo de conteúdo que ele tem."*
+
+Observe: o Claude navegou pelo Drive, encontrou a pasta e listou os arquivos — os mesmos que estão no seu computador. Isso acontece porque você fez upload da pasta para o Drive antes do curso, ou porque seu computador sincroniza automaticamente via Google Drive for Desktop. Dois caminhos, mesmo resultado.
+
+---
+
+**Passo 3 — Primeira leitura via Drive (4 min)**
+
+Agora peça ao Claude para ler os documentos diretamente do Drive e gerar um resumo executivo:
+
+> *"Lê o memo-estrategico-q2.md e o organograma-arenacash.md que estão no meu Google Drive, na pasta ArenaCash-PM. Com base nesses dois arquivos, me faz um resumo de no máximo meia página com: qual é o momento da ArenaCash, quais são as prioridades do Q2 e quem são os líderes-chave que preciso conhecer."*
+
+> **O que fixar:** você não abriu o Drive, não copiou nenhum texto, não fez download de nada. O Claude leu, processou e entregou — a partir de uma conversa em linguagem natural. Esse é o modelo de trabalho com connectors.
+
+---
+
+### Exercício 6 — Análise cruzada: dados da ArenaCash + cenário de fintechs (18 min)
+
+**Entregável:** arquivo `03-conexoes/analise-estrategica-q2.md` com uma análise que cruza os dados internos da ArenaCash com o cenário competitivo atual de fintechs, incluindo 5 iniciativas priorizadas para o Q2.
+
+---
+
+**Passo 1 — Ler os dados internos do Drive (5 min)**
+
+> *"Acessa meu Google Drive, pasta ArenaCash-PM. Lê os arquivos dados-quarter-q1.csv, financeiro-q1.xlsx e atendimento-q1.csv. Cruza as informações e me diz:*
+> *1. Estado geral da ArenaCash no Q1 — o que foi bem, o que foi mal e o que mais preocupa*
+> *2. Os 3 maiores problemas que precisam de atenção no Q2*
+> *3. As maiores oportunidades de impacto*
+> *Compara com as metas do memo-estrategico-q2.md."*
+
+Observe: o Claude leu quatro arquivos de fontes diferentes (CSV, Excel, Markdown) via Drive e cruzou os dados. Guarde este diagnóstico — o próximo passo vai contextualizá-lo no mercado.
+
+---
+
+**Passo 2 — Pesquisar o cenário de fintechs na internet (8 min)**
+
+Agora o Claude vai buscar contexto externo para enriquecer a análise:
+
+> *"Pesquisa na internet o cenário atual de fintechs de investimento no Brasil: principais tendências de 2025 e 2026, comportamento dos usuários, o que está crescendo, o que está perdendo força e quais são os principais desafios de ativação e retenção nesse segmento. Usa fontes confiáveis — relatórios de mercado, cobertura de imprensa especializada, dados públicos."*
+
+Observe: o Claude saiu do Drive, foi para a internet, buscou e sumarizou fontes externas. Isso é o MCP em dois modos diferentes — dados privados (Drive) e dados públicos (web) — na mesma sessão.
+
+---
+
+**Passo 3 — Cruzar e gerar a análise completa (5 min)**
+
+> *"Agora cruza os dois lados: o que você encontrou nos dados internos da ArenaCash com o que você pesquisou sobre o mercado de fintechs. Com base nisso, propõe 5 iniciativas para o Q2 que enderecem os problemas identificados e estejam alinhadas com as tendências de mercado. Para cada iniciativa, inclui: descrição em uma linha, por que faz sentido agora (dado interno + contexto de mercado), e estimativa de Reach, Impact, Confidence e Effort (framework RICE). Ranqueie da mais impactante para a menos e salva tudo no arquivo 03-conexoes/analise-estrategica-q2.md."*
+
+**Arquivo gerado:** `03-conexoes/analise-estrategica-q2.md`
+
+---
+
+### Exercício 7 — Gerar um Google Doc automaticamente (10 min)
+
+**Entregável:** um Google Doc criado diretamente no seu Drive com a análise estratégica — sem copiar e colar nada, gerado pelo Claude via connector.
+
+---
+
+**Passo 1 — Criar o documento no Drive (7 min)**
+
+> *"Pega o conteúdo do arquivo 03-conexoes/analise-estrategica-q2.md e cria um Google Doc no meu Drive com esse conteúdo. Nomeie o documento 'Análise Estratégica ArenaCash — Q2'. Organiza com títulos e subtítulos claros, e inclui uma capa com o nome do documento, a data de hoje e meu nome."*
+
+Observe: o Claude pegou um arquivo local, acessou o Drive via connector e criou um documento Google nativo — formatado, nomeado e pronto para compartilhar com outras pessoas da empresa.
+
+---
+
+**Passo 2 — Verificar e compartilhar (3 min)**
+
+Abra o Google Drive no navegador e confirme que o documento aparece lá. Clique no Doc e veja a formatação.
+
+Para testar o ciclo completo, peça:
+
+> *"Compartilha o documento 'Análise Estratégica ArenaCash — Q2' com [email de um colega] como visualizador."*
+
+Observe: o Claude executou uma ação no Google Drive — não só leu, mas agiu. Criou um documento e o compartilhou. Esse é o nível de automação que os connectors permitem.
+
+> **O que fixar neste bloco:** você conectou duas fontes externas (Drive e internet), cruzou dados privados com contexto público, e o resultado saiu como um documento colaborativo no Google Drive — sem sair do Cowork. O próximo bloco vai usar essa análise para construir skills e validar a iniciativa com os C-levels.
+
+---
+
+### Exercício 8 — Tarefa agendada: briefing diário de mercado (9 min)
+
+Tudo o que você fez agora — pesquisar notícias, cruzar com contexto, gerar um documento no Drive — pode rodar sozinho, todo dia, sem você precisar pedir. Vamos criar essa automação.
+
+**Entregável:** uma tarefa agendada ativa no Cowork que, toda manhã às 9h, busca as principais notícias de economia e mercado financeiro do dia anterior, monta um slide de uma página em PowerPoint com o resumo e salva no seu Google Drive.
+
+---
+
+**Passo 1 — Criar a tarefa agendada (5 min)**
+
+Mande o seguinte prompt:
+
+> *"Cria uma tarefa agendada chamada 'Briefing diário de mercado'. Todo dia às 9h da manhã, ela deve:*
+> *1. Pesquisar na internet as principais notícias de economia e mercado financeiro do dia anterior — foco em fintechs, juros, regulação financeira e comportamento do consumidor*
+> *2. Selecionar as 3 a 5 notícias mais relevantes para um PM de fintech*
+> *3. Criar um arquivo PowerPoint de uma única página com: título 'Briefing de Mercado — [data]', os destaques em bullets curtos e uma linha de 'impacto para a ArenaCash' ao final*
+> *4. Salvar o arquivo no meu Google Drive com o nome briefing-mercado-[data].pptx"*
+
+Observe: o Cowork cria a tarefa, exibe a frequência configurada (diária, 9h) e o fluxo de execução. Você pode ver em **Tasks → Scheduled** no menu lateral.
+
+---
+
+**Passo 2 — Testar agora (3 min)**
+
+Não espere até amanhã — clique em **"Run Now"** na tarefa recém-criada para executá-la imediatamente.
+
+Após a execução, abra o Google Drive e confirme que o arquivo `briefing-mercado-[data].pptx` apareceu. Abra o PowerPoint e avalie: as notícias fazem sentido? O formato está como você esperava? Se quiser ajustar — mudar o foco das notícias, o layout do slide, o critério de seleção — edite o prompt da tarefa e rode novamente.
+
+---
+
+**Boas práticas rápidas (1 min)**
+
+- Sempre teste com "Run Now" antes de confiar no agendamento automático
+- Tarefas que enviam mensagens ou emails pedem confirmação sua antes de executar
+- Revise as tarefas agendadas mensalmente — tarefa abandonada consome tokens sem entregar valor
+
+> **O que fixar:** você acabou de montar um assistente que trabalha enquanto você dorme. Toda manhã, antes do café, o briefing de mercado já está no Drive — sem nenhuma ação sua. Isso é automação real com MCP + connectors funcionando juntos.
+
+---
+
+## Bloco 4 — Skills, Validação e Apresentação (11:40–12:30)
+### "Skill é o que separa o Claude genérico do Claude que trabalha do jeito que você precisa."
+
+**Objetivo:** Entender o que são skills e por que elas existem, criar o Thinking Partner para validar a iniciativa prioritária gerada no Bloco 3, e construir a skill de apresentação para chegar ao almoço com um PPT pronto para apresentar à diretoria.
+
+---
+
+### Parte expositiva — O que são skills e por que um PM precisa delas (10 min)
+
+O Claude, sem instrução específica, entrega resultado genérico. Com uma skill bem escrita, ele entrega resultado profissional — no padrão certo, na estrutura certa, com o nível de qualidade que você precisaria pedir dezenas de vezes para chegar manualmente.
+
+**Para um PM, isso importa especialmente em dois momentos:**
+
+*Validação de iniciativas.* O dia a dia de um PM é cheio de ideias que precisam ser testadas contra a realidade da empresa antes de avançar. Quanto mais rápido você consegue simular esse teste — com os stakeholders certos, na perspectiva certa — menos tempo você gasta defendendo a ideia errada. Uma skill de validação faz isso em minutos.
+
+*Comunicação recorrente.* PPTs para diretoria, relatórios de quarter, briefings de sprint — são documentos que seguem sempre o mesmo padrão. Uma skill aprende esse padrão uma vez e aplica em todo output, sem que você precise re-explicar o template, o tom de voz ou o nível de detalhe.
+
+**Os três tipos de skill:**
+
+*Skills nativas* — já vêm com o Claude e rodam automaticamente quando você pede certos tipos de output: pptx para apresentações, xlsx para planilhas, docx para documentos Word, pdf para PDFs. Você já usou sem perceber.
+
+*Skills da comunidade* — criadas e compartilhadas por outros usuários. Repositório de referência: `github.com/BehiSecc/awesome-claude-skills`. Bom ponto de partida antes de criar do zero.
+
+*Skills customizadas* — as suas. Criadas quando o padrão genérico não serve: precisa seguir o template da empresa, capturar um processo específico, ou produzir um output que só faz sentido no seu contexto.
+
+**Quando criar vs. quando instalar:** se já existe uma skill boa para o que você precisa, instale e adapte. Crie do zero quando: você repete a mesma tarefa mais de três vezes, o output precisa seguir um padrão da empresa, ou a qualidade genérica não é suficiente para o público.
+
+**Como uma skill funciona por dentro:** é um arquivo markdown (`.md`) salvo em `.claude/skills/nome-da-skill/SKILL.md`. Contém: quando a skill deve ser acionada (trigger), o que ela deve fazer passo a passo, qual é o output esperado e quais são as regras que nunca podem ser quebradas. O Claude lê esse arquivo e segue as instruções como se fossem um briefing permanente.
+
+> **Demo ao vivo:** instrutor mostra o mesmo pedido feito sem skill e com skill — a diferença de qualidade, estrutura e consistência entre os dois outputs. "Você não vai querer voltar para o genérico."
+
+---
+
+### Exercício 9 — Criando e usando o Thinking Partner (20 min)
+
+O Bloco 3 gerou 5 iniciativas ranqueadas por RICE e contextualizadas no mercado. Antes de apostar o quarter em uma delas, você precisa testá-las contra as prioridades reais de quem vai aprovar o orçamento e o roadmap. É aí que entra o Thinking Partner.
+
+**Entregável:** skill `thinking-partner` instalada no projeto + decisão documentada com a iniciativa #1 escolhida e validada pelos C-levels.
+
+---
+
+**Passo 1 — Criar a skill Thinking Partner (10 min)**
+
+> *"Cria uma skill chamada `thinking-partner` com as seguintes especificações:*
+>
+> *- Trigger: sempre que eu pedir para discutir, avaliar ou validar uma decisão, iniciativa ou priorização*
+> *- O que ela faz: lê os arquivos organograma-arenacash.md, transcricao-cfo.md, transcricao-cmo.md e transcricao-cto.md. Com base nesses documentos, cria três personas — Juliana (CFO), Beatriz (CMO) e Diego (CTO) — cada uma com o perfil de preocupações, prioridades e estilo de comunicação extraídos das transcrições reais. Quando eu apresentar uma iniciativa ou decisão, cada persona se posiciona: apoia, questiona ou rejeita — com os argumentos que aquele C-level usaria de verdade.*
+> *- Output: perspectiva de cada C-level → síntese de onde há consenso e onde há conflito → pontos de atenção que o PM deve endereçar antes de apresentar*
+> *- Regras: nunca inventar posições que não estejam nas transcrições; sempre citar o argumento específico do C-level; se não houver dado suficiente na transcrição, sinalizar isso em vez de inventar"*
+
+Observe: o Claude criou a pasta `.claude/skills/thinking-partner/` com o arquivo `SKILL.md` dentro. Abra o arquivo e leia — você vai ver as instruções que acabou de ditar transformadas em um briefing estruturado. Essa é a anatomia de uma skill.
 
 **Arquivo gerado:** `.claude/skills/thinking-partner/SKILL.md`
 
-### Exercício 10 — Instalando a PRD Generator (10 min)
+---
 
-Aqui o aluno aprende a instalar uma skill pronta, em vez de criar do zero.
+**Passo 2 — Validar as iniciativas com os C-levels (7 min)**
 
-1. O instrutor compartilha a skill `prd-generator`
-2. Cada aluno instala no projeto (arrastar pra pasta ou seguir o passo a passo)
-3. Testar com a iniciativa #1 que escolheram: "Gera uma PRD para a iniciativa [nome da iniciativa escolhida]"
-4. Observar: PRD completa com contexto, problema, solução, métricas, histórias de usuário com critérios de aceite — tudo no padrão
+Agora use a skill que acabou de criar. Copie a lista de iniciativas que veio do Bloco 3 e mande:
 
-**Arquivo gerado:** `04-skills/prd-iniciativa.docx`
+> *"Usa a skill thinking-partner. Apresento as 5 iniciativas priorizadas que geramos para o Q2 da ArenaCash: [cole aqui a lista do arquivo analise-estrategica-q2.md]. Quero ouvir a Juliana, a Beatriz e o Diego sobre cada uma: quem apoia qual, onde há conflito de prioridade entre eles, e qual iniciativa teria mais chance de aprovação da diretoria hoje."*
 
-### Exercício 11 — Apresentação com template ArenaCash (15 min)
+Observe: o Claude lê as transcrições, monta as três personas e conduz um debate entre elas baseado nos dados reais. Você não está inventando o que os C-levels pensariam — está simulando com o que eles já disseram.
 
-O exercício final da manhã amarra tudo: projeto, memória, tom de voz, skill, template e thinking partner.
+---
 
-**Passo 1: Criar a skill de apresentação (5 min)**
+**Passo 3 — Escolher a iniciativa #1 (3 min)**
 
-> "Cria uma skill chamada `arena-presentation` que funciona assim:
-> - Trigger: quando eu pedir para criar uma apresentação ou deck
-> - Fluxo: usa o template-apresentacao.pptx como base de estilo. Lê o tom-de-voz.md para o estilo de escrita. Lê o design-system-arenacash.md para cores e fontes. Estrutura o conteúdo em slides lógicos.
-> - Output: arquivo .pptx pronto
-> - Regras: máximo 6 bullets por slide, títulos curtos e diretos, sempre incluir slide de agenda"
+Leia a síntese do Thinking Partner e tome sua decisão. Em seguida, documente:
 
-**Passo 2: Gerar a apresentação (5 min)**
+> *"Com base no debate do Thinking Partner, escolhi a iniciativa [nome]. Cria um arquivo 04-skills/decisao-iniciativa.md com: qual iniciativa foi escolhida, os principais argumentos de cada C-level que influenciaram a decisão, e as objeções que precisarei endereçar na apresentação."*
 
-> "Cria uma apresentação de 8 slides sobre a iniciativa [nome]. Inclui: contexto do quarter, problema identificado, solução proposta, RICE score, roadmap de 3 meses, e ask para a liderança. O público é a diretoria da ArenaCash."
+Essa decisão vai alimentar o próximo exercício — a apresentação que você vai levar para a diretoria.
 
-**Passo 3: Submeter ao thinking partner (5 min)**
+**Arquivo gerado:** `04-skills/decisao-iniciativa.md`
 
-> "Usa a skill thinking-partner. Mostra essa apresentação para o CFO, a CMO e o CTO. Quero feedback de cada um: o que compraram, o que questionam, e o que falta."
+---
 
-Observar: o Claude lê a apresentação, assume as personas e dá feedback específico. O PM ajusta.
+### Exercício 10 — Skill de Apresentação + PPT para a diretoria (20 min)
 
-**Reflexão final da manhã:** o aluno usou projeto com memória, organograma como contexto, tom de voz, 3 skills (thinking partner, PRD, apresentação), connectors, e thinking partner como validador. Tudo junto. Isso é o Cowork a todo vapor — e a iniciativa que escolheram vai virar realidade na parte da tarde.
+Com a iniciativa escolhida e validada, é hora de montar o argumento visual. Vamos criar uma skill que conhece o seu tom de voz, o template da ArenaCash e o design system — e gera o PPT já no padrão certo, sem que você precise ajustar cor por cor ou slide por slide.
 
-**Arquivos gerados:** `04-skills/arena-presentation/SKILL.md`, `04-skills/apresentacao-iniciativa.pptx`
+**Entregável:** arquivo `04-skills/apresentacao-iniciativa.pptx` pronto para apresentar à diretoria da ArenaCash — com a identidade visual correta, escrito no seu tom de voz, e com o conteúdo já aprovado pelo Thinking Partner.
+
+---
+
+**Passo 1 — Criar a skill de apresentação (8 min)**
+
+> *"Cria uma skill chamada `arena-presentation` com as seguintes especificações:*
+>
+> *- Trigger: sempre que eu pedir para criar uma apresentação ou deck*
+> *- O que ela faz: antes de escrever qualquer slide, lê três arquivos — tom-de-voz.md para saber como eu escrevo, template-apresentacao.pptx para entender a estrutura e o estilo visual da ArenaCash, e design-system-arenacash.md para aplicar cores, fontes e componentes corretos. Com esse contexto, estrutura o conteúdo em slides lógicos para o público especificado.*
+> *- Output: arquivo .pptx salvo na pasta do projeto*
+> *- Regras: máximo 5 bullets por slide; títulos curtos e diretos, sem verbos no infinitivo; sempre incluir slide de agenda no início e slide de 'próximos passos' no final; nunca usar fonte ou cor que não esteja no design system"*
+
+Observe: a skill reúne três artefatos que você criou ao longo do dia (tom de voz, template, design system) e os aplica automaticamente em todo PPT que você pedir daqui pra frente. Você criou isso uma vez — vai usar para sempre.
+
+**Arquivo gerado:** `.claude/skills/arena-presentation/SKILL.md`
+
+---
+
+**Passo 2 — Gerar o PPT da iniciativa (7 min)**
+
+> *"Usa a skill arena-presentation. Cria uma apresentação de 8 slides sobre a iniciativa [nome da iniciativa escolhida no Passo 3 do Exercício 9]. O público é a diretoria da ArenaCash — Paulo (CPO), Juliana (CFO), Beatriz (CMO) e Diego (CTO). A apresentação deve incluir: contexto do quarter e por que essa iniciativa é prioritária agora, o problema que ela resolve com dados do Q1, a solução proposta, o RICE score com justificativa, roadmap de 3 meses, riscos e como mitigá-los, e o ask para a liderança — o que você precisa deles para avançar. Salva como 04-skills/apresentacao-iniciativa.pptx."*
+
+---
+
+**Passo 3 — Revisão final com o Thinking Partner (5 min)**
+
+Antes de dar o PPT como pronto, submeta ao mesmo comitê que validou a iniciativa:
+
+> *"Usa a skill thinking-partner. Lê o arquivo 04-skills/apresentacao-iniciativa.pptx. Quero que a Juliana, a Beatriz e o Diego reajam à apresentação como se fosse a reunião de diretoria real: o que cada um compraria sem questionamento, o que cada um questionaria, e o que está faltando para convencer quem está mais cético."*
+
+Ajuste os slides com base no feedback. O critério não é perfeição — é: os argumentos do C-level mais cético estão endereçados na apresentação?
+
+> **Reflexão de encerramento da manhã:** você chegou ao Bloco 4 com dados e iniciativas. Sai dele com uma decisão validada pelos C-levels e um PPT no padrão da empresa, escrito no seu tom de voz, pronto para ir à diretoria. Isso levaria dias numa semana normal. Levou 20 minutos. Na parte da tarde, essa iniciativa vira protótipo, recebe eventos de analytics e sobe para a internet com uma URL real.
+
+**Arquivos gerados:** `.claude/skills/thinking-partner/SKILL.md`, `.claude/skills/arena-presentation/SKILL.md`, `04-skills/decisao-iniciativa.md`, `04-skills/apresentacao-iniciativa.pptx`
 
 ---
 

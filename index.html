@@ -42,7 +42,7 @@
           </div>
           <div class="hero-stats-grid">
             <div class="hero-stat"><span class="num">+8</span><span class="label">blocos</span></div>
-            <div class="hero-stat"><span class="num">+14</span><span class="label">exercícios</span></div>
+            <div class="hero-stat"><span class="num">+15</span><span class="label">exercícios</span></div>
             <div class="hero-stat"><span class="num">6h</span><span class="label">mão na massa</span></div>
           </div>
         </div>
@@ -97,14 +97,9 @@
             <div class="agenda-body"><strong>Bloco 2 — Setup do PM</strong><span>Projeto, memória, instruções, tom de voz, Gmail</span></div>
             <div class="agenda-tag">Exposição + exercícios</div>
           </div>
-          <div class="agenda-item break">
-            <div class="agenda-time">10:40 · 10:55</div>
-            <div class="agenda-body"><strong>☕ Coffee break</strong></div>
-            <div class="agenda-tag">Pausa</div>
-          </div>
           <div class="agenda-item" data-target="bloco-3">
             <div class="agenda-time">10:55 · 11:40</div>
-            <div class="agenda-body"><strong>Bloco 3 — MCP, dados e priorização</strong><span>Analisar e priorizar com thinking partner pré-instalado</span></div>
+            <div class="agenda-body"><strong>Bloco 3 — MCP e Conexões</strong><span>Google Drive + pesquisa web + Google Doc automático</span></div>
             <div class="agenda-tag">Demo + exercícios</div>
           </div>
           <div class="agenda-item" data-target="bloco-4">
@@ -126,11 +121,6 @@
             <div class="agenda-time">14:30 · 15:30</div>
             <div class="agenda-body"><strong>Bloco 6 — Prototipagem e eventos</strong><span>Telas + tracking plan</span></div>
             <div class="agenda-tag">Hands-on</div>
-          </div>
-          <div class="agenda-item break">
-            <div class="agenda-time">15:30 · 15:45</div>
-            <div class="agenda-body"><strong>☕ Coffee break</strong></div>
-            <div class="agenda-tag">Pausa</div>
           </div>
           <div class="agenda-item" data-target="bloco-7">
             <div class="agenda-time">15:45 · 16:45</div>
@@ -161,7 +151,7 @@
             <ol class="side-list">
               <li><a href="#bloco-1"><span class="num">01</span>Fundamentos</a></li>
               <li><a href="#bloco-2"><span class="num">02</span>Setup do PM</a></li>
-              <li><a href="#bloco-3"><span class="num">03</span>MCP e priorização</a></li>
+              <li><a href="#bloco-3"><span class="num">03</span>MCP e Conexões</a></li>
               <li><a href="#bloco-4"><span class="num">04</span>Skills e apresentação</a></li>
               <li><a href="#bloco-5"><span class="num">05</span>Do Cowork ao Code</a></li>
               <li><a href="#bloco-6"><span class="num">06</span>Prototipagem e eventos</a></li>
@@ -547,34 +537,44 @@
               </section>
             </article>
 
-            <div class="break-card">☕ &nbsp; C O F F E E &nbsp; B R E A K &nbsp; · &nbsp; 10:40–10:55</div>
-
             <!-- BLOCO 3 -->
             <article class="block" id="bloco-3">
               <header class="block-head">
                 <span class="block-pill">B L O C O &nbsp; 0 3 &nbsp; · &nbsp; 10:55–11:40</span>
-                <h2>MCP, dados e priorização de iniciativas</h2>
+                <h2>MCP e Conexões</h2>
                 <p class="block-quote">"O Claude sozinho é bom. Plugado nas suas ferramentas, é <strong class="shout">transformador</strong>."</p>
-                <p class="block-obj"><strong>Objetivo:</strong> Entender MCP, conectar ferramentas, e usar os dados da ArenaCash para gerar e priorizar iniciativas. O <em>thinking partner</em> — que os alunos vão construir no Bloco 4 — é disponibilizado pré-instalado aqui para o primeiro uso.</p>
+                <p class="block-obj"><strong>Objetivo:</strong> Entender MCP, conectar o Google Drive ao Cowork, explorar os arquivos da ArenaCash de dentro do Drive, cruzar esses dados com o cenário atual de fintechs buscado na internet, e gerar um Google Doc automaticamente com a análise produzida.</p>
               </header>
 
               <section class="concept">
-                <h3>O que é MCP <span class="mins">10 min</span></h3>
-                <p><strong>MCP = Model Context Protocol.</strong> O Claude é um cérebro trancado numa sala. MCP é o corredor que liga a sala às suas ferramentas. Protocolo aberto da Anthropic.</p>
-                <pre class="flow">Você pede: "Busca nos meus emails o que a Maria mandou"
+                <h3>O que é MCP e como funciona <span class="mins">8 min</span></h3>
+                <p>Nos blocos anteriores, você conectou o Gmail e o Claude buscou emails direto da sua caixa. Isso não foi mágica — foi <strong>MCP funcionando</strong>. Agora vamos entender o mecanismo.</p>
+                <p><strong>MCP = Model Context Protocol.</strong> O Claude, por padrão, é um cérebro isolado: sabe muita coisa, mas não enxerga o que está fora da conversa. O MCP é o protocolo que abre canais entre o Claude e o mundo externo — suas ferramentas, seus dados, seus sistemas.</p>
+
+                <pre class="flow">Você pede: "Busca no meu Drive os arquivos da ArenaCash"
     ↓
 Claude entende o que você quer
     ↓
-Claude chama o Connector do Gmail via MCP
+Claude chama o Connector do Google Drive via MCP
     ↓
-Connector autentica (OAuth)
+Connector autentica com sua conta Google (OAuth — você autoriza 1 vez)
     ↓
-Connector busca e devolve
+Connector acessa o Drive, localiza os arquivos e devolve para o Claude
     ↓
-Claude analisa e entrega o resumo</pre>
+Claude lê, analisa e entrega o resultado para você</pre>
+
+                <p>O Claude nunca acessa suas ferramentas diretamente — ele sempre passa pelo <strong>Connector</strong>, que é um intermediário seguro. Você controla quais permissões cada Connector tem, e ações destrutivas (deletar, enviar mensagens, modificar permissões) <strong>sempre pedem confirmação</strong> antes de executar.</p>
+
+                <h4 class="concept-sub">O ecossistema de Connectors hoje</h4>
+                <ul class="mcp-highlights">
+                  <li>Mais de <strong class="shout">50 connectors</strong> nativos (Google Drive, Gmail, Slack, Notion, Jira, Linear, Figma, Salesforce, HubSpot…)</li>
+                  <li>Qualquer empresa pode criar o próprio connector — o protocolo é <strong>aberto</strong></li>
+                  <li>Você já usou MCP quando conectou o Gmail no Bloco 2. O Drive é o <strong>segundo connector</strong> do dia</li>
+                </ul>
+
                 <div class="two-col">
-                  <div class="pill-card green"><h4>O que fazem</h4><p>Ler dados · criar rascunhos · buscar · filtrar</p></div>
-                  <div class="pill-card red"><h4>O que NÃO fazem sem confirmação</h4><p>Enviar emails · postar · deletar · mudar permissões</p></div>
+                  <div class="pill-card green"><h4>O que fazem</h4><p>Ler e listar dados · criar rascunhos e documentos · buscar e filtrar conteúdo</p></div>
+                  <div class="pill-card red"><h4>O que NÃO fazem sem confirmação</h4><p>Enviar emails · postar mensagens · deletar arquivos · modificar permissões</p></div>
                 </div>
               </section>
 
@@ -582,55 +582,223 @@ Claude analisa e entrega o resumo</pre>
                 <h3>Exercícios</h3>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">04</span><span class="ex-title">Analisando os dados da ArenaCash</span><span class="ex-time">15 min</span></summary>
+                  <summary><span class="ex-num">04</span><span class="ex-title">Conectar o Google Drive e explorar os arquivos</span><span class="ex-time">10 min</span></summary>
                   <div class="ex-body">
-                    <div class="prompt-box">
-                      <div class="prompt-box-head">A N Á L I S E &nbsp; C R U Z A D A</div>
-                      <p>Lê <code>dados-quarter-q1.csv</code>, <code>financeiro-q1.xlsx</code> e <code>atendimento-q1.csv</code>. Cruza e me dá:</p>
-                      <ol>
-                        <li>Estado geral da ArenaCash no Q1</li>
-                        <li>Os 3 maiores problemas do Q2</li>
-                        <li>Maiores oportunidades de impacto</li>
-                      </ol>
-                      <p>Compara com as metas do <code>memo-estrategico-q2.md</code>.</p>
+                    <p class="ex-intro"><strong>Entregável:</strong> Google Drive conectado ao Cowork e um resumo dos arquivos da ArenaCash lido direto de lá — mostrando que o Claude enxerga o mesmo conteúdo que existe no seu computador, mas <strong>acessado via nuvem</strong>.</p>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 1</span>
+                        <span class="step-block-time">3 min</span>
+                        <h4 class="step-block-title">Conectar o Google Drive</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <ol>
+                          <li>No Claude Desktop, clique em <strong>Settings</strong> no menu lateral</li>
+                          <li>Vá em <strong>Connectors</strong></li>
+                          <li>Localize <strong>Google Drive</strong> e clique em <strong>Connect</strong></li>
+                          <li>Uma janela do Google vai abrir — faça login com a mesma conta onde estão os arquivos da ArenaCash e autorize o acesso</li>
+                          <li>O Google Drive aparece agora como connector ativo no painel</li>
+                        </ol>
+                      </div>
                     </div>
-                    <div class="prompt-box">
-                      <div class="prompt-box-head">G E R A R &nbsp; I N I C I A T I V A S &nbsp; · &nbsp; R I C E</div>
-                      <p>Proponha 5 iniciativas para o Q2. Para cada uma: Reach, Impact, Confidence, Effort. Ranqueie da mais impactante para a menos.</p>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 2</span>
+                        <span class="step-block-time">3 min</span>
+                        <h4 class="step-block-title">Verificar que o Claude enxerga os arquivos</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <p>Antes de avançar, vamos confirmar que a conexão funcionou:</p>
+                        <div class="prompt-box">
+                          <p>Acessa meu Google Drive e lista os arquivos da pasta <code>ArenaCash-PM</code>. Me diz o nome de cada arquivo e o tipo de conteúdo que ele tem.</p>
+                        </div>
+                        <p><strong>Observe:</strong> o Claude navegou pelo Drive, encontrou a pasta e listou os arquivos — <em>os mesmos que estão no seu computador</em>. Isso acontece porque você fez upload da pasta antes do curso, ou porque seu computador sincroniza via Google Drive for Desktop. Dois caminhos, mesmo resultado.</p>
+                      </div>
                     </div>
-                    <p class="file-out">📄 <code>03-dados/analise-q1-arenacash.md</code> · <code>03-dados/iniciativas-q2.md</code></p>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 3</span>
+                        <span class="step-block-time">4 min</span>
+                        <h4 class="step-block-title">Primeira leitura via Drive</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <p>Agora peça pro Claude ler os documentos direto do Drive e gerar um resumo executivo:</p>
+                        <div class="prompt-box">
+                          <p>Lê o <code>memo-estrategico-q2.md</code> e o <code>organograma-arenacash.md</code> que estão no meu Google Drive, na pasta <code>ArenaCash-PM</code>. Com base nesses dois arquivos, me faz um resumo de no máximo meia página com: qual é o momento da ArenaCash, quais são as prioridades do Q2 e quem são os líderes-chave que preciso conhecer.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="ex-closing">
+                      <span class="pa-eyebrow pa-eyebrow--red">O &nbsp; Q U E &nbsp; F I X A R</span>
+                      <p>Você não abriu o Drive, não copiou nenhum texto, não fez download de nada. O Claude <strong>leu, processou e entregou</strong> — a partir de uma conversa em linguagem natural. Esse é o modelo de trabalho com connectors.</p>
+                    </div>
                   </div>
                 </details>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">05</span><span class="ex-title">Priorizando com o Thinking Partner</span><span class="ex-time">10 min</span></summary>
+                  <summary><span class="ex-num">05</span><span class="ex-title">Análise cruzada: dados internos + cenário de fintechs</span><span class="ex-time">18 min</span></summary>
                   <div class="ex-body">
-                    <p>O instrutor disponibiliza a skill <code>thinking-partner</code> <strong>pré-instalada</strong> para este exercício. No Bloco 4, os alunos vão entender como ela funciona e construir a própria versão.</p>
-                    <div class="prompt-box">
-                      <p>Usa a skill <code>thinking-partner</code>. Apresenta as 5 iniciativas e quero ouvir a perspectiva do CFO, da CMO e do CTO. Quem apoia o quê? Onde há conflito? Qual deveria ser a prioridade #1?</p>
+                    <p class="ex-intro"><strong>Entregável:</strong> arquivo <code>analise-estrategica-q2.md</code> com uma análise que cruza os <strong>dados internos</strong> da ArenaCash com o <strong>cenário competitivo atual</strong> de fintechs, incluindo <strong>5 iniciativas priorizadas</strong> para o Q2.</p>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 1</span>
+                        <span class="step-block-time">5 min</span>
+                        <h4 class="step-block-title">Ler os dados internos do Drive</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <div class="prompt-box">
+                          <div class="prompt-box-head">D I A G N Ó S T I C O &nbsp; I N T E R N O</div>
+                          <p>Acessa meu Google Drive, pasta <code>ArenaCash-PM</code>. Lê os arquivos <code>dados-quarter-q1.csv</code>, <code>financeiro-q1.xlsx</code> e <code>atendimento-q1.csv</code>. Cruza as informações e me diz:</p>
+                          <ol>
+                            <li>Estado geral da ArenaCash no Q1 — o que foi bem, o que foi mal, o que mais preocupa</li>
+                            <li>Os 3 maiores problemas que precisam de atenção no Q2</li>
+                            <li>As maiores oportunidades de impacto</li>
+                          </ol>
+                          <p>Compara com as metas do <code>memo-estrategico-q2.md</code>.</p>
+                        </div>
+                        <p><strong>Observe:</strong> o Claude leu <strong>quatro arquivos</strong> de fontes diferentes (CSV, Excel, Markdown) via Drive e cruzou os dados. Guarde este diagnóstico — o próximo passo vai contextualizá-lo no mercado.</p>
+                      </div>
                     </div>
-                    <p>🎯 <strong>Fechar o bloco:</strong> o aluno escolhe a iniciativa #1 que vai prototipar e apresentar.</p>
-                    <p class="file-out">📄 <code>03-dados/validacao-thinking-partner.md</code></p>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 2</span>
+                        <span class="step-block-time">8 min</span>
+                        <h4 class="step-block-title">Pesquisar o cenário de fintechs na internet</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <p>Agora o Claude vai buscar <strong>contexto externo</strong> pra enriquecer a análise:</p>
+                        <div class="prompt-box">
+                          <div class="prompt-box-head">P E S Q U I S A &nbsp; D E &nbsp; M E R C A D O</div>
+                          <p>Pesquisa na internet o cenário atual de fintechs de investimento no Brasil: principais tendências de 2025 e 2026, comportamento dos usuários, o que está crescendo, o que está perdendo força e quais são os principais desafios de ativação e retenção nesse segmento. Usa fontes confiáveis — relatórios de mercado, cobertura de imprensa especializada, dados públicos.</p>
+                        </div>
+                        <p><strong>Observe:</strong> o Claude saiu do Drive, foi pra internet, buscou e sumarizou fontes externas. Isso é o MCP em <strong>dois modos diferentes</strong> — dados privados (Drive) e dados públicos (web) — na mesma sessão.</p>
+                      </div>
+                    </div>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 3</span>
+                        <span class="step-block-time">5 min</span>
+                        <h4 class="step-block-title">Cruzar e gerar a análise completa</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <div class="prompt-box">
+                          <div class="prompt-box-head">C R U Z A M E N T O &nbsp; +  &nbsp; R I C E</div>
+                          <p>Agora cruza os dois lados: o que você encontrou nos dados internos da ArenaCash com o que você pesquisou sobre o mercado de fintechs. Com base nisso, propõe 5 iniciativas pro Q2 que enderecem os problemas identificados e estejam alinhadas com as tendências de mercado. Pra cada iniciativa, inclui: descrição em uma linha, por que faz sentido agora (dado interno + contexto de mercado), e estimativa de Reach, Impact, Confidence e Effort (framework RICE). Ranqueie da mais impactante pra menos e salva tudo no arquivo <code>analise-estrategica-q2.md</code>.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <p class="file-out">📄 <code>03-conexoes/analise-estrategica-q2.md</code></p>
                   </div>
                 </details>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">06</span><span class="ex-title">Criando uma tarefa agendada</span><span class="ex-time">10 min</span></summary>
+                  <summary><span class="ex-num">06</span><span class="ex-title">Gerar um Google Doc automaticamente</span><span class="ex-time">10 min</span></summary>
                   <div class="ex-body">
-                    <div class="prompt-box">
-                      <div class="prompt-box-head">B R I E F I N G &nbsp; S E M A N A L &nbsp; · &nbsp; S E G &nbsp; À S &nbsp; 8 H</div>
-                      <ol>
-                        <li>Ler arquivos de dados mais recentes</li>
-                        <li>Comparar com metas do memo</li>
-                        <li>Gerar resumo de 1 página (o que melhorou, o que piorou, alerta crítico)</li>
-                        <li>Salvar em <code>briefings/briefing-semanal-[data].md</code></li>
-                      </ol>
+                    <p class="ex-intro"><strong>Entregável:</strong> um Google Doc criado direto no seu Drive com a análise estratégica — <strong>sem copiar e colar nada</strong>, gerado pelo Claude via connector.</p>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 1</span>
+                        <span class="step-block-time">7 min</span>
+                        <h4 class="step-block-title">Criar o documento no Drive</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <div class="prompt-box">
+                          <p>Pega o conteúdo do arquivo <code>analise-estrategica-q2.md</code> e cria um Google Doc no meu Drive com esse conteúdo. Nomeia o documento <strong>"Análise Estratégica ArenaCash — Q2"</strong>. Organiza com títulos e subtítulos claros, e inclui uma capa com o nome do documento, a data de hoje e meu nome.</p>
+                        </div>
+                        <p><strong>Observe:</strong> o Claude pegou um arquivo local, acessou o Drive via connector e criou um <strong>documento Google nativo</strong> — formatado, nomeado e pronto pra compartilhar com outras pessoas da empresa.</p>
+                      </div>
                     </div>
-                    <ul class="best-practices">
-                      <li>Teste manualmente antes de confiar no agendamento</li>
-                      <li>Tasks que enviam mensagens pedem confirmação humana</li>
-                      <li>Revise mensalmente — tasks abandonadas consomem tokens</li>
-                    </ul>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 2</span>
+                        <span class="step-block-time">3 min</span>
+                        <h4 class="step-block-title">Verificar e compartilhar</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <p>Abra o Google Drive no navegador e confirme que o documento apareceu. Clique no Doc e veja a formatação.</p>
+                        <p>Pra testar o ciclo completo, peça:</p>
+                        <div class="prompt-box">
+                          <p>Compartilha o documento <strong>"Análise Estratégica ArenaCash — Q2"</strong> com <code>[email de um colega]</code> como visualizador.</p>
+                        </div>
+                        <p><strong>Observe:</strong> o Claude executou uma <em>ação</em> no Google Drive — não só leu, mas <strong class="shout">agiu</strong>. Criou um documento e compartilhou. Esse é o nível de automação que os connectors permitem.</p>
+                      </div>
+                    </div>
+
+                    <div class="ex-closing">
+                      <span class="pa-eyebrow pa-eyebrow--red">O &nbsp; Q U E &nbsp; F I X A R &nbsp; N E S T E &nbsp; B L O C O</span>
+                      <p>Você conectou <strong>duas fontes externas</strong> (Drive e internet), cruzou dados privados com contexto público, e o resultado saiu como um documento colaborativo no Google Drive — <strong>sem sair do Cowork</strong>. O próximo bloco vai usar essa análise pra construir skills e validar a iniciativa com os C-levels.</p>
+                    </div>
+                  </div>
+                </details>
+
+                <details class="exercise">
+                  <summary><span class="ex-num">07</span><span class="ex-title">Tarefa agendada: briefing diário de mercado</span><span class="ex-time">9 min</span></summary>
+                  <div class="ex-body">
+                    <p class="ex-intro">Tudo o que você fez agora — pesquisar notícias, cruzar com contexto, gerar um documento no Drive — pode rodar sozinho, <strong>todo dia, sem você precisar pedir</strong>. Vamos criar essa automação.</p>
+                    <p class="ex-subentrega"><strong>Entregável:</strong> uma tarefa agendada ativa que, toda manhã às 9h, busca as principais notícias de economia e mercado, monta um slide de 1 página em PowerPoint com o resumo e salva no Google Drive.</p>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 1</span>
+                        <span class="step-block-time">5 min</span>
+                        <h4 class="step-block-title">Criar a tarefa agendada</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <div class="prompt-box">
+                          <div class="prompt-box-head">B R I E F I N G &nbsp; D I Á R I O &nbsp; · &nbsp; 9 H</div>
+                          <p>Cria uma tarefa agendada chamada <strong>"Briefing diário de mercado"</strong>. Todo dia às 9h da manhã, ela deve:</p>
+                          <ol>
+                            <li>Pesquisar na internet as principais notícias de economia e mercado financeiro do dia anterior — foco em fintechs, juros, regulação financeira e comportamento do consumidor</li>
+                            <li>Selecionar as 3 a 5 notícias mais relevantes pra um PM de fintech</li>
+                            <li>Criar um arquivo PowerPoint de 1 página com: título "Briefing de Mercado — [data]", os destaques em bullets curtos e uma linha de "impacto pra ArenaCash" ao final</li>
+                            <li>Salvar o arquivo no meu Google Drive com o nome <code>briefing-mercado-[data].pptx</code></li>
+                          </ol>
+                        </div>
+                        <p><strong>Observe:</strong> o Cowork cria a tarefa, exibe a frequência configurada (diária, 9h) e o fluxo de execução. Você pode ver em <strong>Tasks → Scheduled</strong> no menu lateral.</p>
+                      </div>
+                    </div>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 2</span>
+                        <span class="step-block-time">3 min</span>
+                        <h4 class="step-block-title">Testar agora</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <p>Não espere até amanhã — clique em <strong>"Run Now"</strong> na tarefa recém-criada pra executá-la imediatamente.</p>
+                        <p>Após a execução, abra o Google Drive e confirme que o arquivo <code>briefing-mercado-[data].pptx</code> apareceu. Abra o PowerPoint e avalie: as notícias fazem sentido? O formato está como esperava? Se quiser ajustar — foco das notícias, layout, critério de seleção — edite o prompt da tarefa e rode novamente.</p>
+                      </div>
+                    </div>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 3</span>
+                        <span class="step-block-time">1 min</span>
+                        <h4 class="step-block-title">Boas práticas rápidas</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <ul class="best-practices">
+                          <li>Sempre teste com <strong>Run Now</strong> antes de confiar no agendamento automático</li>
+                          <li>Tarefas que enviam mensagens ou emails pedem confirmação sua antes de executar</li>
+                          <li>Revise as tarefas agendadas mensalmente — tarefa abandonada consome tokens sem entregar valor</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="ex-closing">
+                      <span class="pa-eyebrow pa-eyebrow--red">O &nbsp; Q U E &nbsp; F I X A R</span>
+                      <p>Você acabou de montar um <strong>assistente que trabalha enquanto você dorme</strong>. Toda manhã, antes do café, o briefing de mercado já está no Drive — sem nenhuma ação sua. Isso é automação real com <strong class="shout">MCP + connectors funcionando juntos</strong>.</p>
+                    </div>
                   </div>
                 </details>
               </section>
@@ -658,7 +826,7 @@ Claude analisa e entrega o resumo</pre>
                 <h3>Exercícios</h3>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">07</span><span class="ex-title">Criando o Thinking Partner com C-Levels</span><span class="ex-time">15 min</span></summary>
+                  <summary><span class="ex-num">08</span><span class="ex-title">Criando o Thinking Partner com C-Levels</span><span class="ex-time">15 min</span></summary>
                   <div class="ex-body">
                     <p>No Bloco 3 os alunos usaram o thinking partner com uma skill pré-instalada. Agora vão entender como ela funciona por dentro — e <strong>criar a própria</strong>.</p>
                     <p>Uma Skill é um arquivo markdown com instruções detalhadas que ensinam o Claude a fazer uma tarefa específica. A analogia: <em>"Você manda briefing de 2 linhas pra um designer e espera trabalho incrível? Não. Skill é o briefing completo, escrito uma vez e reutilizado pra sempre."</em></p>
@@ -678,7 +846,7 @@ Claude analisa e entrega o resumo</pre>
                 </details>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">08</span><span class="ex-title">Instalando a PRD Generator</span><span class="ex-time">10 min</span></summary>
+                  <summary><span class="ex-num">09</span><span class="ex-title">Instalando a PRD Generator</span><span class="ex-time">10 min</span></summary>
                   <div class="ex-body">
                     <ol>
                       <li>Instrutor compartilha a skill <code>prd-generator</code></li>
@@ -691,7 +859,7 @@ Claude analisa e entrega o resumo</pre>
                 </details>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">09</span><span class="ex-title">Apresentação com template ArenaCash</span><span class="ex-time">15 min</span></summary>
+                  <summary><span class="ex-num">10</span><span class="ex-title">Apresentação com template ArenaCash</span><span class="ex-time">15 min</span></summary>
                   <div class="ex-body">
                     <p><strong>Exercício final da manhã:</strong> amarra projeto, memória, tom de voz, skill, template e thinking partner.</p>
                     <div class="prompt-box">
@@ -762,7 +930,7 @@ Claude analisa e entrega o resumo</pre>
               <section class="exercises">
                 <h3>Exercício</h3>
                 <details class="exercise">
-                  <summary><span class="ex-num">10</span><span class="ex-title">Setup do Code + continuidade</span><span class="ex-time">15 min</span></summary>
+                  <summary><span class="ex-num">11</span><span class="ex-title">Setup do Code + continuidade</span><span class="ex-time">15 min</span></summary>
                   <div class="ex-body">
                     <pre class="code-block">npm install -g @anthropic-ai/claude-code
 cd ~/ArenaCash-PM
@@ -791,7 +959,7 @@ claude</pre>
                 <h3>Exercícios</h3>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">11</span><span class="ex-title">Prototipando as telas da iniciativa</span><span class="ex-time">30 min</span></summary>
+                  <summary><span class="ex-num">12</span><span class="ex-title">Prototipando as telas da iniciativa</span><span class="ex-time">30 min</span></summary>
                   <div class="ex-body">
                     <div class="prompt-box">
                       <div class="prompt-box-head">B R I E F I N G &nbsp; D E &nbsp; D E S I G N</div>
@@ -810,7 +978,7 @@ claude</pre>
                 </details>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">12</span><span class="ex-title">Skill Event Mapper + mapeamento das telas</span><span class="ex-time">15 min</span></summary>
+                  <summary><span class="ex-num">13</span><span class="ex-title">Skill Event Mapper + mapeamento das telas</span><span class="ex-time">15 min</span></summary>
                   <div class="ex-body">
                     <p>A skill recebe screenshot, analisa elementos interativos e mapeia eventos (screen views, clicks, state changes). Output: planilha Excel + documento Word.</p>
                     <ol>
@@ -825,7 +993,7 @@ claude</pre>
                 </details>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">13</span><span class="ex-title">Integrando eventos no código</span><span class="ex-time">15 min</span></summary>
+                  <summary><span class="ex-num">14</span><span class="ex-title">Integrando eventos no código</span><span class="ex-time">15 min</span></summary>
                   <div class="ex-body">
                     <div class="prompt-box">
                       <p>Lê <code>eventos-mapeados.xlsx</code>. Integra os eventos no protótipo HTML: screen views no load, clicks nos botões/links, state changes quando muda etapa. Usa <code>console.log()</code> para simular — quero ver no DevTools cada evento disparando.</p>
@@ -836,9 +1004,7 @@ claude</pre>
               </section>
             </article>
 
-            <div class="break-card">☕ &nbsp; C O F F E E &nbsp; B R E A K &nbsp; · &nbsp; 15:30–15:45</div>
-
-            <!-- BLOCO 7 -->
+<!-- BLOCO 7 -->
             <article class="block" id="bloco-7">
               <header class="block-head">
                 <span class="block-pill">B L O C O &nbsp; 0 7 &nbsp; · &nbsp; 15:45–16:45</span>
@@ -851,7 +1017,7 @@ claude</pre>
                 <h3>Exercício final</h3>
 
                 <details class="exercise" open>
-                  <summary><span class="ex-num">14</span><span class="ex-title">Do protótipo ao produto</span><span class="ex-time">35 min</span></summary>
+                  <summary><span class="ex-num">15</span><span class="ex-title">Do protótipo ao produto</span><span class="ex-time">35 min</span></summary>
                   <div class="ex-body">
                     <div class="prompt-box">
                       <div class="prompt-box-head">P A S S O &nbsp; 1 &nbsp; · &nbsp; E V O L U I R &nbsp; O &nbsp; C Ó D I G O <span class="mins-sm">20 min</span></div>

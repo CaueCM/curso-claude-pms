@@ -1070,20 +1070,64 @@ details.nested pre {
 /* =========================================================
    Kit + pre-req
    ========================================================= */
+/* Kit — bulk download banner */
+.kit-bulk {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-6);
+  padding: var(--s-8);
+  background: var(--pa-black);
+  color: var(--pa-white);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--s-6);
+  flex-wrap: wrap;
+}
+.kit-bulk-info { flex: 1; min-width: 260px; }
+.kit-bulk h3 {
+  color: var(--pa-white);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: var(--text-xl);
+  letter-spacing: 0;
+  margin: var(--s-2) 0 var(--s-1);
+}
+.kit-bulk p { color: var(--pa-gray-400); font-size: var(--text-sm); margin: 0; font-family: var(--font-mono); }
+
+/* Kit — file grid */
 .kit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s-3); }
 .kit-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
   gap: var(--s-4);
   padding: var(--s-4);
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   align-items: center;
-  transition: border-color var(--dur-fast) var(--ease-standard);
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid var(--border);
+  transition: all var(--dur-fast) var(--ease-standard);
+  position: relative;
 }
-.kit-item:hover { border-color: var(--pa-red); }
+.kit-item:hover {
+  border-color: var(--pa-red);
+  border-bottom-color: var(--pa-red);
+  transform: translateX(2px);
+}
+.kit-item::after {
+  content: "↓";
+  position: absolute;
+  top: 8px; right: 10px;
+  font-size: 14px;
+  color: var(--fg-subtle);
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease-standard);
+}
+.kit-item:hover::after { opacity: 1; color: var(--pa-red); }
 .kit-icon {
-  font-size: 26px;
+  font-size: 24px;
   width: 44px; height: 44px;
   display: flex; align-items: center; justify-content: center;
   background: var(--pa-red-tint);
@@ -1096,8 +1140,22 @@ details.nested pre {
   color: var(--fg);
   display: block;
   font-weight: 600;
+  word-break: break-all;
 }
-.kit-item span { font-size: 13px; color: var(--fg-muted); display: block; margin-top: 2px; }
+.kit-item span:not(.kit-icon):not(.kit-size) {
+  font-size: 13px; color: var(--fg-muted); display: block; margin-top: 2px;
+}
+.kit-size {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--fg-subtle);
+  background: var(--bg-muted);
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
 
 /* Pré-requisitos — accordion de setup */
 .prereq-list {

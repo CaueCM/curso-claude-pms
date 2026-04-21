@@ -3,11 +3,45 @@
   // Navegação / Scroll / Atalhos
   // =========================================================
 
+  // Se o alvo de um link âncora for um <details class="section-collapse">
+  // fechado, abra-o antes de rolar
+  function openDetailsIfTarget(id) {
+    const target = document.getElementById(id);
+    if (!target) return null;
+    // Se for details colapsável ou estiver dentro de um, abre
+    let el = target;
+    while (el) {
+      if (el.tagName === 'DETAILS' && !el.open) {
+        el.open = true;
+      }
+      el = el.parentElement;
+    }
+    return target;
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if (href.length <= 1) return;
+      const id = href.slice(1);
+      const target = openDetailsIfTarget(id);
+      if (target) {
+        e.preventDefault();
+        setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+      }
+    });
+  });
+
+  // Também verificar anchor no load inicial (ex: abrir link com #bloco-3)
+  if (location.hash.length > 1) {
+    setTimeout(() => openDetailsIfTarget(location.hash.slice(1)), 0);
+  }
+
   // Agenda items: pular para o bloco correspondente
   document.querySelectorAll('.agenda-item[data-target]').forEach(item => {
     item.addEventListener('click', () => {
-      const target = document.getElementById(item.dataset.target);
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const target = openDetailsIfTarget(item.dataset.target);
+      if (target) setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
     });
   });
 

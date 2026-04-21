@@ -1,234 +1,427 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Claude para PMs — Do Chat ao Código | Product Arena</title>
-  <meta name="description" content="Curso hands-on de 6 horas. Entra como PM na ArenaCash pela manhã. Sai com um produto no ar à tarde. Tudo dentro do Claude." />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Claude para PMs — Do Chat ao Código | Product Arena</title>
+<meta content="Curso hands-on de 6 horas. Entra como PM na ArenaCash pela manhã. Sai com um produto no ar à tarde. Tudo dentro do Claude." name="description"/>
+<link href="styles.css" rel="stylesheet"/>
 </head>
 <body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <a href="#top" class="brand">
-        <img src="assets/logo-pa.png" alt="Product Arena" />
-        <span class="brand-sep">/</span>
-        <span class="brand-word-long">claude para pms</span>
-      </a>
-      <nav class="top-nav">
-        <a href="#visao-geral">Agenda</a>
-        <a href="#blocos">Blocos</a>
-        <a href="#kit">Kit</a>
-        <a href="#pre-requisitos">Pré-requisitos</a>
-        <a href="ementa.html">Ementa</a>
-      </nav>
-      <button class="btn btn--primary btn--sm" onclick="document.getElementById('bloco-1').scrollIntoView({behavior:'smooth'})">Começar aula</button>
-    </div>
-  </header>
-
-  <main id="top">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-inner">
-        <div>
-          <span class="pa-eyebrow pa-eyebrow--red">C U R S O &nbsp; H A N D S - O N &nbsp; · &nbsp; 6 &nbsp; H O R A S</span>
-          <h1>Claude para PMs <span class="accent">do chat ao código.</span></h1>
-          <p class="hero-sub">
-            Entra como PM de produto da <strong>ArenaCash</strong> pela manhã. Sai com um produto no ar à tarde. Tudo dentro do Claude. <strong class="shout">Mão na massa</strong> do começo ao fim.
+<header class="topbar">
+<div class="topbar-inner">
+<a class="brand" href="#top">
+<img alt="Product Arena" src="assets/logo-pa.png"/>
+<span class="brand-sep">/</span>
+<span class="brand-word-long">claude para pms</span>
+</a>
+<nav class="top-nav">
+<a href="#pre-requisitos">Pré-requisitos</a>
+<a href="#kit">Kit</a>
+<a href="#visao-geral">Agenda</a>
+<a href="#blocos">Blocos</a>
+<a href="ementa.html">Ementa</a>
+</nav>
+<button class="btn btn--primary btn--sm" onclick="document.getElementById('bloco-1').scrollIntoView({behavior:'smooth'})">Começar aula</button>
+</div>
+</header>
+<main id="top">
+<!-- HERO -->
+<section class="hero hero--workbook">
+<div class="hero-inner">
+<div class="hero-content">
+<span class="pa-eyebrow pa-eyebrow--red">A P O S T I L A   ·   C U R S O   P R O D U C T   A R E N A</span>
+<h1>Claude para PMs <span class="accent">do chat ao código.</span></h1>
+<p class="hero-sub">
+            Apostila do curso. Use pra acompanhar cada bloco, baixar o kit ArenaCash, conferir os pré-requisitos e marcar seu progresso ao longo do dia.
           </p>
-          <div class="hero-cta">
-            <button class="btn btn--primary btn--lg" onclick="document.getElementById('bloco-1').scrollIntoView({behavior:'smooth'})">Começar pelo bloco 1</button>
-            <a class="btn btn--ghost btn--lg" href="#visao-geral">Ver a agenda do dia</a>
-          </div>
-          <div class="hero-stats-grid">
-            <div class="hero-stat"><span class="num">+8</span><span class="label">blocos</span></div>
-            <div class="hero-stat"><span class="num">+14</span><span class="label">exercícios</span></div>
-            <div class="hero-stat"><span class="num">6h</span><span class="label">mão na massa</span></div>
-          </div>
-        </div>
-        <div>
-          <div class="stat-hero">
-            <span class="stat-num">+70%</span>
-            <div class="stat-desc">dos participantes colocam algo que aprenderam <strong>na primeira semana</strong> pós-workshops da Product Arena.</div>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="hero-cta">
+<a class="btn btn--primary btn--lg" href="#pre-requisitos">Começar pelos pré-requisitos</a>
+<a class="btn btn--ghost btn--lg" href="#bloco-1">Ir direto pro Bloco 1</a>
+</div>
+<div class="hero-stats-grid">
+<div class="hero-stat"><span class="num">8</span><span class="label">blocos</span></div>
+<div class="hero-stat"><span class="num">14</span><span class="label">exercícios</span></div>
+<div class="hero-stat"><span class="num">6h</span><span class="label">duração</span></div>
+</div>
+</div>
+</div>
+</section><details class="section section-collapse" id="bem-vindo" open=""><summary class="section-summary"><div class="container"><div class="section-head">
+<span class="pa-eyebrow pa-eyebrow--red">B E M   V I N D O   À   A R E N A C A S H</span>
+<h2>Você foi contratado como PM de produto.</h2>
+<span aria-hidden="true" class="section-chevron">▾</span></div></div></summary><div class="section-body"><div class="container">
 
-    <!-- BEM-VINDO -->
-    <section class="section" id="bem-vindo">
-      <div class="container">
-        <div class="section-head">
-          <span class="pa-eyebrow pa-eyebrow--red">B E M &nbsp; V I N D O &nbsp; À &nbsp; A R E N A C A S H</span>
-          <h2>Você foi contratado como PM de produto.</h2>
-        </div>
-        <div class="welcome-body">
-          <div>
-            <p class="lead">A ArenaCash é uma fintech criada pela Product Arena. Ela não existe de verdade — mas os problemas que você vai resolver aqui são <strong class="shout">os mesmos</strong> que surgem toda semana no trabalho real de um PM.</p>
-          </div>
-          <div>
-            <p>Antes do curso, você recebeu o <strong>ArenaCash Kit</strong>: memo estratégico do CEO, transcrições das conversas com CFO, CMO e CTO, dados de produto e financeiros do quarter anterior, tickets de atendimento, design system e template oficial de apresentação.</p>
-            <p>São os mesmos materiais que um PM receberia no primeiro dia numa empresa real. A diferença é que aqui você não vai só ler e analisar — vai usar o Claude para trabalhar com eles como PM de verdade: entender o negócio, priorizar iniciativas, criar documentos, apresentar para a liderança, prototipar, codar e publicar.</p>
-            <p><strong>A jornada completa do dia:</strong> você começa configurando o Claude e montando seu ambiente de PM. Analisa os dados do quarter, prioriza uma iniciativa e valida com os C-levels via thinking partner. Essa iniciativa vira PRD, depois apresentação para a diretoria, depois protótipo visual, depois mapeamento de eventos — e termina com o app publicado online com uma URL real.</p>
-          </div>
-        </div>
-        <div class="welcome-quote">
+<div class="welcome-body">
+<div>
+<p class="lead">A ArenaCash é uma fintech criada pela Product Arena. Ela não existe de verdade — mas os problemas que você vai resolver aqui são <strong class="shout">os mesmos</strong> que surgem toda semana no trabalho real de um PM.</p>
+</div>
+<div>
+<p>Antes do curso, você recebeu o <strong>ArenaCash Kit</strong>: memo estratégico do CEO, transcrições das conversas com CFO, CMO e CTO, dados de produto e financeiros do quarter anterior, tickets de atendimento, design system e template oficial de apresentação.</p>
+<p>São os mesmos materiais que um PM receberia no primeiro dia numa empresa real. A diferença é que aqui você não vai só ler e analisar — vai usar o Claude para trabalhar com eles como PM de verdade: entender o negócio, priorizar iniciativas, criar documentos, apresentar para a liderança, prototipar, codar e publicar.</p>
+<p><strong>A jornada completa do dia:</strong> você começa configurando o Claude e montando seu ambiente de PM. Analisa os dados do quarter, prioriza uma iniciativa e valida com os C-levels via thinking partner. Essa iniciativa vira PRD, depois apresentação para a diretoria, depois protótipo visual, depois mapeamento de eventos — e termina com o app publicado online com uma URL real.</p>
+</div>
+</div>
+<div class="welcome-quote">
           "Todo o curso acontece dentro do Claude. Sem slides. Sem sair da plataforma. Os alunos navegam pelos arquivos gerados ao longo do dia como material de referência."
         </div>
-      </div>
-    </section>
+</div></div></details><details class="section section-collapse" id="pre-requisitos" open=""><summary class="section-summary"><div class="container"><div class="section-head">
+<span class="pa-eyebrow pa-eyebrow--red">A N T E S   D E   C O M E Ç A R</span>
+<h2>Pré-requisitos</h2>
+<p>Faça isso <strong>antes do dia do curso</strong>. Cada item abaixo tem um motivo — sem ele, alguma parte do dia não funciona. Separe cerca de <strong>30 minutos</strong> pra concluir tudo.</p>
+<span aria-hidden="true" class="section-chevron">▾</span></div></div></summary><div class="section-body"><div class="container">
 
-    <!-- AGENDA -->
-    <section class="section" id="visao-geral">
-      <div class="container">
-        <div class="section-head">
-          <span class="pa-eyebrow pa-eyebrow--red">C O M O &nbsp; F U N C I O N A ?</span>
-          <h2>Visão geral do dia</h2>
-          <p>A agenda completa em um golpe de vista. Clique em qualquer bloco pra pular direto pra ele.</p>
-        </div>
-        <div class="agenda">
-          <div class="agenda-item" data-target="bloco-1">
-            <div class="agenda-time">09:00 · 09:50</div>
-            <div class="agenda-body"><strong>Bloco 1 — Fundamentos</strong><span>Chat vs. Cowork vs. Code + pensando em tokens</span></div>
-            <div class="agenda-tag">Demo + exercício</div>
-          </div>
-          <div class="agenda-item" data-target="bloco-2">
-            <div class="agenda-time">09:50 · 10:40</div>
-            <div class="agenda-body"><strong>Bloco 2 — Setup do PM</strong><span>Projeto, memória, instruções, tom de voz, Gmail</span></div>
-            <div class="agenda-tag">Exposição + exercícios</div>
-          </div>
-          <div class="agenda-item" data-target="bloco-3">
-            <div class="agenda-time">10:55 · 11:40</div>
-            <div class="agenda-body"><strong>Bloco 3 — MCP e Conexões</strong><span>Google Drive + pesquisa web + Google Doc automático</span></div>
-            <div class="agenda-tag">Demo + exercícios</div>
-          </div>
-          <div class="agenda-item" data-target="bloco-4">
-            <div class="agenda-time">11:40 · 12:30</div>
-            <div class="agenda-body"><strong>Bloco 4 — Skills e apresentação</strong><span>Construir thinking partner + PRD + apresentação</span></div>
-            <div class="agenda-tag">Exposição + exercícios</div>
-          </div>
-          <div class="agenda-item break">
-            <div class="agenda-time">12:30 · 13:45</div>
-            <div class="agenda-body"><strong>🍽️ Almoço</strong></div>
-            <div class="agenda-tag">Pausa</div>
-          </div>
-          <div class="agenda-item" data-target="bloco-5">
-            <div class="agenda-time">13:45 · 14:30</div>
-            <div class="agenda-body"><strong>Bloco 5 — Do Cowork ao Code</strong><span>Transição e setup</span></div>
-            <div class="agenda-tag">Exposição + exercício</div>
-          </div>
-          <div class="agenda-item" data-target="bloco-6">
-            <div class="agenda-time">14:30 · 15:30</div>
-            <div class="agenda-body"><strong>Bloco 6 — Prototipagem e eventos</strong><span>Telas + tracking plan</span></div>
-            <div class="agenda-tag">Hands-on</div>
-          </div>
-          <div class="agenda-item" data-target="bloco-7">
-            <div class="agenda-time">15:45 · 16:45</div>
-            <div class="agenda-body"><strong>Bloco 7 — Codando e lançando</strong><span>Exercício final + deploy</span></div>
-            <div class="agenda-tag">Exercício final</div>
-          </div>
-          <div class="agenda-item" data-target="bloco-8">
-            <div class="agenda-time">16:45 · 17:00</div>
-            <div class="agenda-body"><strong>Bloco 8 — Encerramento</strong><span>Discussão aberta</span></div>
-            <div class="agenda-tag">Fechamento</div>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="prereq-list">
+<!-- 1. Conta Claude paga -->
+<details class="setup-step" open="">
+<summary>
+<span class="step-num">1</span>
+<div class="step-title">
+<strong>Conta Claude paga</strong>
+<span>Pro, Max ou Team · sem isso o curso não começa</span>
+</div>
+<span class="step-status required">Obrigatório</span>
+</summary>
+<div class="step-body">
+<p>O Claude gratuito tem limite de mensagens e não acessa o Cowork nem os plugins. O curso inteiro roda no Claude pago.</p>
+<h4>Qual plano escolher</h4>
+<ul>
+<li><strong>Pro</strong> — funciona pro curso. É o mínimo necessário.</li>
+<li><strong>Max</strong> — recomendado se você quiser aproveitar sem se preocupar com limites. Durante um dia intenso como o curso, o Pro pode atingir o limite de mensagens. O Max tem limites muito mais altos — vai te deixar mais tranquilo pra experimentar sem segurar o ritmo. <a href="https://claude.ai/upgrade" rel="noopener" target="_blank">Veja a diferença entre os planos →</a></li>
+<li><strong>Team</strong> — se sua empresa já tem conta Team, peça ao administrador pra te adicionar. Equivalente ao Pro em limites, mas com gerenciamento centralizado.</li>
+</ul>
+<p>Se ainda não tem conta: <a href="https://claude.ai/upgrade" rel="noopener" target="_blank">claude.ai/upgrade</a> pra assinar.</p>
+</div>
+</details>
+<!-- 2. Claude Desktop -->
+<details class="setup-step">
+<summary>
+<span class="step-num">2</span>
+<div class="step-title">
+<strong>Claude Desktop App</strong>
+<span>interface principal do curso · só existe no desktop</span>
+</div>
+<span class="step-status required">Obrigatório</span>
+</summary>
+<div class="step-body">
+<p>O Cowork — que usamos <strong>toda a manhã</strong> — só existe no Desktop. No navegador e no celular ele não aparece.</p>
+<ol>
+<li>Baixe o instalador em <a href="https://claude.ai/download" rel="noopener" target="_blank">claude.ai/download</a> (Mac ou Windows)</li>
+<li>Abra o arquivo baixado e siga a instalação normalmente</li>
+<li>Faça login com a mesma conta Claude paga do passo anterior</li>
+<li>Verifique que aparece a opção <strong>Cowork</strong> no menu lateral — se aparecer, tá tudo certo</li>
+</ol>
+</div>
+</details>
+<!-- 3. Claude Code -->
+<details class="setup-step">
+<summary>
+<span class="step-num">3</span>
+<div class="step-title">
+<strong>Claude Code</strong>
+<span>usado na parte da tarde · blocos 5 a 7</span>
+</div>
+<span class="step-status required">Obrigatório</span>
+</summary>
+<div class="step-body">
+<p>Claude Code é uma ferramenta que você instala no terminal e que permite criar protótipos, sites e scripts em conversa com o Claude. É a ferramenta da parte da tarde.</p>
+<p>Pra instalar, você vai precisar de duas coisas na ordem abaixo:</p>
+<div class="substep">
+<h4>3a · Node.js (versão 18 ou mais recente)</h4>
+<p>Node.js é o motor que roda o Claude Code. Você provavelmente já tem — verifique antes de instalar.</p>
+<ol>
+<li>Abra o Terminal (Mac: <code>Cmd + Espaço</code> → "Terminal") ou PowerShell (Windows: tecla Windows → "PowerShell")</li>
+<li>Digite <code>node --version</code> e pressione Enter</li>
+<li>Se aparecer algo como <code>v20.x.x</code> ou <code>v22.x.x</code>, você já tem. Pule pro 3b.</li>
+<li>Se não aparecer nada: <a href="https://nodejs.org/en/download" rel="noopener" target="_blank">nodejs.org/en/download</a> e baixe a versão <strong>LTS</strong> pro seu SO. Instalador padrão.</li>
+</ol>
+</div>
+<div class="substep">
+<h4>3b · Claude Code</h4>
+<p>Com o Node instalado, no mesmo terminal cole o comando abaixo e pressione Enter:</p>
+<pre class="code-block">npm install -g @anthropic-ai/claude-code</pre>
+<p>Aguarde (pode demorar 1-2 minutos). Depois verifique:</p>
+<pre class="code-block">claude --version</pre>
+<p>Se aparecer o número da versão, tá instalado. Documentação: <a href="https://docs.anthropic.com/pt/docs/claude-code/overview" rel="noopener" target="_blank">docs.anthropic.com/pt/docs/claude-code</a>.</p>
+</div>
+</div>
+</details>
+<!-- 4. Git -->
+<details class="setup-step">
+<summary>
+<span class="step-num">4</span>
+<div class="step-title">
+<strong>Git</strong>
+<span>o Claude Code depende dele por baixo dos panos</span>
+</div>
+<span class="step-status required">Obrigatório</span>
+</summary>
+<div class="step-body">
+<p>Git é um sistema de controle de versão. O Claude Code usa por baixo dos panos pra gerenciar arquivos e mudanças — <strong>sem ele, o Code pode dar erro na inicialização</strong>.</p>
+<ul>
+<li><strong>Mac:</strong> Git já vem instalado na maioria dos casos. Verifique com <code>git --version</code> no Terminal. Se não tiver, o próprio Mac vai oferecer instalar automaticamente — aceite.</li>
+<li><strong>Windows:</strong> Verifique com <code>git --version</code> no PowerShell. Se não tiver, baixe em <a href="https://git-scm.com/download/win" rel="noopener" target="_blank">git-scm.com/download/win</a> (opções padrão, não precisa mexer em nada).</li>
+</ul>
+</div>
+</details>
+<!-- 5. Kit -->
+<details class="setup-step">
+<summary>
+<span class="step-num">5</span>
+<div class="step-title">
+<strong>Kit ArenaCash</strong>
+<span>baixado e descompactado · é o material do curso</span>
+</div>
+<span class="step-status required">Obrigatório</span>
+</summary>
+<div class="step-body">
+<p>O kit contém todos os documentos da empresa fictícia que vamos usar no dia: memo estratégico, organograma, dados de Q1, transcrições dos C-levels, design system e guia de eventos.</p>
+<p class="step-download-row"><a class="btn btn--primary btn--sm" href="ArenaCash-Kit.zip" download>↓ &nbsp; Baixar ArenaCash-Kit.zip</a> <span class="or-sep">ou</span> <a href="#kit">ver arquivos individuais na seção Kit →</a></p>
+<p><strong>Depois de baixar:</strong></p>
+<ul>
+<li>Descompacte em algum lugar fácil de achar (ex: Desktop ou Documentos)</li>
+<li>Renomeie a pasta pra <code>ArenaCash-PM</code></li>
+<li>Verifique que consegue ver arquivos <code>.md</code>, <code>.csv</code>, <code>.xlsx</code> e <code>.pdf</code> dentro dela</li>
+</ul>
+</div>
+</details>
+<!-- 6. Gmail -->
+<details class="setup-step optional">
+<summary>
+<span class="step-num">6</span>
+<div class="step-title">
+<strong>Conta Google / Gmail</strong>
+<span>usado no Bloco 2 pra extrair seu tom de voz</span>
+</div>
+<span class="step-status optional">Recomendado</span>
+</summary>
+<div class="step-body">
+<p>No Bloco 2 vamos conectar o Gmail ao Cowork pra extrair o seu <strong>tom de voz de escrita</strong> a partir dos seus e-mails. Funciona com qualquer conta Google.</p>
+<ul>
+<li>Se você tem Gmail, não precisa fazer nada — só lembrar o login</li>
+<li>Se preferir não usar a conta pessoal, crie uma conta separada só pro curso em <a href="https://accounts.google.com" rel="noopener" target="_blank">accounts.google.com</a></li>
+<li>Se não quiser usar Gmail de jeito nenhum, tudo bem — o instrutor mostra um caminho alternativo pra criar o tom de voz manualmente</li>
+</ul>
+</div>
+</details>
+</div>
+<!-- Verificação final -->
+<div class="verify-block">
+<div class="verify-head">
+<span class="pa-eyebrow pa-eyebrow--red">V E R I F I C A Ç Ã O   F I N A L</span>
+<h3>Teste tudo de uma vez</h3>
+<p>Antes do curso, rode esses três comandos no terminal. Todos devem responder sem erro:</p>
+</div>
+<pre class="code-block verify-code">node --version     <span class="code-comment"># v18 ou mais recente</span>
+claude --version   <span class="code-comment"># versão do Claude Code</span>
+git --version      <span class="code-comment"># versão do Git</span></pre>
+<p class="verify-foot">Se algum der erro, volte no passo correspondente ou entre em contato antes do curso.</p>
+</div>
+</div></div></details><details class="section section-collapse" id="kit" open=""><summary class="section-summary"><div class="container"><div class="section-head">
+<span class="pa-eyebrow pa-eyebrow--red">K I T   A R E N A C A S H</span>
+<h2>Baixe os materiais do curso</h2>
+<p>Os arquivos que um PM receberia no primeiro dia numa empresa real. <strong>Baixe e descompacte antes do curso</strong>. Clique em cada arquivo pra baixar individualmente, ou puxe tudo de uma vez no <code>.zip</code> abaixo.</p>
+<span aria-hidden="true" class="section-chevron">▾</span></div></div></summary><div class="section-body"><div class="container">
 
-    <!-- BLOCOS + SIDEBAR -->
-    <section class="section" id="blocos">
-      <div class="container">
-        <div class="section-head">
-          <span class="pa-eyebrow pa-eyebrow--red">O &nbsp; Q U E &nbsp; V O C Ê &nbsp; V A I &nbsp; F A Z E R</span>
-          <h2>Os 8 blocos do curso</h2>
-          <p>Cada bloco tem objetivo, parte expositiva e exercícios práticos. Expanda os exercícios pra ver o passo a passo.</p>
-        </div>
+<div class="kit-bulk">
+<div class="kit-bulk-info">
+<span class="pa-eyebrow pa-eyebrow--red">P A C O T E   C O M P L E T O</span>
+<h3>ArenaCash-Kit.zip</h3>
+<p>10 arquivos · ~172 KB · tudo que você precisa pro curso</p>
+</div>
+<a class="btn btn--primary btn--lg" download="" href="ArenaCash-Kit.zip">
+            ↓   Baixar tudo em .zip
+          </a>
+</div>
+<div class="kit-grid">
+<a class="kit-item" download="" href="kit/memo-estrategico-q2.md">
+<span class="kit-icon">📝</span>
+<div><strong>memo-estrategico-q2.md</strong><span>memo do CEO com metas e contexto</span></div>
+<span class="kit-size">6 KB</span>
+</a>
+<a class="kit-item" download="" href="kit/organograma-arenacash.md">
+<span class="kit-icon">👥</span>
+<div><strong>organograma-arenacash.md</strong><span>estrutura da empresa, quem é quem</span></div>
+<span class="kit-size">6 KB</span>
+</a>
+<a class="kit-item" download="" href="kit/dados-quarter-q1.csv">
+<span class="kit-icon">📊</span>
+<div><strong>dados-quarter-q1.csv</strong><span>métricas: funil, ativação, churn, NPS</span></div>
+<span class="kit-size">1 KB</span>
+</a>
+<a class="kit-item" download="" href="kit/financeiro-q1.xlsx">
+<span class="kit-icon">💰</span>
+<div><strong>financeiro-q1.xlsx</strong><span>receita, custos, runway, CAC, LTV</span></div>
+<span class="kit-size">20 KB</span>
+</a>
+<a class="kit-item" download="" href="kit/atendimento-q1.csv">
+<span class="kit-icon">🎫</span>
+<div><strong>atendimento-q1.csv</strong><span>tickets de suporte categorizados</span></div>
+<span class="kit-size">37 KB</span>
+</a>
+<a class="kit-item" download="" href="kit/transcricao-cfo.md">
+<span class="kit-icon">🎙️</span>
+<div><strong>transcricao-cfo.md</strong><span>conversa com o CFO sobre prioridades</span></div>
+<span class="kit-size">7 KB</span>
+</a>
+<a class="kit-item" download="" href="kit/transcricao-cmo.md">
+<span class="kit-icon">🎙️</span>
+<div><strong>transcricao-cmo.md</strong><span>conversa com a CMO sobre growth</span></div>
+<span class="kit-size">8 KB</span>
+</a>
+<a class="kit-item" download="" href="kit/transcricao-cto.md">
+<span class="kit-icon">🎙️</span>
+<div><strong>transcricao-cto.md</strong><span>conversa com o CTO sobre tech</span></div>
+<span class="kit-size">8 KB</span>
+</a>
+<a class="kit-item" download="" href="kit/design-system-arenacash.md">
+<span class="kit-icon">🧩</span>
+<div><strong>design-system-arenacash.md</strong><span>cores, fontes, componentes da marca</span></div>
+<span class="kit-size">13 KB</span>
+</a>
+<a class="kit-item" download="" href="kit/Guia_de_Eventos_ArenaCash.pdf">
+<span class="kit-icon">📎</span>
+<div><strong>Guia_de_Eventos_ArenaCash.pdf</strong><span>guia de eventos de analytics</span></div>
+<span class="kit-size">144 KB</span>
+</a>
+</div>
+</div></div></details><details class="section section-collapse" id="visao-geral" open=""><summary class="section-summary"><div class="container"><div class="section-head">
+<span class="pa-eyebrow pa-eyebrow--red">C O M O   F U N C I O N A ?</span>
+<h2>Visão geral do dia</h2>
+<p>A agenda completa em um golpe de vista. Clique em qualquer bloco pra pular direto pra ele.</p>
+<span aria-hidden="true" class="section-chevron">▾</span></div></div></summary><div class="section-body"><div class="container">
 
-        <div class="section-split">
-          <aside class="side-nav" aria-label="Navegação dos blocos">
-            <p class="side-label">B L O C O S</p>
-            <ol class="side-list">
-              <li><a href="#bloco-1"><span class="num">01</span>Fundamentos</a></li>
-              <li><a href="#bloco-2"><span class="num">02</span>Setup do PM</a></li>
-              <li><a href="#bloco-3"><span class="num">03</span>MCP e Conexões</a></li>
-              <li><a href="#bloco-4"><span class="num">04</span>Skills e apresentação</a></li>
-              <li><a href="#bloco-5"><span class="num">05</span>Do Cowork ao Code</a></li>
-              <li><a href="#bloco-6"><span class="num">06</span>Prototipagem e eventos</a></li>
-              <li><a href="#bloco-7"><span class="num">07</span>Codando e lançando</a></li>
-              <li><a href="#bloco-8"><span class="num">08</span>Encerramento</a></li>
-            </ol>
-          </aside>
+<div class="agenda">
+<div class="agenda-item" data-target="bloco-1">
+<div class="agenda-time">09:00 · 09:50</div>
+<div class="agenda-body"><strong>Bloco 1 — Fundamentos</strong><span>Chat vs. Cowork vs. Code + pensando em tokens</span></div>
+<div class="agenda-tag">Demo + exercício</div>
+</div>
+<div class="agenda-item" data-target="bloco-2">
+<div class="agenda-time">09:50 · 10:40</div>
+<div class="agenda-body"><strong>Bloco 2 — Setup do PM</strong><span>Projeto, memória, instruções, tom de voz, Gmail</span></div>
+<div class="agenda-tag">Exposição + exercícios</div>
+</div>
+<div class="agenda-item" data-target="bloco-3">
+<div class="agenda-time">10:55 · 11:40</div>
+<div class="agenda-body"><strong>Bloco 3 — MCP e Conexões</strong><span>Google Drive + pesquisa web + Google Doc automático</span></div>
+<div class="agenda-tag">Demo + exercícios</div>
+</div>
+<div class="agenda-item" data-target="bloco-4">
+<div class="agenda-time">11:40 · 12:30</div>
+<div class="agenda-body"><strong>Bloco 4 — Skills e apresentação</strong><span>Construir thinking partner + PRD + apresentação</span></div>
+<div class="agenda-tag">Exposição + exercícios</div>
+</div>
+<div class="agenda-item break">
+<div class="agenda-time">12:30 · 13:45</div>
+<div class="agenda-body"><strong>🍽️ Almoço</strong></div>
+<div class="agenda-tag">Pausa</div>
+</div>
+<div class="agenda-item" data-target="bloco-5">
+<div class="agenda-time">13:45 · 14:30</div>
+<div class="agenda-body"><strong>Bloco 5 — Do Cowork ao Code</strong><span>Transição e setup</span></div>
+<div class="agenda-tag">Exposição + exercício</div>
+</div>
+<div class="agenda-item" data-target="bloco-6">
+<div class="agenda-time">14:30 · 15:30</div>
+<div class="agenda-body"><strong>Bloco 6 — Prototipagem e eventos</strong><span>Telas + tracking plan</span></div>
+<div class="agenda-tag">Hands-on</div>
+</div>
+<div class="agenda-item" data-target="bloco-7">
+<div class="agenda-time">15:45 · 16:45</div>
+<div class="agenda-body"><strong>Bloco 7 — Codando e lançando</strong><span>Exercício final + deploy</span></div>
+<div class="agenda-tag">Exercício final</div>
+</div>
+<div class="agenda-item" data-target="bloco-8">
+<div class="agenda-time">16:45 · 17:00</div>
+<div class="agenda-body"><strong>Bloco 8 — Encerramento</strong><span>Discussão aberta</span></div>
+<div class="agenda-tag">Fechamento</div>
+</div>
+</div>
+</div></div></details><details class="section section-collapse" id="blocos" open=""><summary class="section-summary"><div class="container"><div class="section-head">
+<span class="pa-eyebrow pa-eyebrow--red">O   Q U E   V O C Ê   V A I   F A Z E R</span>
+<h2>Os 8 blocos do curso</h2>
+<p>Cada bloco tem objetivo, parte expositiva e exercícios práticos. Expanda os exercícios pra ver o passo a passo.</p>
+<span aria-hidden="true" class="section-chevron">▾</span></div></div></summary><div class="section-body"><div class="container">
 
-          <div class="blocks">
-            <!-- BLOCO 1 -->
-            <article class="block" id="bloco-1">
-              <header class="block-head">
-                <span class="block-pill">B L O C O &nbsp; 0 1 &nbsp; · &nbsp; 09:00–09:50</span>
-                <h2>Fundamentos: Chat vs. Cowork vs. Code</h2>
-                <p class="block-quote">"Você não está usando o Claude. Está conversando com ele. Tem uma diferença <strong class="shout">enorme</strong>."</p>
-                <p class="block-obj"><strong>Objetivo:</strong> Nivelar o grupo e construir o modelo mental correto. Todo mundo sai sabendo quando usar Chat, Cowork e Code.</p>
-              </header>
-
-              <section class="concept">
-                <h3>Parte expositiva — O mapa do território <span class="mins">15 min</span></h3>
-                <div class="grid-3">
-                  <div class="concept-card">
-                    <h4>Claude Chat</h4>
-                    <p>Você pergunta, ele responde. Brainstorm, análise rápida, reescrita. <em>Não tem memória entre sessões, não mexe em arquivos, não conecta com nada.</em></p>
-                    <p class="analogy">= ligar para um colega e pedir opinião</p>
-                  </div>
-                  <div class="concept-card highlight">
-                    <h4>Claude Cowork</h4>
-                    <p>Você delega, ele executa. Lê e cria arquivos, encadeia tarefas, conecta com Gmail/Slack/Drive, agenda rotinas.</p>
-                    <p class="analogy">= delegar tarefa a um assistente com acesso à sua mesa</p>
-                  </div>
-                  <div class="concept-card">
-                    <h4>Claude Code</h4>
-                    <p>Você descreve, ele constrói. Terminal que entende português. Cria protótipos, ferramentas, sites.</p>
-                    <p class="analogy">= sentar com um dev e ir construindo junto</p>
-                  </div>
-                </div>
-
-                <div class="callout">
-                  <h4>Onde cada interface funciona</h4>
-                  <table class="matrix">
-                    <thead><tr><th>Interface</th><th>Desktop</th><th>Web (claude.ai)</th><th>Mobile</th></tr></thead>
-                    <tbody>
-                      <tr><td>Chat</td><td class="y">✅ completo</td><td class="y">✅ completo</td><td class="y">✅ completo</td></tr>
-                      <tr><td>Cowork</td><td class="y">✅ completo</td><td class="n">❌</td><td class="n">❌</td></tr>
-                      <tr><td>Code</td><td class="y">✅ via terminal</td><td class="n">❌</td><td class="n">❌</td></tr>
-                    </tbody>
-                  </table>
-                  <p class="callout-note"><strong>Regra prática:</strong> trabalho real = Desktop. Mobile = satélite.</p>
-                </div>
-              </section>
-
-              <section class="exercises">
-                <h3>Exercício</h3>
-
-                <details class="exercise" open>
-                  <summary>
-                    <span class="ex-num">01</span>
-                    <span class="ex-title">Setup e primeiro contato com a ArenaCash</span>
-                    <span class="ex-time">15 min</span>
-                  </summary>
-                  <div class="ex-body">
-                    <p class="ex-intro">O objetivo é duplo: colocar a pasta funcionando dentro do Cowork <strong>e</strong> fazer a primeira leitura da ArenaCash com o Claude. Ao final, cada aluno vai ter o ambiente pronto e um resumo executivo do quarter na tela.</p>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 1</span>
-                        <span class="step-block-time">2 min</span>
-                        <h4 class="step-block-title">Criar a pasta de trabalho</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <div class="two-col">
-                          <div class="pill-card"><h4>🍎 Mac</h4><p>Finder → Documentos → clique direito → Nova Pasta → nomeie <code>ArenaCash-PM</code></p></div>
-                          <div class="pill-card"><h4>🪟 Windows</h4><p>Explorador → Documentos → clique direito → Nova Pasta → nomeie <code>ArenaCash-PM</code></p></div>
-                        </div>
-                        <p>Copie todos os arquivos do kit pra dentro dessa pasta. Ela deve ficar assim:</p>
-                        <pre class="tree">ArenaCash-PM/
+<div class="section-split">
+<aside aria-label="Navegação dos blocos" class="side-nav">
+<p class="side-label">B L O C O S</p>
+<ol class="side-list">
+<li><a href="#bloco-1"><span class="num">01</span>Fundamentos</a></li>
+<li><a href="#bloco-2"><span class="num">02</span>Setup do PM</a></li>
+<li><a href="#bloco-3"><span class="num">03</span>MCP e Conexões</a></li>
+<li><a href="#bloco-4"><span class="num">04</span>Skills e apresentação</a></li>
+<li><a href="#bloco-5"><span class="num">05</span>Do Cowork ao Code</a></li>
+<li><a href="#bloco-6"><span class="num">06</span>Prototipagem e eventos</a></li>
+<li><a href="#bloco-7"><span class="num">07</span>Codando e lançando</a></li>
+<li><a href="#bloco-8"><span class="num">08</span>Encerramento</a></li>
+</ol>
+</aside>
+<div class="blocks">
+<!-- BLOCO 1 -->
+<article class="block" id="bloco-1">
+<header class="block-head">
+<span class="block-pill">B L O C O   0 1   ·   09:00–09:50</span>
+<h2>Fundamentos: Chat vs. Cowork vs. Code</h2>
+<p class="block-quote">"Você não está usando o Claude. Está conversando com ele. Tem uma diferença <strong class="shout">enorme</strong>."</p>
+<p class="block-obj"><strong>Objetivo:</strong> Nivelar o grupo e construir o modelo mental correto. Todo mundo sai sabendo quando usar Chat, Cowork e Code.</p>
+</header>
+<section class="concept">
+<h3>Parte expositiva — O mapa do território <span class="mins">15 min</span></h3>
+<div class="grid-3">
+<div class="concept-card">
+<h4>Claude Chat</h4>
+<p>Você pergunta, ele responde. Brainstorm, análise rápida, reescrita. <em>Não tem memória entre sessões, não mexe em arquivos, não conecta com nada.</em></p>
+<p class="analogy">= ligar para um colega e pedir opinião</p>
+</div>
+<div class="concept-card highlight">
+<h4>Claude Cowork</h4>
+<p>Você delega, ele executa. Lê e cria arquivos, encadeia tarefas, conecta com Gmail/Slack/Drive, agenda rotinas.</p>
+<p class="analogy">= delegar tarefa a um assistente com acesso à sua mesa</p>
+</div>
+<div class="concept-card">
+<h4>Claude Code</h4>
+<p>Você descreve, ele constrói. Terminal que entende português. Cria protótipos, ferramentas, sites.</p>
+<p class="analogy">= sentar com um dev e ir construindo junto</p>
+</div>
+</div>
+<div class="callout">
+<h4>Onde cada interface funciona</h4>
+<table class="matrix">
+<thead><tr><th>Interface</th><th>Desktop</th><th>Web (claude.ai)</th><th>Mobile</th></tr></thead>
+<tbody>
+<tr><td>Chat</td><td class="y">✅ completo</td><td class="y">✅ completo</td><td class="y">✅ completo</td></tr>
+<tr><td>Cowork</td><td class="y">✅ completo</td><td class="n">❌</td><td class="n">❌</td></tr>
+<tr><td>Code</td><td class="y">✅ via terminal</td><td class="n">❌</td><td class="n">❌</td></tr>
+</tbody>
+</table>
+<p class="callout-note"><strong>Regra prática:</strong> trabalho real = Desktop. Mobile = satélite.</p>
+</div>
+</section>
+<section class="exercises">
+<h3>Exercício</h3>
+<details class="exercise" open="">
+<summary>
+<span class="ex-num">01</span>
+<span class="ex-title">Setup e primeiro contato com a ArenaCash</span>
+<span class="ex-time">15 min</span>
+</summary>
+<div class="ex-body">
+<p class="ex-intro">O objetivo é duplo: colocar a pasta funcionando dentro do Cowork <strong>e</strong> fazer a primeira leitura da ArenaCash com o Claude. Ao final, cada aluno vai ter o ambiente pronto e um resumo executivo do quarter na tela.</p>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">2 min</span>
+<h4 class="step-block-title">Criar a pasta de trabalho</h4>
+</div>
+<div class="step-block-body">
+<div class="two-col">
+<div class="pill-card"><h4>🍎 Mac</h4><p>Finder → Documentos → clique direito → Nova Pasta → nomeie <code>ArenaCash-PM</code></p></div>
+<div class="pill-card"><h4>🪟 Windows</h4><p>Explorador → Documentos → clique direito → Nova Pasta → nomeie <code>ArenaCash-PM</code></p></div>
+</div>
+<p>Copie todos os arquivos do kit pra dentro dessa pasta. Ela deve ficar assim:</p>
+<pre class="tree">ArenaCash-PM/
 ├── memo-estrategico-q2.md
 ├── organograma-arenacash.md
 ├── dados-quarter-q1.csv
@@ -240,124 +433,113 @@
 ├── template-apresentacao.pptx
 ├── design-system-arenacash.md
 └── guia-de-eventos-arenacash.pdf</pre>
-                      </div>
-                    </div>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 2</span>
-                        <span class="step-block-time">3 min</span>
-                        <h4 class="step-block-title">Conectar a pasta ao Cowork</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <ol>
-                          <li>Abra o <strong>Claude Desktop App</strong></li>
-                          <li>No menu lateral esquerdo, clique em <strong>Cowork</strong></li>
-                          <li>Clique em <strong>+ New Project</strong> (ou "Novo Projeto")</li>
-                          <li>Dê o nome: <code>ArenaCash — Meu Setup de PM</code></li>
-                          <li>Clique em <strong>Connect Folder</strong> (ou "Conectar Pasta")</li>
-                          <li>Navegue até a pasta <code>ArenaCash-PM</code> que você acabou de criar e selecione-a</li>
-                          <li>Confirme — o Cowork vai listar os arquivos da pasta no painel lateral</li>
-                        </ol>
-                        <p class="tip">💡 <strong>O que acabou de acontecer:</strong> o Claude agora "enxerga" todos os arquivos da pasta. Pode ler, criar e editar ali dentro sem você copiar e colar nada.</p>
-                      </div>
-                    </div>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 3</span>
-                        <span class="step-block-time">5 min</span>
-                        <h4 class="step-block-title">Exploração inicial</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <p>Com a pasta conectada, digite no chat do Cowork:</p>
-                        <div class="prompt-box">
-                          <p>Me diz o que tem nessa pasta e o que você consegue fazer com ela.</p>
-                        </div>
-                        <p><strong>Observe:</strong> o Claude lista os arquivos, identifica o tipo de conteúdo e já sugere o que pode fazer — resumir, analisar, cruzar dados. Ele ainda não leu nada a fundo, só <em>mapeou o terreno</em>.</p>
-                      </div>
-                    </div>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 4</span>
-                        <span class="step-block-time">5 min</span>
-                        <h4 class="step-block-title">Primeira leitura da ArenaCash</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <p>Agora mande a primeira tarefa real:</p>
-                        <div class="prompt-box">
-                          <p>Lê o <code>memo-estrategico-q2.md</code> e o <code>organograma-arenacash.md</code> e me faz um resumo executivo da situação da ArenaCash neste quarter: contexto do negócio, metas do Q2 e quem são os principais líderes.</p>
-                        </div>
-                        <p><strong>Observe:</strong> o Claude leu dois arquivos separados, cruzou as informações e entregou um resumo coerente. Esse resumo vai ser o <strong>ponto de partida</strong> de tudo que vem depois no dia.</p>
-                      </div>
-                    </div>
-
-                    <div class="ex-closing">
-                      <span class="pa-eyebrow pa-eyebrow--red">O &nbsp; Q U E &nbsp; F I X A R</span>
-                      <p>Você não colou nenhum texto no chat. Não resumiu o documento antes de mandar. Só <strong>apontou os arquivos e delegou</strong> a tarefa. Isso é Cowork funcionando — e é assim que vamos trabalhar o dia inteiro.</p>
-                    </div>
-                  </div>
-                </details>
-              </section>
-
-              <!-- PENSANDO EM TOKENS — mesclado no fim do Bloco 1 -->
-              <section class="concept tokens-section">
-                <h3>Como pensar em tokens <span class="mins">5 min</span></h3>
-                <p class="block-quote">"Token é como minuto de reunião: o que se mede, se gerencia."</p>
-                <p style="margin-bottom: var(--s-5);">No Exercício 1, você mandou um prompt claro com arquivos referenciados e recebeu um resumo executivo de primeira. Isso não é só boa prática — é <strong>economia real</strong>. Quatro princípios pra carregar o dia inteiro:</p>
-                <div class="grid-2">
-                  <div class="principle"><span class="p-num">1</span><h4>Prompt bom de primeira = economia</h4><p>Um prompt vago vira 4-5 idas e vindas. Cada turno carrega toda a conversa acumulada.</p></div>
-                  <div class="principle"><span class="p-num">2</span><h4>Contexto no lugar certo</h4><p>Instruções no Projeto &gt; repetir contexto. Referenciar arquivos &gt; colar conteúdo. Output em arquivo &gt; "me mostra na tela".</p></div>
-                  <div class="principle"><span class="p-num">3</span><h4>Conversas curtas</h4><p>Terminou a tarefa, abra uma nova. Edite em vez de regerar — se 90% tá bom, ajuste o parágrafo ruim.</p></div>
-                  <div class="principle"><span class="p-num">4</span><h4>Modelo certo pra tarefa</h4><p>Opus = complexo. Sonnet = dia a dia. Haiku = tarefas leves. Skills = bom resultado de primeira.</p></div>
-                </div>
-              </section>
-            </article>
-
-            <!-- BLOCO 2 -->
-            <article class="block" id="bloco-2">
-              <header class="block-head">
-                <span class="block-pill">B L O C O &nbsp; 0 2 &nbsp; · &nbsp; 09:50–10:40</span>
-                <h2>Setup do PM na ArenaCash</h2>
-                <p class="block-quote">"O segredo não é o prompt. É o contexto que você dá <strong class="shout">antes</strong> do prompt."</p>
-                <p class="block-obj"><strong>Objetivo:</strong> Montar o ambiente completo de trabalho: projeto com memória, instruções personalizadas com o organograma como referência, tom de voz calibrado e integração com Gmail.</p>
-              </header>
-
-              <section class="concept">
-                <h3>A arquitetura do Cowork <span class="mins">10 min</span></h3>
-
-                <h4 class="concept-sub">1. O que é um Projeto</h4>
-                <p>No Cowork, um Projeto é o seu <strong>espaço de trabalho permanente</strong>. Pense nele como uma sala dedicada pra um contexto específico: tem uma pasta conectada no seu computador, instruções que você escreve uma vez e valem pra sempre, e uma memória que persiste entre conversas.</p>
-                <p>Quando você abre uma nova task dentro de um projeto, o Claude já sabe quem você é, em que empresa trabalha e quais são as regras. Você não precisa reexplicar isso toda vez.</p>
-                <p class="tip">🔒 <strong>Regra de ouro:</strong> a memória é <strong class="shout">isolada por projeto</strong>. O que o Claude aprende no projeto da ArenaCash não vaza pra outros projetos.</p>
-
-                <h4 class="concept-sub">2. As duas camadas de memória</h4>
-                <div class="grid-2">
-                  <div class="concept-card">
-                    <h4>📝 Instruções do Projeto</h4>
-                    <p><strong>Você escreve, o Claude obedece.</strong> Regras fixas que o Claude lê no início de toda conversa. É aqui que você coloca quem é, como trabalha, quais são as convenções do time, o que nunca pode acontecer.</p>
-                    <p class="analogy">ex: "Nunca invente dados. Sempre salve outputs como arquivos."</p>
-                  </div>
-                  <div class="concept-card highlight">
-                    <h4>🧠 Auto Memory</h4>
-                    <p><strong>O Claude escreve, você pode editar.</strong> Conforme você trabalha, o Claude salva notas sobre você — suas preferências, correções, padrões. Tudo num <code>memory.md</code> dentro do projeto.</p>
-                    <p class="analogy">ex: você pode abrir, editar e apagar qualquer coisa anotada</p>
-                  </div>
-                </div>
-                <p class="tip" style="margin-top: var(--s-4);">🎬 <strong>Demo ao vivo:</strong> instrutor abre o <code>memory.md</code> de um projeto real e mostra o que o Claude anotou sozinho ao longo de algumas sessões de uso.</p>
-
-                <h4 class="concept-sub">3. O ecossistema em volta do Projeto</h4>
-                <p>Um Projeto não existe sozinho — ele organiza tudo mais:</p>
-                <div class="eco-list">
-                  <div class="eco-item"><span class="eco-tag">Task</span><p>Uma conversa dentro do projeto. Cada task começa com o contexto do projeto carregado. Pode ser <strong>avulsa</strong> (você inicia na hora) ou <strong>agendada</strong> (roda em horários definidos).</p></div>
-                  <div class="eco-item"><span class="eco-tag">Skill</span><p>Um pacote de instruções que ensina o Claude a produzir um tipo específico de output com qualidade consistente. Quem instala é você; quem usa é o Claude quando precisa.</p></div>
-                  <div class="eco-item"><span class="eco-tag">Agent</span><p>Quando uma task é grande demais, o Claude quebra em partes e delega pra si mesmo em <strong>paralelo</strong> — como se fossem assistentes trabalhando ao mesmo tempo.</p></div>
-                  <div class="eco-item"><span class="eco-tag">Connector</span><p>A ponte pra ferramentas externas (Gmail, Slack, Drive, Jira…). O Claude acessa, busca e age nessas ferramentas sem você sair do Cowork.</p></div>
-                  <div class="eco-item"><span class="eco-tag">Plugin</span><p>Um bundle completo com skills + connectors + sub-agents empacotados. Você instala de uma vez e ganha um conjunto de capacidades prontas.</p></div>
-                </div>
-
-                <pre class="tree">Projeto
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">3 min</span>
+<h4 class="step-block-title">Conectar a pasta ao Cowork</h4>
+</div>
+<div class="step-block-body">
+<ol>
+<li>Abra o <strong>Claude Desktop App</strong></li>
+<li>No menu lateral esquerdo, clique em <strong>Cowork</strong></li>
+<li>Clique em <strong>+ New Project</strong> (ou "Novo Projeto")</li>
+<li>Dê o nome: <code>ArenaCash — Meu Setup de PM</code></li>
+<li>Clique em <strong>Connect Folder</strong> (ou "Conectar Pasta")</li>
+<li>Navegue até a pasta <code>ArenaCash-PM</code> que você acabou de criar e selecione-a</li>
+<li>Confirme — o Cowork vai listar os arquivos da pasta no painel lateral</li>
+</ol>
+<p class="tip">💡 <strong>O que acabou de acontecer:</strong> o Claude agora "enxerga" todos os arquivos da pasta. Pode ler, criar e editar ali dentro sem você copiar e colar nada.</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 3</span>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Exploração inicial</h4>
+</div>
+<div class="step-block-body">
+<p>Com a pasta conectada, digite no chat do Cowork:</p>
+<div class="prompt-box">
+<p>Me diz o que tem nessa pasta e o que você consegue fazer com ela.</p>
+</div>
+<p><strong>Observe:</strong> o Claude lista os arquivos, identifica o tipo de conteúdo e já sugere o que pode fazer — resumir, analisar, cruzar dados. Ele ainda não leu nada a fundo, só <em>mapeou o terreno</em>.</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 4</span>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Primeira leitura da ArenaCash</h4>
+</div>
+<div class="step-block-body">
+<p>Agora mande a primeira tarefa real:</p>
+<div class="prompt-box">
+<p>Lê o <code>memo-estrategico-q2.md</code> e o <code>organograma-arenacash.md</code> e me faz um resumo executivo da situação da ArenaCash neste quarter: contexto do negócio, metas do Q2 e quem são os principais líderes.</p>
+</div>
+<p><strong>Observe:</strong> o Claude leu dois arquivos separados, cruzou as informações e entregou um resumo coerente. Esse resumo vai ser o <strong>ponto de partida</strong> de tudo que vem depois no dia.</p>
+</div>
+</div>
+<div class="ex-closing">
+<span class="pa-eyebrow pa-eyebrow--red">O   Q U E   F I X A R</span>
+<p>Você não colou nenhum texto no chat. Não resumiu o documento antes de mandar. Só <strong>apontou os arquivos e delegou</strong> a tarefa. Isso é Cowork funcionando — e é assim que vamos trabalhar o dia inteiro.</p>
+</div>
+</div>
+</details>
+</section>
+<!-- PENSANDO EM TOKENS — mesclado no fim do Bloco 1 -->
+<section class="concept tokens-section">
+<h3>Como pensar em tokens <span class="mins">5 min</span></h3>
+<p class="block-quote">"Token é como minuto de reunião: o que se mede, se gerencia."</p>
+<p style="margin-bottom: var(--s-5);">No Exercício 1, você mandou um prompt claro com arquivos referenciados e recebeu um resumo executivo de primeira. Isso não é só boa prática — é <strong>economia real</strong>. Quatro princípios pra carregar o dia inteiro:</p>
+<div class="grid-2">
+<div class="principle"><span class="p-num">1</span><h4>Prompt bom de primeira = economia</h4><p>Um prompt vago vira 4-5 idas e vindas. Cada turno carrega toda a conversa acumulada.</p></div>
+<div class="principle"><span class="p-num">2</span><h4>Contexto no lugar certo</h4><p>Instruções no Projeto &gt; repetir contexto. Referenciar arquivos &gt; colar conteúdo. Output em arquivo &gt; "me mostra na tela".</p></div>
+<div class="principle"><span class="p-num">3</span><h4>Conversas curtas</h4><p>Terminou a tarefa, abra uma nova. Edite em vez de regerar — se 90% tá bom, ajuste o parágrafo ruim.</p></div>
+<div class="principle"><span class="p-num">4</span><h4>Modelo certo pra tarefa</h4><p>Opus = complexo. Sonnet = dia a dia. Haiku = tarefas leves. Skills = bom resultado de primeira.</p></div>
+</div>
+</section>
+</article>
+<!-- BLOCO 2 -->
+<article class="block" id="bloco-2">
+<header class="block-head">
+<span class="block-pill">B L O C O   0 2   ·   09:50–10:40</span>
+<h2>Setup do PM na ArenaCash</h2>
+<p class="block-quote">"O segredo não é o prompt. É o contexto que você dá <strong class="shout">antes</strong> do prompt."</p>
+<p class="block-obj"><strong>Objetivo:</strong> Montar o ambiente completo de trabalho: projeto com memória, instruções personalizadas com o organograma como referência, tom de voz calibrado e integração com Gmail.</p>
+</header>
+<section class="concept">
+<h3>A arquitetura do Cowork <span class="mins">10 min</span></h3>
+<h4 class="concept-sub">1. O que é um Projeto</h4>
+<p>No Cowork, um Projeto é o seu <strong>espaço de trabalho permanente</strong>. Pense nele como uma sala dedicada pra um contexto específico: tem uma pasta conectada no seu computador, instruções que você escreve uma vez e valem pra sempre, e uma memória que persiste entre conversas.</p>
+<p>Quando você abre uma nova task dentro de um projeto, o Claude já sabe quem você é, em que empresa trabalha e quais são as regras. Você não precisa reexplicar isso toda vez.</p>
+<p class="tip">🔒 <strong>Regra de ouro:</strong> a memória é <strong class="shout">isolada por projeto</strong>. O que o Claude aprende no projeto da ArenaCash não vaza pra outros projetos.</p>
+<h4 class="concept-sub">2. As duas camadas de memória</h4>
+<div class="grid-2">
+<div class="concept-card">
+<h4>📝 Instruções do Projeto</h4>
+<p><strong>Você escreve, o Claude obedece.</strong> Regras fixas que o Claude lê no início de toda conversa. É aqui que você coloca quem é, como trabalha, quais são as convenções do time, o que nunca pode acontecer.</p>
+<p class="analogy">ex: "Nunca invente dados. Sempre salve outputs como arquivos."</p>
+</div>
+<div class="concept-card highlight">
+<h4>🧠 Auto Memory</h4>
+<p><strong>O Claude escreve, você pode editar.</strong> Conforme você trabalha, o Claude salva notas sobre você — suas preferências, correções, padrões. Tudo num <code>memory.md</code> dentro do projeto.</p>
+<p class="analogy">ex: você pode abrir, editar e apagar qualquer coisa anotada</p>
+</div>
+</div>
+<p class="tip" style="margin-top: var(--s-4);">🎬 <strong>Demo ao vivo:</strong> instrutor abre o <code>memory.md</code> de um projeto real e mostra o que o Claude anotou sozinho ao longo de algumas sessões de uso.</p>
+<h4 class="concept-sub">3. O ecossistema em volta do Projeto</h4>
+<p>Um Projeto não existe sozinho — ele organiza tudo mais:</p>
+<div class="eco-list">
+<div class="eco-item"><span class="eco-tag">Task</span><p>Uma conversa dentro do projeto. Cada task começa com o contexto do projeto carregado. Pode ser <strong>avulsa</strong> (você inicia na hora) ou <strong>agendada</strong> (roda em horários definidos).</p></div>
+<div class="eco-item"><span class="eco-tag">Skill</span><p>Um pacote de instruções que ensina o Claude a produzir um tipo específico de output com qualidade consistente. Quem instala é você; quem usa é o Claude quando precisa.</p></div>
+<div class="eco-item"><span class="eco-tag">Agent</span><p>Quando uma task é grande demais, o Claude quebra em partes e delega pra si mesmo em <strong>paralelo</strong> — como se fossem assistentes trabalhando ao mesmo tempo.</p></div>
+<div class="eco-item"><span class="eco-tag">Connector</span><p>A ponte pra ferramentas externas (Gmail, Slack, Drive, Jira…). O Claude acessa, busca e age nessas ferramentas sem você sair do Cowork.</p></div>
+<div class="eco-item"><span class="eco-tag">Plugin</span><p>Um bundle completo com skills + connectors + sub-agents empacotados. Você instala de uma vez e ganha um conjunto de capacidades prontas.</p></div>
+</div>
+<pre class="tree">Projeto
 ├── Instruções (.md)   ← você escreve, Claude lê toda sessão
 ├── Memória (.md)      ← Claude escreve, persiste entre sessões
 ├── Tarefas
@@ -369,50 +551,46 @@
 │   └── Da comunidade (instaladas do repositório)
 ├── Connectors (Gmail, Slack, Drive, Jira...)
 └── Plugins (bundles de skills + connectors)</pre>
-              </section>
-
-              <section class="exercises">
-                <h3>Exercícios</h3>
-
-                <details class="exercise">
-                  <summary><span class="ex-num">02</span><span class="ex-title">Criando o Projeto "PM na ArenaCash"</span><span class="ex-time">15 min</span></summary>
-                  <div class="ex-body">
-                    <p class="ex-intro"><strong>Entregável:</strong> um arquivo <code>instrucoes-projeto.md</code> salvo na pasta <code>ArenaCash-PM</code>, com as suas instruções personalizadas de PM. Esse documento vai dizer ao Claude — em toda conversa daqui pra frente — quem você é, como trabalha e quais são as regras do jogo. É o seu <strong>briefing permanente</strong>.</p>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 1</span>
-                        <span class="step-block-time">3 min</span>
-                        <h4 class="step-block-title">Criar o Projeto no Cowork</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <ol>
-                          <li>No Claude Desktop, clique em <strong>Cowork</strong> no menu lateral</li>
-                          <li>Clique no botão <strong>+ New Project</strong> no topo do painel esquerdo</li>
-                          <li>No campo de nome, escreva: <code>ArenaCash — Meu Setup de PM</code></li>
-                          <li>Clique em <strong>Connect Folder</strong> e selecione a pasta <code>ArenaCash-PM</code> que você criou no Exercício 1</li>
-                          <li>Confirme — o projeto aparece na lista e a pasta está vinculada</li>
-                        </ol>
-                        <p class="tip">💡 Você acabou de criar o <strong>workspace do dia</strong>. Todas as tarefas que você abrir a partir de agora dentro deste projeto vão herdar a pasta e, em breve, as instruções que você vai escrever.</p>
-                      </div>
-                    </div>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 2</span>
-                        <span class="step-block-time">12 min</span>
-                        <h4 class="step-block-title">Escrever as instruções do projeto</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <p>Este é o passo <strong>mais importante</strong> do bloco. As instruções do projeto são o que transformam o Claude de um assistente genérico num colaborador que conhece você e a ArenaCash.</p>
-                        <p>No chat do projeto, mande o seguinte prompt:</p>
-                        <div class="prompt-box">
-                          <p>Me ajuda a criar o arquivo <code>instrucoes-projeto.md</code>. Ele vai conter minhas instruções permanentes como PM. Me faz as perguntas necessárias pra preencher as seções abaixo, uma de cada vez, e depois gera o arquivo completo na pasta.</p>
-                        </div>
-                        <p>O Claude vai te guiar. As seções que o arquivo deve ter:</p>
-                        <details class="nested">
-                          <summary>Ver template das 4 seções</summary>
-                          <pre>## Quem sou eu
+</section>
+<section class="exercises">
+<h3>Exercícios</h3>
+<details class="exercise">
+<summary><span class="ex-num">02</span><span class="ex-title">Criando o Projeto "PM na ArenaCash"</span><span class="ex-time">15 min</span></summary>
+<div class="ex-body">
+<p class="ex-intro"><strong>Entregável:</strong> um arquivo <code>instrucoes-projeto.md</code> salvo na pasta <code>ArenaCash-PM</code>, com as suas instruções personalizadas de PM. Esse documento vai dizer ao Claude — em toda conversa daqui pra frente — quem você é, como trabalha e quais são as regras do jogo. É o seu <strong>briefing permanente</strong>.</p>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">3 min</span>
+<h4 class="step-block-title">Criar o Projeto no Cowork</h4>
+</div>
+<div class="step-block-body">
+<ol>
+<li>No Claude Desktop, clique em <strong>Cowork</strong> no menu lateral</li>
+<li>Clique no botão <strong>+ New Project</strong> no topo do painel esquerdo</li>
+<li>No campo de nome, escreva: <code>ArenaCash — Meu Setup de PM</code></li>
+<li>Clique em <strong>Connect Folder</strong> e selecione a pasta <code>ArenaCash-PM</code> que você criou no Exercício 1</li>
+<li>Confirme — o projeto aparece na lista e a pasta está vinculada</li>
+</ol>
+<p class="tip">💡 Você acabou de criar o <strong>workspace do dia</strong>. Todas as tarefas que você abrir a partir de agora dentro deste projeto vão herdar a pasta e, em breve, as instruções que você vai escrever.</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">12 min</span>
+<h4 class="step-block-title">Escrever as instruções do projeto</h4>
+</div>
+<div class="step-block-body">
+<p>Este é o passo <strong>mais importante</strong> do bloco. As instruções do projeto são o que transformam o Claude de um assistente genérico num colaborador que conhece você e a ArenaCash.</p>
+<p>No chat do projeto, mande o seguinte prompt:</p>
+<div class="prompt-box">
+<p>Me ajuda a criar o arquivo <code>instrucoes-projeto.md</code>. Ele vai conter minhas instruções permanentes como PM. Me faz as perguntas necessárias pra preencher as seções abaixo, uma de cada vez, e depois gera o arquivo completo na pasta.</p>
+</div>
+<p>O Claude vai te guiar. As seções que o arquivo deve ter:</p>
+<details class="nested">
+<summary>Ver template das 4 seções</summary>
+<pre>## Quem sou eu
 - [Seu nome], PM de produto na ArenaCash
 - Meu squad: [descrever área de atuação]
 - Ferramentas que uso no dia a dia: [ex: Slack, Google Drive, Linear, Jira]
@@ -435,123 +613,111 @@
 - Sempre salve os outputs como arquivos na pasta do projeto
 - Quando mencionar pessoas da empresa, consulte o organograma-arenacash.md
 - Quando criar documentos, siga o padrão visual do design-system-arenacash.md</pre>
-                        </details>
-                        <p>Quando o Claude gerar o arquivo, abra-o no Finder/Explorador e verifique que está em <code>ArenaCash-PM/instrucoes-projeto.md</code>. Se precisar ajustar algum trecho, edite direto no arquivo ou peça ao Claude pra corrigir.</p>
-                      </div>
-                    </div>
-
-                    <div class="ex-closing">
-                      <span class="pa-eyebrow pa-eyebrow--red">P O R &nbsp; Q U E &nbsp; I S S O &nbsp; I M P O R T A</span>
-                      <p>A partir deste momento, toda nova conversa dentro deste projeto começa com o Claude já sabendo <strong>quem você é, em que empresa trabalha, como prefere se comunicar e quais são as regras</strong>. Você não vai repetir esse contexto mais uma vez no dia.</p>
-                    </div>
-
-                    <p class="file-out">📄 <code>instrucoes-projeto.md</code></p>
-                  </div>
-                </details>
-
-                <details class="exercise">
-                  <summary><span class="ex-num">03</span><span class="ex-title">Tom de Voz</span><span class="ex-time">20 min</span></summary>
-                  <div class="ex-body">
-                    <p class="ex-intro"><strong>Por que isso importa:</strong> ao longo do dia, você vai pedir ao Claude pra escrever textos no seu lugar — emails, mensagens pro time, trechos de apresentação. Se o Claude não sabe como você escreve, o resultado vai soar genérico. O <code>tom-de-voz.md</code> resolve isso: você cria uma vez, referencia nas instruções do projeto, e todo texto que o Claude gerar vai soar <strong>como você</strong>.</p>
-                    <p class="ex-subentrega"><strong>Entregável:</strong> arquivo <code>tom-de-voz.md</code> salvo em <code>ArenaCash-PM</code>. Ao final, você vai usar esse arquivo pra gerar uma mensagem real pro seu tech lead — e comparar se ela soa como você.</p>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 1</span>
-                        <span class="step-block-time">10 min</span>
-                        <h4 class="step-block-title">Criar o tom de voz</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <p>Escolha o caminho de acordo com o que você preparou nos pré-requisitos:</p>
-
-                        <div class="path-block path-a">
-                          <div class="path-head"><span class="path-tag">Caminho A · recomendado</span><h4>Extrair do Gmail</h4></div>
-                          <p>Primeiro, conecte sua conta Google ao Cowork:</p>
-                          <ol>
-                            <li>No Claude Desktop, clique em <strong>Settings</strong> (ícone de engrenagem) no menu lateral</li>
-                            <li>Vá em <strong>Connectors</strong></li>
-                            <li>Localize <strong>Gmail</strong> na lista e clique em <strong>Connect</strong></li>
-                            <li>Uma janela do Google vai abrir — faça login e autorize o acesso</li>
-                            <li>Volte ao Cowork. O Gmail agora aparece como connector ativo</li>
-                          </ol>
-                          <p>Pra verificar que funcionou, mande no chat:</p>
-                          <div class="prompt-box">
-                            <div class="prompt-box-head">V E R I F I C A R &nbsp; C O N E X Ã O</div>
-                            <p>Busca meus últimos 3 emails enviados e me mostra o assunto e as primeiras linhas de cada um.</p>
-                          </div>
-                          <p>Agora, pra extrair o tom de voz:</p>
-                          <div class="prompt-box">
-                            <div class="prompt-box-head">E X T R A I R &nbsp; T O M &nbsp; D E &nbsp; V O Z</div>
-                            <p>Acessa meus últimos 20 emails enviados. Analisa como eu escrevo e identifica padrões em: saudação e fechamento, nível de formalidade, tamanho típico dos parágrafos, uso de listas ou texto corrido, expressões que aparecem com frequência e tom geral (direto, empático, técnico, informal…). Com base nisso, gera um arquivo <code>tom-de-voz.md</code> na pasta do projeto documentando meu perfil de comunicação.</p>
-                          </div>
-                        </div>
-
-                        <div class="path-block path-b">
-                          <div class="path-head"><span class="path-tag gray">Caminho B · alternativa</span><h4>Construir manualmente</h4></div>
-                          <p>Use se preferiu não conectar o Gmail. Mande o seguinte prompt:</p>
-                          <div class="prompt-box">
-                            <p>Vou te ajudar a criar meu arquivo <code>tom-de-voz.md</code>. Me faz perguntas sobre como eu me comunico — uma pergunta por vez, espera minha resposta antes de continuar. Quando tiver informação suficiente, gera o arquivo <code>tom-de-voz.md</code> na pasta do projeto com meu perfil documentado.</p>
-                          </div>
-                          <p>O Claude vai conduzir a conversa: vai perguntar sobre saudações, formalidade, tamanho de textos, expressões que você usa, o que evita, como prefere dar feedback. <strong>Responda naturalmente</strong> — é uma conversa, não um formulário. Ao final, ele gera o arquivo com tudo organizado.</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 2</span>
-                        <span class="step-block-time">3 min</span>
-                        <h4 class="step-block-title">Registrar o tom de voz nas instruções do projeto</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <p>Abra o arquivo <code>instrucoes-projeto.md</code> que você criou no Exercício 2 e adicione a seguinte linha na seção <em>"Como eu trabalho"</em>:</p>
-                        <pre class="code-block">- Sempre que for escrever qualquer texto no meu nome — email,
+</details>
+<p>Quando o Claude gerar o arquivo, abra-o no Finder/Explorador e verifique que está em <code>ArenaCash-PM/instrucoes-projeto.md</code>. Se precisar ajustar algum trecho, edite direto no arquivo ou peça ao Claude pra corrigir.</p>
+</div>
+</div>
+<div class="ex-closing">
+<span class="pa-eyebrow pa-eyebrow--red">P O R   Q U E   I S S O   I M P O R T A</span>
+<p>A partir deste momento, toda nova conversa dentro deste projeto começa com o Claude já sabendo <strong>quem você é, em que empresa trabalha, como prefere se comunicar e quais são as regras</strong>. Você não vai repetir esse contexto mais uma vez no dia.</p>
+</div>
+<p class="file-out">📄 <code>instrucoes-projeto.md</code></p>
+</div>
+</details>
+<details class="exercise">
+<summary><span class="ex-num">03</span><span class="ex-title">Tom de Voz</span><span class="ex-time">20 min</span></summary>
+<div class="ex-body">
+<p class="ex-intro"><strong>Por que isso importa:</strong> ao longo do dia, você vai pedir ao Claude pra escrever textos no seu lugar — emails, mensagens pro time, trechos de apresentação. Se o Claude não sabe como você escreve, o resultado vai soar genérico. O <code>tom-de-voz.md</code> resolve isso: você cria uma vez, referencia nas instruções do projeto, e todo texto que o Claude gerar vai soar <strong>como você</strong>.</p>
+<p class="ex-subentrega"><strong>Entregável:</strong> arquivo <code>tom-de-voz.md</code> salvo em <code>ArenaCash-PM</code>. Ao final, você vai usar esse arquivo pra gerar uma mensagem real pro seu tech lead — e comparar se ela soa como você.</p>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">10 min</span>
+<h4 class="step-block-title">Criar o tom de voz</h4>
+</div>
+<div class="step-block-body">
+<p>Escolha o caminho de acordo com o que você preparou nos pré-requisitos:</p>
+<div class="path-block path-a">
+<div class="path-head"><span class="path-tag">Caminho A · recomendado</span><h4>Extrair do Gmail</h4></div>
+<p>Primeiro, conecte sua conta Google ao Cowork:</p>
+<ol>
+<li>No Claude Desktop, clique em <strong>Settings</strong> (ícone de engrenagem) no menu lateral</li>
+<li>Vá em <strong>Connectors</strong></li>
+<li>Localize <strong>Gmail</strong> na lista e clique em <strong>Connect</strong></li>
+<li>Uma janela do Google vai abrir — faça login e autorize o acesso</li>
+<li>Volte ao Cowork. O Gmail agora aparece como connector ativo</li>
+</ol>
+<p>Pra verificar que funcionou, mande no chat:</p>
+<div class="prompt-box">
+<div class="prompt-box-head">V E R I F I C A R   C O N E X Ã O</div>
+<p>Busca meus últimos 3 emails enviados e me mostra o assunto e as primeiras linhas de cada um.</p>
+</div>
+<p>Agora, pra extrair o tom de voz:</p>
+<div class="prompt-box">
+<div class="prompt-box-head">E X T R A I R   T O M   D E   V O Z</div>
+<p>Acessa meus últimos 20 emails enviados. Analisa como eu escrevo e identifica padrões em: saudação e fechamento, nível de formalidade, tamanho típico dos parágrafos, uso de listas ou texto corrido, expressões que aparecem com frequência e tom geral (direto, empático, técnico, informal…). Com base nisso, gera um arquivo <code>tom-de-voz.md</code> na pasta do projeto documentando meu perfil de comunicação.</p>
+</div>
+</div>
+<div class="path-block path-b">
+<div class="path-head"><span class="path-tag gray">Caminho B · alternativa</span><h4>Construir manualmente</h4></div>
+<p>Use se preferiu não conectar o Gmail. Mande o seguinte prompt:</p>
+<div class="prompt-box">
+<p>Vou te ajudar a criar meu arquivo <code>tom-de-voz.md</code>. Me faz perguntas sobre como eu me comunico — uma pergunta por vez, espera minha resposta antes de continuar. Quando tiver informação suficiente, gera o arquivo <code>tom-de-voz.md</code> na pasta do projeto com meu perfil documentado.</p>
+</div>
+<p>O Claude vai conduzir a conversa: vai perguntar sobre saudações, formalidade, tamanho de textos, expressões que você usa, o que evita, como prefere dar feedback. <strong>Responda naturalmente</strong> — é uma conversa, não um formulário. Ao final, ele gera o arquivo com tudo organizado.</p>
+</div>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">3 min</span>
+<h4 class="step-block-title">Registrar o tom de voz nas instruções do projeto</h4>
+</div>
+<div class="step-block-body">
+<p>Abra o arquivo <code>instrucoes-projeto.md</code> que você criou no Exercício 2 e adicione a seguinte linha na seção <em>"Como eu trabalho"</em>:</p>
+<pre class="code-block">- Sempre que for escrever qualquer texto no meu nome — email,
   mensagem, apresentação — leia o arquivo tom-de-voz.md e siga
   esse estilo.</pre>
-                        <p>Ou peça ao Claude:</p>
-                        <div class="prompt-box">
-                          <p>Atualiza o <code>instrucoes-projeto.md</code> pra incluir uma regra dizendo que sempre que for escrever texto no meu nome, deve ler o <code>tom-de-voz.md</code>.</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 3</span>
-                        <span class="step-block-time">7 min</span>
-                        <h4 class="step-block-title">Teste: sua primeira mensagem real</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <p>Agora vamos verificar se o tom de voz funciona. <strong>Você é PM do Squad de Onboarding & Ativação.</strong> Seu tech lead é o <strong>Ricardo Sato</strong>. Há um bug no sistema de ativação atrasando há mais tempo do que você considera aceitável — e você precisa comunicar isso <strong>com clareza, sem soar agressivo, deixando claro o impacto</strong>.</p>
-                        <div class="prompt-box">
-                          <div class="prompt-box-head">M E N S A G E M &nbsp; P R A &nbsp; O &nbsp; R I C A R D O</div>
-                          <p>Lê o <code>organograma-arenacash.md</code> pra entender quem é o Ricardo Sato e qual o contexto do Squad de Onboarding & Ativação. Lê também o <code>tom-de-voz.md</code>. Escreve uma mensagem de Slack pro Ricardo dizendo que estou preocupado com o tempo que o bug no sistema de ativação está levando pra ser resolvido, que isso está impactando a ativação de novos usuários — a meta principal do nosso squad no Q2 — e que preciso entender o status e um prazo realista pra fechamento. Usa meu tom de voz.</p>
-                        </div>
-                        <p>Leia a mensagem gerada. <strong>Ela soa como você escreveria?</strong> Se não, ajuste o <code>tom-de-voz.md</code> e peça pra regerar. Esse ciclo de <em>calibrar → testar → ajustar</em> é exatamente como o arquivo deve evoluir com o tempo.</p>
-                      </div>
-                    </div>
-
-                    <p class="file-out">📄 <code>tom-de-voz.md</code> · atualização em <code>instrucoes-projeto.md</code></p>
-                  </div>
-                </details>
-              </section>
-            </article>
-
-            <!-- BLOCO 3 -->
-            <article class="block" id="bloco-3">
-              <header class="block-head">
-                <span class="block-pill">B L O C O &nbsp; 0 3 &nbsp; · &nbsp; 10:55–11:40</span>
-                <h2>MCP e Conexões</h2>
-                <p class="block-quote">"O Claude sozinho é bom. Plugado nas suas ferramentas, é <strong class="shout">transformador</strong>."</p>
-                <p class="block-obj"><strong>Objetivo:</strong> Entender MCP, conectar o Google Drive ao Cowork, explorar os arquivos da ArenaCash de dentro do Drive, cruzar esses dados com o cenário atual de fintechs buscado na internet, e gerar um Google Doc automaticamente com a análise produzida.</p>
-              </header>
-
-              <section class="concept">
-                <h3>O que é MCP e como funciona <span class="mins">8 min</span></h3>
-                <p>Nos blocos anteriores, você conectou o Gmail e o Claude buscou emails direto da sua caixa. Isso não foi mágica — foi <strong>MCP funcionando</strong>. Agora vamos entender o mecanismo.</p>
-                <p><strong>MCP = Model Context Protocol.</strong> O Claude, por padrão, é um cérebro isolado: sabe muita coisa, mas não enxerga o que está fora da conversa. O MCP é o protocolo que abre canais entre o Claude e o mundo externo — suas ferramentas, seus dados, seus sistemas.</p>
-
-                <pre class="flow">Você pede: "Busca no meu Drive os arquivos da ArenaCash"
+<p>Ou peça ao Claude:</p>
+<div class="prompt-box">
+<p>Atualiza o <code>instrucoes-projeto.md</code> pra incluir uma regra dizendo que sempre que for escrever texto no meu nome, deve ler o <code>tom-de-voz.md</code>.</p>
+</div>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 3</span>
+<span class="step-block-time">7 min</span>
+<h4 class="step-block-title">Teste: sua primeira mensagem real</h4>
+</div>
+<div class="step-block-body">
+<p>Agora vamos verificar se o tom de voz funciona. <strong>Você é PM do Squad de Onboarding &amp; Ativação.</strong> Seu tech lead é o <strong>Ricardo Sato</strong>. Há um bug no sistema de ativação atrasando há mais tempo do que você considera aceitável — e você precisa comunicar isso <strong>com clareza, sem soar agressivo, deixando claro o impacto</strong>.</p>
+<div class="prompt-box">
+<div class="prompt-box-head">M E N S A G E M   P R A   O   R I C A R D O</div>
+<p>Lê o <code>organograma-arenacash.md</code> pra entender quem é o Ricardo Sato e qual o contexto do Squad de Onboarding &amp; Ativação. Lê também o <code>tom-de-voz.md</code>. Escreve uma mensagem de Slack pro Ricardo dizendo que estou preocupado com o tempo que o bug no sistema de ativação está levando pra ser resolvido, que isso está impactando a ativação de novos usuários — a meta principal do nosso squad no Q2 — e que preciso entender o status e um prazo realista pra fechamento. Usa meu tom de voz.</p>
+</div>
+<p>Leia a mensagem gerada. <strong>Ela soa como você escreveria?</strong> Se não, ajuste o <code>tom-de-voz.md</code> e peça pra regerar. Esse ciclo de <em>calibrar → testar → ajustar</em> é exatamente como o arquivo deve evoluir com o tempo.</p>
+</div>
+</div>
+<p class="file-out">📄 <code>tom-de-voz.md</code> · atualização em <code>instrucoes-projeto.md</code></p>
+</div>
+</details>
+</section>
+</article>
+<!-- BLOCO 3 -->
+<article class="block" id="bloco-3">
+<header class="block-head">
+<span class="block-pill">B L O C O   0 3   ·   10:55–11:40</span>
+<h2>MCP e Conexões</h2>
+<p class="block-quote">"O Claude sozinho é bom. Plugado nas suas ferramentas, é <strong class="shout">transformador</strong>."</p>
+<p class="block-obj"><strong>Objetivo:</strong> Entender MCP, conectar o Google Drive ao Cowork, explorar os arquivos da ArenaCash de dentro do Drive, cruzar esses dados com o cenário atual de fintechs buscado na internet, e gerar um Google Doc automaticamente com a análise produzida.</p>
+</header>
+<section class="concept">
+<h3>O que é MCP e como funciona <span class="mins">8 min</span></h3>
+<p>Nos blocos anteriores, você conectou o Gmail e o Claude buscou emails direto da sua caixa. Isso não foi mágica — foi <strong>MCP funcionando</strong>. Agora vamos entender o mecanismo.</p>
+<p><strong>MCP = Model Context Protocol.</strong> O Claude, por padrão, é um cérebro isolado: sabe muita coisa, mas não enxerga o que está fora da conversa. O MCP é o protocolo que abre canais entre o Claude e o mundo externo — suas ferramentas, seus dados, seus sistemas.</p>
+<pre class="flow">Você pede: "Busca no meu Drive os arquivos da ArenaCash"
     ↓
 Claude entende o que você quer
     ↓
@@ -562,948 +728,654 @@ Connector autentica com sua conta Google (OAuth — você autoriza 1 vez)
 Connector acessa o Drive, localiza os arquivos e devolve para o Claude
     ↓
 Claude lê, analisa e entrega o resultado para você</pre>
-
-                <p>O Claude nunca acessa suas ferramentas diretamente — ele sempre passa pelo <strong>Connector</strong>, que é um intermediário seguro. Você controla quais permissões cada Connector tem, e ações destrutivas (deletar, enviar mensagens, modificar permissões) <strong>sempre pedem confirmação</strong> antes de executar.</p>
-
-                <h4 class="concept-sub">O ecossistema de Connectors hoje</h4>
-                <ul class="mcp-highlights">
-                  <li>Mais de <strong class="shout">50 connectors</strong> nativos (Google Drive, Gmail, Slack, Notion, Jira, Linear, Figma, Salesforce, HubSpot…)</li>
-                  <li>Qualquer empresa pode criar o próprio connector — o protocolo é <strong>aberto</strong></li>
-                  <li>Você já usou MCP quando conectou o Gmail no Bloco 2. O Drive é o <strong>segundo connector</strong> do dia</li>
-                </ul>
-
-                <div class="two-col">
-                  <div class="pill-card green"><h4>O que fazem</h4><p>Ler e listar dados · criar rascunhos e documentos · buscar e filtrar conteúdo</p></div>
-                  <div class="pill-card red"><h4>O que NÃO fazem sem confirmação</h4><p>Enviar emails · postar mensagens · deletar arquivos · modificar permissões</p></div>
-                </div>
-              </section>
-
-              <section class="exercises">
-                <h3>Exercícios</h3>
-
-                <details class="exercise">
-                  <summary><span class="ex-num">04</span><span class="ex-title">Conectar o Google Drive e explorar os arquivos</span><span class="ex-time">10 min</span></summary>
-                  <div class="ex-body">
-                    <p class="ex-intro"><strong>Entregável:</strong> Google Drive conectado ao Cowork e um resumo dos arquivos da ArenaCash lido direto de lá — mostrando que o Claude enxerga o mesmo conteúdo que existe no seu computador, mas <strong>acessado via nuvem</strong>.</p>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 1</span>
-                        <span class="step-block-time">3 min</span>
-                        <h4 class="step-block-title">Conectar o Google Drive</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <ol>
-                          <li>No Claude Desktop, clique em <strong>Settings</strong> no menu lateral</li>
-                          <li>Vá em <strong>Connectors</strong></li>
-                          <li>Localize <strong>Google Drive</strong> e clique em <strong>Connect</strong></li>
-                          <li>Uma janela do Google vai abrir — faça login com a mesma conta onde estão os arquivos da ArenaCash e autorize o acesso</li>
-                          <li>O Google Drive aparece agora como connector ativo no painel</li>
-                        </ol>
-                      </div>
-                    </div>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 2</span>
-                        <span class="step-block-time">3 min</span>
-                        <h4 class="step-block-title">Verificar que o Claude enxerga os arquivos</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <p>Antes de avançar, vamos confirmar que a conexão funcionou:</p>
-                        <div class="prompt-box">
-                          <p>Acessa meu Google Drive e lista os arquivos da pasta <code>ArenaCash-PM</code>. Me diz o nome de cada arquivo e o tipo de conteúdo que ele tem.</p>
-                        </div>
-                        <p><strong>Observe:</strong> o Claude navegou pelo Drive, encontrou a pasta e listou os arquivos — <em>os mesmos que estão no seu computador</em>. Isso acontece porque você fez upload da pasta antes do curso, ou porque seu computador sincroniza via Google Drive for Desktop. Dois caminhos, mesmo resultado.</p>
-                      </div>
-                    </div>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 3</span>
-                        <span class="step-block-time">4 min</span>
-                        <h4 class="step-block-title">Primeira leitura via Drive</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <p>Agora peça pro Claude ler os documentos direto do Drive e gerar um resumo executivo:</p>
-                        <div class="prompt-box">
-                          <p>Lê o <code>memo-estrategico-q2.md</code> e o <code>organograma-arenacash.md</code> que estão no meu Google Drive, na pasta <code>ArenaCash-PM</code>. Com base nesses dois arquivos, me faz um resumo de no máximo meia página com: qual é o momento da ArenaCash, quais são as prioridades do Q2 e quem são os líderes-chave que preciso conhecer.</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="ex-closing">
-                      <span class="pa-eyebrow pa-eyebrow--red">O &nbsp; Q U E &nbsp; F I X A R</span>
-                      <p>Você não abriu o Drive, não copiou nenhum texto, não fez download de nada. O Claude <strong>leu, processou e entregou</strong> — a partir de uma conversa em linguagem natural. Esse é o modelo de trabalho com connectors.</p>
-                    </div>
-                  </div>
-                </details>
-
-                <details class="exercise">
-                  <summary><span class="ex-num">05</span><span class="ex-title">Análise cruzada: dados internos + cenário de fintechs</span><span class="ex-time">18 min</span></summary>
-                  <div class="ex-body">
-                    <p class="ex-intro"><strong>Entregável:</strong> arquivo <code>analise-estrategica-q2.md</code> com uma análise que cruza os <strong>dados internos</strong> da ArenaCash com o <strong>cenário competitivo atual</strong> de fintechs, incluindo <strong>5 iniciativas priorizadas</strong> para o Q2.</p>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 1</span>
-                        <span class="step-block-time">5 min</span>
-                        <h4 class="step-block-title">Ler os dados internos do Drive</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <div class="prompt-box">
-                          <div class="prompt-box-head">D I A G N Ó S T I C O &nbsp; I N T E R N O</div>
-                          <p>Acessa meu Google Drive, pasta <code>ArenaCash-PM</code>. Lê os arquivos <code>dados-quarter-q1.csv</code>, <code>financeiro-q1.xlsx</code> e <code>atendimento-q1.csv</code>. Cruza as informações e me diz:</p>
-                          <ol>
-                            <li>Estado geral da ArenaCash no Q1 — o que foi bem, o que foi mal, o que mais preocupa</li>
-                            <li>Os 3 maiores problemas que precisam de atenção no Q2</li>
-                            <li>As maiores oportunidades de impacto</li>
-                          </ol>
-                          <p>Compara com as metas do <code>memo-estrategico-q2.md</code>.</p>
-                        </div>
-                        <p><strong>Observe:</strong> o Claude leu <strong>quatro arquivos</strong> de fontes diferentes (CSV, Excel, Markdown) via Drive e cruzou os dados. Guarde este diagnóstico — o próximo passo vai contextualizá-lo no mercado.</p>
-                      </div>
-                    </div>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 2</span>
-                        <span class="step-block-time">8 min</span>
-                        <h4 class="step-block-title">Pesquisar o cenário de fintechs na internet</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <p>Agora o Claude vai buscar <strong>contexto externo</strong> pra enriquecer a análise:</p>
-                        <div class="prompt-box">
-                          <div class="prompt-box-head">P E S Q U I S A &nbsp; D E &nbsp; M E R C A D O</div>
-                          <p>Pesquisa na internet o cenário atual de fintechs de investimento no Brasil: principais tendências de 2025 e 2026, comportamento dos usuários, o que está crescendo, o que está perdendo força e quais são os principais desafios de ativação e retenção nesse segmento. Usa fontes confiáveis — relatórios de mercado, cobertura de imprensa especializada, dados públicos.</p>
-                        </div>
-                        <p><strong>Observe:</strong> o Claude saiu do Drive, foi pra internet, buscou e sumarizou fontes externas. Isso é o MCP em <strong>dois modos diferentes</strong> — dados privados (Drive) e dados públicos (web) — na mesma sessão.</p>
-                      </div>
-                    </div>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 3</span>
-                        <span class="step-block-time">5 min</span>
-                        <h4 class="step-block-title">Cruzar e gerar a análise completa</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <div class="prompt-box">
-                          <div class="prompt-box-head">C R U Z A M E N T O &nbsp; +  &nbsp; R I C E</div>
-                          <p>Agora cruza os dois lados: o que você encontrou nos dados internos da ArenaCash com o que você pesquisou sobre o mercado de fintechs. Com base nisso, propõe 5 iniciativas pro Q2 que enderecem os problemas identificados e estejam alinhadas com as tendências de mercado. Pra cada iniciativa, inclui: descrição em uma linha, por que faz sentido agora (dado interno + contexto de mercado), e estimativa de Reach, Impact, Confidence e Effort (framework RICE). Ranqueie da mais impactante pra menos e salva tudo no arquivo <code>analise-estrategica-q2.md</code>.</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <p class="file-out">📄 <code>03-conexoes/analise-estrategica-q2.md</code></p>
-                  </div>
-                </details>
-
-                <details class="exercise">
-                  <summary><span class="ex-num">06</span><span class="ex-title">Gerar um Google Doc automaticamente</span><span class="ex-time">10 min</span></summary>
-                  <div class="ex-body">
-                    <p class="ex-intro"><strong>Entregável:</strong> um Google Doc criado direto no seu Drive com a análise estratégica — <strong>sem copiar e colar nada</strong>, gerado pelo Claude via connector.</p>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 1</span>
-                        <span class="step-block-time">7 min</span>
-                        <h4 class="step-block-title">Criar o documento no Drive</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <div class="prompt-box">
-                          <p>Pega o conteúdo do arquivo <code>analise-estrategica-q2.md</code> e cria um Google Doc no meu Drive com esse conteúdo. Nomeia o documento <strong>"Análise Estratégica ArenaCash — Q2"</strong>. Organiza com títulos e subtítulos claros, e inclui uma capa com o nome do documento, a data de hoje e meu nome.</p>
-                        </div>
-                        <p><strong>Observe:</strong> o Claude pegou um arquivo local, acessou o Drive via connector e criou um <strong>documento Google nativo</strong> — formatado, nomeado e pronto pra compartilhar com outras pessoas da empresa.</p>
-                      </div>
-                    </div>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 2</span>
-                        <span class="step-block-time">3 min</span>
-                        <h4 class="step-block-title">Verificar e compartilhar</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <p>Abra o Google Drive no navegador e confirme que o documento apareceu. Clique no Doc e veja a formatação.</p>
-                        <p>Pra testar o ciclo completo, peça:</p>
-                        <div class="prompt-box">
-                          <p>Compartilha o documento <strong>"Análise Estratégica ArenaCash — Q2"</strong> com <code>[email de um colega]</code> como visualizador.</p>
-                        </div>
-                        <p><strong>Observe:</strong> o Claude executou uma <em>ação</em> no Google Drive — não só leu, mas <strong class="shout">agiu</strong>. Criou um documento e compartilhou. Esse é o nível de automação que os connectors permitem.</p>
-                      </div>
-                    </div>
-
-                    <div class="ex-closing">
-                      <span class="pa-eyebrow pa-eyebrow--red">O &nbsp; Q U E &nbsp; F I X A R &nbsp; N E S T E &nbsp; B L O C O</span>
-                      <p>Você conectou <strong>duas fontes externas</strong> (Drive e internet), cruzou dados privados com contexto público, e o resultado saiu como um documento colaborativo no Google Drive — <strong>sem sair do Cowork</strong>. O próximo bloco vai usar essa análise pra construir skills e validar a iniciativa com os C-levels.</p>
-                    </div>
-                  </div>
-                </details>
-
-                <details class="exercise">
-                  <summary><span class="ex-num">07</span><span class="ex-title">Tarefa agendada: briefing diário de mercado</span><span class="ex-time">9 min</span></summary>
-                  <div class="ex-body">
-                    <p class="ex-intro">Tudo o que você fez agora — pesquisar notícias, cruzar com contexto, gerar um documento no Drive — pode rodar sozinho, <strong>todo dia, sem você precisar pedir</strong>. Vamos criar essa automação.</p>
-                    <p class="ex-subentrega"><strong>Entregável:</strong> uma tarefa agendada ativa que, toda manhã às 9h, busca as principais notícias de economia e mercado, monta um slide de 1 página em PowerPoint com o resumo e salva no Google Drive.</p>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 1</span>
-                        <span class="step-block-time">5 min</span>
-                        <h4 class="step-block-title">Criar a tarefa agendada</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <div class="prompt-box">
-                          <div class="prompt-box-head">B R I E F I N G &nbsp; D I Á R I O &nbsp; · &nbsp; 9 H</div>
-                          <p>Cria uma tarefa agendada chamada <strong>"Briefing diário de mercado"</strong>. Todo dia às 9h da manhã, ela deve:</p>
-                          <ol>
-                            <li>Pesquisar na internet as principais notícias de economia e mercado financeiro do dia anterior — foco em fintechs, juros, regulação financeira e comportamento do consumidor</li>
-                            <li>Selecionar as 3 a 5 notícias mais relevantes pra um PM de fintech</li>
-                            <li>Criar um arquivo PowerPoint de 1 página com: título "Briefing de Mercado — [data]", os destaques em bullets curtos e uma linha de "impacto pra ArenaCash" ao final</li>
-                            <li>Salvar o arquivo no meu Google Drive com o nome <code>briefing-mercado-[data].pptx</code></li>
-                          </ol>
-                        </div>
-                        <p><strong>Observe:</strong> o Cowork cria a tarefa, exibe a frequência configurada (diária, 9h) e o fluxo de execução. Você pode ver em <strong>Tasks → Scheduled</strong> no menu lateral.</p>
-                      </div>
-                    </div>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 2</span>
-                        <span class="step-block-time">3 min</span>
-                        <h4 class="step-block-title">Testar agora</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <p>Não espere até amanhã — clique em <strong>"Run Now"</strong> na tarefa recém-criada pra executá-la imediatamente.</p>
-                        <p>Após a execução, abra o Google Drive e confirme que o arquivo <code>briefing-mercado-[data].pptx</code> apareceu. Abra o PowerPoint e avalie: as notícias fazem sentido? O formato está como esperava? Se quiser ajustar — foco das notícias, layout, critério de seleção — edite o prompt da tarefa e rode novamente.</p>
-                      </div>
-                    </div>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 3</span>
-                        <span class="step-block-time">1 min</span>
-                        <h4 class="step-block-title">Boas práticas rápidas</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <ul class="best-practices">
-                          <li>Sempre teste com <strong>Run Now</strong> antes de confiar no agendamento automático</li>
-                          <li>Tarefas que enviam mensagens ou emails pedem confirmação sua antes de executar</li>
-                          <li>Revise as tarefas agendadas mensalmente — tarefa abandonada consome tokens sem entregar valor</li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div class="ex-closing">
-                      <span class="pa-eyebrow pa-eyebrow--red">O &nbsp; Q U E &nbsp; F I X A R</span>
-                      <p>Você acabou de montar um <strong>assistente que trabalha enquanto você dorme</strong>. Toda manhã, antes do café, o briefing de mercado já está no Drive — sem nenhuma ação sua. Isso é automação real com <strong class="shout">MCP + connectors funcionando juntos</strong>.</p>
-                    </div>
-                  </div>
-                </details>
-              </section>
-            </article>
-
-            <!-- BLOCO 4 -->
-            <article class="block" id="bloco-4">
-              <header class="block-head">
-                <span class="block-pill">B L O C O &nbsp; 0 4 &nbsp; · &nbsp; 11:40–12:30</span>
-                <h2>Skills, Validação e Apresentação</h2>
-                <p class="block-quote">"Skill é o que <strong class="shout">separa</strong> o Claude genérico do Claude que trabalha do jeito que você precisa."</p>
-                <p class="block-obj"><strong>Objetivo:</strong> Entender o que são skills e por que elas existem, criar o Thinking Partner pra validar a iniciativa prioritária gerada no Bloco 3, e construir a skill de apresentação pra chegar no almoço com um PPT pronto pra apresentar à diretoria.</p>
-              </header>
-
-              <section class="concept">
-                <h3>O que são skills e por que um PM precisa delas <span class="mins">10 min</span></h3>
-                <p>O Claude, sem instrução específica, entrega resultado genérico. Com uma skill bem escrita, ele entrega resultado <strong>profissional</strong> — no padrão certo, na estrutura certa, com o nível de qualidade que você precisaria pedir dezenas de vezes pra chegar manualmente.</p>
-
-                <h4 class="concept-sub">Pra um PM, isso importa especialmente em 2 momentos</h4>
-                <div class="grid-2">
-                  <div class="concept-card">
-                    <h4>🎯 Validação de iniciativas</h4>
-                    <p>O dia a dia é cheio de ideias que precisam ser testadas contra a realidade da empresa antes de avançar. Quanto mais rápido você simula esse teste — com os stakeholders certos, na perspectiva certa — menos tempo gasta defendendo a ideia errada. Uma skill de validação faz isso em minutos.</p>
-                  </div>
-                  <div class="concept-card">
-                    <h4>📣 Comunicação recorrente</h4>
-                    <p>PPTs pra diretoria, relatórios de quarter, briefings de sprint — documentos que seguem sempre o mesmo padrão. Uma skill aprende esse padrão uma vez e aplica em todo output, sem você re-explicar template, tom de voz ou nível de detalhe.</p>
-                  </div>
-                </div>
-
-                <h4 class="concept-sub">Os 3 tipos de skill</h4>
-                <div class="grid-3">
-                  <div class="concept-card"><h4>Nativas</h4><p>Já vêm com o Claude e rodam automaticamente: <code>pptx</code>, <code>xlsx</code>, <code>docx</code>, <code>pdf</code>. Você já usou sem perceber.</p></div>
-                  <div class="concept-card"><h4>Comunidade</h4><p>Criadas e compartilhadas por outros usuários. Ponto de partida: <code>github.com/BehiSecc/awesome-claude-skills</code>.</p></div>
-                  <div class="concept-card highlight"><h4>Customizadas</h4><p>As suas. Quando o padrão genérico não serve: template da empresa, processo específico, output só no seu contexto.</p></div>
-                </div>
-
-                <p class="tip" style="margin-top: var(--s-5);">⚖️ <strong>Quando criar vs. instalar:</strong> se já existe uma skill boa, instale e adapte. Crie do zero quando: você repete a mesma tarefa <strong>3+ vezes</strong>, o output precisa seguir padrão da empresa, ou a qualidade genérica não é suficiente.</p>
-
-                <h4 class="concept-sub">Como uma skill funciona por dentro</h4>
-                <p>É um arquivo markdown (<code>.md</code>) salvo em <code>.claude/skills/nome-da-skill/SKILL.md</code>. Contém:</p>
-                <ul class="mcp-highlights">
-                  <li><strong>Trigger</strong> — quando a skill deve ser acionada</li>
-                  <li><strong>Fluxo</strong> — o que ela deve fazer passo a passo</li>
-                  <li><strong>Output</strong> — qual é o resultado esperado</li>
-                  <li><strong>Regras</strong> — o que nunca pode ser quebrado</li>
-                </ul>
-                <p>O Claude lê esse arquivo e segue as instruções como se fossem um <strong>briefing permanente</strong>.</p>
-                <p class="tip">🎬 <strong>Demo ao vivo:</strong> instrutor mostra o mesmo pedido feito <em>sem skill</em> e <em>com skill</em> — a diferença de qualidade, estrutura e consistência. "Você não vai querer voltar pro genérico."</p>
-              </section>
-
-              <section class="exercises">
-                <h3>Exercícios</h3>
-
-                <details class="exercise">
-                  <summary><span class="ex-num">08</span><span class="ex-title">Criando e usando o Thinking Partner</span><span class="ex-time">20 min</span></summary>
-                  <div class="ex-body">
-                    <p class="ex-intro">O Bloco 3 gerou 5 iniciativas ranqueadas por RICE e contextualizadas no mercado. <strong>Antes de apostar o quarter em uma delas</strong>, você precisa testá-las contra as prioridades reais de quem vai aprovar o orçamento e o roadmap. É aí que entra o Thinking Partner.</p>
-                    <p class="ex-subentrega"><strong>Entregável:</strong> skill <code>thinking-partner</code> instalada no projeto + decisão documentada com a iniciativa #1 escolhida e validada pelos C-levels.</p>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 1</span>
-                        <span class="step-block-time">10 min</span>
-                        <h4 class="step-block-title">Criar a skill Thinking Partner</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <div class="prompt-box">
-                          <div class="prompt-box-head">C R I A R &nbsp; S K I L L &nbsp; <code>thinking-partner</code></div>
-                          <p>Cria uma skill chamada <code>thinking-partner</code> com as seguintes especificações:</p>
-                          <ul>
-                            <li><strong>Trigger:</strong> sempre que eu pedir pra discutir, avaliar ou validar uma decisão, iniciativa ou priorização</li>
-                            <li><strong>O que faz:</strong> lê <code>organograma-arenacash.md</code>, <code>transcricao-cfo.md</code>, <code>transcricao-cmo.md</code> e <code>transcricao-cto.md</code>. Com base nisso, cria 3 personas — <strong>Juliana (CFO)</strong>, <strong>Beatriz (CMO)</strong> e <strong>Diego (CTO)</strong> — cada uma com perfil de preocupações, prioridades e estilo de comunicação extraídos das transcrições reais. Quando eu apresentar uma iniciativa, cada persona se posiciona: apoia, questiona ou rejeita — com os argumentos que aquele C-level usaria de verdade.</li>
-                            <li><strong>Output:</strong> perspectiva de cada C-level → síntese de onde há consenso e onde há conflito → pontos de atenção que o PM deve endereçar antes de apresentar</li>
-                            <li><strong>Regras:</strong> nunca inventar posições que não estejam nas transcrições; sempre citar o argumento específico do C-level; se não houver dado suficiente, sinalizar em vez de inventar</li>
-                          </ul>
-                        </div>
-                        <p><strong>Observe:</strong> o Claude criou a pasta <code>.claude/skills/thinking-partner/</code> com o arquivo <code>SKILL.md</code> dentro. Abra o arquivo e leia — você vai ver as instruções que acabou de ditar transformadas em um briefing estruturado. <strong class="shout">Essa é a anatomia de uma skill.</strong></p>
-                        <p class="file-out">📄 <code>.claude/skills/thinking-partner/SKILL.md</code></p>
-                      </div>
-                    </div>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 2</span>
-                        <span class="step-block-time">7 min</span>
-                        <h4 class="step-block-title">Validar as iniciativas com os C-levels</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <p>Agora use a skill que acabou de criar. Copie a lista de iniciativas que veio do Bloco 3 e mande:</p>
-                        <div class="prompt-box">
-                          <p>Usa a skill <code>thinking-partner</code>. Apresento as 5 iniciativas priorizadas que geramos pro Q2 da ArenaCash: <code>[cole aqui a lista do arquivo analise-estrategica-q2.md]</code>. Quero ouvir a Juliana, a Beatriz e o Diego sobre cada uma: quem apoia qual, onde há conflito de prioridade entre eles, e qual iniciativa teria mais chance de aprovação da diretoria hoje.</p>
-                        </div>
-                        <p><strong>Observe:</strong> o Claude lê as transcrições, monta as 3 personas e conduz um debate entre elas baseado nos dados reais. <em>Você não está inventando o que os C-levels pensariam — está simulando com o que eles já disseram.</em></p>
-                      </div>
-                    </div>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 3</span>
-                        <span class="step-block-time">3 min</span>
-                        <h4 class="step-block-title">Escolher a iniciativa #1</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <p>Leia a síntese do Thinking Partner e tome sua decisão. Em seguida, documente:</p>
-                        <div class="prompt-box">
-                          <p>Com base no debate do Thinking Partner, escolhi a iniciativa <code>[nome]</code>. Cria um arquivo <code>04-skills/decisao-iniciativa.md</code> com: qual iniciativa foi escolhida, os principais argumentos de cada C-level que influenciaram a decisão, e as objeções que precisarei endereçar na apresentação.</p>
-                        </div>
-                        <p>Essa decisão vai alimentar o próximo exercício — a apresentação que você vai levar pra diretoria.</p>
-                        <p class="file-out">📄 <code>04-skills/decisao-iniciativa.md</code></p>
-                      </div>
-                    </div>
-                  </div>
-                </details>
-
-                <details class="exercise">
-                  <summary><span class="ex-num">09</span><span class="ex-title">Skill de Apresentação + PPT para a diretoria</span><span class="ex-time">20 min</span></summary>
-                  <div class="ex-body">
-                    <p class="ex-intro">Com a iniciativa escolhida e validada, é hora de montar o <strong>argumento visual</strong>. Vamos criar uma skill que conhece o seu tom de voz, o template da ArenaCash e o design system — e gera o PPT já no padrão certo, <strong>sem você ajustar cor por cor ou slide por slide</strong>.</p>
-                    <p class="ex-subentrega"><strong>Entregável:</strong> arquivo <code>apresentacao-iniciativa.pptx</code> pronto pra apresentar à diretoria — com identidade visual correta, escrito no seu tom de voz, e conteúdo já aprovado pelo Thinking Partner.</p>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 1</span>
-                        <span class="step-block-time">8 min</span>
-                        <h4 class="step-block-title">Criar a skill de apresentação</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <div class="prompt-box">
-                          <div class="prompt-box-head">C R I A R &nbsp; S K I L L &nbsp; <code>arena-presentation</code></div>
-                          <p>Cria uma skill chamada <code>arena-presentation</code> com as seguintes especificações:</p>
-                          <ul>
-                            <li><strong>Trigger:</strong> sempre que eu pedir pra criar uma apresentação ou deck</li>
-                            <li><strong>O que faz:</strong> antes de escrever qualquer slide, lê 3 arquivos — <code>tom-de-voz.md</code> (como eu escrevo), <code>template-apresentacao.pptx</code> (estrutura e estilo visual) e <code>design-system-arenacash.md</code> (cores, fontes, componentes). Com esse contexto, estrutura o conteúdo em slides lógicos pro público especificado.</li>
-                            <li><strong>Output:</strong> arquivo <code>.pptx</code> salvo na pasta do projeto</li>
-                            <li><strong>Regras:</strong> máximo 5 bullets por slide; títulos curtos e diretos, sem verbos no infinitivo; sempre incluir slide de agenda no início e slide de "próximos passos" no final; nunca usar fonte ou cor fora do design system</li>
-                          </ul>
-                        </div>
-                        <p><strong>Observe:</strong> a skill reúne <strong class="shout">3 artefatos</strong> que você criou ao longo do dia (tom de voz, template, design system) e os aplica automaticamente em todo PPT que pedir daqui pra frente. <em>Você criou isso uma vez — vai usar pra sempre.</em></p>
-                        <p class="file-out">📄 <code>.claude/skills/arena-presentation/SKILL.md</code></p>
-                      </div>
-                    </div>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 2</span>
-                        <span class="step-block-time">7 min</span>
-                        <h4 class="step-block-title">Gerar o PPT da iniciativa</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <div class="prompt-box">
-                          <p>Usa a skill <code>arena-presentation</code>. Cria uma apresentação de <strong>8 slides</strong> sobre a iniciativa <code>[nome da iniciativa escolhida no Passo 3 do Exercício 8]</code>. O público é a diretoria da ArenaCash — <strong>Paulo (CPO), Juliana (CFO), Beatriz (CMO) e Diego (CTO)</strong>. A apresentação deve incluir:</p>
-                          <ul>
-                            <li>Contexto do quarter e por que essa iniciativa é prioritária agora</li>
-                            <li>Problema que ela resolve com dados do Q1</li>
-                            <li>Solução proposta</li>
-                            <li>RICE score com justificativa</li>
-                            <li>Roadmap de 3 meses</li>
-                            <li>Riscos e como mitigá-los</li>
-                            <li>Ask pra liderança — o que você precisa deles pra avançar</li>
-                          </ul>
-                          <p>Salva como <code>04-skills/apresentacao-iniciativa.pptx</code>.</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="step-block">
-                      <div class="step-block-head">
-                        <span class="step-block-num">Passo 3</span>
-                        <span class="step-block-time">5 min</span>
-                        <h4 class="step-block-title">Revisão final com o Thinking Partner</h4>
-                      </div>
-                      <div class="step-block-body">
-                        <p>Antes de dar o PPT como pronto, <strong>submeta ao mesmo comitê que validou a iniciativa</strong>:</p>
-                        <div class="prompt-box">
-                          <p>Usa a skill <code>thinking-partner</code>. Lê o arquivo <code>04-skills/apresentacao-iniciativa.pptx</code>. Quero que a Juliana, a Beatriz e o Diego reajam à apresentação como se fosse a reunião de diretoria real: o que cada um compraria sem questionamento, o que cada um questionaria, e o que está faltando pra convencer quem está mais cético.</p>
-                        </div>
-                        <p>Ajuste os slides com base no feedback. <strong>O critério não é perfeição</strong> — é: os argumentos do C-level mais cético estão endereçados na apresentação?</p>
-                        <p class="file-out">📄 <code>04-skills/apresentacao-iniciativa.pptx</code></p>
-                      </div>
-                    </div>
-                  </div>
-                </details>
-              </section>
-
-              <!-- Destaque de fim de manhã — o que você já tem -->
-              <section class="milestone">
-                <span class="milestone-eyebrow">🏆 &nbsp; M A R C O &nbsp; D E &nbsp; F I M &nbsp; D E &nbsp; M A N H Ã</span>
-                <h3 class="milestone-title">Você chegou no almoço com uma iniciativa priorizada e <span class="milestone-accent">100% alinhada</span> com o que a diretoria quer.</h3>
-                <p class="milestone-sub">Em 2h45 você saiu de "primeiro dia na empresa" pra "apresentação validada pelos C-levels pronta pra diretoria". Isso normalmente leva semanas.</p>
-
-                <div class="milestone-grid">
-                  <div class="milestone-col">
-                    <span class="milestone-col-label">O &nbsp; Q U E &nbsp; V O C Ê &nbsp; T E M &nbsp; E M &nbsp; M Ã O S</span>
-                    <ul class="milestone-list">
-                      <li><strong>Projeto configurado</strong> no Cowork com a pasta <code>ArenaCash-PM</code> conectada</li>
-                      <li><strong>Instruções personalizadas</strong> que referenciam organograma e memo</li>
-                      <li><strong>Tom de voz documentado</strong> e calibrado com mensagem real testada</li>
-                      <li><strong>Gmail e Google Drive conectados</strong> via MCP</li>
-                      <li><strong>Análise estratégica completa</strong> cruzando dados internos + mercado</li>
-                      <li><strong>5 iniciativas ranqueadas</strong> por RICE salvas como Google Doc compartilhável</li>
-                      <li><strong>Briefing diário automatizado</strong> rodando às 9h todo dia</li>
-                      <li><strong>1 iniciativa escolhida</strong> e validada pelos C-levels via Thinking Partner</li>
-                      <li><strong>PPT no padrão da empresa</strong> com o seu tom de voz, pronto pra diretoria</li>
-                    </ul>
-                  </div>
-                  <div class="milestone-col">
-                    <span class="milestone-col-label">O &nbsp; F E R R A M E N T A L &nbsp; P R A &nbsp; R E P E T I R</span>
-                    <ul class="milestone-list">
-                      <li><strong>Skill <code>thinking-partner</code></strong> — valida qualquer decisão com os C-levels da ArenaCash em minutos</li>
-                      <li><strong>Skill <code>arena-presentation</code></strong> — gera qualquer PPT da ArenaCash no padrão, tom e identidade corretos</li>
-                      <li><strong>Auto memory</strong> do projeto — o Claude aprendeu suas preferências ao longo da manhã</li>
-                      <li><strong>Tarefa agendada</strong> — trabalho recorrente rodando sozinho no fundo</li>
-                      <li><strong>Fluxo de validação</strong> — dados → cruzamento com mercado → RICE → Thinking Partner → PPT</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div class="milestone-stamp">
-                  <p>Isso não é um <em>demo</em>. É o que você vai levar pro seu trabalho real na segunda-feira. <strong>E cada skill criada hoje funciona pra sempre</strong> — na próxima iniciativa, no próximo quarter, no próximo PPT.</p>
-                  <p class="milestone-signoff">Bom almoço. À tarde a gente tira essa iniciativa do papel e coloca no ar. <strong class="shout">Vamos juntos? 🤓</strong></p>
-                </div>
-              </section>
-            </article>
-
-            <div class="break-card">🍽️ &nbsp; A L M O Ç O &nbsp; · &nbsp; 12:30–13:45</div>
-
-            <!-- BLOCO 5 -->
-            <article class="block" id="bloco-5">
-              <header class="block-head">
-                <span class="block-pill">B L O C O &nbsp; 0 5 &nbsp; · &nbsp; 13:45–14:30</span>
-                <h2>Do Cowork ao Code: transição e setup</h2>
-                <p class="block-quote">"A internet inteira fala de Code. Mas entenda quando vale e quando é matar mosca com canhão."</p>
-                <p class="block-obj"><strong>Objetivo:</strong> Entender quando sair do Cowork pro Code, instalar, e mostrar que os arquivos da manhã continuam funcionando. <strong>Matar o FOMO.</strong></p>
-              </header>
-
-              <section class="concept">
-                <h3>Quando Code faz sentido <span class="mins">15 min</span></h3>
-                <div class="grid-2">
-                  <div class="concept-card"><h4>1. Prototipação funcional</h4><p>Code cria coisas que <em>rodam</em>: telas, dashboards, sites interativos.</p></div>
-                  <div class="concept-card"><h4>2. Conexão com Git</h4><p>Lê repositórios, cria branches, commita, abre PRs.</p></div>
-                  <div class="concept-card"><h4>3. Análise de código</h4><p>Explica em português: "esse endpoint faz o quê?"</p></div>
-                  <div class="concept-card"><h4>4. SQL e queries</h4><p>Conecta em banco, executa queries, gera gráficos.</p></div>
-                  <div class="concept-card"><h4>5. MCP servers customizados</h4><p>Qualquer API vira MCP server: Metabase, Amplitude, banco interno.</p></div>
-                  <div class="concept-card"><h4>6. Ferramentas standalone</h4><p>Calculadoras, dashboards, scripts que rodam sozinhos.</p></div>
-                  <div class="concept-card"><h4>7. Hooks e validação</h4><p>Scripts antes/depois de ações. "Antes de commitar, verifica seções do PRD."</p></div>
-                </div>
-
-                <div class="callout">
-                  <h4>Matriz de decisão</h4>
-                  <table class="matrix">
-                    <thead><tr><th>Cenário</th><th>Cowork</th><th>Code</th></tr></thead>
-                    <tbody>
-                      <tr><td>Documentos (Word, Excel, PPT)</td><td class="y">✅ melhor</td><td>possível</td></tr>
-                      <tr><td>Email / Slack</td><td class="y">✅ connectors</td><td>via MCP</td></tr>
-                      <tr><td>Tasks agendadas</td><td class="y">✅ nativo</td><td>possível</td></tr>
-                      <tr><td>Protótipos funcionais</td><td class="n">❌</td><td class="y">✅ melhor</td></tr>
-                      <tr><td>Git</td><td class="n">❌</td><td class="y">✅ melhor</td></tr>
-                      <tr><td>SQL e dados pesados</td><td class="n">❌</td><td class="y">✅ melhor</td></tr>
-                      <tr><td>MCP customizados</td><td class="n">❌</td><td class="y">✅ melhor</td></tr>
-                      <tr><td>Ferramentas standalone</td><td class="n">❌</td><td class="y">✅ melhor</td></tr>
-                      <tr><td>Hooks e automação</td><td class="n">❌</td><td class="y">✅ melhor</td></tr>
-                    </tbody>
-                  </table>
-                  <p class="callout-note"><strong>Regra de bolso:</strong> output é <em>arquivo</em> → Cowork. Output é <em>ferramenta</em> ou envolve <em>código</em> → Code.</p>
-                </div>
-              </section>
-
-              <section class="exercises">
-                <h3>Exercício</h3>
-                <details class="exercise">
-                  <summary><span class="ex-num">10</span><span class="ex-title">Setup do Code + continuidade</span><span class="ex-time">15 min</span></summary>
-                  <div class="ex-body">
-                    <pre class="code-block">npm install -g @anthropic-ai/claude-code
+<p>O Claude nunca acessa suas ferramentas diretamente — ele sempre passa pelo <strong>Connector</strong>, que é um intermediário seguro. Você controla quais permissões cada Connector tem, e ações destrutivas (deletar, enviar mensagens, modificar permissões) <strong>sempre pedem confirmação</strong> antes de executar.</p>
+<h4 class="concept-sub">O ecossistema de Connectors hoje</h4>
+<ul class="mcp-highlights">
+<li>Mais de <strong class="shout">50 connectors</strong> nativos (Google Drive, Gmail, Slack, Notion, Jira, Linear, Figma, Salesforce, HubSpot…)</li>
+<li>Qualquer empresa pode criar o próprio connector — o protocolo é <strong>aberto</strong></li>
+<li>Você já usou MCP quando conectou o Gmail no Bloco 2. O Drive é o <strong>segundo connector</strong> do dia</li>
+</ul>
+<div class="two-col">
+<div class="pill-card green"><h4>O que fazem</h4><p>Ler e listar dados · criar rascunhos e documentos · buscar e filtrar conteúdo</p></div>
+<div class="pill-card red"><h4>O que NÃO fazem sem confirmação</h4><p>Enviar emails · postar mensagens · deletar arquivos · modificar permissões</p></div>
+</div>
+</section>
+<section class="exercises">
+<h3>Exercícios</h3>
+<details class="exercise">
+<summary><span class="ex-num">04</span><span class="ex-title">Conectar o Google Drive e explorar os arquivos</span><span class="ex-time">10 min</span></summary>
+<div class="ex-body">
+<p class="ex-intro"><strong>Entregável:</strong> Google Drive conectado ao Cowork e um resumo dos arquivos da ArenaCash lido direto de lá — mostrando que o Claude enxerga o mesmo conteúdo que existe no seu computador, mas <strong>acessado via nuvem</strong>.</p>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">3 min</span>
+<h4 class="step-block-title">Conectar o Google Drive</h4>
+</div>
+<div class="step-block-body">
+<ol>
+<li>No Claude Desktop, clique em <strong>Settings</strong> no menu lateral</li>
+<li>Vá em <strong>Connectors</strong></li>
+<li>Localize <strong>Google Drive</strong> e clique em <strong>Connect</strong></li>
+<li>Uma janela do Google vai abrir — faça login com a mesma conta onde estão os arquivos da ArenaCash e autorize o acesso</li>
+<li>O Google Drive aparece agora como connector ativo no painel</li>
+</ol>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">3 min</span>
+<h4 class="step-block-title">Verificar que o Claude enxerga os arquivos</h4>
+</div>
+<div class="step-block-body">
+<p>Antes de avançar, vamos confirmar que a conexão funcionou:</p>
+<div class="prompt-box">
+<p>Acessa meu Google Drive e lista os arquivos da pasta <code>ArenaCash-PM</code>. Me diz o nome de cada arquivo e o tipo de conteúdo que ele tem.</p>
+</div>
+<p><strong>Observe:</strong> o Claude navegou pelo Drive, encontrou a pasta e listou os arquivos — <em>os mesmos que estão no seu computador</em>. Isso acontece porque você fez upload da pasta antes do curso, ou porque seu computador sincroniza via Google Drive for Desktop. Dois caminhos, mesmo resultado.</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 3</span>
+<span class="step-block-time">4 min</span>
+<h4 class="step-block-title">Primeira leitura via Drive</h4>
+</div>
+<div class="step-block-body">
+<p>Agora peça pro Claude ler os documentos direto do Drive e gerar um resumo executivo:</p>
+<div class="prompt-box">
+<p>Lê o <code>memo-estrategico-q2.md</code> e o <code>organograma-arenacash.md</code> que estão no meu Google Drive, na pasta <code>ArenaCash-PM</code>. Com base nesses dois arquivos, me faz um resumo de no máximo meia página com: qual é o momento da ArenaCash, quais são as prioridades do Q2 e quem são os líderes-chave que preciso conhecer.</p>
+</div>
+</div>
+</div>
+<div class="ex-closing">
+<span class="pa-eyebrow pa-eyebrow--red">O   Q U E   F I X A R</span>
+<p>Você não abriu o Drive, não copiou nenhum texto, não fez download de nada. O Claude <strong>leu, processou e entregou</strong> — a partir de uma conversa em linguagem natural. Esse é o modelo de trabalho com connectors.</p>
+</div>
+</div>
+</details>
+<details class="exercise">
+<summary><span class="ex-num">05</span><span class="ex-title">Análise cruzada: dados internos + cenário de fintechs</span><span class="ex-time">18 min</span></summary>
+<div class="ex-body">
+<p class="ex-intro"><strong>Entregável:</strong> arquivo <code>analise-estrategica-q2.md</code> com uma análise que cruza os <strong>dados internos</strong> da ArenaCash com o <strong>cenário competitivo atual</strong> de fintechs, incluindo <strong>5 iniciativas priorizadas</strong> para o Q2.</p>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Ler os dados internos do Drive</h4>
+</div>
+<div class="step-block-body">
+<div class="prompt-box">
+<div class="prompt-box-head">D I A G N Ó S T I C O   I N T E R N O</div>
+<p>Acessa meu Google Drive, pasta <code>ArenaCash-PM</code>. Lê os arquivos <code>dados-quarter-q1.csv</code>, <code>financeiro-q1.xlsx</code> e <code>atendimento-q1.csv</code>. Cruza as informações e me diz:</p>
+<ol>
+<li>Estado geral da ArenaCash no Q1 — o que foi bem, o que foi mal, o que mais preocupa</li>
+<li>Os 3 maiores problemas que precisam de atenção no Q2</li>
+<li>As maiores oportunidades de impacto</li>
+</ol>
+<p>Compara com as metas do <code>memo-estrategico-q2.md</code>.</p>
+</div>
+<p><strong>Observe:</strong> o Claude leu <strong>quatro arquivos</strong> de fontes diferentes (CSV, Excel, Markdown) via Drive e cruzou os dados. Guarde este diagnóstico — o próximo passo vai contextualizá-lo no mercado.</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">8 min</span>
+<h4 class="step-block-title">Pesquisar o cenário de fintechs na internet</h4>
+</div>
+<div class="step-block-body">
+<p>Agora o Claude vai buscar <strong>contexto externo</strong> pra enriquecer a análise:</p>
+<div class="prompt-box">
+<div class="prompt-box-head">P E S Q U I S A   D E   M E R C A D O</div>
+<p>Pesquisa na internet o cenário atual de fintechs de investimento no Brasil: principais tendências de 2025 e 2026, comportamento dos usuários, o que está crescendo, o que está perdendo força e quais são os principais desafios de ativação e retenção nesse segmento. Usa fontes confiáveis — relatórios de mercado, cobertura de imprensa especializada, dados públicos.</p>
+</div>
+<p><strong>Observe:</strong> o Claude saiu do Drive, foi pra internet, buscou e sumarizou fontes externas. Isso é o MCP em <strong>dois modos diferentes</strong> — dados privados (Drive) e dados públicos (web) — na mesma sessão.</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 3</span>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Cruzar e gerar a análise completa</h4>
+</div>
+<div class="step-block-body">
+<div class="prompt-box">
+<div class="prompt-box-head">C R U Z A M E N T O   +    R I C E</div>
+<p>Agora cruza os dois lados: o que você encontrou nos dados internos da ArenaCash com o que você pesquisou sobre o mercado de fintechs. Com base nisso, propõe 5 iniciativas pro Q2 que enderecem os problemas identificados e estejam alinhadas com as tendências de mercado. Pra cada iniciativa, inclui: descrição em uma linha, por que faz sentido agora (dado interno + contexto de mercado), e estimativa de Reach, Impact, Confidence e Effort (framework RICE). Ranqueie da mais impactante pra menos e salva tudo no arquivo <code>analise-estrategica-q2.md</code>.</p>
+</div>
+</div>
+</div>
+<p class="file-out">📄 <code>03-conexoes/analise-estrategica-q2.md</code></p>
+</div>
+</details>
+<details class="exercise">
+<summary><span class="ex-num">06</span><span class="ex-title">Gerar um Google Doc automaticamente</span><span class="ex-time">10 min</span></summary>
+<div class="ex-body">
+<p class="ex-intro"><strong>Entregável:</strong> um Google Doc criado direto no seu Drive com a análise estratégica — <strong>sem copiar e colar nada</strong>, gerado pelo Claude via connector.</p>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">7 min</span>
+<h4 class="step-block-title">Criar o documento no Drive</h4>
+</div>
+<div class="step-block-body">
+<div class="prompt-box">
+<p>Pega o conteúdo do arquivo <code>analise-estrategica-q2.md</code> e cria um Google Doc no meu Drive com esse conteúdo. Nomeia o documento <strong>"Análise Estratégica ArenaCash — Q2"</strong>. Organiza com títulos e subtítulos claros, e inclui uma capa com o nome do documento, a data de hoje e meu nome.</p>
+</div>
+<p><strong>Observe:</strong> o Claude pegou um arquivo local, acessou o Drive via connector e criou um <strong>documento Google nativo</strong> — formatado, nomeado e pronto pra compartilhar com outras pessoas da empresa.</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">3 min</span>
+<h4 class="step-block-title">Verificar e compartilhar</h4>
+</div>
+<div class="step-block-body">
+<p>Abra o Google Drive no navegador e confirme que o documento apareceu. Clique no Doc e veja a formatação.</p>
+<p>Pra testar o ciclo completo, peça:</p>
+<div class="prompt-box">
+<p>Compartilha o documento <strong>"Análise Estratégica ArenaCash — Q2"</strong> com <code>[email de um colega]</code> como visualizador.</p>
+</div>
+<p><strong>Observe:</strong> o Claude executou uma <em>ação</em> no Google Drive — não só leu, mas <strong class="shout">agiu</strong>. Criou um documento e compartilhou. Esse é o nível de automação que os connectors permitem.</p>
+</div>
+</div>
+<div class="ex-closing">
+<span class="pa-eyebrow pa-eyebrow--red">O   Q U E   F I X A R   N E S T E   B L O C O</span>
+<p>Você conectou <strong>duas fontes externas</strong> (Drive e internet), cruzou dados privados com contexto público, e o resultado saiu como um documento colaborativo no Google Drive — <strong>sem sair do Cowork</strong>. O próximo bloco vai usar essa análise pra construir skills e validar a iniciativa com os C-levels.</p>
+</div>
+</div>
+</details>
+<details class="exercise">
+<summary><span class="ex-num">07</span><span class="ex-title">Tarefa agendada: briefing diário de mercado</span><span class="ex-time">9 min</span></summary>
+<div class="ex-body">
+<p class="ex-intro">Tudo o que você fez agora — pesquisar notícias, cruzar com contexto, gerar um documento no Drive — pode rodar sozinho, <strong>todo dia, sem você precisar pedir</strong>. Vamos criar essa automação.</p>
+<p class="ex-subentrega"><strong>Entregável:</strong> uma tarefa agendada ativa que, toda manhã às 9h, busca as principais notícias de economia e mercado, monta um slide de 1 página em PowerPoint com o resumo e salva no Google Drive.</p>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Criar a tarefa agendada</h4>
+</div>
+<div class="step-block-body">
+<div class="prompt-box">
+<div class="prompt-box-head">B R I E F I N G   D I Á R I O   ·   9 H</div>
+<p>Cria uma tarefa agendada chamada <strong>"Briefing diário de mercado"</strong>. Todo dia às 9h da manhã, ela deve:</p>
+<ol>
+<li>Pesquisar na internet as principais notícias de economia e mercado financeiro do dia anterior — foco em fintechs, juros, regulação financeira e comportamento do consumidor</li>
+<li>Selecionar as 3 a 5 notícias mais relevantes pra um PM de fintech</li>
+<li>Criar um arquivo PowerPoint de 1 página com: título "Briefing de Mercado — [data]", os destaques em bullets curtos e uma linha de "impacto pra ArenaCash" ao final</li>
+<li>Salvar o arquivo no meu Google Drive com o nome <code>briefing-mercado-[data].pptx</code></li>
+</ol>
+</div>
+<p><strong>Observe:</strong> o Cowork cria a tarefa, exibe a frequência configurada (diária, 9h) e o fluxo de execução. Você pode ver em <strong>Tasks → Scheduled</strong> no menu lateral.</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">3 min</span>
+<h4 class="step-block-title">Testar agora</h4>
+</div>
+<div class="step-block-body">
+<p>Não espere até amanhã — clique em <strong>"Run Now"</strong> na tarefa recém-criada pra executá-la imediatamente.</p>
+<p>Após a execução, abra o Google Drive e confirme que o arquivo <code>briefing-mercado-[data].pptx</code> apareceu. Abra o PowerPoint e avalie: as notícias fazem sentido? O formato está como esperava? Se quiser ajustar — foco das notícias, layout, critério de seleção — edite o prompt da tarefa e rode novamente.</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 3</span>
+<span class="step-block-time">1 min</span>
+<h4 class="step-block-title">Boas práticas rápidas</h4>
+</div>
+<div class="step-block-body">
+<ul class="best-practices">
+<li>Sempre teste com <strong>Run Now</strong> antes de confiar no agendamento automático</li>
+<li>Tarefas que enviam mensagens ou emails pedem confirmação sua antes de executar</li>
+<li>Revise as tarefas agendadas mensalmente — tarefa abandonada consome tokens sem entregar valor</li>
+</ul>
+</div>
+</div>
+<div class="ex-closing">
+<span class="pa-eyebrow pa-eyebrow--red">O   Q U E   F I X A R</span>
+<p>Você acabou de montar um <strong>assistente que trabalha enquanto você dorme</strong>. Toda manhã, antes do café, o briefing de mercado já está no Drive — sem nenhuma ação sua. Isso é automação real com <strong class="shout">MCP + connectors funcionando juntos</strong>.</p>
+</div>
+</div>
+</details>
+</section>
+</article>
+<!-- BLOCO 4 -->
+<article class="block" id="bloco-4">
+<header class="block-head">
+<span class="block-pill">B L O C O   0 4   ·   11:40–12:30</span>
+<h2>Skills, Validação e Apresentação</h2>
+<p class="block-quote">"Skill é o que <strong class="shout">separa</strong> o Claude genérico do Claude que trabalha do jeito que você precisa."</p>
+<p class="block-obj"><strong>Objetivo:</strong> Entender o que são skills e por que elas existem, criar o Thinking Partner pra validar a iniciativa prioritária gerada no Bloco 3, e construir a skill de apresentação pra chegar no almoço com um PPT pronto pra apresentar à diretoria.</p>
+</header>
+<section class="concept">
+<h3>O que são skills e por que um PM precisa delas <span class="mins">10 min</span></h3>
+<p>O Claude, sem instrução específica, entrega resultado genérico. Com uma skill bem escrita, ele entrega resultado <strong>profissional</strong> — no padrão certo, na estrutura certa, com o nível de qualidade que você precisaria pedir dezenas de vezes pra chegar manualmente.</p>
+<h4 class="concept-sub">Pra um PM, isso importa especialmente em 2 momentos</h4>
+<div class="grid-2">
+<div class="concept-card">
+<h4>🎯 Validação de iniciativas</h4>
+<p>O dia a dia é cheio de ideias que precisam ser testadas contra a realidade da empresa antes de avançar. Quanto mais rápido você simula esse teste — com os stakeholders certos, na perspectiva certa — menos tempo gasta defendendo a ideia errada. Uma skill de validação faz isso em minutos.</p>
+</div>
+<div class="concept-card">
+<h4>📣 Comunicação recorrente</h4>
+<p>PPTs pra diretoria, relatórios de quarter, briefings de sprint — documentos que seguem sempre o mesmo padrão. Uma skill aprende esse padrão uma vez e aplica em todo output, sem você re-explicar template, tom de voz ou nível de detalhe.</p>
+</div>
+</div>
+<h4 class="concept-sub">Os 3 tipos de skill</h4>
+<div class="grid-3">
+<div class="concept-card"><h4>Nativas</h4><p>Já vêm com o Claude e rodam automaticamente: <code>pptx</code>, <code>xlsx</code>, <code>docx</code>, <code>pdf</code>. Você já usou sem perceber.</p></div>
+<div class="concept-card"><h4>Comunidade</h4><p>Criadas e compartilhadas por outros usuários. Ponto de partida: <code>github.com/BehiSecc/awesome-claude-skills</code>.</p></div>
+<div class="concept-card highlight"><h4>Customizadas</h4><p>As suas. Quando o padrão genérico não serve: template da empresa, processo específico, output só no seu contexto.</p></div>
+</div>
+<p class="tip" style="margin-top: var(--s-5);">⚖️ <strong>Quando criar vs. instalar:</strong> se já existe uma skill boa, instale e adapte. Crie do zero quando: você repete a mesma tarefa <strong>3+ vezes</strong>, o output precisa seguir padrão da empresa, ou a qualidade genérica não é suficiente.</p>
+<h4 class="concept-sub">Como uma skill funciona por dentro</h4>
+<p>É um arquivo markdown (<code>.md</code>) salvo em <code>.claude/skills/nome-da-skill/SKILL.md</code>. Contém:</p>
+<ul class="mcp-highlights">
+<li><strong>Trigger</strong> — quando a skill deve ser acionada</li>
+<li><strong>Fluxo</strong> — o que ela deve fazer passo a passo</li>
+<li><strong>Output</strong> — qual é o resultado esperado</li>
+<li><strong>Regras</strong> — o que nunca pode ser quebrado</li>
+</ul>
+<p>O Claude lê esse arquivo e segue as instruções como se fossem um <strong>briefing permanente</strong>.</p>
+<p class="tip">🎬 <strong>Demo ao vivo:</strong> instrutor mostra o mesmo pedido feito <em>sem skill</em> e <em>com skill</em> — a diferença de qualidade, estrutura e consistência. "Você não vai querer voltar pro genérico."</p>
+</section>
+<section class="exercises">
+<h3>Exercícios</h3>
+<details class="exercise">
+<summary><span class="ex-num">08</span><span class="ex-title">Criando e usando o Thinking Partner</span><span class="ex-time">20 min</span></summary>
+<div class="ex-body">
+<p class="ex-intro">O Bloco 3 gerou 5 iniciativas ranqueadas por RICE e contextualizadas no mercado. <strong>Antes de apostar o quarter em uma delas</strong>, você precisa testá-las contra as prioridades reais de quem vai aprovar o orçamento e o roadmap. É aí que entra o Thinking Partner.</p>
+<p class="ex-subentrega"><strong>Entregável:</strong> skill <code>thinking-partner</code> instalada no projeto + decisão documentada com a iniciativa #1 escolhida e validada pelos C-levels.</p>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">10 min</span>
+<h4 class="step-block-title">Criar a skill Thinking Partner</h4>
+</div>
+<div class="step-block-body">
+<div class="prompt-box">
+<div class="prompt-box-head">C R I A R   S K I L L   <code>thinking-partner</code></div>
+<p>Cria uma skill chamada <code>thinking-partner</code> com as seguintes especificações:</p>
+<ul>
+<li><strong>Trigger:</strong> sempre que eu pedir pra discutir, avaliar ou validar uma decisão, iniciativa ou priorização</li>
+<li><strong>O que faz:</strong> lê <code>organograma-arenacash.md</code>, <code>transcricao-cfo.md</code>, <code>transcricao-cmo.md</code> e <code>transcricao-cto.md</code>. Com base nisso, cria 3 personas — <strong>Juliana (CFO)</strong>, <strong>Beatriz (CMO)</strong> e <strong>Diego (CTO)</strong> — cada uma com perfil de preocupações, prioridades e estilo de comunicação extraídos das transcrições reais. Quando eu apresentar uma iniciativa, cada persona se posiciona: apoia, questiona ou rejeita — com os argumentos que aquele C-level usaria de verdade.</li>
+<li><strong>Output:</strong> perspectiva de cada C-level → síntese de onde há consenso e onde há conflito → pontos de atenção que o PM deve endereçar antes de apresentar</li>
+<li><strong>Regras:</strong> nunca inventar posições que não estejam nas transcrições; sempre citar o argumento específico do C-level; se não houver dado suficiente, sinalizar em vez de inventar</li>
+</ul>
+</div>
+<p><strong>Observe:</strong> o Claude criou a pasta <code>.claude/skills/thinking-partner/</code> com o arquivo <code>SKILL.md</code> dentro. Abra o arquivo e leia — você vai ver as instruções que acabou de ditar transformadas em um briefing estruturado. <strong class="shout">Essa é a anatomia de uma skill.</strong></p>
+<p class="file-out">📄 <code>.claude/skills/thinking-partner/SKILL.md</code></p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">7 min</span>
+<h4 class="step-block-title">Validar as iniciativas com os C-levels</h4>
+</div>
+<div class="step-block-body">
+<p>Agora use a skill que acabou de criar. Copie a lista de iniciativas que veio do Bloco 3 e mande:</p>
+<div class="prompt-box">
+<p>Usa a skill <code>thinking-partner</code>. Apresento as 5 iniciativas priorizadas que geramos pro Q2 da ArenaCash: <code>[cole aqui a lista do arquivo analise-estrategica-q2.md]</code>. Quero ouvir a Juliana, a Beatriz e o Diego sobre cada uma: quem apoia qual, onde há conflito de prioridade entre eles, e qual iniciativa teria mais chance de aprovação da diretoria hoje.</p>
+</div>
+<p><strong>Observe:</strong> o Claude lê as transcrições, monta as 3 personas e conduz um debate entre elas baseado nos dados reais. <em>Você não está inventando o que os C-levels pensariam — está simulando com o que eles já disseram.</em></p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 3</span>
+<span class="step-block-time">3 min</span>
+<h4 class="step-block-title">Escolher a iniciativa #1</h4>
+</div>
+<div class="step-block-body">
+<p>Leia a síntese do Thinking Partner e tome sua decisão. Em seguida, documente:</p>
+<div class="prompt-box">
+<p>Com base no debate do Thinking Partner, escolhi a iniciativa <code>[nome]</code>. Cria um arquivo <code>04-skills/decisao-iniciativa.md</code> com: qual iniciativa foi escolhida, os principais argumentos de cada C-level que influenciaram a decisão, e as objeções que precisarei endereçar na apresentação.</p>
+</div>
+<p>Essa decisão vai alimentar o próximo exercício — a apresentação que você vai levar pra diretoria.</p>
+<p class="file-out">📄 <code>04-skills/decisao-iniciativa.md</code></p>
+</div>
+</div>
+</div>
+</details>
+<details class="exercise">
+<summary><span class="ex-num">09</span><span class="ex-title">Skill de Apresentação + PPT para a diretoria</span><span class="ex-time">20 min</span></summary>
+<div class="ex-body">
+<p class="ex-intro">Com a iniciativa escolhida e validada, é hora de montar o <strong>argumento visual</strong>. Vamos criar uma skill que conhece o seu tom de voz, o template da ArenaCash e o design system — e gera o PPT já no padrão certo, <strong>sem você ajustar cor por cor ou slide por slide</strong>.</p>
+<p class="ex-subentrega"><strong>Entregável:</strong> arquivo <code>apresentacao-iniciativa.pptx</code> pronto pra apresentar à diretoria — com identidade visual correta, escrito no seu tom de voz, e conteúdo já aprovado pelo Thinking Partner.</p>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">8 min</span>
+<h4 class="step-block-title">Criar a skill de apresentação</h4>
+</div>
+<div class="step-block-body">
+<div class="prompt-box">
+<div class="prompt-box-head">C R I A R   S K I L L   <code>arena-presentation</code></div>
+<p>Cria uma skill chamada <code>arena-presentation</code> com as seguintes especificações:</p>
+<ul>
+<li><strong>Trigger:</strong> sempre que eu pedir pra criar uma apresentação ou deck</li>
+<li><strong>O que faz:</strong> antes de escrever qualquer slide, lê 3 arquivos — <code>tom-de-voz.md</code> (como eu escrevo), <code>template-apresentacao.pptx</code> (estrutura e estilo visual) e <code>design-system-arenacash.md</code> (cores, fontes, componentes). Com esse contexto, estrutura o conteúdo em slides lógicos pro público especificado.</li>
+<li><strong>Output:</strong> arquivo <code>.pptx</code> salvo na pasta do projeto</li>
+<li><strong>Regras:</strong> máximo 5 bullets por slide; títulos curtos e diretos, sem verbos no infinitivo; sempre incluir slide de agenda no início e slide de "próximos passos" no final; nunca usar fonte ou cor fora do design system</li>
+</ul>
+</div>
+<p><strong>Observe:</strong> a skill reúne <strong class="shout">3 artefatos</strong> que você criou ao longo do dia (tom de voz, template, design system) e os aplica automaticamente em todo PPT que pedir daqui pra frente. <em>Você criou isso uma vez — vai usar pra sempre.</em></p>
+<p class="file-out">📄 <code>.claude/skills/arena-presentation/SKILL.md</code></p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">7 min</span>
+<h4 class="step-block-title">Gerar o PPT da iniciativa</h4>
+</div>
+<div class="step-block-body">
+<div class="prompt-box">
+<p>Usa a skill <code>arena-presentation</code>. Cria uma apresentação de <strong>8 slides</strong> sobre a iniciativa <code>[nome da iniciativa escolhida no Passo 3 do Exercício 8]</code>. O público é a diretoria da ArenaCash — <strong>Paulo (CPO), Juliana (CFO), Beatriz (CMO) e Diego (CTO)</strong>. A apresentação deve incluir:</p>
+<ul>
+<li>Contexto do quarter e por que essa iniciativa é prioritária agora</li>
+<li>Problema que ela resolve com dados do Q1</li>
+<li>Solução proposta</li>
+<li>RICE score com justificativa</li>
+<li>Roadmap de 3 meses</li>
+<li>Riscos e como mitigá-los</li>
+<li>Ask pra liderança — o que você precisa deles pra avançar</li>
+</ul>
+<p>Salva como <code>04-skills/apresentacao-iniciativa.pptx</code>.</p>
+</div>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 3</span>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Revisão final com o Thinking Partner</h4>
+</div>
+<div class="step-block-body">
+<p>Antes de dar o PPT como pronto, <strong>submeta ao mesmo comitê que validou a iniciativa</strong>:</p>
+<div class="prompt-box">
+<p>Usa a skill <code>thinking-partner</code>. Lê o arquivo <code>04-skills/apresentacao-iniciativa.pptx</code>. Quero que a Juliana, a Beatriz e o Diego reajam à apresentação como se fosse a reunião de diretoria real: o que cada um compraria sem questionamento, o que cada um questionaria, e o que está faltando pra convencer quem está mais cético.</p>
+</div>
+<p>Ajuste os slides com base no feedback. <strong>O critério não é perfeição</strong> — é: os argumentos do C-level mais cético estão endereçados na apresentação?</p>
+<p class="file-out">📄 <code>04-skills/apresentacao-iniciativa.pptx</code></p>
+</div>
+</div>
+</div>
+</details>
+</section>
+<!-- Destaque de fim de manhã — o que você já tem -->
+<section class="milestone">
+<span class="milestone-eyebrow">🏆   M A R C O   D E   F I M   D E   M A N H Ã</span>
+<h3 class="milestone-title">Você chegou no almoço com uma iniciativa priorizada e <span class="milestone-accent">100% alinhada</span> com o que a diretoria quer.</h3>
+<p class="milestone-sub">Em 2h45 você saiu de "primeiro dia na empresa" pra "apresentação validada pelos C-levels pronta pra diretoria". Isso normalmente leva semanas.</p>
+<div class="milestone-grid">
+<div class="milestone-col">
+<span class="milestone-col-label">O   Q U E   V O C Ê   T E M   E M   M Ã O S</span>
+<ul class="milestone-list">
+<li><strong>Projeto configurado</strong> no Cowork com a pasta <code>ArenaCash-PM</code> conectada</li>
+<li><strong>Instruções personalizadas</strong> que referenciam organograma e memo</li>
+<li><strong>Tom de voz documentado</strong> e calibrado com mensagem real testada</li>
+<li><strong>Gmail e Google Drive conectados</strong> via MCP</li>
+<li><strong>Análise estratégica completa</strong> cruzando dados internos + mercado</li>
+<li><strong>5 iniciativas ranqueadas</strong> por RICE salvas como Google Doc compartilhável</li>
+<li><strong>Briefing diário automatizado</strong> rodando às 9h todo dia</li>
+<li><strong>1 iniciativa escolhida</strong> e validada pelos C-levels via Thinking Partner</li>
+<li><strong>PPT no padrão da empresa</strong> com o seu tom de voz, pronto pra diretoria</li>
+</ul>
+</div>
+<div class="milestone-col">
+<span class="milestone-col-label">O   F E R R A M E N T A L   P R A   R E P E T I R</span>
+<ul class="milestone-list">
+<li><strong>Skill <code>thinking-partner</code></strong> — valida qualquer decisão com os C-levels da ArenaCash em minutos</li>
+<li><strong>Skill <code>arena-presentation</code></strong> — gera qualquer PPT da ArenaCash no padrão, tom e identidade corretos</li>
+<li><strong>Auto memory</strong> do projeto — o Claude aprendeu suas preferências ao longo da manhã</li>
+<li><strong>Tarefa agendada</strong> — trabalho recorrente rodando sozinho no fundo</li>
+<li><strong>Fluxo de validação</strong> — dados → cruzamento com mercado → RICE → Thinking Partner → PPT</li>
+</ul>
+</div>
+</div>
+<div class="milestone-stamp">
+<p>Isso não é um <em>demo</em>. É o que você vai levar pro seu trabalho real na segunda-feira. <strong>E cada skill criada hoje funciona pra sempre</strong> — na próxima iniciativa, no próximo quarter, no próximo PPT.</p>
+<p class="milestone-signoff">Bom almoço. À tarde a gente tira essa iniciativa do papel e coloca no ar. <strong class="shout">Vamos juntos? 🤓</strong></p>
+</div>
+</section>
+</article>
+<div class="break-card">🍽️   A L M O Ç O   ·   12:30–13:45</div>
+<!-- BLOCO 5 -->
+<article class="block" id="bloco-5">
+<header class="block-head">
+<span class="block-pill">B L O C O   0 5   ·   13:45–14:30</span>
+<h2>Do Cowork ao Code: transição e setup</h2>
+<p class="block-quote">"A internet inteira fala de Code. Mas entenda quando vale e quando é matar mosca com canhão."</p>
+<p class="block-obj"><strong>Objetivo:</strong> Entender quando sair do Cowork pro Code, instalar, e mostrar que os arquivos da manhã continuam funcionando. <strong>Matar o FOMO.</strong></p>
+</header>
+<section class="concept">
+<h3>Quando Code faz sentido <span class="mins">15 min</span></h3>
+<div class="grid-2">
+<div class="concept-card"><h4>1. Prototipação funcional</h4><p>Code cria coisas que <em>rodam</em>: telas, dashboards, sites interativos.</p></div>
+<div class="concept-card"><h4>2. Conexão com Git</h4><p>Lê repositórios, cria branches, commita, abre PRs.</p></div>
+<div class="concept-card"><h4>3. Análise de código</h4><p>Explica em português: "esse endpoint faz o quê?"</p></div>
+<div class="concept-card"><h4>4. SQL e queries</h4><p>Conecta em banco, executa queries, gera gráficos.</p></div>
+<div class="concept-card"><h4>5. MCP servers customizados</h4><p>Qualquer API vira MCP server: Metabase, Amplitude, banco interno.</p></div>
+<div class="concept-card"><h4>6. Ferramentas standalone</h4><p>Calculadoras, dashboards, scripts que rodam sozinhos.</p></div>
+<div class="concept-card"><h4>7. Hooks e validação</h4><p>Scripts antes/depois de ações. "Antes de commitar, verifica seções do PRD."</p></div>
+</div>
+<div class="callout">
+<h4>Matriz de decisão</h4>
+<table class="matrix">
+<thead><tr><th>Cenário</th><th>Cowork</th><th>Code</th></tr></thead>
+<tbody>
+<tr><td>Documentos (Word, Excel, PPT)</td><td class="y">✅ melhor</td><td>possível</td></tr>
+<tr><td>Email / Slack</td><td class="y">✅ connectors</td><td>via MCP</td></tr>
+<tr><td>Tasks agendadas</td><td class="y">✅ nativo</td><td>possível</td></tr>
+<tr><td>Protótipos funcionais</td><td class="n">❌</td><td class="y">✅ melhor</td></tr>
+<tr><td>Git</td><td class="n">❌</td><td class="y">✅ melhor</td></tr>
+<tr><td>SQL e dados pesados</td><td class="n">❌</td><td class="y">✅ melhor</td></tr>
+<tr><td>MCP customizados</td><td class="n">❌</td><td class="y">✅ melhor</td></tr>
+<tr><td>Ferramentas standalone</td><td class="n">❌</td><td class="y">✅ melhor</td></tr>
+<tr><td>Hooks e automação</td><td class="n">❌</td><td class="y">✅ melhor</td></tr>
+</tbody>
+</table>
+<p class="callout-note"><strong>Regra de bolso:</strong> output é <em>arquivo</em> → Cowork. Output é <em>ferramenta</em> ou envolve <em>código</em> → Code.</p>
+</div>
+</section>
+<section class="exercises">
+<h3>Exercício</h3>
+<details class="exercise">
+<summary><span class="ex-num">10</span><span class="ex-title">Setup do Code + continuidade</span><span class="ex-time">15 min</span></summary>
+<div class="ex-body">
+<pre class="code-block">npm install -g @anthropic-ai/claude-code
 cd ~/ArenaCash-PM
 claude</pre>
-                    <ol>
-                      <li><strong>Entrar</strong> (5 min): Claude já lê a pasta e vê todos os arquivos da manhã</li>
-                      <li><strong>Continuidade</strong> (5 min): "Lê o <code>tom-de-voz.md</code> e me mostra como eu escrevo." Mesmo arquivo, mesma memória.</li>
-                      <li><strong>CLAUDE.md</strong> (5 min): "Cria um <code>CLAUDE.md</code> baseado em <code>02-setup/instrucoes-projeto.md</code>. Adapta pro formato de Code."</li>
-                    </ol>
-                    <p class="file-out">📄 <code>CLAUDE.md</code></p>
-                  </div>
-                </details>
-              </section>
-            </article>
-
-            <!-- BLOCO 6 -->
-            <article class="block" id="bloco-6">
-              <header class="block-head">
-                <span class="block-pill">B L O C O &nbsp; 0 6 &nbsp; · &nbsp; 14:30–15:30</span>
-                <h2>Prototipagem visual e mapeamento de eventos</h2>
-                <p class="block-quote">"PM que prototipa valida mais rápido, erra mais barato e influencia <strong class="shout">mais</strong>."</p>
-                <p class="block-obj"><strong>Objetivo:</strong> Prototipar as telas da iniciativa aprovada, criar a skill de eventos, e mapear o tracking plan. Sair com design + eventos prontos.</p>
-              </header>
-
-              <section class="exercises">
-                <h3>Exercícios</h3>
-
-                <details class="exercise">
-                  <summary><span class="ex-num">11</span><span class="ex-title">Prototipando as telas da iniciativa</span><span class="ex-time">30 min</span></summary>
-                  <div class="ex-body">
-                    <div class="prompt-box">
-                      <div class="prompt-box-head">B R I E F I N G &nbsp; D E &nbsp; D E S I G N</div>
-                      <p>Lê <code>04-skills/prd-iniciativa.docx</code> e <code>design-system-arenacash.md</code>. Cria protótipo funcional em HTML/CSS/JS das telas principais. Usa cores, fontes e componentes do design system. Precisa ser responsivo e interativo.</p>
-                    </div>
-                    <p><strong>3-4 rodadas de refinamento em português:</strong></p>
-                    <ul>
-                      <li>"A cor do header tá apagada, usa o laranja primário"</li>
-                      <li>"Adiciona gráfico de evolução mensal nesse card"</li>
-                      <li>"O botão de CTA precisa de mais destaque"</li>
-                      <li>"Coloca um empty state pra quando não tem dados"</li>
-                    </ul>
-                    <p class="tip">💡 O PM <strong>nunca olha código</strong>. Descreve, vê, ajusta. Em 30 min, protótipo visual funcional que levaria dias pedindo pra design.</p>
-                    <p class="file-out">📄 <code>05-code/prototipo-iniciativa/</code></p>
-                  </div>
-                </details>
-
-                <details class="exercise">
-                  <summary><span class="ex-num">12</span><span class="ex-title">Skill Event Mapper + mapeamento das telas</span><span class="ex-time">15 min</span></summary>
-                  <div class="ex-body">
-                    <p>A skill recebe screenshot, analisa elementos interativos e mapeia eventos (screen views, clicks, state changes). Output: planilha Excel + documento Word.</p>
-                    <ol>
-                      <li>Instalar skill <code>event-mapper</code></li>
-                      <li>Screenshots das telas prototipadas</li>
-                      <li>Enviar: <em>"Mapeia os eventos de analytics dessas telas"</em></li>
-                      <li>Revisar: os eventos fazem sentido? Faltou algum? Tem demais?</li>
-                    </ol>
-                    <p class="tip">⚡ Sem a skill: 1-2h. Com a skill: 10 min — e seguindo convenção <code>snake_case</code> padrão <code>{tela}_{ação}</code>.</p>
-                    <p class="file-out">📄 <code>05-code/eventos-mapeados.xlsx</code> · <code>05-code/eventos-contexto.docx</code></p>
-                  </div>
-                </details>
-
-                <details class="exercise">
-                  <summary><span class="ex-num">13</span><span class="ex-title">Integrando eventos no código</span><span class="ex-time">15 min</span></summary>
-                  <div class="ex-body">
-                    <div class="prompt-box">
-                      <p>Lê <code>eventos-mapeados.xlsx</code>. Integra os eventos no protótipo HTML: screen views no load, clicks nos botões/links, state changes quando muda etapa. Usa <code>console.log()</code> para simular — quero ver no DevTools cada evento disparando.</p>
-                    </div>
-                    <p>Abrir DevTools e navegar pelo protótipo: cada interação mostra o evento no console.</p>
-                  </div>
-                </details>
-              </section>
-            </article>
-
+<ol>
+<li><strong>Entrar</strong> (5 min): Claude já lê a pasta e vê todos os arquivos da manhã</li>
+<li><strong>Continuidade</strong> (5 min): "Lê o <code>tom-de-voz.md</code> e me mostra como eu escrevo." Mesmo arquivo, mesma memória.</li>
+<li><strong>CLAUDE.md</strong> (5 min): "Cria um <code>CLAUDE.md</code> baseado em <code>02-setup/instrucoes-projeto.md</code>. Adapta pro formato de Code."</li>
+</ol>
+<p class="file-out">📄 <code>CLAUDE.md</code></p>
+</div>
+</details>
+</section>
+</article>
+<!-- BLOCO 6 -->
+<article class="block" id="bloco-6">
+<header class="block-head">
+<span class="block-pill">B L O C O   0 6   ·   14:30–15:30</span>
+<h2>Prototipagem visual e mapeamento de eventos</h2>
+<p class="block-quote">"PM que prototipa valida mais rápido, erra mais barato e influencia <strong class="shout">mais</strong>."</p>
+<p class="block-obj"><strong>Objetivo:</strong> Prototipar as telas da iniciativa aprovada, criar a skill de eventos, e mapear o tracking plan. Sair com design + eventos prontos.</p>
+</header>
+<section class="exercises">
+<h3>Exercícios</h3>
+<details class="exercise">
+<summary><span class="ex-num">11</span><span class="ex-title">Prototipando as telas da iniciativa</span><span class="ex-time">30 min</span></summary>
+<div class="ex-body">
+<div class="prompt-box">
+<div class="prompt-box-head">B R I E F I N G   D E   D E S I G N</div>
+<p>Lê <code>04-skills/prd-iniciativa.docx</code> e <code>design-system-arenacash.md</code>. Cria protótipo funcional em HTML/CSS/JS das telas principais. Usa cores, fontes e componentes do design system. Precisa ser responsivo e interativo.</p>
+</div>
+<p><strong>3-4 rodadas de refinamento em português:</strong></p>
+<ul>
+<li>"A cor do header tá apagada, usa o laranja primário"</li>
+<li>"Adiciona gráfico de evolução mensal nesse card"</li>
+<li>"O botão de CTA precisa de mais destaque"</li>
+<li>"Coloca um empty state pra quando não tem dados"</li>
+</ul>
+<p class="tip">💡 O PM <strong>nunca olha código</strong>. Descreve, vê, ajusta. Em 30 min, protótipo visual funcional que levaria dias pedindo pra design.</p>
+<p class="file-out">📄 <code>05-code/prototipo-iniciativa/</code></p>
+</div>
+</details>
+<details class="exercise">
+<summary><span class="ex-num">12</span><span class="ex-title">Skill Event Mapper + mapeamento das telas</span><span class="ex-time">15 min</span></summary>
+<div class="ex-body">
+<p>A skill recebe screenshot, analisa elementos interativos e mapeia eventos (screen views, clicks, state changes). Output: planilha Excel + documento Word.</p>
+<ol>
+<li>Instalar skill <code>event-mapper</code></li>
+<li>Screenshots das telas prototipadas</li>
+<li>Enviar: <em>"Mapeia os eventos de analytics dessas telas"</em></li>
+<li>Revisar: os eventos fazem sentido? Faltou algum? Tem demais?</li>
+</ol>
+<p class="tip">⚡ Sem a skill: 1-2h. Com a skill: 10 min — e seguindo convenção <code>snake_case</code> padrão <code>{tela}_{ação}</code>.</p>
+<p class="file-out">📄 <code>05-code/eventos-mapeados.xlsx</code> · <code>05-code/eventos-contexto.docx</code></p>
+</div>
+</details>
+<details class="exercise">
+<summary><span class="ex-num">13</span><span class="ex-title">Integrando eventos no código</span><span class="ex-time">15 min</span></summary>
+<div class="ex-body">
+<div class="prompt-box">
+<p>Lê <code>eventos-mapeados.xlsx</code>. Integra os eventos no protótipo HTML: screen views no load, clicks nos botões/links, state changes quando muda etapa. Usa <code>console.log()</code> para simular — quero ver no DevTools cada evento disparando.</p>
+</div>
+<p>Abrir DevTools e navegar pelo protótipo: cada interação mostra o evento no console.</p>
+</div>
+</details>
+</section>
+</article>
 <!-- BLOCO 7 -->
-            <article class="block" id="bloco-7">
-              <header class="block-head">
-                <span class="block-pill">B L O C O &nbsp; 0 7 &nbsp; · &nbsp; 15:45–16:45</span>
-                <h2>Codando a feature e lançando o app</h2>
-                <p class="block-quote">"Vocês entraram como PMs da ArenaCash de manhã. Vão sair com um produto <strong class="shout">no ar</strong>."</p>
-                <p class="block-obj"><strong>Objetivo:</strong> Transformar o protótipo em site funcional com CSS polido, funcionalidades reais e eventos integrados. Publicar online. Fechar o ciclo.</p>
-              </header>
-
-              <section class="exercises">
-                <h3>Exercício final</h3>
-
-                <details class="exercise" open>
-                  <summary><span class="ex-num">14</span><span class="ex-title">Do protótipo ao produto</span><span class="ex-time">35 min</span></summary>
-                  <div class="ex-body">
-                    <div class="prompt-box">
-                      <div class="prompt-box-head">P A S S O &nbsp; 1 &nbsp; · &nbsp; E V O L U I R &nbsp; O &nbsp; C Ó D I G O <span class="mins-sm">20 min</span></div>
-                      <ol>
-                        <li>CSS polido: animações suaves, responsivo mobile, micro-interações</li>
-                        <li>JS funcional: filtros, formulários, toggles reais</li>
-                        <li>Dados mockados realistas (usar <code>dados-quarter-q1.csv</code>)</li>
-                        <li>Eventos continuam funcionando</li>
-                        <li>Um <code>index.html</code> como ponto de entrada</li>
-                      </ol>
-                    </div>
-                    <div class="prompt-box">
-                      <div class="prompt-box-head">P A S S O &nbsp; 2 &nbsp; · &nbsp; T E S T A R &nbsp; E V E N T O S <span class="mins-sm">5 min</span></div>
-                      <p>DevTools → Console. Navegar. Verificar cada evento. Se faltar: "adiciona evento de click no botão X".</p>
-                    </div>
-                    <div class="prompt-box">
-                      <div class="prompt-box-head">P A S S O &nbsp; 3 &nbsp; · &nbsp; P U B L I C A R &nbsp; O N L I N E <span class="mins-sm">10 min</span></div>
-                      <pre class="code-block"># Opção 1
+<article class="block" id="bloco-7">
+<header class="block-head">
+<span class="block-pill">B L O C O   0 7   ·   15:45–16:45</span>
+<h2>Codando a feature e lançando o app</h2>
+<p class="block-quote">"Vocês entraram como PMs da ArenaCash de manhã. Vão sair com um produto <strong class="shout">no ar</strong>."</p>
+<p class="block-obj"><strong>Objetivo:</strong> Transformar o protótipo em site funcional com CSS polido, funcionalidades reais e eventos integrados. Publicar online. Fechar o ciclo.</p>
+</header>
+<section class="exercises">
+<h3>Exercício final</h3>
+<details class="exercise" open="">
+<summary><span class="ex-num">14</span><span class="ex-title">Do protótipo ao produto</span><span class="ex-time">35 min</span></summary>
+<div class="ex-body">
+<div class="prompt-box">
+<div class="prompt-box-head">P A S S O   1   ·   E V O L U I R   O   C Ó D I G O <span class="mins-sm">20 min</span></div>
+<ol>
+<li>CSS polido: animações suaves, responsivo mobile, micro-interações</li>
+<li>JS funcional: filtros, formulários, toggles reais</li>
+<li>Dados mockados realistas (usar <code>dados-quarter-q1.csv</code>)</li>
+<li>Eventos continuam funcionando</li>
+<li>Um <code>index.html</code> como ponto de entrada</li>
+</ol>
+</div>
+<div class="prompt-box">
+<div class="prompt-box-head">P A S S O   2   ·   T E S T A R   E V E N T O S <span class="mins-sm">5 min</span></div>
+<p>DevTools → Console. Navegar. Verificar cada evento. Se faltar: "adiciona evento de click no botão X".</p>
+</div>
+<div class="prompt-box">
+<div class="prompt-box-head">P A S S O   3   ·   P U B L I C A R   O N L I N E <span class="mins-sm">10 min</span></div>
+<pre class="code-block"># Opção 1
 npx serve ./prototipo-iniciativa
 
 # Opção 2 · deploy prod
 npx netlify-cli deploy --dir=./prototipo-iniciativa --prod</pre>
-                      <p>Cada aluno recebe URL pública e compartilha no chat do curso.</p>
-                    </div>
-                    <p class="file-out">📄 <code>06-app-final/</code> (site completo publicado)</p>
-                  </div>
-                </details>
+<p>Cada aluno recebe URL pública e compartilha no chat do curso.</p>
+</div>
+<p class="file-out">📄 <code>06-app-final/</code> (site completo publicado)</p>
+</div>
+</details>
+<div class="showcase">
+<h4>🎤 Showcase  ·  15 min + 5 min encerramento</h4>
+<p>3-4 voluntários compartilham a tela: site live · funcionalidades · DevTools mostrando eventos · jornada (qual iniciativa, como priorizaram, como o thinking partner influenciou).</p>
+<p><strong>Critério:</strong> não é sobre perfeição. É mostrar que o aluno fechou o ciclo: dados → análise → priorização → validação → PRD → apresentação → protótipo → código → eventos → deploy.</p>
+</div>
+</section>
+</article>
+<!-- BLOCO 8 -->
+<article class="block sub-block" id="bloco-8">
+<header class="block-head">
+<span class="block-pill">B L O C O   0 8   ·   16:45–17:00</span>
+<h2>Encerramento</h2>
+</header>
+<section class="concept">
+<h3>O que vocês construíram hoje <span class="mins">5 min</span></h3>
+<ol class="journey">
+<li>Montaram o ambiente de PM (projeto, memória, tom de voz)</li>
+<li>Criaram thinking partner com personas dos C-levels</li>
+<li>Analisaram dados reais e priorizaram iniciativas</li>
+<li>Geraram PRD e apresentação com skills</li>
+<li>Validaram com thinking partner</li>
+<li>Prototiparam telas no Code</li>
+<li>Mapearam eventos com skill</li>
+<li>Codaram o site com CSS/JS</li>
+<li>Integraram eventos de analytics</li>
+<li>Publicaram o app online</li>
+</ol>
+<p class="journey-summary">De manhã eram PMs no dia 1. À tarde já tinham um produto no ar.</p>
+</section>
+<section class="concept">
+<h3>Limitações e honestidade <span class="mins">3 min</span></h3>
+<ul class="warn-list">
+<li>Inventa dados quando não tem — <em>sempre</em> valide números e fontes</li>
+<li>Contexto longo degrada qualidade — conversas de 50+ mensagens perdem foco</li>
+<li>Não substitui julgamento de produto — a decisão estratégica é sua</li>
+<li>Dependência de API — sem internet, sem Claude</li>
+<li>Dados sensíveis — cuidado com PII e informações confidenciais</li>
+</ul>
+</section>
+<section class="concept">
+<h3>Recursos para continuar <span class="mins">2 min</span></h3>
+<div class="links-grid">
+<a class="link-card" href="https://github.com/BehiSecc/awesome-claude-skills" rel="noopener" target="_blank">Comunidade de skills<span>github.com/BehiSecc/awesome-claude-skills</span></a>
+<a class="link-card" href="https://ccforpms.com" rel="noopener" target="_blank">Claude Code para PMs<span>ccforpms.com</span></a>
+<a class="link-card" href="https://docs.anthropic.com" rel="noopener" target="_blank">Documentação oficial<span>docs.anthropic.com</span></a>
+<div class="link-card static">Newsletters<span>Lenny's "How I AI" · Ruben Hassid "How to AI"</span></div>
+</div>
+</section>
+<div class="takeaway">
+<h3>T A K E A W A Y   F I N A L</h3>
+<blockquote>"Prompting é a pior forma de usar o Claude."</blockquote>
+<p>O poder está em delegar com contexto, criar skills reutilizáveis e prototipar sem depender de ninguém. Vocês entraram hoje de manhã como PMs no primeiro dia na ArenaCash. Saíram com ambiente configurado, dados analisados, iniciativa priorizada, PRD completa, apresentação validada, protótipo funcional, eventos mapeados e um app publicado. <strong>Isso não é teoria — é o que PMs que usam Claude bem fazem toda semana.</strong></p>
+</div>
+</article>
+</div>
+</div>
+</div></div></details>
+<!-- BEM-VINDO -->
 
-                <div class="showcase">
-                  <h4>🎤 Showcase &nbsp;·&nbsp; 15 min + 5 min encerramento</h4>
-                  <p>3-4 voluntários compartilham a tela: site live · funcionalidades · DevTools mostrando eventos · jornada (qual iniciativa, como priorizaram, como o thinking partner influenciou).</p>
-                  <p><strong>Critério:</strong> não é sobre perfeição. É mostrar que o aluno fechou o ciclo: dados → análise → priorização → validação → PRD → apresentação → protótipo → código → eventos → deploy.</p>
-                </div>
-              </section>
-            </article>
+<!-- AGENDA -->
 
-            <!-- BLOCO 8 -->
-            <article class="block sub-block" id="bloco-8">
-              <header class="block-head">
-                <span class="block-pill">B L O C O &nbsp; 0 8 &nbsp; · &nbsp; 16:45–17:00</span>
-                <h2>Encerramento</h2>
-              </header>
+<!-- BLOCOS + SIDEBAR -->
 
-              <section class="concept">
-                <h3>O que vocês construíram hoje <span class="mins">5 min</span></h3>
-                <ol class="journey">
-                  <li>Montaram o ambiente de PM (projeto, memória, tom de voz)</li>
-                  <li>Criaram thinking partner com personas dos C-levels</li>
-                  <li>Analisaram dados reais e priorizaram iniciativas</li>
-                  <li>Geraram PRD e apresentação com skills</li>
-                  <li>Validaram com thinking partner</li>
-                  <li>Prototiparam telas no Code</li>
-                  <li>Mapearam eventos com skill</li>
-                  <li>Codaram o site com CSS/JS</li>
-                  <li>Integraram eventos de analytics</li>
-                  <li>Publicaram o app online</li>
-                </ol>
-                <p class="journey-summary">De manhã eram PMs no dia 1. À tarde já tinham um produto no ar.</p>
-              </section>
+<!-- KIT -->
 
-              <section class="concept">
-                <h3>Limitações e honestidade <span class="mins">3 min</span></h3>
-                <ul class="warn-list">
-                  <li>Inventa dados quando não tem — <em>sempre</em> valide números e fontes</li>
-                  <li>Contexto longo degrada qualidade — conversas de 50+ mensagens perdem foco</li>
-                  <li>Não substitui julgamento de produto — a decisão estratégica é sua</li>
-                  <li>Dependência de API — sem internet, sem Claude</li>
-                  <li>Dados sensíveis — cuidado com PII e informações confidenciais</li>
-                </ul>
-              </section>
+<!-- PRÉ-REQUISITOS -->
 
-              <section class="concept">
-                <h3>Recursos para continuar <span class="mins">2 min</span></h3>
-                <div class="links-grid">
-                  <a class="link-card" href="https://github.com/BehiSecc/awesome-claude-skills" target="_blank" rel="noopener">Comunidade de skills<span>github.com/BehiSecc/awesome-claude-skills</span></a>
-                  <a class="link-card" href="https://ccforpms.com" target="_blank" rel="noopener">Claude Code para PMs<span>ccforpms.com</span></a>
-                  <a class="link-card" href="https://docs.anthropic.com" target="_blank" rel="noopener">Documentação oficial<span>docs.anthropic.com</span></a>
-                  <div class="link-card static">Newsletters<span>Lenny's "How I AI" · Ruben Hassid "How to AI"</span></div>
-                </div>
-              </section>
-
-              <div class="takeaway">
-                <h3>T A K E A W A Y &nbsp; F I N A L</h3>
-                <blockquote>"Prompting é a pior forma de usar o Claude."</blockquote>
-                <p>O poder está em delegar com contexto, criar skills reutilizáveis e prototipar sem depender de ninguém. Vocês entraram hoje de manhã como PMs no primeiro dia na ArenaCash. Saíram com ambiente configurado, dados analisados, iniciativa priorizada, PRD completa, apresentação validada, protótipo funcional, eventos mapeados e um app publicado. <strong>Isso não é teoria — é o que PMs que usam Claude bem fazem toda semana.</strong></p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- KIT -->
-    <section class="section" id="kit">
-      <div class="container">
-        <div class="section-head">
-          <span class="pa-eyebrow pa-eyebrow--red">K I T &nbsp; A R E N A C A S H</span>
-          <h2>Baixe os materiais do curso</h2>
-          <p>Os arquivos que um PM receberia no primeiro dia numa empresa real. <strong>Baixe e descompacte antes do curso</strong>. Clique em cada arquivo pra baixar individualmente, ou puxe tudo de uma vez no <code>.zip</code> abaixo.</p>
-        </div>
-
-        <div class="kit-bulk">
-          <div class="kit-bulk-info">
-            <span class="pa-eyebrow pa-eyebrow--red">P A C O T E &nbsp; C O M P L E T O</span>
-            <h3>ArenaCash-Kit.zip</h3>
-            <p>10 arquivos · ~172 KB · tudo que você precisa pro curso</p>
-          </div>
-          <a class="btn btn--primary btn--lg" href="ArenaCash-Kit.zip" download>
-            ↓ &nbsp; Baixar tudo em .zip
-          </a>
-        </div>
-
-        <div class="kit-grid">
-          <a class="kit-item" href="kit/memo-estrategico-q2.md" download>
-            <span class="kit-icon">📝</span>
-            <div><strong>memo-estrategico-q2.md</strong><span>memo do CEO com metas e contexto</span></div>
-            <span class="kit-size">6 KB</span>
-          </a>
-          <a class="kit-item" href="kit/organograma-arenacash.md" download>
-            <span class="kit-icon">👥</span>
-            <div><strong>organograma-arenacash.md</strong><span>estrutura da empresa, quem é quem</span></div>
-            <span class="kit-size">6 KB</span>
-          </a>
-          <a class="kit-item" href="kit/dados-quarter-q1.csv" download>
-            <span class="kit-icon">📊</span>
-            <div><strong>dados-quarter-q1.csv</strong><span>métricas: funil, ativação, churn, NPS</span></div>
-            <span class="kit-size">1 KB</span>
-          </a>
-          <a class="kit-item" href="kit/financeiro-q1.xlsx" download>
-            <span class="kit-icon">💰</span>
-            <div><strong>financeiro-q1.xlsx</strong><span>receita, custos, runway, CAC, LTV</span></div>
-            <span class="kit-size">20 KB</span>
-          </a>
-          <a class="kit-item" href="kit/atendimento-q1.csv" download>
-            <span class="kit-icon">🎫</span>
-            <div><strong>atendimento-q1.csv</strong><span>tickets de suporte categorizados</span></div>
-            <span class="kit-size">37 KB</span>
-          </a>
-          <a class="kit-item" href="kit/transcricao-cfo.md" download>
-            <span class="kit-icon">🎙️</span>
-            <div><strong>transcricao-cfo.md</strong><span>conversa com o CFO sobre prioridades</span></div>
-            <span class="kit-size">7 KB</span>
-          </a>
-          <a class="kit-item" href="kit/transcricao-cmo.md" download>
-            <span class="kit-icon">🎙️</span>
-            <div><strong>transcricao-cmo.md</strong><span>conversa com a CMO sobre growth</span></div>
-            <span class="kit-size">8 KB</span>
-          </a>
-          <a class="kit-item" href="kit/transcricao-cto.md" download>
-            <span class="kit-icon">🎙️</span>
-            <div><strong>transcricao-cto.md</strong><span>conversa com o CTO sobre tech</span></div>
-            <span class="kit-size">8 KB</span>
-          </a>
-          <a class="kit-item" href="kit/design-system-arenacash.md" download>
-            <span class="kit-icon">🧩</span>
-            <div><strong>design-system-arenacash.md</strong><span>cores, fontes, componentes da marca</span></div>
-            <span class="kit-size">13 KB</span>
-          </a>
-          <a class="kit-item" href="kit/Guia_de_Eventos_ArenaCash.pdf" download>
-            <span class="kit-icon">📎</span>
-            <div><strong>Guia_de_Eventos_ArenaCash.pdf</strong><span>guia de eventos de analytics</span></div>
-            <span class="kit-size">144 KB</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRÉ-REQUISITOS -->
-    <section class="section" id="pre-requisitos">
-      <div class="container">
-        <div class="section-head">
-          <span class="pa-eyebrow pa-eyebrow--red">A N T E S &nbsp; D E &nbsp; C O M E Ç A R</span>
-          <h2>Pré-requisitos</h2>
-          <p>Faça isso <strong>antes do dia do curso</strong>. Cada item abaixo tem um motivo — sem ele, alguma parte do dia não funciona. Separe cerca de <strong>30 minutos</strong> pra concluir tudo.</p>
-        </div>
-
-        <div class="prereq-list">
-          <!-- 1. Conta Claude paga -->
-          <details class="setup-step" open>
-            <summary>
-              <span class="step-num">1</span>
-              <div class="step-title">
-                <strong>Conta Claude paga</strong>
-                <span>Pro, Max ou Team · sem isso o curso não começa</span>
-              </div>
-              <span class="step-status required">Obrigatório</span>
-            </summary>
-            <div class="step-body">
-              <p>O Claude gratuito tem limite de mensagens e não acessa o Cowork nem os plugins. O curso inteiro roda no Claude pago.</p>
-              <h4>Qual plano escolher</h4>
-              <ul>
-                <li><strong>Pro</strong> — funciona pro curso. É o mínimo necessário.</li>
-                <li><strong>Max</strong> — recomendado se você quiser aproveitar sem se preocupar com limites. Durante um dia intenso como o curso, o Pro pode atingir o limite de mensagens. O Max tem limites muito mais altos — vai te deixar mais tranquilo pra experimentar sem segurar o ritmo. <a href="https://claude.ai/upgrade" target="_blank" rel="noopener">Veja a diferença entre os planos →</a></li>
-                <li><strong>Team</strong> — se sua empresa já tem conta Team, peça ao administrador pra te adicionar. Equivalente ao Pro em limites, mas com gerenciamento centralizado.</li>
-              </ul>
-              <p>Se ainda não tem conta: <a href="https://claude.ai/upgrade" target="_blank" rel="noopener">claude.ai/upgrade</a> pra assinar.</p>
-            </div>
-          </details>
-
-          <!-- 2. Claude Desktop -->
-          <details class="setup-step">
-            <summary>
-              <span class="step-num">2</span>
-              <div class="step-title">
-                <strong>Claude Desktop App</strong>
-                <span>interface principal do curso · só existe no desktop</span>
-              </div>
-              <span class="step-status required">Obrigatório</span>
-            </summary>
-            <div class="step-body">
-              <p>O Cowork — que usamos <strong>toda a manhã</strong> — só existe no Desktop. No navegador e no celular ele não aparece.</p>
-              <ol>
-                <li>Baixe o instalador em <a href="https://claude.ai/download" target="_blank" rel="noopener">claude.ai/download</a> (Mac ou Windows)</li>
-                <li>Abra o arquivo baixado e siga a instalação normalmente</li>
-                <li>Faça login com a mesma conta Claude paga do passo anterior</li>
-                <li>Verifique que aparece a opção <strong>Cowork</strong> no menu lateral — se aparecer, tá tudo certo</li>
-              </ol>
-            </div>
-          </details>
-
-          <!-- 3. Claude Code -->
-          <details class="setup-step">
-            <summary>
-              <span class="step-num">3</span>
-              <div class="step-title">
-                <strong>Claude Code</strong>
-                <span>usado na parte da tarde · blocos 5 a 7</span>
-              </div>
-              <span class="step-status required">Obrigatório</span>
-            </summary>
-            <div class="step-body">
-              <p>Claude Code é uma ferramenta que você instala no terminal e que permite criar protótipos, sites e scripts em conversa com o Claude. É a ferramenta da parte da tarde.</p>
-              <p>Pra instalar, você vai precisar de duas coisas na ordem abaixo:</p>
-
-              <div class="substep">
-                <h4>3a · Node.js (versão 18 ou mais recente)</h4>
-                <p>Node.js é o motor que roda o Claude Code. Você provavelmente já tem — verifique antes de instalar.</p>
-                <ol>
-                  <li>Abra o Terminal (Mac: <code>Cmd + Espaço</code> → "Terminal") ou PowerShell (Windows: tecla Windows → "PowerShell")</li>
-                  <li>Digite <code>node --version</code> e pressione Enter</li>
-                  <li>Se aparecer algo como <code>v20.x.x</code> ou <code>v22.x.x</code>, você já tem. Pule pro 3b.</li>
-                  <li>Se não aparecer nada: <a href="https://nodejs.org/en/download" target="_blank" rel="noopener">nodejs.org/en/download</a> e baixe a versão <strong>LTS</strong> pro seu SO. Instalador padrão.</li>
-                </ol>
-              </div>
-
-              <div class="substep">
-                <h4>3b · Claude Code</h4>
-                <p>Com o Node instalado, no mesmo terminal cole o comando abaixo e pressione Enter:</p>
-                <pre class="code-block">npm install -g @anthropic-ai/claude-code</pre>
-                <p>Aguarde (pode demorar 1-2 minutos). Depois verifique:</p>
-                <pre class="code-block">claude --version</pre>
-                <p>Se aparecer o número da versão, tá instalado. Documentação: <a href="https://docs.anthropic.com/pt/docs/claude-code/overview" target="_blank" rel="noopener">docs.anthropic.com/pt/docs/claude-code</a>.</p>
-              </div>
-            </div>
-          </details>
-
-          <!-- 4. Git -->
-          <details class="setup-step">
-            <summary>
-              <span class="step-num">4</span>
-              <div class="step-title">
-                <strong>Git</strong>
-                <span>o Claude Code depende dele por baixo dos panos</span>
-              </div>
-              <span class="step-status required">Obrigatório</span>
-            </summary>
-            <div class="step-body">
-              <p>Git é um sistema de controle de versão. O Claude Code usa por baixo dos panos pra gerenciar arquivos e mudanças — <strong>sem ele, o Code pode dar erro na inicialização</strong>.</p>
-              <ul>
-                <li><strong>Mac:</strong> Git já vem instalado na maioria dos casos. Verifique com <code>git --version</code> no Terminal. Se não tiver, o próprio Mac vai oferecer instalar automaticamente — aceite.</li>
-                <li><strong>Windows:</strong> Verifique com <code>git --version</code> no PowerShell. Se não tiver, baixe em <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">git-scm.com/download/win</a> (opções padrão, não precisa mexer em nada).</li>
-              </ul>
-            </div>
-          </details>
-
-          <!-- 5. Kit -->
-          <details class="setup-step">
-            <summary>
-              <span class="step-num">5</span>
-              <div class="step-title">
-                <strong>Kit ArenaCash</strong>
-                <span>baixado e descompactado · é o material do curso</span>
-              </div>
-              <span class="step-status required">Obrigatório</span>
-            </summary>
-            <div class="step-body">
-              <p>Você vai receber o kit por email ou link antes do curso. Ele contém todos os documentos da empresa fictícia que vamos usar no dia.</p>
-              <ul>
-                <li>Baixe o arquivo <code>.zip</code></li>
-                <li>Descompacte em algum lugar fácil de achar (ex: Desktop ou Documentos)</li>
-                <li>Renomeie a pasta pra <code>ArenaCash-PM</code></li>
-                <li>Verifique que consegue ver arquivos <code>.md</code>, <code>.csv</code>, <code>.xlsx</code> e <code>.pptx</code> dentro dela</li>
-              </ul>
-            </div>
-          </details>
-
-          <!-- 6. Gmail -->
-          <details class="setup-step optional">
-            <summary>
-              <span class="step-num">6</span>
-              <div class="step-title">
-                <strong>Conta Google / Gmail</strong>
-                <span>usado no Bloco 2 pra extrair seu tom de voz</span>
-              </div>
-              <span class="step-status optional">Recomendado</span>
-            </summary>
-            <div class="step-body">
-              <p>No Bloco 2 vamos conectar o Gmail ao Cowork pra extrair o seu <strong>tom de voz de escrita</strong> a partir dos seus e-mails. Funciona com qualquer conta Google.</p>
-              <ul>
-                <li>Se você tem Gmail, não precisa fazer nada — só lembrar o login</li>
-                <li>Se preferir não usar a conta pessoal, crie uma conta separada só pro curso em <a href="https://accounts.google.com" target="_blank" rel="noopener">accounts.google.com</a></li>
-                <li>Se não quiser usar Gmail de jeito nenhum, tudo bem — o instrutor mostra um caminho alternativo pra criar o tom de voz manualmente</li>
-              </ul>
-            </div>
-          </details>
-        </div>
-
-        <!-- Verificação final -->
-        <div class="verify-block">
-          <div class="verify-head">
-            <span class="pa-eyebrow pa-eyebrow--red">V E R I F I C A Ç Ã O &nbsp; F I N A L</span>
-            <h3>Teste tudo de uma vez</h3>
-            <p>Antes do curso, rode esses três comandos no terminal. Todos devem responder sem erro:</p>
-          </div>
-<pre class="code-block verify-code">node --version     <span class="code-comment"># v18 ou mais recente</span>
-claude --version   <span class="code-comment"># versão do Claude Code</span>
-git --version      <span class="code-comment"># versão do Git</span></pre>
-          <p class="verify-foot">Se algum der erro, volte no passo correspondente ou entre em contato antes do curso.</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <img src="assets/logo-pa.png" alt="Product Arena" />
-      </div>
-      <p class="footer-cta">na prática, a teoria é <span class="shout" style="color:var(--pa-red)">BEM</span> diferente.</p>
-      <p>Product Arena · Claude para PMs · Do Chat ao Código</p>
-      <p class="footer-note">Material de apoio para a aula. Use a sidebar pra navegar entre blocos. Atalho: tecla "E" abre/fecha todos os exercícios. Vamos juntos? 🤓</p>
-    </div>
-  </footer>
-
-  <button id="scroll-top" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
-
-  <script src="app.js"></script>
+</main>
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-brand">
+<img alt="Product Arena" src="assets/logo-pa.png"/>
+</div>
+<p class="footer-cta">na prática, a teoria é <span class="shout" style="color:var(--pa-red)">BEM</span> diferente.</p>
+<p>Product Arena · Claude para PMs · Do Chat ao Código</p>
+<p class="footer-note">Material de apoio para a aula. Use a sidebar pra navegar entre blocos. Atalho: tecla "E" abre/fecha todos os exercícios. Vamos juntos? 🤓</p>
+</div>
+</footer>
+<button aria-label="Voltar ao topo" id="scroll-top" title="Voltar ao topo">↑</button>
+<script src="app.js"></script>
 </body>
 </html>

@@ -800,29 +800,124 @@ A regra de decisão: Cowork é pra quem quer delegar trabalho com contexto e arq
 
 ### Exercício 11 — Setup do Code + continuidade (15 min)
 
-**Passo 1: Instalar e entrar (5 min)**
+**Passo 1 — Abrir o terminal e entrar na pasta (2 min)**
+
+- **Mac:** pressione `Cmd + Espaço`, digite "Terminal" e pressione Enter
+- **Windows:** pressione a tecla Windows, digite "PowerShell" e pressione Enter
+
+No terminal, navegue até a pasta da ArenaCash:
 
 ```bash
-npm install -g @anthropic-ai/claude-code
-cd ~/ArenaCash-PM
+cd ~/Documents/ArenaCash-PM
+```
+
+> Se você colocou a pasta em outro lugar, ajuste o caminho. No Mac, `~` é o atalho para a pasta do seu usuário.
+
+**Passo 2 — Iniciar o Claude Code (2 min)**
+
+Ainda no terminal, dentro da pasta `ArenaCash-PM`, digite:
+
+```bash
 claude
 ```
 
-Observar: o Claude já lê a pasta, já vê todos os arquivos da manhã.
+O Claude Code vai iniciar e já vai ler automaticamente os arquivos da pasta. Você vai ver uma confirmação de que ele encontrou o diretório.
 
-**Passo 2: Mostrar continuidade (5 min)**
+**Passo 3 — Verificar continuidade com o Cowork (5 min)**
 
-Pedir: "Lê o tom-de-voz.md e me mostra como eu escrevo."
+O primeiro teste é confirmar que o Code enxerga os mesmos arquivos que o Cowork criou de manhã. Digite no chat do Code:
 
-O Claude leu o mesmo arquivo que o Cowork criou de manhã. Mesma pasta, mesmos arquivos, mesma memória. Editar o tom de voz pelo Code (mudar uma expressão) e verificar que a alteração vale pros dois ambientes.
+> *"Lê o tom-de-voz.md e me mostra em 3 pontos como eu escrevo."*
 
-**Passo 3: CLAUDE.md — instruções no Code (5 min)**
+O Claude leu o mesmo arquivo que o Cowork criou horas atrás. Mesma pasta, mesmos arquivos — os dois ambientes compartilham a mesma fonte de verdade. Para confirmar, edite uma linha do `tom-de-voz.md` pelo Code e abra o Cowork logo depois: a alteração aparece nos dois lados.
 
-Pedir: "Cria um CLAUDE.md baseado nas instruções do projeto que a gente montou em 02-setup/instrucoes-projeto.md. Adapta pro formato de Code."
+**Passo 4 — Criar o CLAUDE.md (6 min)**
 
-Observar: o Claude converteu as instruções do Cowork para o formato CLAUDE.md. A partir de agora, toda sessão de Code já sabe quem você é e qual o contexto da ArenaCash.
+No Cowork, as instruções ficam nas configurações do projeto. No Code, elas ficam em um arquivo chamado `CLAUDE.md` na raiz da pasta. Vamos criar esse arquivo a partir das instruções que você já escreveu:
+
+> *"Lê o arquivo instrucoes-projeto.md. Cria um arquivo CLAUDE.md na raiz da pasta adaptando o conteúdo para o formato do Claude Code — mais direto, sem seções de configuração de interface, focado em contexto e regras de trabalho."*
+
+A partir de agora, toda sessão de Code iniciada dentro dessa pasta vai começar com o Claude já sabendo quem você é e qual é o contexto da ArenaCash.
 
 **Arquivo gerado:** `CLAUDE.md`
+
+---
+
+### Exercício 12 — Conectar ao Git e explorar o repositório da ArenaCash (15 min)
+
+O Git é o sistema que a engenharia usa para versionar código. Para um PM, o valor não é commitar — é conseguir navegar pelo repositório e entender o que está lá, sem precisar pedir para um dev abrir o projeto e explicar. O Claude Code é o tradutor que faz isso possível em português.
+
+Além disso, o instrutor disponibilizou todos os arquivos consolidados do curso em um repositório Git. Você vai clonar esse repositório agora — e ao final vai ter uma cópia local completa, organizada, pronta para usar no restante do dia.
+
+**Entregável:** repositório da ArenaCash clonado na sua máquina + leitura guiada pelo Claude do que está lá dentro.
+
+---
+
+**Passo 1 — O que é Git e GitHub em 60 segundos (1 min)**
+
+Git é um sistema de controle de versão: ele registra cada mudança feita em arquivos ao longo do tempo, quem fez, quando e por quê. GitHub é o serviço online onde esses repositórios ficam armazenados e compartilhados.
+
+Para um PM: Git é onde o time de engenharia vive. Saber navegar por lá significa conseguir ver o que mudou no último deploy, entender a estrutura do projeto, ou puxar arquivos atualizados sem depender de ninguém.
+
+---
+
+**Passo 2 — Clonar o repositório da ArenaCash (5 min)**
+
+Abra o terminal (ou use o mesmo que está aberto do exercício anterior). Saia da pasta ArenaCash-PM e vá para Documentos:
+
+```bash
+cd ~/Documents
+```
+
+Agora clone o repositório com o comando abaixo — o instrutor vai passar a URL exata no chat do curso:
+
+```bash
+git clone https://github.com/[url-do-repositório]/arenacash-kit.git
+```
+
+Aguarde o download terminar. Você vai ver os arquivos sendo baixados linha por linha. Ao final, entre na pasta:
+
+```bash
+cd arenacash-kit
+```
+
+Para verificar que os arquivos chegaram, liste o conteúdo:
+
+```bash
+ls
+```
+
+Você deve ver os mesmos arquivos do kit: `memo-estrategico-q2.md`, `organograma-arenacash.md`, `dados-quarter-q1.csv`, e todos os outros.
+
+---
+
+**Passo 3 — Abrir o Claude Code dentro do repositório (2 min)**
+
+Ainda dentro da pasta `arenacash-kit`, inicie o Claude Code:
+
+```bash
+claude
+```
+
+O Claude vai ler a pasta automaticamente. Agora ele está operando dentro do repositório Git — e consegue enxergar não só os arquivos, mas também o histórico de mudanças.
+
+---
+
+**Passo 4 — Explorar o repositório com o Claude (7 min)**
+
+Agora peça ao Claude para fazer o que levaria horas fazer manualmente:
+
+> *"Lê todos os arquivos desta pasta e me faz um mapa do repositório: o que cada arquivo contém, como eles se relacionam entre si e qual seria a ordem lógica de leitura para alguém que está chegando no projeto pela primeira vez."*
+
+Observe: o Claude leu todos os arquivos e entregou uma visão estruturada do repositório — o tipo de coisa que normalmente você pediria para um dev sênior explicar em uma reunião de onboarding.
+
+Para ir além, teste:
+
+> *"Tem alguma diferença entre os arquivos desse repositório e os que estão na minha pasta ArenaCash-PM? O que está aqui que não está lá?"*
+
+Isso simula um uso real: você recebeu um repositório atualizado e quer entender rapidamente o que mudou em relação à versão que você tinha.
+
+> **O que fixar:** você não escreveu uma linha de código. Não precisou entender a sintaxe do Git além de dois comandos. O Claude fez a leitura, o cruzamento e a explicação. Para um PM, essa é a forma certa de usar o Git — como fonte de verdade sobre o produto, acessada em linguagem natural.
 
 ---
 

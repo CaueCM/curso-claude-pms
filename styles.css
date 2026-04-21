@@ -296,20 +296,6 @@ em { font-style: italic; color: var(--fg-muted); }
   border-radius: 50%;
   pointer-events: none;
 }
-/* Claude Code mark no fundo do hero */
-.hero-mark {
-  position: absolute;
-  top: 50%; right: -5%;
-  transform: translateY(-50%) rotate(-8deg);
-  width: 360px; height: 360px;
-  opacity: 0.18;
-  pointer-events: none;
-  z-index: 0;
-  filter: drop-shadow(0 0 40px rgba(217,119,87,0.35));
-}
-@media (max-width: 980px) {
-  .hero-mark { right: -30%; width: 260px; height: 260px; opacity: 0.1; }
-}
 .hero-inner {
   max-width: var(--container);
   margin: 0 auto;

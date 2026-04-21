@@ -42,7 +42,7 @@
           </div>
           <div class="hero-stats-grid">
             <div class="hero-stat"><span class="num">+8</span><span class="label">blocos</span></div>
-            <div class="hero-stat"><span class="num">+15</span><span class="label">exercícios</span></div>
+            <div class="hero-stat"><span class="num">+14</span><span class="label">exercícios</span></div>
             <div class="hero-stat"><span class="num">6h</span><span class="label">mão na massa</span></div>
           </div>
         </div>
@@ -808,79 +808,219 @@ Claude lê, analisa e entrega o resultado para você</pre>
             <article class="block" id="bloco-4">
               <header class="block-head">
                 <span class="block-pill">B L O C O &nbsp; 0 4 &nbsp; · &nbsp; 11:40–12:30</span>
-                <h2>Skills, apresentação e validação</h2>
-                <p class="block-quote">"Skill = briefing especializado. Sem skill, resultado genérico. Com skill, resultado <strong class="shout">profissional</strong>."</p>
-                <p class="block-obj"><strong>Objetivo:</strong> Entender o ecossistema de skills, construir o thinking partner do zero, instalar a PRD Generator, criar a apresentação com template ArenaCash e submeter ao thinking partner.</p>
+                <h2>Skills, Validação e Apresentação</h2>
+                <p class="block-quote">"Skill é o que <strong class="shout">separa</strong> o Claude genérico do Claude que trabalha do jeito que você precisa."</p>
+                <p class="block-obj"><strong>Objetivo:</strong> Entender o que são skills e por que elas existem, criar o Thinking Partner pra validar a iniciativa prioritária gerada no Bloco 3, e construir a skill de apresentação pra chegar no almoço com um PPT pronto pra apresentar à diretoria.</p>
               </header>
 
               <section class="concept">
-                <h3>O ecossistema de Skills <span class="mins">10 min</span></h3>
-                <div class="grid-3">
-                  <div class="concept-card"><h4>Nativas</h4><p>Já vêm com o Claude: pptx, xlsx, docx, pdf. Rodam por baixo quando você pede "cria uma planilha".</p></div>
-                  <div class="concept-card"><h4>Comunidade</h4><p>Criadas e compartilhadas. Repositório: <code>github.com/BehiSecc/awesome-claude-skills</code></p></div>
-                  <div class="concept-card highlight"><h4>Customizadas</h4><p>As suas. Crie quando repete 3+ vezes, precisa seguir padrão da empresa, ou qualidade genérica não serve.</p></div>
+                <h3>O que são skills e por que um PM precisa delas <span class="mins">10 min</span></h3>
+                <p>O Claude, sem instrução específica, entrega resultado genérico. Com uma skill bem escrita, ele entrega resultado <strong>profissional</strong> — no padrão certo, na estrutura certa, com o nível de qualidade que você precisaria pedir dezenas de vezes pra chegar manualmente.</p>
+
+                <h4 class="concept-sub">Pra um PM, isso importa especialmente em 2 momentos</h4>
+                <div class="grid-2">
+                  <div class="concept-card">
+                    <h4>🎯 Validação de iniciativas</h4>
+                    <p>O dia a dia é cheio de ideias que precisam ser testadas contra a realidade da empresa antes de avançar. Quanto mais rápido você simula esse teste — com os stakeholders certos, na perspectiva certa — menos tempo gasta defendendo a ideia errada. Uma skill de validação faz isso em minutos.</p>
+                  </div>
+                  <div class="concept-card">
+                    <h4>📣 Comunicação recorrente</h4>
+                    <p>PPTs pra diretoria, relatórios de quarter, briefings de sprint — documentos que seguem sempre o mesmo padrão. Uma skill aprende esse padrão uma vez e aplica em todo output, sem você re-explicar template, tom de voz ou nível de detalhe.</p>
+                  </div>
                 </div>
+
+                <h4 class="concept-sub">Os 3 tipos de skill</h4>
+                <div class="grid-3">
+                  <div class="concept-card"><h4>Nativas</h4><p>Já vêm com o Claude e rodam automaticamente: <code>pptx</code>, <code>xlsx</code>, <code>docx</code>, <code>pdf</code>. Você já usou sem perceber.</p></div>
+                  <div class="concept-card"><h4>Comunidade</h4><p>Criadas e compartilhadas por outros usuários. Ponto de partida: <code>github.com/BehiSecc/awesome-claude-skills</code>.</p></div>
+                  <div class="concept-card highlight"><h4>Customizadas</h4><p>As suas. Quando o padrão genérico não serve: template da empresa, processo específico, output só no seu contexto.</p></div>
+                </div>
+
+                <p class="tip" style="margin-top: var(--s-5);">⚖️ <strong>Quando criar vs. instalar:</strong> se já existe uma skill boa, instale e adapte. Crie do zero quando: você repete a mesma tarefa <strong>3+ vezes</strong>, o output precisa seguir padrão da empresa, ou a qualidade genérica não é suficiente.</p>
+
+                <h4 class="concept-sub">Como uma skill funciona por dentro</h4>
+                <p>É um arquivo markdown (<code>.md</code>) salvo em <code>.claude/skills/nome-da-skill/SKILL.md</code>. Contém:</p>
+                <ul class="mcp-highlights">
+                  <li><strong>Trigger</strong> — quando a skill deve ser acionada</li>
+                  <li><strong>Fluxo</strong> — o que ela deve fazer passo a passo</li>
+                  <li><strong>Output</strong> — qual é o resultado esperado</li>
+                  <li><strong>Regras</strong> — o que nunca pode ser quebrado</li>
+                </ul>
+                <p>O Claude lê esse arquivo e segue as instruções como se fossem um <strong>briefing permanente</strong>.</p>
+                <p class="tip">🎬 <strong>Demo ao vivo:</strong> instrutor mostra o mesmo pedido feito <em>sem skill</em> e <em>com skill</em> — a diferença de qualidade, estrutura e consistência. "Você não vai querer voltar pro genérico."</p>
               </section>
 
               <section class="exercises">
                 <h3>Exercícios</h3>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">08</span><span class="ex-title">Criando o Thinking Partner com C-Levels</span><span class="ex-time">15 min</span></summary>
+                  <summary><span class="ex-num">08</span><span class="ex-title">Criando e usando o Thinking Partner</span><span class="ex-time">20 min</span></summary>
                   <div class="ex-body">
-                    <p>No Bloco 3 os alunos usaram o thinking partner com uma skill pré-instalada. Agora vão entender como ela funciona por dentro — e <strong>criar a própria</strong>.</p>
-                    <p>Uma Skill é um arquivo markdown com instruções detalhadas que ensinam o Claude a fazer uma tarefa específica. A analogia: <em>"Você manda briefing de 2 linhas pra um designer e espera trabalho incrível? Não. Skill é o briefing completo, escrito uma vez e reutilizado pra sempre."</em></p>
-                    <div class="prompt-box">
-                      <div class="prompt-box-head">P R O M P T &nbsp; P A R A &nbsp; O &nbsp; C L A U D E</div>
-                      <p>Cria uma skill chamada <code>thinking-partner</code>:</p>
-                      <ul>
-                        <li><strong>Trigger:</strong> quando eu pedir para discutir, avaliar ou validar uma decisão</li>
-                        <li><strong>O que faz:</strong> lê organograma + transcricao-cfo.md + transcricao-cmo.md + transcricao-cto.md. Cria 3 personas com perfil, preocupações e estilo. Apresenta o ponto de vista de cada um, destacando concordância e divergência.</li>
-                        <li><strong>Output:</strong> análise com 3 perspectivas + síntese de consenso + pontos de atenção</li>
-                        <li><strong>Regras:</strong> sempre baseado nas transcrições, nunca inventar posições</li>
-                      </ul>
+                    <p class="ex-intro">O Bloco 3 gerou 5 iniciativas ranqueadas por RICE e contextualizadas no mercado. <strong>Antes de apostar o quarter em uma delas</strong>, você precisa testá-las contra as prioridades reais de quem vai aprovar o orçamento e o roadmap. É aí que entra o Thinking Partner.</p>
+                    <p class="ex-subentrega"><strong>Entregável:</strong> skill <code>thinking-partner</code> instalada no projeto + decisão documentada com a iniciativa #1 escolhida e validada pelos C-levels.</p>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 1</span>
+                        <span class="step-block-time">10 min</span>
+                        <h4 class="step-block-title">Criar a skill Thinking Partner</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <div class="prompt-box">
+                          <div class="prompt-box-head">C R I A R &nbsp; S K I L L &nbsp; <code>thinking-partner</code></div>
+                          <p>Cria uma skill chamada <code>thinking-partner</code> com as seguintes especificações:</p>
+                          <ul>
+                            <li><strong>Trigger:</strong> sempre que eu pedir pra discutir, avaliar ou validar uma decisão, iniciativa ou priorização</li>
+                            <li><strong>O que faz:</strong> lê <code>organograma-arenacash.md</code>, <code>transcricao-cfo.md</code>, <code>transcricao-cmo.md</code> e <code>transcricao-cto.md</code>. Com base nisso, cria 3 personas — <strong>Juliana (CFO)</strong>, <strong>Beatriz (CMO)</strong> e <strong>Diego (CTO)</strong> — cada uma com perfil de preocupações, prioridades e estilo de comunicação extraídos das transcrições reais. Quando eu apresentar uma iniciativa, cada persona se posiciona: apoia, questiona ou rejeita — com os argumentos que aquele C-level usaria de verdade.</li>
+                            <li><strong>Output:</strong> perspectiva de cada C-level → síntese de onde há consenso e onde há conflito → pontos de atenção que o PM deve endereçar antes de apresentar</li>
+                            <li><strong>Regras:</strong> nunca inventar posições que não estejam nas transcrições; sempre citar o argumento específico do C-level; se não houver dado suficiente, sinalizar em vez de inventar</li>
+                          </ul>
+                        </div>
+                        <p><strong>Observe:</strong> o Claude criou a pasta <code>.claude/skills/thinking-partner/</code> com o arquivo <code>SKILL.md</code> dentro. Abra o arquivo e leia — você vai ver as instruções que acabou de ditar transformadas em um briefing estruturado. <strong class="shout">Essa é a anatomia de uma skill.</strong></p>
+                        <p class="file-out">📄 <code>.claude/skills/thinking-partner/SKILL.md</code></p>
+                      </div>
                     </div>
-                    <p class="tip">💡 Comparar com a skill pré-instalada do Bloco 3: são idênticas ou têm diferenças? Por quê?</p>
-                    <p class="file-out">📄 <code>.claude/skills/thinking-partner/SKILL.md</code></p>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 2</span>
+                        <span class="step-block-time">7 min</span>
+                        <h4 class="step-block-title">Validar as iniciativas com os C-levels</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <p>Agora use a skill que acabou de criar. Copie a lista de iniciativas que veio do Bloco 3 e mande:</p>
+                        <div class="prompt-box">
+                          <p>Usa a skill <code>thinking-partner</code>. Apresento as 5 iniciativas priorizadas que geramos pro Q2 da ArenaCash: <code>[cole aqui a lista do arquivo analise-estrategica-q2.md]</code>. Quero ouvir a Juliana, a Beatriz e o Diego sobre cada uma: quem apoia qual, onde há conflito de prioridade entre eles, e qual iniciativa teria mais chance de aprovação da diretoria hoje.</p>
+                        </div>
+                        <p><strong>Observe:</strong> o Claude lê as transcrições, monta as 3 personas e conduz um debate entre elas baseado nos dados reais. <em>Você não está inventando o que os C-levels pensariam — está simulando com o que eles já disseram.</em></p>
+                      </div>
+                    </div>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 3</span>
+                        <span class="step-block-time">3 min</span>
+                        <h4 class="step-block-title">Escolher a iniciativa #1</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <p>Leia a síntese do Thinking Partner e tome sua decisão. Em seguida, documente:</p>
+                        <div class="prompt-box">
+                          <p>Com base no debate do Thinking Partner, escolhi a iniciativa <code>[nome]</code>. Cria um arquivo <code>04-skills/decisao-iniciativa.md</code> com: qual iniciativa foi escolhida, os principais argumentos de cada C-level que influenciaram a decisão, e as objeções que precisarei endereçar na apresentação.</p>
+                        </div>
+                        <p>Essa decisão vai alimentar o próximo exercício — a apresentação que você vai levar pra diretoria.</p>
+                        <p class="file-out">📄 <code>04-skills/decisao-iniciativa.md</code></p>
+                      </div>
+                    </div>
                   </div>
                 </details>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">09</span><span class="ex-title">Instalando a PRD Generator</span><span class="ex-time">10 min</span></summary>
+                  <summary><span class="ex-num">09</span><span class="ex-title">Skill de Apresentação + PPT para a diretoria</span><span class="ex-time">20 min</span></summary>
                   <div class="ex-body">
-                    <ol>
-                      <li>Instrutor compartilha a skill <code>prd-generator</code></li>
-                      <li>Cada aluno instala no projeto</li>
-                      <li>Testar: <em>"Gera uma PRD para a iniciativa [nome escolhido]"</em></li>
-                      <li>Observar: PRD completa — contexto, problema, solução, métricas, histórias com critérios de aceite</li>
-                    </ol>
-                    <p class="file-out">📄 <code>04-skills/prd-iniciativa.docx</code></p>
-                  </div>
-                </details>
+                    <p class="ex-intro">Com a iniciativa escolhida e validada, é hora de montar o <strong>argumento visual</strong>. Vamos criar uma skill que conhece o seu tom de voz, o template da ArenaCash e o design system — e gera o PPT já no padrão certo, <strong>sem você ajustar cor por cor ou slide por slide</strong>.</p>
+                    <p class="ex-subentrega"><strong>Entregável:</strong> arquivo <code>apresentacao-iniciativa.pptx</code> pronto pra apresentar à diretoria — com identidade visual correta, escrito no seu tom de voz, e conteúdo já aprovado pelo Thinking Partner.</p>
 
-                <details class="exercise">
-                  <summary><span class="ex-num">10</span><span class="ex-title">Apresentação com template ArenaCash</span><span class="ex-time">15 min</span></summary>
-                  <div class="ex-body">
-                    <p><strong>Exercício final da manhã:</strong> amarra projeto, memória, tom de voz, skill, template e thinking partner.</p>
-                    <div class="prompt-box">
-                      <div class="prompt-box-head">P A S S O &nbsp; 1 &nbsp; · &nbsp; C R I A R &nbsp; A &nbsp; S K I L L &nbsp; <code>arena-presentation</code></div>
-                      <ul>
-                        <li><strong>Trigger:</strong> quando eu pedir apresentação ou deck</li>
-                        <li><strong>Fluxo:</strong> usa <code>template-apresentacao.pptx</code> como base. Lê <code>tom-de-voz.md</code> e <code>design-system-arenacash.md</code></li>
-                        <li><strong>Regras:</strong> máx 6 bullets por slide, títulos curtos, sempre incluir agenda</li>
-                      </ul>
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 1</span>
+                        <span class="step-block-time">8 min</span>
+                        <h4 class="step-block-title">Criar a skill de apresentação</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <div class="prompt-box">
+                          <div class="prompt-box-head">C R I A R &nbsp; S K I L L &nbsp; <code>arena-presentation</code></div>
+                          <p>Cria uma skill chamada <code>arena-presentation</code> com as seguintes especificações:</p>
+                          <ul>
+                            <li><strong>Trigger:</strong> sempre que eu pedir pra criar uma apresentação ou deck</li>
+                            <li><strong>O que faz:</strong> antes de escrever qualquer slide, lê 3 arquivos — <code>tom-de-voz.md</code> (como eu escrevo), <code>template-apresentacao.pptx</code> (estrutura e estilo visual) e <code>design-system-arenacash.md</code> (cores, fontes, componentes). Com esse contexto, estrutura o conteúdo em slides lógicos pro público especificado.</li>
+                            <li><strong>Output:</strong> arquivo <code>.pptx</code> salvo na pasta do projeto</li>
+                            <li><strong>Regras:</strong> máximo 5 bullets por slide; títulos curtos e diretos, sem verbos no infinitivo; sempre incluir slide de agenda no início e slide de "próximos passos" no final; nunca usar fonte ou cor fora do design system</li>
+                          </ul>
+                        </div>
+                        <p><strong>Observe:</strong> a skill reúne <strong class="shout">3 artefatos</strong> que você criou ao longo do dia (tom de voz, template, design system) e os aplica automaticamente em todo PPT que pedir daqui pra frente. <em>Você criou isso uma vez — vai usar pra sempre.</em></p>
+                        <p class="file-out">📄 <code>.claude/skills/arena-presentation/SKILL.md</code></p>
+                      </div>
                     </div>
-                    <div class="prompt-box">
-                      <div class="prompt-box-head">P A S S O &nbsp; 2 &nbsp; · &nbsp; G E R A R &nbsp; 8 &nbsp; S L I D E S</div>
-                      <p>Contexto do quarter · problema · solução · RICE · roadmap 3 meses · ask para liderança. Público: diretoria.</p>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 2</span>
+                        <span class="step-block-time">7 min</span>
+                        <h4 class="step-block-title">Gerar o PPT da iniciativa</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <div class="prompt-box">
+                          <p>Usa a skill <code>arena-presentation</code>. Cria uma apresentação de <strong>8 slides</strong> sobre a iniciativa <code>[nome da iniciativa escolhida no Passo 3 do Exercício 8]</code>. O público é a diretoria da ArenaCash — <strong>Paulo (CPO), Juliana (CFO), Beatriz (CMO) e Diego (CTO)</strong>. A apresentação deve incluir:</p>
+                          <ul>
+                            <li>Contexto do quarter e por que essa iniciativa é prioritária agora</li>
+                            <li>Problema que ela resolve com dados do Q1</li>
+                            <li>Solução proposta</li>
+                            <li>RICE score com justificativa</li>
+                            <li>Roadmap de 3 meses</li>
+                            <li>Riscos e como mitigá-los</li>
+                            <li>Ask pra liderança — o que você precisa deles pra avançar</li>
+                          </ul>
+                          <p>Salva como <code>04-skills/apresentacao-iniciativa.pptx</code>.</p>
+                        </div>
+                      </div>
                     </div>
-                    <div class="prompt-box">
-                      <div class="prompt-box-head">P A S S O &nbsp; 3 &nbsp; · &nbsp; T H I N K I N G &nbsp; P A R T N E R</div>
-                      <p>Mostra para CFO, CMO e CTO. Feedback: o que compraram, o que questionam, o que falta.</p>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 3</span>
+                        <span class="step-block-time">5 min</span>
+                        <h4 class="step-block-title">Revisão final com o Thinking Partner</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <p>Antes de dar o PPT como pronto, <strong>submeta ao mesmo comitê que validou a iniciativa</strong>:</p>
+                        <div class="prompt-box">
+                          <p>Usa a skill <code>thinking-partner</code>. Lê o arquivo <code>04-skills/apresentacao-iniciativa.pptx</code>. Quero que a Juliana, a Beatriz e o Diego reajam à apresentação como se fosse a reunião de diretoria real: o que cada um compraria sem questionamento, o que cada um questionaria, e o que está faltando pra convencer quem está mais cético.</p>
+                        </div>
+                        <p>Ajuste os slides com base no feedback. <strong>O critério não é perfeição</strong> — é: os argumentos do C-level mais cético estão endereçados na apresentação?</p>
+                        <p class="file-out">📄 <code>04-skills/apresentacao-iniciativa.pptx</code></p>
+                      </div>
                     </div>
-                    <p class="file-out">📄 <code>04-skills/arena-presentation/SKILL.md</code> · <code>04-skills/apresentacao-iniciativa.pptx</code></p>
                   </div>
                 </details>
+              </section>
+
+              <!-- Destaque de fim de manhã — o que você já tem -->
+              <section class="milestone">
+                <span class="milestone-eyebrow">🏆 &nbsp; M A R C O &nbsp; D E &nbsp; F I M &nbsp; D E &nbsp; M A N H Ã</span>
+                <h3 class="milestone-title">Você chegou no almoço com uma iniciativa priorizada e <span class="milestone-accent">100% alinhada</span> com o que a diretoria quer.</h3>
+                <p class="milestone-sub">Em 2h45 você saiu de "primeiro dia na empresa" pra "apresentação validada pelos C-levels pronta pra diretoria". Isso normalmente leva semanas.</p>
+
+                <div class="milestone-grid">
+                  <div class="milestone-col">
+                    <span class="milestone-col-label">O &nbsp; Q U E &nbsp; V O C Ê &nbsp; T E M &nbsp; E M &nbsp; M Ã O S</span>
+                    <ul class="milestone-list">
+                      <li><strong>Projeto configurado</strong> no Cowork com a pasta <code>ArenaCash-PM</code> conectada</li>
+                      <li><strong>Instruções personalizadas</strong> que referenciam organograma e memo</li>
+                      <li><strong>Tom de voz documentado</strong> e calibrado com mensagem real testada</li>
+                      <li><strong>Gmail e Google Drive conectados</strong> via MCP</li>
+                      <li><strong>Análise estratégica completa</strong> cruzando dados internos + mercado</li>
+                      <li><strong>5 iniciativas ranqueadas</strong> por RICE salvas como Google Doc compartilhável</li>
+                      <li><strong>Briefing diário automatizado</strong> rodando às 9h todo dia</li>
+                      <li><strong>1 iniciativa escolhida</strong> e validada pelos C-levels via Thinking Partner</li>
+                      <li><strong>PPT no padrão da empresa</strong> com o seu tom de voz, pronto pra diretoria</li>
+                    </ul>
+                  </div>
+                  <div class="milestone-col">
+                    <span class="milestone-col-label">O &nbsp; F E R R A M E N T A L &nbsp; P R A &nbsp; R E P E T I R</span>
+                    <ul class="milestone-list">
+                      <li><strong>Skill <code>thinking-partner</code></strong> — valida qualquer decisão com os C-levels da ArenaCash em minutos</li>
+                      <li><strong>Skill <code>arena-presentation</code></strong> — gera qualquer PPT da ArenaCash no padrão, tom e identidade corretos</li>
+                      <li><strong>Auto memory</strong> do projeto — o Claude aprendeu suas preferências ao longo da manhã</li>
+                      <li><strong>Tarefa agendada</strong> — trabalho recorrente rodando sozinho no fundo</li>
+                      <li><strong>Fluxo de validação</strong> — dados → cruzamento com mercado → RICE → Thinking Partner → PPT</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="milestone-stamp">
+                  <p>Isso não é um <em>demo</em>. É o que você vai levar pro seu trabalho real na segunda-feira. <strong>E cada skill criada hoje funciona pra sempre</strong> — na próxima iniciativa, no próximo quarter, no próximo PPT.</p>
+                  <p class="milestone-signoff">Bom almoço. À tarde a gente tira essa iniciativa do papel e coloca no ar. <strong class="shout">Vamos juntos? 🤓</strong></p>
+                </div>
               </section>
             </article>
 
@@ -930,7 +1070,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
               <section class="exercises">
                 <h3>Exercício</h3>
                 <details class="exercise">
-                  <summary><span class="ex-num">11</span><span class="ex-title">Setup do Code + continuidade</span><span class="ex-time">15 min</span></summary>
+                  <summary><span class="ex-num">10</span><span class="ex-title">Setup do Code + continuidade</span><span class="ex-time">15 min</span></summary>
                   <div class="ex-body">
                     <pre class="code-block">npm install -g @anthropic-ai/claude-code
 cd ~/ArenaCash-PM
@@ -959,7 +1099,7 @@ claude</pre>
                 <h3>Exercícios</h3>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">12</span><span class="ex-title">Prototipando as telas da iniciativa</span><span class="ex-time">30 min</span></summary>
+                  <summary><span class="ex-num">11</span><span class="ex-title">Prototipando as telas da iniciativa</span><span class="ex-time">30 min</span></summary>
                   <div class="ex-body">
                     <div class="prompt-box">
                       <div class="prompt-box-head">B R I E F I N G &nbsp; D E &nbsp; D E S I G N</div>
@@ -978,7 +1118,7 @@ claude</pre>
                 </details>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">13</span><span class="ex-title">Skill Event Mapper + mapeamento das telas</span><span class="ex-time">15 min</span></summary>
+                  <summary><span class="ex-num">12</span><span class="ex-title">Skill Event Mapper + mapeamento das telas</span><span class="ex-time">15 min</span></summary>
                   <div class="ex-body">
                     <p>A skill recebe screenshot, analisa elementos interativos e mapeia eventos (screen views, clicks, state changes). Output: planilha Excel + documento Word.</p>
                     <ol>
@@ -993,7 +1133,7 @@ claude</pre>
                 </details>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">14</span><span class="ex-title">Integrando eventos no código</span><span class="ex-time">15 min</span></summary>
+                  <summary><span class="ex-num">13</span><span class="ex-title">Integrando eventos no código</span><span class="ex-time">15 min</span></summary>
                   <div class="ex-body">
                     <div class="prompt-box">
                       <p>Lê <code>eventos-mapeados.xlsx</code>. Integra os eventos no protótipo HTML: screen views no load, clicks nos botões/links, state changes quando muda etapa. Usa <code>console.log()</code> para simular — quero ver no DevTools cada evento disparando.</p>
@@ -1017,7 +1157,7 @@ claude</pre>
                 <h3>Exercício final</h3>
 
                 <details class="exercise" open>
-                  <summary><span class="ex-num">15</span><span class="ex-title">Do protótipo ao produto</span><span class="ex-time">35 min</span></summary>
+                  <summary><span class="ex-num">14</span><span class="ex-title">Do protótipo ao produto</span><span class="ex-time">35 min</span></summary>
                   <div class="ex-body">
                     <div class="prompt-box">
                       <div class="prompt-box-head">P A S S O &nbsp; 1 &nbsp; · &nbsp; E V O L U I R &nbsp; O &nbsp; C Ó D I G O <span class="mins-sm">20 min</span></div>

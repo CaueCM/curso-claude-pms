@@ -1259,6 +1259,155 @@ pre.flow { background: var(--bg-muted); color: var(--fg); border: 1px solid var(
 }
 .mcp-highlights li strong { color: var(--fg); }
 
+/* =========================================================
+   Milestone — Destaque de fim de manhã (pós-Bloco 4)
+   ========================================================= */
+.milestone {
+  margin-top: var(--s-10);
+  padding: var(--s-12) var(--s-10);
+  background: linear-gradient(135deg, var(--pa-black) 0%, #1a0a0d 100%);
+  color: var(--pa-white);
+  border-radius: var(--radius-xl);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--pa-red);
+}
+.milestone::before {
+  content: "";
+  position: absolute;
+  top: -50%; right: -10%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(255,73,76,0.25), transparent 55%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.milestone > * { position: relative; z-index: 1; }
+.milestone-eyebrow {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: var(--tracking-caps);
+  color: var(--pa-red);
+  background: rgba(255,73,76,0.15);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  margin-bottom: var(--s-5);
+  border: 1px solid rgba(255,73,76,0.3);
+}
+.milestone-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(26px, 3.2vw, 40px);
+  line-height: 1.1;
+  letter-spacing: var(--tracking-tight);
+  color: var(--pa-white) !important;
+  margin: 0 0 var(--s-4) !important;
+  text-wrap: balance;
+}
+.milestone-accent {
+  color: var(--pa-red);
+  position: relative;
+  display: inline-block;
+}
+.milestone-accent::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -4px;
+  height: 3px;
+  background: var(--pa-red);
+  opacity: 0.5;
+}
+.milestone-sub {
+  font-size: var(--text-lg);
+  color: var(--pa-gray-300);
+  margin: 0 0 var(--s-10);
+  line-height: var(--leading-relaxed);
+  max-width: 720px;
+}
+
+.milestone-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-8);
+  margin-bottom: var(--s-8);
+}
+.milestone-col {
+  background: rgba(255,255,255,0.04);
+  padding: var(--s-6);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--pa-gray-800);
+}
+.milestone-col-label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: var(--tracking-caps);
+  color: var(--pa-red);
+  margin-bottom: var(--s-4);
+}
+.milestone-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.milestone-list li {
+  padding: var(--s-2) 0 var(--s-2) var(--s-6);
+  position: relative;
+  font-size: var(--text-sm);
+  color: var(--pa-gray-200);
+  line-height: 1.55;
+  border-bottom: 1px solid var(--pa-gray-800);
+}
+.milestone-list li:last-child { border-bottom: 0; }
+.milestone-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0; top: var(--s-2);
+  width: 20px; height: 20px;
+  background: var(--pa-red);
+  color: var(--pa-white);
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center; justify-content: center;
+}
+.milestone-list li strong { color: var(--pa-white); font-weight: 700; }
+.milestone-list li code {
+  background: var(--pa-gray-900);
+  border-color: var(--pa-gray-800);
+  color: var(--pa-red);
+  font-size: 0.9em;
+}
+
+.milestone-stamp {
+  padding: var(--s-6);
+  border-top: 2px solid var(--pa-red);
+  text-align: center;
+}
+.milestone-stamp p {
+  color: var(--pa-gray-200);
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  margin: 0 0 var(--s-3);
+}
+.milestone-stamp p strong { color: var(--pa-white); font-weight: 700; }
+.milestone-signoff {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-lg) !important;
+  color: var(--pa-white) !important;
+  letter-spacing: var(--tracking-tight);
+  margin-top: var(--s-4) !important;
+}
+
+@media (max-width: 780px) {
+  .milestone { padding: var(--s-8) var(--s-5); }
+  .milestone-grid { grid-template-columns: 1fr; gap: var(--s-4); }
+}
+
 details.nested {
   margin-top: var(--s-4);
   background: var(--bg-muted);

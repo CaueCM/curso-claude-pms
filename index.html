@@ -42,7 +42,7 @@
 </div>
 <div class="hero-stats-grid">
 <div class="hero-stat"><span class="num">8</span><span class="label">blocos</span></div>
-<div class="hero-stat"><span class="num">14</span><span class="label">exercícios</span></div>
+<div class="hero-stat"><span class="num">15</span><span class="label">exercícios</span></div>
 <div class="hero-stat"><span class="num">6h</span><span class="label">duração</span></div>
 </div>
 </div>
@@ -1188,19 +1188,153 @@ Claude lê, analisa e entrega o resultado para você</pre>
 </div>
 </section>
 <section class="exercises">
-<h3>Exercício</h3>
+<h3>Exercícios</h3>
+
 <details class="exercise">
 <summary><span class="ex-num">10</span><span class="ex-title">Setup do Code + continuidade</span><span class="ex-time">15 min</span></summary>
 <div class="ex-body">
-<pre class="code-block">npm install -g @anthropic-ai/claude-code
-cd ~/ArenaCash-PM
-claude</pre>
-<ol>
-<li><strong>Entrar</strong> (5 min): Claude já lê a pasta e vê todos os arquivos da manhã</li>
-<li><strong>Continuidade</strong> (5 min): "Lê o <code>tom-de-voz.md</code> e me mostra como eu escrevo." Mesmo arquivo, mesma memória.</li>
-<li><strong>CLAUDE.md</strong> (5 min): "Cria um <code>CLAUDE.md</code> baseado em <code>02-setup/instrucoes-projeto.md</code>. Adapta pro formato de Code."</li>
-</ol>
+<p class="ex-intro">O Claude Code vai ser a ferramenta da parte da tarde. Primeiro passo: abrir o terminal, iniciar o Code dentro da pasta da ArenaCash e confirmar que os arquivos criados de manhã (tom de voz, skills, análises) continuam <strong>todos acessíveis</strong>.</p>
+
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">2 min</span>
+<h4 class="step-block-title">Abrir o terminal e entrar na pasta</h4>
+</div>
+<div class="step-block-body">
+<div class="two-col">
+<div class="pill-card"><h4>🍎 Mac</h4><p>Pressione <code>Cmd + Espaço</code>, digite "Terminal" e pressione Enter</p></div>
+<div class="pill-card"><h4>🪟 Windows</h4><p>Pressione a tecla Windows, digite "PowerShell" e pressione Enter</p></div>
+</div>
+<p>No terminal, navegue até a pasta da ArenaCash:</p>
+<pre class="code-block">cd ~/Documents/ArenaCash-PM</pre>
+<p class="tip">💡 Se você colocou a pasta em outro lugar, ajuste o caminho. No Mac, <code>~</code> é o atalho pra pasta do seu usuário.</p>
+</div>
+</div>
+
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">2 min</span>
+<h4 class="step-block-title">Iniciar o Claude Code</h4>
+</div>
+<div class="step-block-body">
+<p>Ainda no terminal, dentro da pasta <code>ArenaCash-PM</code>, digite:</p>
+<pre class="code-block">claude</pre>
+<p>O Claude Code vai iniciar e já vai ler automaticamente os arquivos da pasta. Você vai ver uma confirmação de que ele encontrou o diretório.</p>
+</div>
+</div>
+
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 3</span>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Verificar continuidade com o Cowork</h4>
+</div>
+<div class="step-block-body">
+<p>O primeiro teste é confirmar que o Code enxerga os mesmos arquivos que o Cowork criou de manhã. Digite no chat do Code:</p>
+<div class="prompt-box">
+<p>Lê o <code>tom-de-voz.md</code> e me mostra em 3 pontos como eu escrevo.</p>
+</div>
+<p>O Claude leu o <strong>mesmo arquivo</strong> que o Cowork criou horas atrás. Mesma pasta, mesmos arquivos — os dois ambientes compartilham a mesma <strong class="shout">fonte de verdade</strong>.</p>
+<p class="tip">🔄 <strong>Teste extra:</strong> edite uma linha do <code>tom-de-voz.md</code> pelo Code e abra o Cowork logo depois — a alteração aparece nos dois lados.</p>
+</div>
+</div>
+
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 4</span>
+<span class="step-block-time">6 min</span>
+<h4 class="step-block-title">Criar o CLAUDE.md</h4>
+</div>
+<div class="step-block-body">
+<p>No Cowork, as instruções ficam nas configurações do projeto. No Code, elas ficam num arquivo chamado <code>CLAUDE.md</code> na raiz da pasta. Vamos criar esse arquivo a partir das instruções que você já escreveu:</p>
+<div class="prompt-box">
+<p>Lê o arquivo <code>instrucoes-projeto.md</code>. Cria um arquivo <code>CLAUDE.md</code> na raiz da pasta adaptando o conteúdo pro formato do Claude Code — mais direto, sem seções de configuração de interface, focado em contexto e regras de trabalho.</p>
+</div>
+<p>A partir de agora, toda sessão de Code iniciada dentro dessa pasta vai começar com o Claude já sabendo <strong>quem você é e qual é o contexto da ArenaCash</strong>.</p>
 <p class="file-out">📄 <code>CLAUDE.md</code></p>
+</div>
+</div>
+</div>
+</details>
+
+<details class="exercise">
+<summary><span class="ex-num">11</span><span class="ex-title">Conectar ao Git e explorar o repositório da ArenaCash</span><span class="ex-time">15 min</span></summary>
+<div class="ex-body">
+<p class="ex-intro">O Git é o sistema que a engenharia usa pra versionar código. Pra um PM, o valor não é commitar — é <strong>conseguir navegar pelo repositório e entender o que está lá</strong>, sem precisar pedir pra um dev abrir o projeto e explicar. O Claude Code é o tradutor que faz isso possível em português.</p>
+<p class="ex-subentrega"><strong>Entregável:</strong> repositório da ArenaCash clonado na sua máquina + leitura guiada pelo Claude do que está lá dentro.</p>
+
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">1 min</span>
+<h4 class="step-block-title">O que é Git e GitHub em 60 segundos</h4>
+</div>
+<div class="step-block-body">
+<p><strong>Git</strong> é um sistema de controle de versão: registra cada mudança feita em arquivos ao longo do tempo, quem fez, quando e por quê. <strong>GitHub</strong> é o serviço online onde esses repositórios ficam armazenados e compartilhados.</p>
+<p>Pra um PM: Git é <strong>onde o time de engenharia vive</strong>. Saber navegar por lá significa conseguir ver o que mudou no último deploy, entender a estrutura do projeto, ou puxar arquivos atualizados <em>sem depender de ninguém</em>.</p>
+</div>
+</div>
+
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Clonar o repositório da ArenaCash</h4>
+</div>
+<div class="step-block-body">
+<p>Abra o terminal (ou use o mesmo que está aberto do exercício anterior). Saia da pasta <code>ArenaCash-PM</code> e vá pra Documentos:</p>
+<pre class="code-block">cd ~/Documents</pre>
+<p>Agora clone o repositório com o comando abaixo — <strong>o instrutor vai passar a URL exata no chat do curso</strong>:</p>
+<pre class="code-block">git clone https://github.com/[url-do-repositório]/arenacash-kit.git</pre>
+<p>Aguarde o download terminar. Você vai ver os arquivos sendo baixados linha por linha. Ao final, entre na pasta:</p>
+<pre class="code-block">cd arenacash-kit</pre>
+<p>Pra verificar que os arquivos chegaram, liste o conteúdo:</p>
+<pre class="code-block">ls</pre>
+<p>Você deve ver os mesmos arquivos do kit: <code>memo-estrategico-q2.md</code>, <code>organograma-arenacash.md</code>, <code>dados-quarter-q1.csv</code>, e todos os outros.</p>
+</div>
+</div>
+
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 3</span>
+<span class="step-block-time">2 min</span>
+<h4 class="step-block-title">Abrir o Claude Code dentro do repositório</h4>
+</div>
+<div class="step-block-body">
+<p>Ainda dentro da pasta <code>arenacash-kit</code>, inicie o Claude Code:</p>
+<pre class="code-block">claude</pre>
+<p>O Claude vai ler a pasta automaticamente. Agora ele está operando <strong>dentro do repositório Git</strong> — e consegue enxergar não só os arquivos, mas também o histórico de mudanças.</p>
+</div>
+</div>
+
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 4</span>
+<span class="step-block-time">7 min</span>
+<h4 class="step-block-title">Explorar o repositório com o Claude</h4>
+</div>
+<div class="step-block-body">
+<p>Agora peça ao Claude pra fazer o que levaria horas fazer manualmente:</p>
+<div class="prompt-box">
+<div class="prompt-box-head">M A P A &nbsp; D O &nbsp; R E P O</div>
+<p>Lê todos os arquivos desta pasta e me faz um mapa do repositório: o que cada arquivo contém, como eles se relacionam entre si e qual seria a ordem lógica de leitura pra alguém que está chegando no projeto pela primeira vez.</p>
+</div>
+<p><strong>Observe:</strong> o Claude leu todos os arquivos e entregou uma visão estruturada do repositório — o tipo de coisa que normalmente você pediria pra um dev sênior explicar numa <em>reunião de onboarding</em>.</p>
+<p>Pra ir além, teste:</p>
+<div class="prompt-box">
+<div class="prompt-box-head">D I F F &nbsp; E N T R E &nbsp; V E R S Õ E S</div>
+<p>Tem alguma diferença entre os arquivos desse repositório e os que estão na minha pasta <code>ArenaCash-PM</code>? O que está aqui que não está lá?</p>
+</div>
+<p>Isso simula um uso real: você recebeu um repositório atualizado e quer entender <strong>rapidamente o que mudou</strong> em relação à versão que você tinha.</p>
+</div>
+</div>
+
+<div class="ex-closing">
+<span class="pa-eyebrow pa-eyebrow--red">O &nbsp; Q U E &nbsp; F I X A R</span>
+<p>Você não escreveu uma linha de código. Não precisou entender a sintaxe do Git além de dois comandos. <strong>O Claude fez a leitura, o cruzamento e a explicação.</strong> Pra um PM, essa é a forma certa de usar o Git — como <strong class="shout">fonte de verdade</strong> sobre o produto, acessada em linguagem natural.</p>
+</div>
 </div>
 </details>
 </section>
@@ -1216,7 +1350,7 @@ claude</pre>
 <section class="exercises">
 <h3>Exercícios</h3>
 <details class="exercise">
-<summary><span class="ex-num">11</span><span class="ex-title">Prototipando as telas da iniciativa</span><span class="ex-time">30 min</span></summary>
+<summary><span class="ex-num">12</span><span class="ex-title">Prototipando as telas da iniciativa</span><span class="ex-time">30 min</span></summary>
 <div class="ex-body">
 <div class="prompt-box">
 <div class="prompt-box-head">B R I E F I N G   D E   D E S I G N</div>
@@ -1234,7 +1368,7 @@ claude</pre>
 </div>
 </details>
 <details class="exercise">
-<summary><span class="ex-num">12</span><span class="ex-title">Skill Event Mapper + mapeamento das telas</span><span class="ex-time">15 min</span></summary>
+<summary><span class="ex-num">13</span><span class="ex-title">Skill Event Mapper + mapeamento das telas</span><span class="ex-time">15 min</span></summary>
 <div class="ex-body">
 <p>A skill recebe screenshot, analisa elementos interativos e mapeia eventos (screen views, clicks, state changes). Output: planilha Excel + documento Word.</p>
 <ol>
@@ -1248,7 +1382,7 @@ claude</pre>
 </div>
 </details>
 <details class="exercise">
-<summary><span class="ex-num">13</span><span class="ex-title">Integrando eventos no código</span><span class="ex-time">15 min</span></summary>
+<summary><span class="ex-num">14</span><span class="ex-title">Integrando eventos no código</span><span class="ex-time">15 min</span></summary>
 <div class="ex-body">
 <div class="prompt-box">
 <p>Lê <code>eventos-mapeados.xlsx</code>. Integra os eventos no protótipo HTML: screen views no load, clicks nos botões/links, state changes quando muda etapa. Usa <code>console.log()</code> para simular — quero ver no DevTools cada evento disparando.</p>
@@ -1269,7 +1403,7 @@ claude</pre>
 <section class="exercises">
 <h3>Exercício final</h3>
 <details class="exercise" open="">
-<summary><span class="ex-num">14</span><span class="ex-title">Do protótipo ao produto</span><span class="ex-time">35 min</span></summary>
+<summary><span class="ex-num">15</span><span class="ex-title">Do protótipo ao produto</span><span class="ex-time">35 min</span></summary>
 <div class="ex-body">
 <div class="prompt-box">
 <div class="prompt-box-head">P A S S O   1   ·   E V O L U I R   O   C Ó D I G O <span class="mins-sm">20 min</span></div>

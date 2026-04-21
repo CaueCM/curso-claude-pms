@@ -924,64 +924,143 @@ Isso simula um uso real: você recebeu um repositório atualizado e quer entende
 ## Bloco 6 — Prototipagem Visual e Mapeamento de Eventos (14:30–15:30)
 ### "PM que prototipa valida mais rápido, erra mais barato e influencia mais."
 
-**Objetivo:** Prototipar as telas da iniciativa aprovada de manhã, criar a skill de mapeamento de eventos, e mapear os eventos das telas. Sair com design + tracking plan prontos.
+**Objetivo:** Transformar a apresentação aprovada de manhã em imagens de tela prontas para comunicar a iniciativa, criar a skill de mapeamento de eventos a partir do guia da ArenaCash, e sair com o tracking plan documentado em Excel e Word.
 
-### Exercício 12 — Prototipando as telas da iniciativa (30 min)
+---
 
-A iniciativa que o PM priorizou de manhã — validada pelo thinking partner e apresentada na PPT — agora vira tela.
+### Exercício 13 — Gerando as imagens das telas a partir da apresentação (25 min)
 
-**Passo 1: Briefing de design (5 min)**
+Você aprovou a iniciativa com a diretoria. Tem o PPT, tem o RICE, tem o roadmap. O próximo problema concreto de um PM é este: como você comunica para o time de design e engenharia o que precisa ser construído, antes de qualquer sprint de discovery?
 
-O aluno descreve pro Code o que quer prototipar, referenciando a PRD e o design system:
+A resposta tradicional é: agenda reunião, explica verbalmente, aguarda o designer fazer um wireframe, revisa, itera. Isso leva dias e depende de agenda de outra pessoa.
 
-> "Lê o arquivo 04-skills/prd-iniciativa.docx e o design-system-arenacash.md. Cria um protótipo funcional em HTML/CSS/JS das telas principais dessa iniciativa. Usa as cores, fontes e componentes do design system da ArenaCash. Quero: [descrever as 2-3 telas principais da iniciativa]. Precisa ser responsivo e interativo."
+Com o Claude, você sai dessa reunião com imagens das telas na mão — geradas a partir da apresentação que você já tem, aplicando o design system da ArenaCash. Não é o Figma final do designer. É o suficiente para: alinhar o time antes do refinamento, ter uma referência visual concreta para discutir, e já entregar insumo para o próximo exercício — o mapeamento de eventos.
 
-**Passo 2: Primeira versão (10 min)**
+**Entregável:** imagens das telas principais da iniciativa salvas na pasta `06-prototipo/`, prontas para compartilhar com o time e usar como base do mapeamento de eventos.
 
-O Code gera as telas. O aluno abre no browser e avalia visualmente.
+---
 
-**Passo 3: Iteração de design (15 min)**
+**Passo 1 — Briefing visual (5 min)**
 
-3-4 rodadas de refinamento em português:
-- "A cor do header tá apagada, usa o azul primário do design system"
-- "Adiciona um gráfico de evolução mensal nesse card"
-- "O botão de CTA precisa de mais destaque"
-- "Coloca um estado vazio (empty state) pra quando não tem dados"
+Abra o Cowork (pode voltar do Code para cá — os arquivos são os mesmos). Com a apresentação e o design system na pasta, mande:
 
-Ponto-chave: o PM nunca olha código. Descreve o que quer, vê o resultado, ajusta. O loop é: descrever → gerar → revisar → iterar. Em 30 minutos, o aluno tem um protótipo visual funcional que normalmente levaria dias pedindo pra design.
+> *"Lê o arquivo 04-skills/apresentacao-iniciativa.pptx e o design-system-arenacash.md. Com base na iniciativa apresentada, descreve as 2 ou 3 telas principais que essa feature precisaria ter — quais são, o que o usuário faz em cada uma e quais são os elementos de interface presentes (botões, campos, cards, gráficos, navegação)."*
 
-**Arquivo gerado:** `05-code/prototipo-iniciativa/` (HTML/CSS/JS)
+O Claude vai listar as telas com descrição detalhada de cada uma. Revise: faz sentido com o que você imaginou para a iniciativa? Ajuste a descrição se precisar antes de gerar as imagens.
 
-### Exercício 13 — Skill de Event Mapper + mapeamento das telas (15 min)
+---
 
-Agora que as telas existem, o PM precisa definir quais eventos de analytics rastrear.
+**Passo 2 — Gerar as imagens das telas (15 min)**
 
-**Passo 1: Instalar/criar a skill (5 min)**
+Para cada tela descrita no Passo 1, mande um prompt de geração de imagem. Use o design system como referência de identidade visual:
 
-O instrutor compartilha a skill `event-mapper`. Os alunos instalam.
+> *"Gera uma imagem da [nome da tela — ex: 'tela de onboarding passo 1']. A tela deve: [cole a descrição que o Claude gerou no passo anterior para essa tela]. Usa as cores do design system da ArenaCash: cor primária [cor do arquivo], fonte [fonte do arquivo], estilo visual limpo e moderno de fintech mobile. A imagem deve parecer um mockup de alta fidelidade de um app iOS."*
 
-A skill funciona assim: recebe um print/screenshot de tela, analisa todos os elementos interativos, e mapeia os eventos que deveriam ser rastreados (screen views, clicks, state changes). Output: planilha Excel com nome do evento, propriedades, gatilho, tela e status + documento Word com contexto.
+Repita para cada tela. Salve cada imagem gerada com um nome claro:
 
-**Passo 2: Mapear eventos das telas prototipadas (10 min)**
+> *"Salva essa imagem como 06-prototipo/tela-[nome].png"*
 
-1. Tirar screenshots das telas que acabaram de criar
-2. Enviar pro Claude com a skill ativa: "Mapeia os eventos de analytics dessas telas"
-3. Observar: a skill segue convenções (snake_case, padrão {tela}_{ação}) e entrega dois arquivos prontos
-4. Revisar: os eventos fazem sentido? Faltou algum? Tem evento demais?
+---
 
-Ponto-chave: sem a skill, mapear eventos de 3 telas levaria 1-2 horas. Com a skill, 10 minutos — e seguindo convenção.
+**Passo 3 — Revisão e ajuste (5 min)**
 
-**Arquivos gerados:** `05-code/eventos-mapeados.xlsx`, `05-code/eventos-contexto.docx`
+Abra as imagens geradas e avalie:
+- A identidade visual está alinhada com o design system?
+- Os elementos de interface fazem sentido para o fluxo da iniciativa?
+- Um designer ou desenvolvedor conseguiria entender o que construir a partir disso?
 
-### Exercício 14 — Integrando eventos no código (15 min)
+Se algo não ficou certo, descreva o ajuste em português e peça para regerar aquela tela específica. O loop é: descrever → gerar → revisar → ajustar — sem Figma, sem design, sem esperar.
 
-Agora o aluno pede ao Code para integrar os eventos diretamente no protótipo:
+**Arquivos gerados:** `06-prototipo/tela-[nome].png` (uma por tela)
 
-> "Lê o arquivo eventos-mapeados.xlsx. Integra esses eventos no protótipo HTML que a gente criou. Adiciona tracking calls nos pontos certos: screen views quando a tela carrega, clicks nos botões e links, state changes quando o usuário muda de etapa. Usa console.log() para simular os disparos — quero ver no DevTools quando cada evento dispara."
+---
 
-Observar: o Code leu a planilha de eventos e modificou o HTML pra adicionar os tracking points. Abrir o DevTools no browser e navegar pelo protótipo — cada interação mostra o evento no console.
+### Exercício 14 — Criando a skill Event Mapper (35 min)
 
-**Arquivo gerado:** `05-code/prototipo-iniciativa/` (atualizado com eventos)
+Você tem as telas. Agora vem um passo que muita equipe esquece — ou faz tarde demais: definir os eventos de analytics antes do desenvolvimento começar.
+
+Para um PM, isso importa por uma razão simples: se o evento não foi mapeado antes do sprint, ele não vai estar no código quando a feature for ao ar. E dado que não foi ao ar com o evento, você não vai ter dados. E sem dados, você não consegue medir se a iniciativa que levou o quarter inteiro para construir está funcionando ou não.
+
+Mapear eventos antes do desenvolvimento não é trabalho de engenharia — é decisão de produto. Você define o que precisa medir para saber se a iniciativa funcionou. O time de engenharia implementa. A skill torna esse processo rápido e padronizado.
+
+Em vez de instalar uma skill pronta, vamos criar essa skill do zero — exatamente como fizemos com o Thinking Partner — mas desta vez usando um documento real da ArenaCash como base: o **Guia de Eventos**, que está na sua pasta desde o início do dia.
+
+**Entregável:** skill `event-mapper` instalada no projeto + planilha Excel e documento Word com todos os eventos mapeados das telas geradas.
+
+---
+
+**Passo 1 — Entender o Guia de Eventos (5 min)**
+
+Antes de criar a skill, o Claude precisa ler e internalizar as regras de mapeamento da ArenaCash. Mande:
+
+> *"Lê o arquivo guia-de-eventos-arenacash.pdf. Me explica: quais são as convenções de nomenclatura dos eventos, quais tipos de evento existem (screen view, click, state change...), quais propriedades cada evento deve ter, e quais são as regras que nunca podem ser quebradas no mapeamento."*
+
+Leia o resumo que o Claude entregar. Você vai reconhecer as convenções — e vai usá-las como critério de revisão quando a skill mapear os eventos das suas telas.
+
+---
+
+**Passo 2 — Criar a skill Event Mapper (15 min)**
+
+> *"Cria uma skill chamada `event-mapper` com as seguintes especificações:*
+>
+> *- Trigger: sempre que eu enviar uma imagem de tela, um conjunto de screenshots ou uma listagem de telas e pedir para mapear os eventos*
+> *- O que ela faz: lê o arquivo guia-de-eventos-arenacash.pdf para aplicar as convenções da ArenaCash. Analisa cada tela recebida — identificando todos os elementos interativos: botões, links, campos, toggles, cards clicáveis, mudanças de estado, e carregamentos de tela. Para cada elemento, define o evento correspondente seguindo a nomenclatura do guia.*
+> *- Output 1: planilha Excel com as colunas — nome do evento, tipo (screen\_view / click / state\_change), tela de origem, elemento disparador, propriedades do evento, e status (novo / já existe)*
+> *- Output 2: documento Word com o contexto de cada evento — descrição em linguagem humana do que ele captura e por que importa para o produto*
+> *- Regras: seguir rigorosamente a convenção de nomenclatura do guia (snake\_case, padrão tela\_ação); nunca criar eventos duplicados; sinalizar quando um elemento não tiver evento correspondente no guia e sugerir um novo seguindo o padrão"*
+
+Observe: a skill foi construída em cima de um documento real da sua empresa — não de uma regra genérica. Isso é a diferença entre uma skill que qualquer um poderia usar e uma skill que só faz sentido na ArenaCash.
+
+**Arquivo gerado:** `.claude/skills/event-mapper/SKILL.md`
+
+---
+
+**Passo 3 — Mapear os eventos das telas geradas (15 min)**
+
+Com a skill criada, é hora de usá-la. No Cowork, abra uma nova tarefa e anexe as imagens das telas que você salvou no Exercício 13:
+
+> *"Usa a skill event-mapper. Mapeia os eventos de analytics dessas telas: [anexe as imagens tela-[nome].png]. Segue as convenções do guia de eventos da ArenaCash e entrega o Excel e o Word na pasta 06-prototipo/."*
+
+Enquanto o Claude processa, observe o que ele está fazendo: analisando cada elemento interativo visível nas imagens, associando ao tipo de evento correspondente, e aplicando a nomenclatura do guia.
+
+Ao receber os arquivos, revise:
+- Os nomes dos eventos seguem o padrão do guia?
+- Algum elemento interativo ficou de fora?
+- As propriedades de cada evento estão completas?
+
+Se encontrar algo errado, ajuste na conversa: "o evento do botão X deveria ser `ativacao_continuar_click`, não `botao_continuar_click`" — e peça para corrigir no arquivo.
+
+**Arquivos gerados:** `06-prototipo/eventos-mapeados.xlsx`, `06-prototipo/eventos-contexto.docx`
+
+---
+
+### 🎁 Exercício bônus — Prototipagem com Claude Design (para quem tiver acesso)
+
+> *Este exercício é opcional. O Claude Design está disponível nos planos **Pro, Max, Team e Enterprise** — mas é uma feature em research preview que precisa ser habilitada. Se o seu plano for Team ou Enterprise, verifique com o administrador se a funcionalidade foi ativada para a sua conta.*
+
+**Como acessar:** abra o navegador e vá para [claude.ai/design](https://claude.ai/design). Se o seu plano tiver acesso, a interface vai carregar direto. Se não tiver, o Claude vai informar qual plano dá acesso.
+
+---
+
+O Claude Design tem dois painéis: chat à esquerda, canvas à direita. Você descreve o que quer em português no chat, e o Claude gera o design diretamente no canvas — interativo, ajustável, em alta fidelidade. Em vez de esperar uma imagem gerada por prompt, você itera visualmente: move elementos, ajusta hierarquia, muda componentes, tudo em linguagem natural.
+
+**Passo 1 — Configurar o design system da ArenaCash**
+
+Antes de gerar qualquer tela, configure o design system para que o Claude Design aplique a identidade visual correta. No chat do Claude Design, mande:
+
+> *"Vou trabalhar com o design system da ArenaCash. As cores principais são [cole as cores do design-system-arenacash.md], a fonte é [fonte do arquivo] e o estilo visual é fintech mobile, limpo e moderno. Guarda essas configurações para usar em todas as telas que eu pedir."*
+
+**Passo 2 — Recriar as telas em alta fidelidade**
+
+> *"Cria as telas da iniciativa [nome] da ArenaCash em alta fidelidade: [descreva as telas — ou cole a descrição que o Claude gerou no Exercício 13]. Aplica o design system configurado: cores, fonte e estilo. Quero ver: [nome da tela 1], [nome da tela 2] e [nome da tela 3]."*
+
+Itere no canvas: peça ajustes de layout, espaçamento, hierarquia de informação, estados de botão, empty states. Cada pedido é uma instrução em português — sem precisar abrir o Figma ou editar nenhum arquivo.
+
+**Passo 3 — Exportar e substituir**
+
+Ao finalizar, exporte as telas como imagens e salve em `06-prototipo/`, substituindo as geradas no Exercício 13 — ou mantenha as duas versões lado a lado para mostrar a diferença de fidelidade.
+
+> **Por que isso importa:** a diferença entre uma imagem gerada por prompt e um protótipo de alta fidelidade no Claude Design é a diferença entre mostrar uma ideia e vender uma ideia. Em reunião de stakeholders, o segundo fecha mais rápido.
 
 ---
 

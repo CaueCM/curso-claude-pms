@@ -363,7 +363,7 @@ O Claude vai te guiar. As seções que o arquivo deve ter:
 
 ## Como eu trabalho
 - Tom de comunicação: [formal? direto? casual? dê exemplos]
-- Frameworks que uso: [ex: RICE, OKRs, Jobs to Be Done, Story Mapping]
+- Frameworks que uso: [ex: Impacto vs. Esforço, OKRs, Jobs to Be Done, Story Mapping]
 - Prefiro outputs: [ex: sempre em arquivo, nunca só no chat; listas curtas; textos diretos]
 
 ## Regras que nunca podem ser quebradas
@@ -562,7 +562,7 @@ Observe: o Claude saiu do Drive, foi para a internet, buscou e sumarizou fontes 
 
 **Passo 3 — Cruzar e gerar a análise completa (5 min)**
 
-> *"Agora cruza os dois lados: o que você encontrou nos dados internos da ArenaCash com o que você pesquisou sobre o mercado de fintechs. Com base nisso, propõe 5 iniciativas para o Q2 que enderecem os problemas identificados e estejam alinhadas com as tendências de mercado. Para cada iniciativa, inclui: descrição em uma linha, por que faz sentido agora (dado interno + contexto de mercado), e estimativa de Reach, Impact, Confidence e Effort (framework RICE). Ranqueie da mais impactante para a menos e salva tudo no arquivo 03-conexoes/analise-estrategica-q2.md."*
+> *"Agora cruza os dois lados: o que você encontrou nos dados internos da ArenaCash com o que você pesquisou sobre o mercado de fintechs. Com base nisso, propõe 5 iniciativas para o Q2 que enderecem os problemas identificados e estejam alinhadas com as tendências de mercado. Para cada iniciativa, inclui: descrição em uma linha, por que faz sentido agora (dado interno + contexto de mercado), e uma estimativa de Impacto e Esforço para cada uma (alto/médio/baixo). Ranqueie da mais impactante para a menos e salva tudo no arquivo 03-conexoes/analise-estrategica-q2.md."*
 
 **Arquivo gerado:** `03-conexoes/analise-estrategica-q2.md`
 
@@ -671,7 +671,7 @@ O Claude, sem instrução específica, entrega resultado genérico. Com uma skil
 
 ### Exercício 9 — Criando e usando o Thinking Partner (20 min)
 
-O Bloco 3 gerou 5 iniciativas ranqueadas por RICE e contextualizadas no mercado. Antes de apostar o quarter em uma delas, você precisa testá-las contra as prioridades reais de quem vai aprovar o orçamento e o roadmap. É aí que entra o Thinking Partner.
+O Bloco 3 gerou 5 iniciativas ranqueadas por Impacto vs. Esforço e contextualizadas no mercado. Antes de apostar o quarter em uma delas, você precisa testá-las contra as prioridades reais de quem vai aprovar o orçamento e o roadmap. É aí que entra o Thinking Partner.
 
 **Entregável:** skill `thinking-partner` instalada no projeto + decisão documentada com a iniciativa #1 escolhida e validada pelos C-levels.
 
@@ -739,7 +739,7 @@ Observe: a skill reúne três artefatos que você criou ao longo do dia (tom de 
 
 **Passo 2 — Gerar o PPT da iniciativa (7 min)**
 
-> *"Usa a skill arena-presentation. Cria uma apresentação de 8 slides sobre a iniciativa [nome da iniciativa escolhida no Passo 3 do Exercício 9]. O público é a diretoria da ArenaCash — Paulo (CPO), Juliana (CFO), Beatriz (CMO) e Diego (CTO). A apresentação deve incluir: contexto do quarter e por que essa iniciativa é prioritária agora, o problema que ela resolve com dados do Q1, a solução proposta, o RICE score com justificativa, roadmap de 3 meses, riscos e como mitigá-los, e o ask para a liderança — o que você precisa deles para avançar. Salva como 04-skills/apresentacao-iniciativa.pptx."*
+> *"Usa a skill arena-presentation. Cria uma apresentação de 8 slides sobre a iniciativa [nome da iniciativa escolhida no Passo 3 do Exercício 9]. O público é a diretoria da ArenaCash — Paulo (CPO), Juliana (CFO), Beatriz (CMO) e Diego (CTO). A apresentação deve incluir: contexto do quarter e por que essa iniciativa é prioritária agora, o problema que ela resolve com dados do Q1, a solução proposta, a análise de Impacto vs. Esforço com justificativa, roadmap de 3 meses, riscos e como mitigá-los, e o ask para a liderança — o que você precisa deles para avançar. Salva como 04-skills/apresentacao-iniciativa.pptx."*
 
 ---
 
@@ -930,7 +930,7 @@ Isso simula um uso real: você recebeu um repositório atualizado e quer entende
 
 ### Exercício 13 — Gerando as imagens das telas a partir da apresentação (25 min)
 
-Você aprovou a iniciativa com a diretoria. Tem o PPT, tem o RICE, tem o roadmap. O próximo problema concreto de um PM é este: como você comunica para o time de design e engenharia o que precisa ser construído, antes de qualquer sprint de discovery?
+Você aprovou a iniciativa com a diretoria. Tem o PPT, tem a análise de impacto e esforço, tem o roadmap. O próximo problema concreto de um PM é este: como você comunica para o time de design e engenharia o que precisa ser construído, antes de qualquer sprint de discovery?
 
 A resposta tradicional é: agenda reunião, explica verbalmente, aguarda o designer fazer um wireframe, revisa, itera. Isso leva dias e depende de agenda de outra pessoa.
 
@@ -1068,55 +1068,198 @@ Ao finalizar, exporte as telas como imagens e salve em `06-prototipo/`, substitu
 
 ---
 
-## Bloco 7 — Codando a Feature e Lançando o App (15:45–16:45)
+## Bloco 7 — Do Código ao Ar: Geração, Eventos, Git e Deploy (15:45–16:45)
 ### "Vocês entraram como PMs da ArenaCash de manhã. Vão sair com um produto no ar."
 
-**Objetivo:** Transformar o protótipo em um site funcional com CSS polido, funcionalidades reais e eventos integrados. Publicar online. Fechar o ciclo completo: do memo estratégico ao produto live.
+**Objetivo:** Usar as imagens de tela do Bloco 6 como briefing visual para o Claude Code gerar o site em HTML/CSS/JS, com os eventos já integrados. Verificar os eventos no DevTools, commitar no Git e publicar com uma URL pública — tudo via Claude Code, sem escrever uma linha de código manualmente.
 
-### Exercício 15 — Do protótipo ao produto (35 min)
+---
 
-O aluno pega o protótipo visual (com eventos já integrados) e transforma num site completo.
+### Exercício 15 — Gerar o site a partir das imagens de tela (20 min)
 
-**Passo 1: Evoluir o código (20 min)**
+As imagens que você gerou no Bloco 6 não são decoração — são o briefing visual do que precisa ser construído. O Claude Code vai lê-las e gerar o site funcional a partir delas, já com os eventos do Excel mapeado no Bloco 6 integrados no código.
 
-> "Vamos evoluir o protótipo pra um site completo. Quero:
-> 1. CSS polido: animações suaves, responsivo mobile, micro-interações nos botões
-> 2. JavaScript funcional: [descrever funcionalidades reais da iniciativa — ex: filtros que funcionam, formulário que salva, toggle que muda dados]
-> 3. Dados mockados realistas da ArenaCash (use os dados do dados-quarter-q1.csv como referência)
-> 4. Os eventos de analytics já integrados continuam funcionando
-> 5. Uma página index.html que seja o ponto de entrada"
+**Entregável:** pasta `07-app/` com `index.html`, `style.css` e `script.js` — um site funcional que replica as telas aprovadas, com eventos de analytics integrados via `console.log`.
 
-O aluno itera: ajusta cores, melhora interações, adiciona funcionalidades. O Code faz o trabalho pesado de CSS/JS — o PM foca no resultado.
+---
 
-**Passo 2: Testar os eventos (5 min)**
+**Passo 1 — Briefing para o Claude Code (5 min)**
 
-Abrir DevTools → Console. Navegar pelo site. Verificar que cada interação dispara o evento correto. Se faltar algum: "Adiciona evento de click no botão X."
-
-**Passo 3: Publicar online (10 min)**
-
-O instrutor mostra como publicar o site usando um serviço gratuito:
+No terminal, entre na pasta do projeto e inicie o Claude Code:
 
 ```bash
-# Opção 1: usando npx serve + tunnel
-npx serve ./prototipo-iniciativa
-
-# Opção 2: deploy em Netlify/Vercel via CLI
-npx netlify-cli deploy --dir=./prototipo-iniciativa --prod
+cd ~/Documents/ArenaCash-PM
+claude
 ```
 
-Cada aluno publica seu site e recebe uma URL pública. Compartilha no chat do curso.
+Agora mande o briefing completo, referenciando as imagens e os eventos:
 
-### Showcase (15 min + 5 min encerramento)
+> *"Vou te passar as imagens das telas da nossa iniciativa e a planilha de eventos mapeados. Com base nisso, quero que você gere um site funcional em HTML, CSS e JavaScript.*
+>
+> *As imagens de referência estão em 06-prototipo/ — são os arquivos tela-[nome].png. O design system está em design-system-arenacash.md. A planilha de eventos está em 06-prototipo/eventos-mapeados.xlsx.*
+>
+> *O que quero no site:*
+> *1. Replicar fielmente o layout e a identidade visual de cada tela das imagens*
+> *2. Navegação funcional entre as telas*
+> *3. Dados mockados realistas baseados nos dados de dados-quarter-q1.csv*
+> *4. Todos os eventos da planilha já integrados no código — cada evento deve disparar um `console.log()` com o nome do evento e suas propriedades quando o usuário interagir com o elemento correspondente*
+> *5. Um arquivo index.html como ponto de entrada, style.css separado e script.js separado*
+> *6. Salva tudo na pasta 07-app/"*
 
-3-4 voluntários compartilham a tela:
-- Mostram o site live com a URL pública
-- Navegam mostrando as funcionalidades
-- Abrem DevTools mostrando os eventos disparando
-- Contam a jornada: qual era a iniciativa, como priorizaram, como o thinking partner influenciou
+---
 
-**Critério:** não é sobre perfeição. É mostrar que o aluno fechou o ciclo completo: dados → análise → priorização → validação → PRD → apresentação → protótipo → código → eventos → deploy.
+**Passo 2 — Aguardar e revisar a primeira versão (10 min)**
 
-**Arquivo gerado:** `06-app-final/` (site completo publicado)
+O Claude vai ler as imagens, o design system, a planilha de eventos e gerar os três arquivos. Quando terminar, peça para abrir o arquivo no navegador:
+
+> *"Abre o index.html no navegador para eu ver o resultado."*
+
+Avalie visualmente: o layout está fiel às imagens? A navegação entre telas funciona? Se algo estiver errado, descreva em português:
+
+- *"O header está usando a cor errada — aplica o azul primário do design system"*
+- *"O card de métricas está sem os dados mockados — popula com os números do CSV"*
+- *"A tela 2 não está abrindo quando clico no botão de continuar"*
+
+Itere até a versão estar boa o suficiente para avançar.
+
+---
+
+**Passo 3 — Verificar os arquivos gerados na pasta (5 min)**
+
+Antes de seguir, veja o que foi criado:
+
+- **Mac:** abra o Finder, vá em Documentos → ArenaCash-PM → 07-app. Você deve ver `index.html`, `style.css` e `script.js`
+- **Windows:** abra o Explorador de Arquivos, navegue até Documentos → ArenaCash-PM → 07-app
+
+Clique duas vezes no `index.html` — ele vai abrir no navegador direto da pasta local. Isso é o site rodando na sua máquina, sem internet, sem servidor. Um arquivo que você gerou numa conversa em português.
+
+**Arquivos gerados:** `07-app/index.html`, `07-app/style.css`, `07-app/script.js`
+
+---
+
+### Exercício 16 — Testar os eventos de analytics no DevTools (10 min)
+
+Os eventos estão integrados no código como `console.log()`. Para vê-los disparando em tempo real, você vai usar o DevTools — a ferramenta de desenvolvedor que vem em todo navegador. Nenhuma instalação necessária.
+
+**Entregável:** confirmação visual de que cada evento da planilha dispara corretamente quando o usuário interage com o elemento correspondente.
+
+---
+
+**Passo 1 — Abrir o DevTools (1 min)**
+
+Com o site aberto no navegador (Chrome ou Edge recomendados):
+
+- **Mac:** pressione `Cmd + Option + I`
+- **Windows:** pressione `F12` ou `Ctrl + Shift + I`
+
+Uma janela vai abrir na lateral ou embaixo do navegador. Clique na aba **Console** no menu superior do DevTools.
+
+---
+
+**Passo 2 — Navegar pelo site e observar os eventos (6 min)**
+
+Com o Console aberto, interaja com o site normalmente: clique nos botões, navegue entre telas, preencha campos. Para cada interação que tiver um evento mapeado, uma linha vai aparecer no Console com o nome e as propriedades do evento. Por exemplo:
+
+```
+ativacao_tela1_view { tela: "onboarding_step_1", usuario_id: "mock_123" }
+ativacao_continuar_click { botao: "continuar", etapa: 1 }
+ativacao_tela2_view { tela: "onboarding_step_2", usuario_id: "mock_123" }
+```
+
+O que observar:
+- O nome do evento segue o padrão da planilha? (snake_case, `tela_ação`)
+- As propriedades estão sendo enviadas junto com o evento?
+- O evento dispara no momento certo — nem antes, nem depois da interação?
+
+---
+
+**Passo 3 — Corrigir o que estiver errado (3 min)**
+
+Se algum evento não aparecer, ou aparecer com nome errado, volte ao Claude Code e descreva o problema:
+
+> *"O evento `ativacao_formulario_submit` não está disparando quando clico em Enviar. Adiciona ele no script.js no botão de submit do formulário da tela 3."*
+
+O Claude localiza o trecho de código, faz a correção e você testa de novo no DevTools. Esse ciclo — testar, descrever o problema, corrigir — é exatamente como um PM colabora com engenharia numa sessão de QA.
+
+> **O que fixar:** você não leu uma linha de JavaScript. Mas você sabe quais eventos devem existir (porque você os mapeou), sabe como verificar se estão funcionando (DevTools), e sabe como pedir a correção (em português). Isso é suficiente para garantir qualidade de instrumentação sem depender de ninguém.
+
+---
+
+### Exercício 17 — Commitar no Git e publicar o site (20 min)
+
+O site está funcionando e os eventos estão corretos. Agora vamos colocar isso no Git — para ter histórico, versão e rastreabilidade — e publicar com uma URL real que qualquer pessoa possa acessar.
+
+**Entregável:** repositório Git atualizado com o código do site + URL pública funcionando, compartilhada no chat do curso.
+
+---
+
+**Passo 1 — Fazer o commit via Claude Code (8 min)**
+
+No terminal com o Claude Code ativo, peça:
+
+> *"Faz o commit de tudo que está na pasta 07-app/ no repositório Git. O commit deve ter a mensagem: 'feat: adiciona site da iniciativa [nome] com eventos de analytics integrados'. Depois faz o push para o repositório remoto."*
+
+O Claude vai executar os comandos na sequência:
+
+```bash
+git add 07-app/
+git commit -m "feat: adiciona site da iniciativa [nome] com eventos de analytics integrados"
+git push origin main
+```
+
+Se aparecer algum erro — por exemplo, conflito de branch ou autenticação pendente — descreva o erro para o Claude:
+
+> *"Apareceu esse erro: [cole o texto do erro]. O que faço?"*
+
+Ele vai diagnosticar e guiar a resolução passo a passo.
+
+Ao final, confirme que o push funcionou:
+
+> *"Confirma que o push foi feito e me mostra o link do repositório no GitHub."*
+
+---
+
+**Passo 2 — Publicar o site com URL pública (12 min)**
+
+Com o código no Git, vamos publicar usando o Netlify — serviço gratuito que transforma uma pasta em um site com URL pública em menos de 2 minutos.
+
+Peça ao Claude Code:
+
+> *"Publica o site que está na pasta 07-app/ usando o Netlify CLI. Instala o CLI se necessário, faz o deploy e me dá a URL pública."*
+
+O Claude vai executar:
+
+```bash
+# instala o CLI do Netlify (se ainda não tiver)
+npm install -g netlify-cli
+
+# faz o deploy da pasta 07-app/
+netlify deploy --dir=07-app --prod
+```
+
+Na primeira vez, o Netlify vai pedir autenticação — o Claude vai te guiar: ele vai gerar um link de login, você abre no navegador, autoriza, e volta ao terminal. A partir daí o deploy funciona automaticamente.
+
+Ao final, você recebe uma URL no formato `https://nome-aleatório.netlify.app`. Cole essa URL no chat do curso.
+
+> *"Me confirma a URL pública e abre ela no navegador para eu verificar."*
+
+Abra a URL, navegue pelo site, abra o DevTools e confirme que os eventos continuam disparando — agora em produção, com URL real, acessível de qualquer dispositivo.
+
+---
+
+### Showcase (10 min)
+
+3 a 4 voluntários compartilham a tela:
+
+1. Mostram a URL pública no navegador — o site no ar
+2. Navegam pelas telas demonstrando as funcionalidades
+3. Abrem o DevTools → Console e mostram os eventos disparando em tempo real
+4. Abrem o repositório no GitHub e mostram o commit que fizeram
+5. Contam a jornada em 30 segundos: qual era a iniciativa, o que o Thinking Partner questionou, e o que eles priorizaram
+
+**O critério não é perfeição visual.** É mostrar o ciclo completo fechado: memo estratégico → análise de dados → validação com C-levels → PPT aprovado → imagens de tela → código gerado → eventos integrados → commit no Git → site no ar com URL real.
+
+**Arquivos gerados:** `07-app/index.html`, `07-app/style.css`, `07-app/script.js` (publicados em `https://[nome].netlify.app`)
 
 ---
 
@@ -1124,40 +1267,105 @@ Cada aluno publica seu site e recebe uma URL pública. Compartilha no chat do cu
 
 ### O que vocês construíram hoje (5 min)
 
-Recapitular a jornada do dia na ArenaCash:
-1. Montaram o ambiente de PM (projeto, memória, tom de voz)
-2. Criaram um thinking partner com personas dos C-levels
-3. Analisaram dados reais e priorizaram iniciativas
-4. Geraram PRD e apresentação com skills
-5. Validaram com o thinking partner
-6. Prototiparam telas no Code
-7. Mapearam eventos com skill
-8. Codaram o site com CSS/JS
-9. Integraram eventos de analytics
-10. Publicaram o app online
+Não foi um curso de prompting. Foi um dia de trabalho real como PM na ArenaCash — com dados, decisões, documentos, código e um produto no ar. Recapitulando a jornada:
 
-De manhã eram PMs no dia 1. À tarde já tinham um produto no ar.
+**De manhã — Cowork:**
+- Conectaram o ambiente (pasta, projeto, memória, instruções)
+- Extraíram o tom de voz dos próprios e-mails e documentaram
+- Conectaram o Google Drive e o Gmail via MCP
+- Cruzaram dados internos da ArenaCash com cenário de mercado buscado na internet
+- Geraram um Google Doc automaticamente com a análise
+- Configuraram um briefing diário de mercado que roda todo dia às 9h — sem precisar pedir
+- Criaram a skill Thinking Partner com as personas dos C-levels baseadas nas transcrições reais
+- Validaram 5 iniciativas contra as prioridades de Juliana, Beatriz e Diego
+- Criaram a skill de apresentação com o template da empresa, design system e tom de voz
+- Saíram do almoço com uma iniciativa escolhida e um PPT pronto para a diretoria
 
-### Limitações e honestidade (3 min)
+**De tarde — Code:**
+- Migraram do Cowork para o Code sem perder nenhum arquivo
+- Clonaram o repositório Git do curso e navegaram por ele em linguagem natural
+- Geraram imagens das telas da iniciativa a partir da apresentação aprovada
+- Criaram a skill Event Mapper a partir do Guia de Eventos da ArenaCash
+- Mapearam todos os eventos das telas em Excel + Word
+- Pediram ao Claude Code para gerar o site HTML/CSS/JS a partir das imagens de tela
+- Testaram os eventos de analytics em tempo real no DevTools
+- Commitaram o código no Git com mensagem de commit
+- Publicaram o site com uma URL pública via Netlify
 
-O que o Claude ainda não faz bem:
-- Inventa dados quando não tem — *sempre* valide números e fontes
-- Contexto longo degrada qualidade — conversas de 50+ mensagens perdem foco
-- Não substitui julgamento de produto — executa bem, mas a decisão estratégica é sua
-- Dependência de API — sem internet, sem Claude
-- Dados sensíveis — cuidado com o que sobe (PII, dados de clientes, informações confidenciais)
+Entraram de manhã como PMs no primeiro dia na ArenaCash. Saem com um produto no ar.
+
+---
+
+### Mapa mental: quando usar cada ferramenta (3 min)
+
+Uma última consolidação antes de ir:
+
+| Situação | Use |
+|----------|-----|
+| Analisar documentos, criar arquivos, conectar Gmail/Drive/Slack | **Cowork** |
+| Automatizar uma tarefa recorrente | **Cowork → Scheduled Task** |
+| Criar uma skill para padronizar um output | **Cowork** |
+| Gerar imagens de tela, protótipos visuais | **Cowork ou Claude Design** |
+| Transformar imagens em código funcional | **Code** |
+| Navegar por repositório Git, commitar, fazer deploy | **Code** |
+| Testar eventos de analytics | **DevTools do navegador** |
+| Decisão estratégica de produto | **Você** |
+
+A regra de bolso permanece: output é *arquivo ou documento* → Cowork. Output é *algo que roda* → Code. Decisão de produto → sempre você.
+
+---
+
+### O que o Claude ainda não faz bem — seja honesto com isso (3 min)
+
+- **Inventa dados quando não tem.** Sempre valide números e fontes antes de apresentar para alguém.
+- **Contexto longo degrada.** Conversas de 50+ mensagens perdem foco e qualidade. Abra novas conversas quando mudar de tarefa.
+- **Não substitui julgamento de produto.** O Claude executa bem. A decisão estratégica — o que priorizar, o que cortar, o que não construir — é sua.
+- **Depende de internet.** Sem conexão, sem Claude. Tenha um plano B para reuniões críticas.
+- **Dados sensíveis nunca sobem.** PII de usuários, dados financeiros reais de clientes, informações confidenciais — não vão para o contexto do Claude, nunca.
+
+---
 
 ### Recursos para continuar (2 min)
 
-- Comunidade de skills: `github.com/BehiSecc/awesome-claude-skills`
-- Curso gratuito Claude Code para PMs: `ccforpms.com`
-- Newsletter de referência: Lenny's "How I AI", Ruben Hassid "How to AI"
-- Documentação oficial: `docs.anthropic.com`
+- **Skills da comunidade:** `github.com/BehiSecc/awesome-claude-skills`
+- **Claude Code para PMs:** `ccforpms.com`
+- **Newsletters de referência:** Lenny's "How I AI", Ruben Hassid "How to AI"
+- **Claude Design:** `claude.ai/design`
+- **Documentação oficial:** `docs.anthropic.com`
+
+---
+
+### Resumão do dia — do memo ao produto (2 min)
+
+Uma linha por bloco. Tudo isso aconteceu hoje, dentro do Claude, sem sair da plataforma:
+
+| Bloco | O que fizeram |
+|-------|--------------|
+| **1 — Fundamentos** | Entenderam Chat vs. Cowork vs. Code. Conectaram a pasta ArenaCash ao Cowork e fizeram a primeira leitura da empresa. |
+| **2 — Setup** | Montaram o projeto com memória e instruções. Conectaram o Gmail. Extraíram o tom de voz dos próprios e-mails e testaram numa mensagem real para o tech lead. |
+| **3 — MCP e Conexões** | Conectaram o Google Drive. Cruzaram dados internos da ArenaCash com cenário de fintechs pesquisado na internet. Geraram um Google Doc automaticamente. Criaram um briefing diário de mercado em PPT que roda todo dia às 9h. |
+| **4 — Skills** | Entenderam o que são skills. Criaram o Thinking Partner com as personas de Juliana, Beatriz e Diego. Validaram 5 iniciativas. Criaram a skill de apresentação. Saíram com uma iniciativa escolhida e um PPT no padrão da ArenaCash. |
+| **5 — Code** | Migraram do Cowork para o Code. Clonaram o repositório Git do curso e navegaram por ele em português. Criaram o CLAUDE.md. |
+| **6 — Protótipo e Eventos** | Geraram imagens das telas a partir do PPT e do design system. Criaram a skill Event Mapper a partir do Guia de Eventos. Mapearam todos os eventos em Excel e Word. |
+| **7 — Código, Git e Deploy** | Transformaram as imagens em site HTML/CSS/JS com eventos integrados. Testaram os eventos no DevTools. Commitaram no Git. Publicaram com URL pública via Netlify. |
+
+---
+
+### Avaliação do curso
+
+Antes de fechar o computador, 2 minutos para avaliar. O feedback de vocês é o que vai melhorar a próxima edição.
+
+**[Clique aqui para avaliar o curso](https://productarena.com.br/avaliacao-curso-claude)** ← *link será ativado pelo instrutor*
+
+---
 
 ### Takeaway final
 
-> "Prompting é a pior forma de usar o Claude."
-> O poder está em delegar com contexto, criar skills reutilizáveis e prototipar sem depender de ninguém. Vocês entraram hoje de manhã como PMs no primeiro dia na ArenaCash. Saíram com: ambiente configurado, dados analisados, iniciativa priorizada, PRD completa, apresentação validada por C-levels, protótipo funcional, eventos mapeados e um app publicado. Isso não é teoria — é o que PMs que usam Claude bem fazem toda semana.
+O que separa os PMs que tiram resultado do Claude dos que ficam na média não é o prompt. É a arquitetura: projeto com memória, skills que padronizam outputs recorrentes, connectors que conectam às ferramentas que já existem, e Code quando o output precisa rodar.
+
+Vocês montaram essa arquitetura hoje. O ArenaCash Kit que receberam antes do curso agora tem ao redor dele um ambiente completo de PM — com tom de voz, skills, briefing automático de mercado, e um produto publicado.
+
+> Isso não é demonstração. É o fluxo de trabalho.
 
 ---
 
@@ -1165,39 +1373,52 @@ O que o Claude ainda não faz bem:
 
 ```
 ArenaCash-PM/
-├── CLAUDE.md                              ← instruções do projeto (Code)
-├── memo-estrategico-q2.md                 ← [kit] memo do CEO
-├── organograma-arenacash.md              ← [kit] estrutura da empresa
-├── dados-quarter-q1.csv                   ← [kit] métricas de produto
-├── financeiro-q1.xlsx                     ← [kit] dados financeiros
-├── atendimento-q1.csv                     ← [kit] tickets de suporte
-├── transcricao-cfo.md                     ← [kit] conversa com CFO
-├── transcricao-cmo.md                     ← [kit] conversa com CMO
-├── transcricao-cto.md                     ← [kit] conversa com CTO
-├── template-apresentacao.pptx             ← [kit] template PPT ArenaCash
-├── design-system-arenacash.md            ← [kit] padrão visual
-├── tom-de-voz.md                          ← tom de escrita do aluno
-├── .claude/
+│
+├── CLAUDE.md                              ← instruções do projeto para o Code
+├── instrucoes-projeto.md                  ← instruções do projeto para o Cowork
+├── tom-de-voz.md                          ← perfil de comunicação do aluno
+│
+├── [kit] ─────────────────────────────────────────────────────
+├── memo-estrategico-q2.md                 ← memo do CEO com metas do quarter
+├── organograma-arenacash.md               ← estrutura da empresa e equipes
+├── dados-quarter-q1.csv                   ← métricas de produto do Q1
+├── financeiro-q1.xlsx                     ← dados financeiros do Q1
+├── atendimento-q1.csv                     ← tickets de suporte categorizados
+├── transcricao-cfo.md                     ← conversa com Juliana (CFO)
+├── transcricao-cmo.md                     ← conversa com Beatriz (CMO)
+├── transcricao-cto.md                     ← conversa com Diego (CTO)
+├── template-apresentacao.pptx             ← template oficial de PPT
+├── design-system-arenacash.md             ← cores, fontes e componentes
+└── guia-de-eventos-arenacash.pdf          ← convenções de eventos de analytics
+│
+├── .claude/ ───────────────────────────────────────────────────
 │   └── skills/
-│       ├── thinking-partner/SKILL.md      ← skill de thinking partner
-│       └── arena-presentation/SKILL.md    ← skill de apresentação
-├── 01-fundamentos/
-│   └── comparativo-prompts.md
-├── 02-setup/
-│   └── instrucoes-projeto.md
-├── 03-dados/
-│   ├── analise-q1-arenacash.md
-│   ├── iniciativas-q2.md
-│   └── validacao-thinking-partner.md
-├── 04-skills/
-│   ├── prd-iniciativa.docx
-│   └── apresentacao-iniciativa.pptx
-├── 05-code/
-│   ├── prototipo-iniciativa/              ← HTML/CSS/JS das telas
-│   ├── eventos-mapeados.xlsx
-│   └── eventos-contexto.docx
-└── 06-app-final/
-    └── (site completo publicado)
+│       ├── thinking-partner/SKILL.md      ← skill dos C-levels da ArenaCash
+│       ├── arena-presentation/SKILL.md    ← skill de apresentação no padrão
+│       └── event-mapper/SKILL.md          ← skill de mapeamento de eventos
+│
+├── 02-setup/ ──────────────────────────────────────────────────
+│   └── instrucoes-projeto.md              ← instruções personalizadas do PM
+│
+├── 03-conexoes/ ───────────────────────────────────────────────
+│   └── analise-estrategica-q2.md          ← análise cruzada: dados + mercado
+│   └── briefings/
+│       └── briefing-mercado-[data].pptx   ← briefing diário gerado pela task
+│
+├── 04-skills/ ─────────────────────────────────────────────────
+│   ├── decisao-iniciativa.md              ← decisão documentada + justificativa
+│   └── apresentacao-iniciativa.pptx       ← PPT validado pelos C-levels
+│
+├── 06-prototipo/ ──────────────────────────────────────────────
+│   ├── tela-[nome].png                    ← imagens das telas geradas
+│   ├── eventos-mapeados.xlsx              ← planilha de eventos por tela
+│   └── eventos-contexto.docx             ← documentação descritiva dos eventos
+│
+└── 07-app/ ────────────────────────────────────────────────────
+    ├── index.html                         ← site gerado pelo Claude Code
+    ├── style.css                          ← estilos com identidade ArenaCash
+    └── script.js                          ← lógica e eventos de analytics
+                                             (publicado em [nome].netlify.app)
 ```
 
 ---

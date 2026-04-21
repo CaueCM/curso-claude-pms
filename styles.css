@@ -1275,6 +1275,28 @@ pre.flow { background: var(--bg-muted); color: var(--fg); border: 1px solid var(
 }
 .mcp-highlights li strong { color: var(--fg); }
 
+/* Exercício bônus (opcional) — tratamento visual distinto */
+.exercise-bonus {
+  border: 1.5px dashed var(--pa-red-soft) !important;
+  background: linear-gradient(to bottom, var(--pa-red-tint) 0%, var(--bg) 60px);
+}
+.exercise-bonus:hover,
+.exercise-bonus[open] {
+  border-color: var(--pa-red) !important;
+  border-style: solid !important;
+}
+.exercise-bonus .ex-num {
+  background: transparent;
+  color: var(--pa-red);
+  font-size: var(--text-lg);
+}
+.exercise-bonus .ex-time {
+  background: var(--pa-red-tint);
+  color: var(--pa-red);
+  border-color: var(--pa-red-soft);
+  font-style: italic;
+}
+
 /* =========================================================
    Sections colapsáveis — cada seção pode ser minimizada
    ========================================================= */

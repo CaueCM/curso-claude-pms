@@ -556,6 +556,50 @@ em { font-style: italic; color: var(--fg-muted); }
 .block.sub-block .principle h4 { color: var(--pa-white); }
 .block.sub-block .principle p { color: var(--pa-gray-300); }
 
+/* Cards claros / callouts dentro de um sub-block (fundo preto) precisam
+   voltar aos tons do tema claro, senão o texto fica invisível. */
+.block.sub-block .concept-card:not(.highlight) { color: var(--fg); }
+.block.sub-block .concept-card:not(.highlight) h4,
+.block.sub-block .concept-card:not(.highlight) strong,
+.block.sub-block .concept-card:not(.highlight) li strong { color: var(--fg); }
+.block.sub-block .concept-card:not(.highlight) p,
+.block.sub-block .concept-card:not(.highlight) ul li,
+.block.sub-block .concept-card:not(.highlight) ol li,
+.block.sub-block .concept-card:not(.highlight) .warn-list li { color: var(--fg-muted); }
+.block.sub-block .concept-card:not(.highlight) code {
+  background: var(--bg-muted);
+  border-color: var(--border);
+  color: var(--pa-red);
+}
+
+.block.sub-block .callout {
+  background: var(--bg);
+  border-color: var(--border);
+  color: var(--fg);
+}
+.block.sub-block .callout .matrix { color: var(--fg); }
+.block.sub-block .callout .matrix th {
+  background: var(--pa-black);
+  color: var(--pa-white);
+  border-bottom-color: var(--border);
+}
+.block.sub-block .callout .matrix td { color: var(--fg); border-bottom-color: var(--border); }
+.block.sub-block .callout .matrix td strong { color: var(--fg); }
+.block.sub-block .callout .matrix td code { color: var(--pa-red); background: var(--bg-muted); border-color: var(--border); }
+.block.sub-block .callout .matrix td.y { color: #1FA05B; font-weight: 600; }
+.block.sub-block .callout .matrix td.n { color: var(--pa-red); font-weight: 600; }
+.block.sub-block .callout .callout-note { color: var(--fg-muted); }
+.block.sub-block .callout .callout-note strong { color: var(--fg); }
+.block.sub-block .callout .callout-note em { color: var(--fg-muted); }
+
+/* journey-summary dentro de sub-block (faixa vermelha) */
+.block.sub-block .journey-summary {
+  background: var(--pa-red);
+  color: var(--pa-white) !important;
+  font-weight: 700;
+}
+.block.sub-block .journey-summary strong { color: var(--pa-white); }
+
 .block-head { margin-bottom: var(--s-8); padding-bottom: var(--s-6); border-bottom: 1px solid var(--border); }
 .block.sub-block .block-head { border-bottom-color: var(--pa-gray-800); }
 .block-pill {

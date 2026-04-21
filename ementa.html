@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ementa · Claude para PMs — Product Arena</title>
+  <meta name="description" content="Ementa completa e sempre viva do curso Claude para PMs — Do Chat ao Código." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="ementa.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/logo-pa.png" alt="Product Arena" />
+        <span class="brand-sep">/</span>
+        <span class="brand-word-long">claude para pms</span>
+      </a>
+      <nav class="top-nav">
+        <a href="index.html#visao-geral">Agenda</a>
+        <a href="index.html#blocos">Blocos</a>
+        <a href="index.html#kit">Kit</a>
+        <a href="index.html#pre-requisitos">Pré-requisitos</a>
+        <a href="ementa.html" class="active">Ementa</a>
+      </nav>
+      <a class="btn btn--primary btn--sm" href="index.html">← Voltar ao site</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="ementa-hero">
+      <div class="container">
+        <span class="pa-eyebrow pa-eyebrow--red">A R Q U I V O &nbsp; V I V O</span>
+        <h1>Ementa completa</h1>
+        <p class="ementa-sub">Este é o arquivo <code>ementa-curso-claude-para-pms.md</code> renderizado em tempo real. Sempre que atualizarmos a ementa no repositório, essa página reflete a versão mais nova.</p>
+        <div class="ementa-meta">
+          <div class="meta-item">
+            <span class="pa-eyebrow">F O N T E</span>
+            <a href="ementa.md" download>📄 Baixar ementa.md</a>
+          </div>
+          <div class="meta-item">
+            <span class="pa-eyebrow">Ú L T I M A &nbsp; A T U A L I Z A Ç Ã O</span>
+            <span id="last-updated">carregando…</span>
+          </div>
+          <div class="meta-item">
+            <span class="pa-eyebrow">R E P O</span>
+            <a href="https://github.com/CaueCM/curso-claude-pms/blob/main/ementa.md" target="_blank" rel="noopener">Ver no GitHub →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Toolbar sticky com busca -->
+    <div class="ementa-toolbar">
+      <div class="container ementa-toolbar-inner">
+        <input type="search" id="search" placeholder="🔍  Buscar na ementa (ex: thinking partner, RICE, Ricardo)" aria-label="Buscar na ementa" />
+        <div class="toolbar-actions">
+          <button class="btn btn--ghost-light btn--sm" id="toc-toggle">☰ Sumário</button>
+          <button class="btn btn--ghost-light btn--sm" id="print-btn">🖨 Imprimir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conteúdo -->
+    <section class="ementa-body">
+      <div class="container ementa-layout">
+        <aside class="ementa-toc" id="toc" aria-label="Sumário">
+          <p class="toc-label">S U M Á R I O</p>
+          <ol class="toc-list" id="toc-list"></ol>
+        </aside>
+        <article id="content" class="markdown-body">
+          <div class="loading">
+            <span class="pa-eyebrow pa-eyebrow--red">C A R R E G A N D O &nbsp; E M E N T A</span>
+            <p>Puxando o arquivo <code>ementa.md</code>…</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand"><img src="assets/logo-pa.png" alt="Product Arena" /></div>
+      <p class="footer-cta">na prática, a teoria é <span class="shout" style="color:var(--pa-red)">BEM</span> diferente.</p>
+      <p>Product Arena · Claude para PMs · Do Chat ao Código</p>
+    </div>
+  </footer>
+
+  <button id="scroll-top" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
+
+  <script>
+    (async () => {
+      const content = document.getElementById('content');
+      const tocList = document.getElementById('toc-list');
+
+      // Configurar marked
+      marked.setOptions({ gfm: true, breaks: false, headerIds: true, mangle: false });
+
+      try {
+        const res = await fetch('ementa.md', { cache: 'no-cache' });
+        if (!res.ok) throw new Error('Não consegui carregar a ementa.md');
+        const md = await res.text();
+
+        // Data de última modificação do arquivo (header do GitHub Pages)
+        const lastMod = res.headers.get('last-modified');
+        if (lastMod) {
+          const d = new Date(lastMod);
+          document.getElementById('last-updated').textContent =
+            d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
+        } else {
+          document.getElementById('last-updated').textContent = 'agora';
+        }
+
+        content.innerHTML = marked.parse(md);
+
+        // Adicionar ids nos h2 / h3 pro sumário
+        const headings = content.querySelectorAll('h2, h3');
+        headings.forEach((h, i) => {
+          if (!h.id) {
+            h.id = 'h-' + i + '-' + (h.textContent || '').toLowerCase()
+              .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+              .replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+          }
+        });
+
+        // Construir TOC só com H2
+        content.querySelectorAll('h2').forEach(h => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = '#' + h.id;
+          a.textContent = h.textContent;
+          li.appendChild(a);
+          tocList.appendChild(li);
+        });
+
+        // Scroll spy pro TOC
+        const tocLinks = tocList.querySelectorAll('a');
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              const id = e.target.id;
+              tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+            }
+          });
+        }, { rootMargin: '-30% 0px -60% 0px' });
+        content.querySelectorAll('h2').forEach(h => obs.observe(h));
+
+      } catch (e) {
+        content.innerHTML = `<div class="load-error"><h2>Erro ao carregar a ementa</h2><p>${e.message}</p><p>Se estiver rodando localmente via <code>file://</code>, suba um servidor com <code>npx serve</code> ou abra a versão publicada em cauecm.github.io/curso-claude-pms.</p></div>`;
+      }
+
+      // Busca
+      const search = document.getElementById('search');
+      search.addEventListener('input', (e) => {
+        const q = e.target.value.trim().toLowerCase();
+        const sections = content.querySelectorAll('h2');
+        if (!q) {
+          content.querySelectorAll('*').forEach(el => el.classList.remove('search-dim'));
+          return;
+        }
+        // Destacar seções h2 cujos próximos nós tenham o termo
+        sections.forEach(h => {
+          let hit = h.textContent.toLowerCase().includes(q);
+          let el = h.nextElementSibling;
+          while (el && el.tagName !== 'H2') {
+            if (el.textContent.toLowerCase().includes(q)) { hit = true; break; }
+            el = el.nextElementSibling;
+          }
+          let node = h;
+          while (node && node.tagName !== 'H2' || node === h) {
+            if (node) node.classList.toggle('search-dim', !hit);
+            node = node.nextElementSibling;
+            if (!node || (node.tagName === 'H2' && node !== h)) break;
+          }
+          h.classList.toggle('search-dim', !hit);
+        });
+      });
+
+      // Toggle TOC
+      document.getElementById('toc-toggle').addEventListener('click', () => {
+        document.getElementById('toc').classList.toggle('open');
+      });
+
+      // Print
+      document.getElementById('print-btn').addEventListener('click', () => window.print());
+
+      // Scroll to top
+      const topBtn = document.getElementById('scroll-top');
+      window.addEventListener('scroll', () => topBtn.classList.toggle('visible', window.scrollY > 600));
+      topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    })();
+  </script>
+</body>
+</html>

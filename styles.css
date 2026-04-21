@@ -946,6 +946,108 @@ pre.flow { background: var(--bg-muted); color: var(--fg); border: 1px solid var(
 .tokens-section p { font-size: var(--text-md); color: var(--fg-muted); }
 .tokens-section p strong { color: var(--pa-red); }
 
+/* Sub-títulos dentro de concept */
+.concept-sub {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-lg);
+  color: var(--fg);
+  margin: var(--s-6) 0 var(--s-3) !important;
+  letter-spacing: var(--tracking-tight);
+  padding-left: var(--s-4);
+  border-left: 3px solid var(--pa-red);
+}
+.concept-sub:first-of-type { margin-top: 0 !important; }
+.concept > p { font-size: var(--text-md); color: var(--fg-muted); line-height: var(--leading-relaxed); }
+.concept > p strong { color: var(--fg); }
+.concept > p.tip strong:not(.shout) { color: var(--fg); }
+
+/* Ecossistema — 5 conceitos em linhas */
+.eco-list {
+  display: grid;
+  gap: var(--s-2);
+  margin: var(--s-4) 0;
+}
+.eco-item {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: var(--s-4);
+  padding: var(--s-4);
+  background: var(--bg-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  align-items: start;
+}
+.eco-tag {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--pa-red);
+  background: var(--pa-red-tint);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  text-align: center;
+  white-space: nowrap;
+}
+.eco-item p {
+  font-size: var(--text-sm);
+  color: var(--fg-muted);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+}
+.eco-item p strong { color: var(--fg); }
+
+/* Sub-entregável (linha secundária na intro) */
+.ex-subentrega {
+  font-size: var(--text-sm) !important;
+  color: var(--fg-muted) !important;
+  padding: var(--s-3) var(--s-4);
+  background: var(--pa-red-tint);
+  border-radius: var(--radius-sm);
+  margin-top: var(--s-3) !important;
+  border-left: 3px solid var(--pa-red);
+}
+.ex-subentrega strong { color: var(--pa-red); }
+
+/* Caminhos A/B (Gmail vs manual) */
+.path-block {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--s-5);
+  background: var(--bg);
+  margin-top: var(--s-4);
+}
+.path-block.path-a { border-left: 3px solid var(--pa-red); }
+.path-block.path-b { border-left: 3px solid var(--fg-subtle); background: var(--bg-muted); }
+.path-head { margin-bottom: var(--s-3); }
+.path-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--pa-red);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  background: var(--pa-red-tint);
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  margin-bottom: var(--s-2);
+}
+.path-tag.gray { color: var(--fg-muted); background: var(--bg-muted); border: 1px solid var(--border); }
+.path-head h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-md);
+  margin: 0 !important;
+  letter-spacing: var(--tracking-tight);
+}
+.path-block p { font-size: var(--text-md); color: var(--fg-muted); line-height: var(--leading-relaxed); }
+.path-block p strong { color: var(--fg); }
+.path-block ol, .path-block ul { padding-left: var(--s-5); }
+.path-block .prompt-box + p { margin-top: var(--s-3); }
+
 details.nested {
   margin-top: var(--s-4);
   background: var(--bg-muted);

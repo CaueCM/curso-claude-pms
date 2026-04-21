@@ -20,6 +20,7 @@
         <a href="#blocos">Blocos</a>
         <a href="#kit">Kit</a>
         <a href="#pre-requisitos">Pré-requisitos</a>
+        <a href="ementa.html">Ementa</a>
       </nav>
       <button class="btn btn--primary btn--sm" onclick="document.getElementById('bloco-1').scrollIntoView({behavior:'smooth'})">Começar aula</button>
     </div>
@@ -335,19 +336,48 @@
 
               <section class="concept">
                 <h3>A arquitetura do Cowork <span class="mins">10 min</span></h3>
-                <div class="grid-3">
-                  <div class="concept-card"><h4>Projetos</h4><p>Workspace dedicado: pasta, instruções, memória, tasks. <em>Memória é isolada por projeto.</em></p></div>
-                  <div class="concept-card"><h4>Sistema de memória</h4><p><strong>Instruções</strong> (você escreve) + <strong>Auto memory</strong> (Claude salva padrões em <code>memory.md</code>).</p></div>
-                  <div class="concept-card"><h4>Taxonomia</h4><p>Projetos → Tarefas → Skills → Agents → Plugins.</p></div>
+
+                <h4 class="concept-sub">1. O que é um Projeto</h4>
+                <p>No Cowork, um Projeto é o seu <strong>espaço de trabalho permanente</strong>. Pense nele como uma sala dedicada pra um contexto específico: tem uma pasta conectada no seu computador, instruções que você escreve uma vez e valem pra sempre, e uma memória que persiste entre conversas.</p>
+                <p>Quando você abre uma nova task dentro de um projeto, o Claude já sabe quem você é, em que empresa trabalha e quais são as regras. Você não precisa reexplicar isso toda vez.</p>
+                <p class="tip">🔒 <strong>Regra de ouro:</strong> a memória é <strong class="shout">isolada por projeto</strong>. O que o Claude aprende no projeto da ArenaCash não vaza pra outros projetos.</p>
+
+                <h4 class="concept-sub">2. As duas camadas de memória</h4>
+                <div class="grid-2">
+                  <div class="concept-card">
+                    <h4>📝 Instruções do Projeto</h4>
+                    <p><strong>Você escreve, o Claude obedece.</strong> Regras fixas que o Claude lê no início de toda conversa. É aqui que você coloca quem é, como trabalha, quais são as convenções do time, o que nunca pode acontecer.</p>
+                    <p class="analogy">ex: "Nunca invente dados. Sempre salve outputs como arquivos."</p>
+                  </div>
+                  <div class="concept-card highlight">
+                    <h4>🧠 Auto Memory</h4>
+                    <p><strong>O Claude escreve, você pode editar.</strong> Conforme você trabalha, o Claude salva notas sobre você — suas preferências, correções, padrões. Tudo num <code>memory.md</code> dentro do projeto.</p>
+                    <p class="analogy">ex: você pode abrir, editar e apagar qualquer coisa anotada</p>
+                  </div>
                 </div>
+                <p class="tip" style="margin-top: var(--s-4);">🎬 <strong>Demo ao vivo:</strong> instrutor abre o <code>memory.md</code> de um projeto real e mostra o que o Claude anotou sozinho ao longo de algumas sessões de uso.</p>
+
+                <h4 class="concept-sub">3. O ecossistema em volta do Projeto</h4>
+                <p>Um Projeto não existe sozinho — ele organiza tudo mais:</p>
+                <div class="eco-list">
+                  <div class="eco-item"><span class="eco-tag">Task</span><p>Uma conversa dentro do projeto. Cada task começa com o contexto do projeto carregado. Pode ser <strong>avulsa</strong> (você inicia na hora) ou <strong>agendada</strong> (roda em horários definidos).</p></div>
+                  <div class="eco-item"><span class="eco-tag">Skill</span><p>Um pacote de instruções que ensina o Claude a produzir um tipo específico de output com qualidade consistente. Quem instala é você; quem usa é o Claude quando precisa.</p></div>
+                  <div class="eco-item"><span class="eco-tag">Agent</span><p>Quando uma task é grande demais, o Claude quebra em partes e delega pra si mesmo em <strong>paralelo</strong> — como se fossem assistentes trabalhando ao mesmo tempo.</p></div>
+                  <div class="eco-item"><span class="eco-tag">Connector</span><p>A ponte pra ferramentas externas (Gmail, Slack, Drive, Jira…). O Claude acessa, busca e age nessas ferramentas sem você sair do Cowork.</p></div>
+                  <div class="eco-item"><span class="eco-tag">Plugin</span><p>Um bundle completo com skills + connectors + sub-agents empacotados. Você instala de uma vez e ganha um conjunto de capacidades prontas.</p></div>
+                </div>
+
                 <pre class="tree">Projeto
-├── Instruções (.md) ← você escreve, Claude lê toda sessão
-├── Memória (.md)    ← Claude escreve, persiste entre sessões
+├── Instruções (.md)   ← você escreve, Claude lê toda sessão
+├── Memória (.md)      ← Claude escreve, persiste entre sessões
 ├── Tarefas
-│   ├── Avulsas
-│   └── Agendadas (scheduled tasks)
-├── Skills (nativas, customizadas, da comunidade)
-├── Connectors (Slack, Gmail, Drive...)
+│   ├── Avulsas (cada conversa que você inicia)
+│   └── Agendadas (rodam automaticamente)
+├── Skills instaladas
+│   ├── Nativas (pptx, xlsx, docx, pdf)
+│   ├── Customizadas (as suas, que você vai criar hoje)
+│   └── Da comunidade (instaladas do repositório)
+├── Connectors (Gmail, Slack, Drive, Jira...)
 └── Plugins (bundles de skills + connectors)</pre>
               </section>
 
@@ -357,50 +387,161 @@
                 <details class="exercise">
                   <summary><span class="ex-num">02</span><span class="ex-title">Criando o Projeto "PM na ArenaCash"</span><span class="ex-time">15 min</span></summary>
                   <div class="ex-body">
-                    <ol>
-                      <li><strong>Criar o Projeto</strong> (3 min): no Cowork, "ArenaCash — Meu Setup de PM", conectar à pasta <code>ArenaCash-PM</code></li>
-                      <li><strong>Escrever instruções com o organograma</strong> (12 min): cada aluno personaliza. Diferencial: incluir organograma como contexto permanente.</li>
-                    </ol>
-                    <details class="nested">
-                      <summary>Ver template sugerido</summary>
-                      <pre>## Quem sou eu
-- [Nome], PM na ArenaCash
-- Meu time: [descrever]
-- Ferramentas: Slack, Google Drive, Linear
+                    <p class="ex-intro"><strong>Entregável:</strong> um arquivo <code>instrucoes-projeto.md</code> salvo na pasta <code>ArenaCash-PM</code>, com as suas instruções personalizadas de PM. Esse documento vai dizer ao Claude — em toda conversa daqui pra frente — quem você é, como trabalha e quais são as regras do jogo. É o seu <strong>briefing permanente</strong>.</p>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 1</span>
+                        <span class="step-block-time">3 min</span>
+                        <h4 class="step-block-title">Criar o Projeto no Cowork</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <ol>
+                          <li>No Claude Desktop, clique em <strong>Cowork</strong> no menu lateral</li>
+                          <li>Clique no botão <strong>+ New Project</strong> no topo do painel esquerdo</li>
+                          <li>No campo de nome, escreva: <code>ArenaCash — Meu Setup de PM</code></li>
+                          <li>Clique em <strong>Connect Folder</strong> e selecione a pasta <code>ArenaCash-PM</code> que você criou no Exercício 1</li>
+                          <li>Confirme — o projeto aparece na lista e a pasta está vinculada</li>
+                        </ol>
+                        <p class="tip">💡 Você acabou de criar o <strong>workspace do dia</strong>. Todas as tarefas que você abrir a partir de agora dentro deste projeto vão herdar a pasta e, em breve, as instruções que você vai escrever.</p>
+                      </div>
+                    </div>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 2</span>
+                        <span class="step-block-time">12 min</span>
+                        <h4 class="step-block-title">Escrever as instruções do projeto</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <p>Este é o passo <strong>mais importante</strong> do bloco. As instruções do projeto são o que transformam o Claude de um assistente genérico num colaborador que conhece você e a ArenaCash.</p>
+                        <p>No chat do projeto, mande o seguinte prompt:</p>
+                        <div class="prompt-box">
+                          <p>Me ajuda a criar o arquivo <code>instrucoes-projeto.md</code>. Ele vai conter minhas instruções permanentes como PM. Me faz as perguntas necessárias pra preencher as seções abaixo, uma de cada vez, e depois gera o arquivo completo na pasta.</p>
+                        </div>
+                        <p>O Claude vai te guiar. As seções que o arquivo deve ter:</p>
+                        <details class="nested">
+                          <summary>Ver template das 4 seções</summary>
+                          <pre>## Quem sou eu
+- [Seu nome], PM de produto na ArenaCash
+- Meu squad: [descrever área de atuação]
+- Ferramentas que uso no dia a dia: [ex: Slack, Google Drive, Linear, Jira]
 
 ## Contexto da empresa
-- Leia organograma-arenacash.md
-- Leia memo-estrategico-q2.md
-- Nosso foco no Q2: [preencher após ler o memo]
+- Leia o arquivo organograma-arenacash.md para entender a estrutura
+  da empresa e quem é quem
+- Leia o memo-estrategico-q2.md para entender as metas e prioridades
+  do quarter
+- Nosso foco no Q2: [preencher com o que você leu no memo no Ex 1]
 
 ## Como eu trabalho
-- Tom: [formal? direto? casual?]
-- Frameworks: RICE, OKRs, JTBD
-- Sempre salve outputs como arquivos
+- Tom de comunicação: [formal? direto? casual? dê exemplos]
+- Frameworks que uso: [ex: RICE, OKRs, Jobs to Be Done, Story Mapping]
+- Prefiro outputs: [ex: sempre em arquivo, nunca só no chat;
+  listas curtas; textos diretos]
 
-## Regras
-- Nunca invente dados
-- Use o padrão ArenaCash
-- Referencie o organograma quando mencionar pessoas</pre>
-                    </details>
-                    <p class="tip">💡 As instruções referenciam arquivos do kit. O Claude lê organograma e memo automaticamente. Isso é contextualização profunda.</p>
+## Regras que nunca podem ser quebradas
+- Nunca invente dados — se não tiver a informação, pergunte antes
+- Sempre salve os outputs como arquivos na pasta do projeto
+- Quando mencionar pessoas da empresa, consulte o organograma-arenacash.md
+- Quando criar documentos, siga o padrão visual do design-system-arenacash.md</pre>
+                        </details>
+                        <p>Quando o Claude gerar o arquivo, abra-o no Finder/Explorador e verifique que está em <code>ArenaCash-PM/instrucoes-projeto.md</code>. Se precisar ajustar algum trecho, edite direto no arquivo ou peça ao Claude pra corrigir.</p>
+                      </div>
+                    </div>
+
+                    <div class="ex-closing">
+                      <span class="pa-eyebrow pa-eyebrow--red">P O R &nbsp; Q U E &nbsp; I S S O &nbsp; I M P O R T A</span>
+                      <p>A partir deste momento, toda nova conversa dentro deste projeto começa com o Claude já sabendo <strong>quem você é, em que empresa trabalha, como prefere se comunicar e quais são as regras</strong>. Você não vai repetir esse contexto mais uma vez no dia.</p>
+                    </div>
+
+                    <p class="file-out">📄 <code>instrucoes-projeto.md</code></p>
                   </div>
                 </details>
 
                 <details class="exercise">
-                  <summary><span class="ex-num">03</span><span class="ex-title">Conectar Gmail + Tom de Voz</span><span class="ex-time">20 min</span></summary>
+                  <summary><span class="ex-num">03</span><span class="ex-title">Tom de Voz</span><span class="ex-time">20 min</span></summary>
                   <div class="ex-body">
-                    <ol>
-                      <li><strong>Conectar Gmail</strong> (5 min): Settings → Connectors → Gmail → Connect. Testar: "busca meus últimos 5 emails enviados"</li>
-                      <li><strong>Criar tom de voz</strong> (10 min):
-                        <ul>
-                          <li><em>Caminho A (recomendado):</em> "acessa meus últimos 20 emails enviados e analisa como eu escrevo. Gera <code>tom-de-voz.md</code>"</li>
-                          <li><em>Caminho B:</em> "me ajuda a criar um arquivo de tom de voz me fazendo perguntas"</li>
-                        </ul>
-                      </li>
-                      <li><strong>Configurar como padrão</strong> (5 min): adicionar nas instruções — "sempre que escrever texto no meu nome, leia <code>tom-de-voz.md</code>"</li>
-                    </ol>
-                    <p class="file-out">📄 <code>02-setup/instrucoes-projeto.md</code> · <code>02-setup/tom-de-voz.md</code></p>
+                    <p class="ex-intro"><strong>Por que isso importa:</strong> ao longo do dia, você vai pedir ao Claude pra escrever textos no seu lugar — emails, mensagens pro time, trechos de apresentação. Se o Claude não sabe como você escreve, o resultado vai soar genérico. O <code>tom-de-voz.md</code> resolve isso: você cria uma vez, referencia nas instruções do projeto, e todo texto que o Claude gerar vai soar <strong>como você</strong>.</p>
+                    <p class="ex-subentrega"><strong>Entregável:</strong> arquivo <code>tom-de-voz.md</code> salvo em <code>ArenaCash-PM</code>. Ao final, você vai usar esse arquivo pra gerar uma mensagem real pro seu tech lead — e comparar se ela soa como você.</p>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 1</span>
+                        <span class="step-block-time">10 min</span>
+                        <h4 class="step-block-title">Criar o tom de voz</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <p>Escolha o caminho de acordo com o que você preparou nos pré-requisitos:</p>
+
+                        <div class="path-block path-a">
+                          <div class="path-head"><span class="path-tag">Caminho A · recomendado</span><h4>Extrair do Gmail</h4></div>
+                          <p>Primeiro, conecte sua conta Google ao Cowork:</p>
+                          <ol>
+                            <li>No Claude Desktop, clique em <strong>Settings</strong> (ícone de engrenagem) no menu lateral</li>
+                            <li>Vá em <strong>Connectors</strong></li>
+                            <li>Localize <strong>Gmail</strong> na lista e clique em <strong>Connect</strong></li>
+                            <li>Uma janela do Google vai abrir — faça login e autorize o acesso</li>
+                            <li>Volte ao Cowork. O Gmail agora aparece como connector ativo</li>
+                          </ol>
+                          <p>Pra verificar que funcionou, mande no chat:</p>
+                          <div class="prompt-box">
+                            <div class="prompt-box-head">V E R I F I C A R &nbsp; C O N E X Ã O</div>
+                            <p>Busca meus últimos 3 emails enviados e me mostra o assunto e as primeiras linhas de cada um.</p>
+                          </div>
+                          <p>Agora, pra extrair o tom de voz:</p>
+                          <div class="prompt-box">
+                            <div class="prompt-box-head">E X T R A I R &nbsp; T O M &nbsp; D E &nbsp; V O Z</div>
+                            <p>Acessa meus últimos 20 emails enviados. Analisa como eu escrevo e identifica padrões em: saudação e fechamento, nível de formalidade, tamanho típico dos parágrafos, uso de listas ou texto corrido, expressões que aparecem com frequência e tom geral (direto, empático, técnico, informal…). Com base nisso, gera um arquivo <code>tom-de-voz.md</code> na pasta do projeto documentando meu perfil de comunicação.</p>
+                          </div>
+                        </div>
+
+                        <div class="path-block path-b">
+                          <div class="path-head"><span class="path-tag gray">Caminho B · alternativa</span><h4>Construir manualmente</h4></div>
+                          <p>Use se preferiu não conectar o Gmail. Mande o seguinte prompt:</p>
+                          <div class="prompt-box">
+                            <p>Vou te ajudar a criar meu arquivo <code>tom-de-voz.md</code>. Me faz perguntas sobre como eu me comunico — uma pergunta por vez, espera minha resposta antes de continuar. Quando tiver informação suficiente, gera o arquivo <code>tom-de-voz.md</code> na pasta do projeto com meu perfil documentado.</p>
+                          </div>
+                          <p>O Claude vai conduzir a conversa: vai perguntar sobre saudações, formalidade, tamanho de textos, expressões que você usa, o que evita, como prefere dar feedback. <strong>Responda naturalmente</strong> — é uma conversa, não um formulário. Ao final, ele gera o arquivo com tudo organizado.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 2</span>
+                        <span class="step-block-time">3 min</span>
+                        <h4 class="step-block-title">Registrar o tom de voz nas instruções do projeto</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <p>Abra o arquivo <code>instrucoes-projeto.md</code> que você criou no Exercício 2 e adicione a seguinte linha na seção <em>"Como eu trabalho"</em>:</p>
+                        <pre class="code-block">- Sempre que for escrever qualquer texto no meu nome — email,
+  mensagem, apresentação — leia o arquivo tom-de-voz.md e siga
+  esse estilo.</pre>
+                        <p>Ou peça ao Claude:</p>
+                        <div class="prompt-box">
+                          <p>Atualiza o <code>instrucoes-projeto.md</code> pra incluir uma regra dizendo que sempre que for escrever texto no meu nome, deve ler o <code>tom-de-voz.md</code>.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="step-block">
+                      <div class="step-block-head">
+                        <span class="step-block-num">Passo 3</span>
+                        <span class="step-block-time">7 min</span>
+                        <h4 class="step-block-title">Teste: sua primeira mensagem real</h4>
+                      </div>
+                      <div class="step-block-body">
+                        <p>Agora vamos verificar se o tom de voz funciona. <strong>Você é PM do Squad de Onboarding & Ativação.</strong> Seu tech lead é o <strong>Ricardo Sato</strong>. Há um bug no sistema de ativação atrasando há mais tempo do que você considera aceitável — e você precisa comunicar isso <strong>com clareza, sem soar agressivo, deixando claro o impacto</strong>.</p>
+                        <div class="prompt-box">
+                          <div class="prompt-box-head">M E N S A G E M &nbsp; P R A &nbsp; O &nbsp; R I C A R D O</div>
+                          <p>Lê o <code>organograma-arenacash.md</code> pra entender quem é o Ricardo Sato e qual o contexto do Squad de Onboarding & Ativação. Lê também o <code>tom-de-voz.md</code>. Escreve uma mensagem de Slack pro Ricardo dizendo que estou preocupado com o tempo que o bug no sistema de ativação está levando pra ser resolvido, que isso está impactando a ativação de novos usuários — a meta principal do nosso squad no Q2 — e que preciso entender o status e um prazo realista pra fechamento. Usa meu tom de voz.</p>
+                        </div>
+                        <p>Leia a mensagem gerada. <strong>Ela soa como você escreveria?</strong> Se não, ajuste o <code>tom-de-voz.md</code> e peça pra regerar. Esse ciclo de <em>calibrar → testar → ajustar</em> é exatamente como o arquivo deve evoluir com o tempo.</p>
+                      </div>
+                    </div>
+
+                    <p class="file-out">📄 <code>tom-de-voz.md</code> · atualização em <code>instrucoes-projeto.md</code></p>
                   </div>
                 </details>
               </section>

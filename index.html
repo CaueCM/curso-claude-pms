@@ -31,7 +31,7 @@
       <div class="hero-inner">
         <div>
           <span class="pa-eyebrow pa-eyebrow--red">C U R S O &nbsp; H A N D S - O N &nbsp; · &nbsp; 6 &nbsp; H O R A S</span>
-          <h1>Claude<br />para PMs<br /><span class="accent">do chat ao código.</span></h1>
+          <h1>Claude para PMs <span class="accent">do chat ao código.</span></h1>
           <p class="hero-sub">
             Entra como PM de produto da <strong>ArenaCash</strong> pela manhã. Sai com um produto no ar à tarde. Tudo dentro do Claude. <strong class="shout">Mão na massa</strong> do começo ao fim.
           </p>
@@ -784,17 +784,161 @@ npx netlify-cli deploy --dir=./prototipo-iniciativa --prod</pre>
         <div class="section-head">
           <span class="pa-eyebrow pa-eyebrow--red">A N T E S &nbsp; D E &nbsp; C O M E Ç A R</span>
           <h2>Pré-requisitos</h2>
-          <p>O que cada aluno precisa ter instalado e configurado antes do curso.</p>
+          <p>Faça isso <strong>antes do dia do curso</strong>. Cada item abaixo tem um motivo — sem ele, alguma parte do dia não funciona. Separe cerca de <strong>30 minutos</strong> pra concluir tudo.</p>
         </div>
-        <div class="prereq-grid">
-          <div class="prereq"><span class="p-num">1</span><div><strong>Claude Pro ou Team</strong><span>plano pago ativo</span></div></div>
-          <div class="prereq"><span class="p-num">2</span><div><strong>Claude Desktop App</strong><span>claude.ai/download</span></div></div>
-          <div class="prereq"><span class="p-num">3</span><div><strong>Node.js 18+</strong><span>instalado globalmente</span></div></div>
-          <div class="prereq"><span class="p-num">4</span><div><strong>Claude Code</strong><span><code>npm install -g @anthropic-ai/claude-code</code></span></div></div>
-          <div class="prereq"><span class="p-num">5</span><div><strong>Terminal</strong><span>Terminal no Mac · PowerShell no Windows</span></div></div>
-          <div class="prereq"><span class="p-num">6</span><div><strong>Kit ArenaCash</strong><span>baixado e descompactado</span></div></div>
-          <div class="prereq optional"><span class="p-num">+</span><div><strong>Conta Google</strong><span>opcional · para integração Gmail</span></div></div>
-          <div class="prereq optional"><span class="p-num">+</span><div><strong>Conta Slack</strong><span>opcional · para integração</span></div></div>
+
+        <div class="prereq-list">
+          <!-- 1. Conta Claude paga -->
+          <details class="setup-step" open>
+            <summary>
+              <span class="step-num">1</span>
+              <div class="step-title">
+                <strong>Conta Claude paga</strong>
+                <span>Pro, Max ou Team · sem isso o curso não começa</span>
+              </div>
+              <span class="step-status required">Obrigatório</span>
+            </summary>
+            <div class="step-body">
+              <p>O Claude gratuito tem limite de mensagens e não acessa o Cowork nem os plugins. O curso inteiro roda no Claude pago.</p>
+              <h4>Qual plano escolher</h4>
+              <ul>
+                <li><strong>Pro</strong> — funciona pro curso. É o mínimo necessário.</li>
+                <li><strong>Max</strong> — recomendado se você quiser aproveitar sem se preocupar com limites. Durante um dia intenso como o curso, o Pro pode atingir o limite de mensagens. O Max tem limites muito mais altos — vai te deixar mais tranquilo pra experimentar sem segurar o ritmo. <a href="https://claude.ai/upgrade" target="_blank" rel="noopener">Veja a diferença entre os planos →</a></li>
+                <li><strong>Team</strong> — se sua empresa já tem conta Team, peça ao administrador pra te adicionar. Equivalente ao Pro em limites, mas com gerenciamento centralizado.</li>
+              </ul>
+              <p>Se ainda não tem conta: <a href="https://claude.ai/upgrade" target="_blank" rel="noopener">claude.ai/upgrade</a> pra assinar.</p>
+            </div>
+          </details>
+
+          <!-- 2. Claude Desktop -->
+          <details class="setup-step">
+            <summary>
+              <span class="step-num">2</span>
+              <div class="step-title">
+                <strong>Claude Desktop App</strong>
+                <span>interface principal do curso · só existe no desktop</span>
+              </div>
+              <span class="step-status required">Obrigatório</span>
+            </summary>
+            <div class="step-body">
+              <p>O Cowork — que usamos <strong>toda a manhã</strong> — só existe no Desktop. No navegador e no celular ele não aparece.</p>
+              <ol>
+                <li>Baixe o instalador em <a href="https://claude.ai/download" target="_blank" rel="noopener">claude.ai/download</a> (Mac ou Windows)</li>
+                <li>Abra o arquivo baixado e siga a instalação normalmente</li>
+                <li>Faça login com a mesma conta Claude paga do passo anterior</li>
+                <li>Verifique que aparece a opção <strong>Cowork</strong> no menu lateral — se aparecer, tá tudo certo</li>
+              </ol>
+            </div>
+          </details>
+
+          <!-- 3. Claude Code -->
+          <details class="setup-step">
+            <summary>
+              <span class="step-num">3</span>
+              <div class="step-title">
+                <strong>Claude Code</strong>
+                <span>usado na parte da tarde · blocos 5 a 7</span>
+              </div>
+              <span class="step-status required">Obrigatório</span>
+            </summary>
+            <div class="step-body">
+              <p>Claude Code é uma ferramenta que você instala no terminal e que permite criar protótipos, sites e scripts em conversa com o Claude. É a ferramenta da parte da tarde.</p>
+              <p>Pra instalar, você vai precisar de duas coisas na ordem abaixo:</p>
+
+              <div class="substep">
+                <h4>3a · Node.js (versão 18 ou mais recente)</h4>
+                <p>Node.js é o motor que roda o Claude Code. Você provavelmente já tem — verifique antes de instalar.</p>
+                <ol>
+                  <li>Abra o Terminal (Mac: <code>Cmd + Espaço</code> → "Terminal") ou PowerShell (Windows: tecla Windows → "PowerShell")</li>
+                  <li>Digite <code>node --version</code> e pressione Enter</li>
+                  <li>Se aparecer algo como <code>v20.x.x</code> ou <code>v22.x.x</code>, você já tem. Pule pro 3b.</li>
+                  <li>Se não aparecer nada: <a href="https://nodejs.org/en/download" target="_blank" rel="noopener">nodejs.org/en/download</a> e baixe a versão <strong>LTS</strong> pro seu SO. Instalador padrão.</li>
+                </ol>
+              </div>
+
+              <div class="substep">
+                <h4>3b · Claude Code</h4>
+                <p>Com o Node instalado, no mesmo terminal cole o comando abaixo e pressione Enter:</p>
+                <pre class="code-block">npm install -g @anthropic-ai/claude-code</pre>
+                <p>Aguarde (pode demorar 1-2 minutos). Depois verifique:</p>
+                <pre class="code-block">claude --version</pre>
+                <p>Se aparecer o número da versão, tá instalado. Documentação: <a href="https://docs.anthropic.com/pt/docs/claude-code/overview" target="_blank" rel="noopener">docs.anthropic.com/pt/docs/claude-code</a>.</p>
+              </div>
+            </div>
+          </details>
+
+          <!-- 4. Git -->
+          <details class="setup-step">
+            <summary>
+              <span class="step-num">4</span>
+              <div class="step-title">
+                <strong>Git</strong>
+                <span>o Claude Code depende dele por baixo dos panos</span>
+              </div>
+              <span class="step-status required">Obrigatório</span>
+            </summary>
+            <div class="step-body">
+              <p>Git é um sistema de controle de versão. O Claude Code usa por baixo dos panos pra gerenciar arquivos e mudanças — <strong>sem ele, o Code pode dar erro na inicialização</strong>.</p>
+              <ul>
+                <li><strong>Mac:</strong> Git já vem instalado na maioria dos casos. Verifique com <code>git --version</code> no Terminal. Se não tiver, o próprio Mac vai oferecer instalar automaticamente — aceite.</li>
+                <li><strong>Windows:</strong> Verifique com <code>git --version</code> no PowerShell. Se não tiver, baixe em <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">git-scm.com/download/win</a> (opções padrão, não precisa mexer em nada).</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- 5. Kit -->
+          <details class="setup-step">
+            <summary>
+              <span class="step-num">5</span>
+              <div class="step-title">
+                <strong>Kit ArenaCash</strong>
+                <span>baixado e descompactado · é o material do curso</span>
+              </div>
+              <span class="step-status required">Obrigatório</span>
+            </summary>
+            <div class="step-body">
+              <p>Você vai receber o kit por email ou link antes do curso. Ele contém todos os documentos da empresa fictícia que vamos usar no dia.</p>
+              <ul>
+                <li>Baixe o arquivo <code>.zip</code></li>
+                <li>Descompacte em algum lugar fácil de achar (ex: Desktop ou Documentos)</li>
+                <li>Renomeie a pasta pra <code>ArenaCash-PM</code></li>
+                <li>Verifique que consegue ver arquivos <code>.md</code>, <code>.csv</code>, <code>.xlsx</code> e <code>.pptx</code> dentro dela</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- 6. Gmail -->
+          <details class="setup-step optional">
+            <summary>
+              <span class="step-num">6</span>
+              <div class="step-title">
+                <strong>Conta Google / Gmail</strong>
+                <span>usado no Bloco 2 pra extrair seu tom de voz</span>
+              </div>
+              <span class="step-status optional">Recomendado</span>
+            </summary>
+            <div class="step-body">
+              <p>No Bloco 2 vamos conectar o Gmail ao Cowork pra extrair o seu <strong>tom de voz de escrita</strong> a partir dos seus e-mails. Funciona com qualquer conta Google.</p>
+              <ul>
+                <li>Se você tem Gmail, não precisa fazer nada — só lembrar o login</li>
+                <li>Se preferir não usar a conta pessoal, crie uma conta separada só pro curso em <a href="https://accounts.google.com" target="_blank" rel="noopener">accounts.google.com</a></li>
+                <li>Se não quiser usar Gmail de jeito nenhum, tudo bem — o instrutor mostra um caminho alternativo pra criar o tom de voz manualmente</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+
+        <!-- Verificação final -->
+        <div class="verify-block">
+          <div class="verify-head">
+            <span class="pa-eyebrow pa-eyebrow--red">V E R I F I C A Ç Ã O &nbsp; F I N A L</span>
+            <h3>Teste tudo de uma vez</h3>
+            <p>Antes do curso, rode esses três comandos no terminal. Todos devem responder sem erro:</p>
+          </div>
+<pre class="code-block verify-code">node --version     <span class="code-comment"># v18 ou mais recente</span>
+claude --version   <span class="code-comment"># versão do Claude Code</span>
+git --version      <span class="code-comment"># versão do Git</span></pre>
+          <p class="verify-foot">Se algum der erro, volte no passo correspondente ou entre em contato antes do curso.</p>
         </div>
       </div>
     </section>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Convite · Claude para PMs — Product Arena</title>
+  <meta name="description" content="Convite pro curso Claude para PMs da Product Arena. Prepare-se antes do dia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Pequenos ajustes específicos do convite — sem mexer no styles.css */
+    .convite-topbar { position: sticky; top: 0; z-index: 100; backdrop-filter: saturate(180%) blur(14px); -webkit-backdrop-filter: saturate(180%) blur(14px); background: rgba(10,10,10,0.88); border-bottom: 1px solid var(--pa-gray-800); color: var(--pa-white); }
+    .convite-topbar .topbar-inner { max-width: var(--container); margin: 0 auto; padding: var(--s-4) var(--gutter); display: flex; align-items: center; justify-content: space-between; gap: var(--s-6); }
+    .convite-nav { display: flex; gap: var(--s-5); }
+    .convite-nav a { font-size: var(--text-sm); font-weight: 500; color: var(--pa-gray-300); border: 0; padding: 6px 0; position: relative; white-space: nowrap; transition: color var(--dur-fast) var(--ease-standard); }
+    .convite-nav a:hover { color: var(--pa-white); }
+    .convite-nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px; background: var(--pa-red); transform: scaleX(0); transform-origin: left; transition: transform var(--dur-med) var(--ease-standard); }
+    .convite-nav a:hover::after { transform: scaleX(1); }
+
+    .agenda-preview { display: grid; grid-template-columns: 1fr; gap: var(--s-3); }
+    .agenda-row { display: grid; grid-template-columns: 150px 80px 1fr; gap: var(--s-5); align-items: center; padding: var(--s-4) var(--s-5); background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-md); transition: border-color var(--dur-fast) var(--ease-standard); }
+    .agenda-row:hover { border-color: var(--pa-red); }
+    .agenda-row.break { background: var(--bg-muted); border-style: dashed; }
+    .agenda-time { font-family: var(--font-mono); font-size: var(--text-sm); font-weight: 500; color: var(--fg-muted); white-space: nowrap; }
+    .agenda-bloco-num { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; background: var(--pa-black); color: var(--pa-red); font-family: var(--font-display); font-size: 22px; border-radius: 12px; }
+    .agenda-row.break .agenda-bloco-num { background: var(--bg); color: var(--fg-muted); border: 1px dashed var(--border); font-size: 20px; }
+    .agenda-tema { font-family: var(--font-display); font-weight: 700; font-size: var(--text-lg); color: var(--fg); letter-spacing: var(--tracking-tight); }
+    .agenda-row.break .agenda-tema { color: var(--fg-muted); font-weight: 500; }
+
+    @media (max-width: 720px) {
+      .agenda-row { grid-template-columns: 120px 1fr; gap: var(--s-3); padding: var(--s-3); }
+      .agenda-bloco-num { display: none; }
+    }
+
+    .convite-footer { background: var(--pa-black); color: rgba(255,255,255,0.7); padding: var(--s-12) var(--gutter); margin-top: var(--s-16); text-align: center; }
+    .convite-footer p { font-size: var(--text-sm); margin: 4px 0; }
+    .convite-footer .footer-cta { font-family: var(--font-display); font-weight: 700; font-size: var(--text-xl); color: var(--pa-white); letter-spacing: -0.01em; margin-bottom: var(--s-4); }
+  </style>
+</head>
+<body>
+  <header class="convite-topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <img src="assets/logo-pa.png" alt="Product Arena" onerror="this.style.display='none'" />
+        <span class="brand-sep">/</span>
+        <span class="brand-word-long">convite · claude para pms</span>
+      </div>
+      <nav class="convite-nav">
+        <a href="#bem-vindo">Bem-vindo</a>
+        <a href="#pre-requisitos">Pré-requisitos</a>
+        <a href="#materiais">Materiais</a>
+        <a href="#agenda">Agenda</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Banner topo -->
+    <section class="hero hero--workbook">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <span class="pa-eyebrow pa-eyebrow--red">C O N V I T E &nbsp; · &nbsp; A N T E S &nbsp; D O &nbsp; C U R S O</span>
+          <h1>Você tá convidado(a) pro <span class="accent">Claude para PMs.</span></h1>
+          <p class="hero-sub">
+            Este é o <strong>material prévio</strong>. Confere aqui tudo que você precisa preparar antes do dia do curso — pré-requisitos, o kit ArenaCash e como vai ser o dia.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn--primary" href="#pre-requisitos">Ver pré-requisitos</a>
+            <a class="btn btn--ghost" href="#materiais">Baixar o kit</a>
+          </div>
+          <div class="hero-stats-grid">
+            <div class="hero-stat"><span class="num">8</span><span class="label">blocos</span></div>
+            <div class="hero-stat"><span class="num">6h</span><span class="label">duração</span></div>
+            <div class="hero-stat"><span class="num">10h</span><span class="label">início</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bem-vindo -->
+    <section class="section" id="bem-vindo">
+      <div class="container">
+        <div class="section-head">
+          <span class="pa-eyebrow pa-eyebrow--red">B E M &nbsp; V I N D O &nbsp; À &nbsp; A R E N A C A S H</span>
+          <h2>Você foi contratado como PM da ArenaCash.</h2>
+        </div>
+        <div class="welcome-body">
+          <div>
+            <p class="lead">A ArenaCash é uma fintech criada pela Product Arena. Ela não existe de verdade — mas os problemas que você vai resolver aqui são <strong class="shout">os mesmos</strong> que surgem toda semana no trabalho real de um PM.</p>
+          </div>
+          <div>
+            <p>Antes do curso, você recebeu o <strong>ArenaCash Kit</strong>: memo estratégico do CEO, transcrições das conversas com CFO, CMO e CTO, dados de produto e financeiros do quarter anterior, tickets de atendimento, design system e template oficial de apresentação.</p>
+            <p>São os mesmos materiais que um PM receberia no primeiro dia numa empresa real. A diferença é que aqui você não vai só ler e analisar — vai usar o Claude para trabalhar com eles como PM de verdade: entender o negócio, priorizar iniciativas, criar documentos, apresentar para a liderança, prototipar, codar e publicar.</p>
+            <p><strong>A jornada completa do dia:</strong> você começa configurando o Claude e montando seu ambiente de PM. Analisa os dados do quarter, prioriza uma iniciativa e valida com os C-levels. Essa iniciativa vira apresentação para a diretoria, depois protótipo visual, depois mapeamento de eventos — e termina com o app publicado online com uma URL real.</p>
+          </div>
+        </div>
+        <div class="welcome-quote">
+          "Todo o curso acontece dentro do Claude. Sem slides. Sem sair da plataforma."
+        </div>
+      </div>
+    </section>
+
+    <!-- Pré-requisitos -->
+    <section class="section" id="pre-requisitos">
+      <div class="container">
+        <div class="section-head">
+          <span class="pa-eyebrow pa-eyebrow--red">A N T E S &nbsp; D E &nbsp; C O M E Ç A R</span>
+          <h2>Pré-requisitos</h2>
+          <p>Faça isso <strong>antes do dia do curso</strong>. Cada item abaixo tem um motivo — sem ele, alguma parte do dia não funciona. Separe cerca de <strong>30 minutos</strong> pra concluir tudo.</p>
+        </div>
+
+        <div class="prereq-list">
+          <!-- 1. Conta Claude paga -->
+          <details class="setup-step" open>
+            <summary>
+              <span class="step-num">1</span>
+              <div class="step-title">
+                <strong>Conta Claude paga</strong>
+                <span>Pro, Max ou Team · sem isso o curso não começa</span>
+              </div>
+              <span class="step-status required">Obrigatório</span>
+            </summary>
+            <div class="step-body">
+              <p>O Claude gratuito tem limite de mensagens e não acessa o Cowork nem os plugins. O curso inteiro roda no Claude pago.</p>
+              <h4>Qual plano escolher</h4>
+              <ul>
+                <li><strong>Pro</strong> — funciona pro curso. É o mínimo necessário.</li>
+                <li><strong>Max</strong> — recomendado se você quiser aproveitar sem se preocupar com limites. Durante um dia intenso como o curso, o Pro pode atingir o limite de mensagens. O Max tem limites muito mais altos. <a href="https://claude.ai/upgrade" target="_blank" rel="noopener">Veja a diferença entre os planos →</a></li>
+                <li><strong>Team</strong> — se sua empresa já tem conta Team, peça ao administrador pra te adicionar.</li>
+              </ul>
+              <p>Se ainda não tem conta: <a href="https://claude.ai/upgrade" target="_blank" rel="noopener">claude.ai/upgrade</a> pra assinar.</p>
+            </div>
+          </details>
+
+          <!-- 2. Claude Desktop -->
+          <details class="setup-step">
+            <summary>
+              <span class="step-num">2</span>
+              <div class="step-title">
+                <strong>Claude Desktop App</strong>
+                <span>interface principal do curso · só existe no desktop</span>
+              </div>
+              <span class="step-status required">Obrigatório</span>
+            </summary>
+            <div class="step-body">
+              <p>O Cowork — que usamos <strong>toda a manhã</strong> — só existe no Desktop. No navegador e no celular ele não aparece.</p>
+              <ol>
+                <li>Baixe o instalador em <a href="https://claude.ai/download" target="_blank" rel="noopener">claude.ai/download</a> (Mac ou Windows)</li>
+                <li>Abra o arquivo baixado e siga a instalação normalmente</li>
+                <li>Faça login com a mesma conta Claude paga do passo anterior</li>
+                <li>Verifique que aparece a opção <strong>Cowork</strong> no menu lateral — se aparecer, tá tudo certo</li>
+              </ol>
+            </div>
+          </details>
+
+          <!-- 3. Claude Code -->
+          <details class="setup-step">
+            <summary>
+              <span class="step-num">3</span>
+              <div class="step-title">
+                <strong>Claude Code</strong>
+                <span>usado na parte da tarde do curso</span>
+              </div>
+              <span class="step-status required">Obrigatório</span>
+            </summary>
+            <div class="step-body">
+              <p>Claude Code é uma ferramenta que você instala no terminal e que permite criar protótipos, sites e scripts em conversa com o Claude. É a ferramenta da parte da tarde.</p>
+              <p>Pra instalar, você vai precisar de duas coisas na ordem abaixo:</p>
+
+              <div class="substep">
+                <h4>3a · Node.js (versão 18 ou mais recente)</h4>
+                <p>Node.js é o motor que roda o Claude Code. Você provavelmente já tem — verifique antes de instalar.</p>
+                <ol>
+                  <li>Abra o Terminal (Mac: <code>Cmd + Espaço</code> → "Terminal") ou PowerShell (Windows: tecla Windows → "PowerShell")</li>
+                  <li>Digite <code>node --version</code> e pressione Enter</li>
+                  <li>Se aparecer algo como <code>v20.x.x</code> ou <code>v22.x.x</code>, você já tem. Pule pro 3b.</li>
+                  <li>Se não aparecer nada: <a href="https://nodejs.org/en/download" target="_blank" rel="noopener">nodejs.org/en/download</a> e baixe a versão <strong>LTS</strong> pro seu SO. Instalador padrão.</li>
+                </ol>
+              </div>
+
+              <div class="substep">
+                <h4>3b · Claude Code</h4>
+                <p>Com o Node instalado, no mesmo terminal cole o comando abaixo e pressione Enter:</p>
+                <pre class="code-block">npm install -g @anthropic-ai/claude-code</pre>
+                <p>Aguarde (pode demorar 1-2 minutos). Depois verifique:</p>
+                <pre class="code-block">claude --version</pre>
+                <p>Se aparecer o número da versão, tá instalado. Documentação: <a href="https://docs.anthropic.com/pt/docs/claude-code/overview" target="_blank" rel="noopener">docs.anthropic.com/pt/docs/claude-code</a>.</p>
+              </div>
+            </div>
+          </details>
+
+          <!-- 4. Git -->
+          <details class="setup-step">
+            <summary>
+              <span class="step-num">4</span>
+              <div class="step-title">
+                <strong>Git</strong>
+                <span>o Claude Code depende dele por baixo dos panos</span>
+              </div>
+              <span class="step-status required">Obrigatório</span>
+            </summary>
+            <div class="step-body">
+              <p>Git é um sistema de controle de versão. O Claude Code usa por baixo dos panos pra gerenciar arquivos e mudanças — <strong>sem ele, o Code pode dar erro na inicialização</strong>.</p>
+              <ul>
+                <li><strong>Mac:</strong> Git já vem instalado na maioria dos casos. Verifique com <code>git --version</code> no Terminal. Se não tiver, o próprio Mac vai oferecer instalar automaticamente — aceite.</li>
+                <li><strong>Windows:</strong> Verifique com <code>git --version</code> no PowerShell. Se não tiver, baixe em <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">git-scm.com/download/win</a> (opções padrão, não precisa mexer em nada).</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- 5. Kit -->
+          <details class="setup-step">
+            <summary>
+              <span class="step-num">5</span>
+              <div class="step-title">
+                <strong>Kit ArenaCash</strong>
+                <span>baixado e descompactado · é o material do curso</span>
+              </div>
+              <span class="step-status required">Obrigatório</span>
+            </summary>
+            <div class="step-body">
+              <p>O kit contém todos os documentos da empresa fictícia que vamos usar no dia: memo estratégico, organograma, dados de Q1, transcrições dos C-levels, design system e guia de eventos.</p>
+              <p class="step-download-row"><a class="btn btn--primary btn--sm" href="ArenaCash-Kit.zip" download>↓ &nbsp; Baixar ArenaCash-Kit.zip</a> <span class="or-sep">ou</span> <a href="#materiais">ver arquivos individuais abaixo ↓</a></p>
+              <p><strong>Depois de baixar:</strong></p>
+              <ul>
+                <li>Descompacte em algum lugar fácil de achar (ex: Desktop ou Documentos)</li>
+                <li>Renomeie a pasta pra <code>ArenaCash-PM</code></li>
+                <li>Verifique que consegue ver arquivos <code>.md</code>, <code>.csv</code>, <code>.xlsx</code> e <code>.pdf</code> dentro dela</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- 6. Gmail -->
+          <details class="setup-step optional">
+            <summary>
+              <span class="step-num">6</span>
+              <div class="step-title">
+                <strong>Conta Google / Gmail</strong>
+                <span>usado no curso pra extrair seu tom de voz</span>
+              </div>
+              <span class="step-status optional">Recomendado</span>
+            </summary>
+            <div class="step-body">
+              <p>Vamos conectar o Gmail ao Cowork pra extrair o seu <strong>tom de voz de escrita</strong> a partir dos seus e-mails. Funciona com qualquer conta Google.</p>
+              <ul>
+                <li>Se você tem Gmail, não precisa fazer nada — só lembrar o login</li>
+                <li>Se preferir não usar a conta pessoal, crie uma conta separada só pro curso em <a href="https://accounts.google.com" target="_blank" rel="noopener">accounts.google.com</a></li>
+                <li>Se não quiser usar Gmail de jeito nenhum, tudo bem — o instrutor mostra um caminho alternativo pra criar o tom de voz manualmente</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+
+        <!-- Verificação final -->
+        <div class="verify-block">
+          <div class="verify-head">
+            <span class="pa-eyebrow pa-eyebrow--red">V E R I F I C A Ç Ã O &nbsp; F I N A L</span>
+            <h3>Teste tudo de uma vez</h3>
+            <p>Antes do curso, rode esses três comandos no terminal. Todos devem responder sem erro:</p>
+          </div>
+<pre class="code-block verify-code">node --version     <span class="code-comment"># v18 ou mais recente</span>
+claude --version   <span class="code-comment"># versão do Claude Code</span>
+git --version      <span class="code-comment"># versão do Git</span></pre>
+          <p class="verify-foot">Se algum der erro, volte no passo correspondente ou entre em contato antes do curso.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Materiais do curso (Kit) -->
+    <section class="section" id="materiais">
+      <div class="container">
+        <div class="section-head">
+          <span class="pa-eyebrow pa-eyebrow--red">M A T E R I A I S &nbsp; D O &nbsp; C U R S O</span>
+          <h2>Baixe o kit ArenaCash</h2>
+          <p>Os arquivos que um PM receberia no primeiro dia numa empresa real. <strong>Baixe e descompacte antes do curso</strong>. Clique em cada arquivo pra baixar individualmente, ou puxe tudo de uma vez no <code>.zip</code> abaixo.</p>
+        </div>
+
+        <div class="kit-bulk">
+          <div class="kit-bulk-info">
+            <span class="pa-eyebrow pa-eyebrow--red">P A C O T E &nbsp; C O M P L E T O</span>
+            <h3>ArenaCash-Kit.zip</h3>
+            <p>10 arquivos · ~172 KB · tudo que você precisa pro curso</p>
+          </div>
+          <a class="btn btn--primary btn--lg" href="ArenaCash-Kit.zip" download>
+            ↓ &nbsp; Baixar tudo em .zip
+          </a>
+        </div>
+
+        <div class="kit-grid">
+          <a class="kit-item" href="kit/memo-estrategico-q2.md" download>
+            <span class="kit-icon">📝</span>
+            <div><strong>memo-estrategico-q2.md</strong><span>memo do CEO com metas e contexto</span></div>
+            <span class="kit-size">6 KB</span>
+          </a>
+          <a class="kit-item" href="kit/organograma-arenacash.md" download>
+            <span class="kit-icon">👥</span>
+            <div><strong>organograma-arenacash.md</strong><span>estrutura da empresa, quem é quem</span></div>
+            <span class="kit-size">6 KB</span>
+          </a>
+          <a class="kit-item" href="kit/dados-quarter-q1.csv" download>
+            <span class="kit-icon">📊</span>
+            <div><strong>dados-quarter-q1.csv</strong><span>métricas: funil, ativação, churn, NPS</span></div>
+            <span class="kit-size">1 KB</span>
+          </a>
+          <a class="kit-item" href="kit/financeiro-q1.xlsx" download>
+            <span class="kit-icon">💰</span>
+            <div><strong>financeiro-q1.xlsx</strong><span>receita, custos, runway, CAC, LTV</span></div>
+            <span class="kit-size">20 KB</span>
+          </a>
+          <a class="kit-item" href="kit/atendimento-q1.csv" download>
+            <span class="kit-icon">🎫</span>
+            <div><strong>atendimento-q1.csv</strong><span>tickets de suporte categorizados</span></div>
+            <span class="kit-size">37 KB</span>
+          </a>
+          <a class="kit-item" href="kit/transcricao-cfo.md" download>
+            <span class="kit-icon">🎙️</span>
+            <div><strong>transcricao-cfo.md</strong><span>conversa com o CFO sobre prioridades</span></div>
+            <span class="kit-size">7 KB</span>
+          </a>
+          <a class="kit-item" href="kit/transcricao-cmo.md" download>
+            <span class="kit-icon">🎙️</span>
+            <div><strong>transcricao-cmo.md</strong><span>conversa com a CMO sobre growth</span></div>
+            <span class="kit-size">8 KB</span>
+          </a>
+          <a class="kit-item" href="kit/transcricao-cto.md" download>
+            <span class="kit-icon">🎙️</span>
+            <div><strong>transcricao-cto.md</strong><span>conversa com o CTO sobre tech</span></div>
+            <span class="kit-size">8 KB</span>
+          </a>
+          <a class="kit-item" href="kit/design-system-arenacash.md" download>
+            <span class="kit-icon">🧩</span>
+            <div><strong>design-system-arenacash.md</strong><span>cores, fontes, componentes da marca</span></div>
+            <span class="kit-size">13 KB</span>
+          </a>
+          <a class="kit-item" href="kit/Guia_de_Eventos_ArenaCash.pdf" download>
+            <span class="kit-icon">📎</span>
+            <div><strong>Guia_de_Eventos_ArenaCash.pdf</strong><span>guia de eventos de analytics</span></div>
+            <span class="kit-size">144 KB</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visão geral do dia — apenas tópicos -->
+    <section class="section" id="agenda">
+      <div class="container">
+        <div class="section-head">
+          <span class="pa-eyebrow pa-eyebrow--red">C O M O &nbsp; V A I &nbsp; S E R &nbsp; O &nbsp; D I A</span>
+          <h2>Visão geral dos blocos</h2>
+          <p>O dia é dividido em <strong>8 blocos</strong>, com pausas pro almoço e café. O conteúdo completo de cada bloco a gente vê junto no dia — aqui é só a visão por cima.</p>
+        </div>
+
+        <div class="agenda-preview">
+          <div class="agenda-row">
+            <div class="agenda-time">10:00 · 10:50</div>
+            <div class="agenda-bloco-num">01</div>
+            <div class="agenda-tema">Fundamentos: Chat vs. Cowork vs. Code</div>
+          </div>
+          <div class="agenda-row">
+            <div class="agenda-time">10:50 · 11:40</div>
+            <div class="agenda-bloco-num">02</div>
+            <div class="agenda-tema">Setup do PM na ArenaCash</div>
+          </div>
+          <div class="agenda-row">
+            <div class="agenda-time">11:55 · 12:40</div>
+            <div class="agenda-bloco-num">03</div>
+            <div class="agenda-tema">MCP e Conexões</div>
+          </div>
+          <div class="agenda-row">
+            <div class="agenda-time">12:40 · 13:30</div>
+            <div class="agenda-bloco-num">04</div>
+            <div class="agenda-tema">Skills, Validação e Apresentação</div>
+          </div>
+          <div class="agenda-row break">
+            <div class="agenda-time">13:30 · 14:45</div>
+            <div class="agenda-bloco-num">🍽️</div>
+            <div class="agenda-tema">Almoço</div>
+          </div>
+          <div class="agenda-row">
+            <div class="agenda-time">14:45 · 15:30</div>
+            <div class="agenda-bloco-num">05</div>
+            <div class="agenda-tema">Do Cowork ao Code: transição e setup</div>
+          </div>
+          <div class="agenda-row">
+            <div class="agenda-time">15:30 · 16:30</div>
+            <div class="agenda-bloco-num">06</div>
+            <div class="agenda-tema">Prototipagem Visual e Mapeamento de Eventos</div>
+          </div>
+          <div class="agenda-row">
+            <div class="agenda-time">16:45 · 17:45</div>
+            <div class="agenda-bloco-num">07</div>
+            <div class="agenda-tema">Do Código ao Ar: Geração, Eventos, Git e Deploy</div>
+          </div>
+          <div class="agenda-row">
+            <div class="agenda-time">17:45 · 18:00</div>
+            <div class="agenda-bloco-num">08</div>
+            <div class="agenda-tema">Encerramento</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="convite-footer">
+    <p class="footer-cta">Vamos juntos? 🤓</p>
+    <p>Product Arena · Claude para PMs · Do Chat ao Código</p>
+    <p>Qualquer dúvida antes do curso, é só chamar.</p>
+  </footer>
+</body>
+</html>

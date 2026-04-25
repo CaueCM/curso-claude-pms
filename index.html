@@ -1668,7 +1668,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <p>No Claude Code (terminal ou Desktop, na pasta do projeto), mande:</p>
 <div class="prompt-box">
 <div class="prompt-box-head">I N T E G R A R   E V E N T O S</div>
-<p>Lê a planilha <code>06-prototipo/eventos-mapeados.xlsx</code> com a lista de eventos. Pra cada linha, adiciona no <code>06-prototipo/script.js</code> uma chamada <code>console.log()</code> que dispara o evento no momento certo: eventos do tipo <code>screen_view</code> disparam quando a tela é exibida, <code>click</code> dispara no clique do elemento correspondente, <code>state_change</code> dispara na mudança do estado. O log deve incluir o nome do evento + as propriedades (todos os campos da linha) num objeto JS.</p>
+<p>Pra cada elemento clicável do site (botões, links, cards, ícones de navegação), cria um <code>console.log()</code> que mapeia o clique e implementa direto no <code>06-prototipo/script.js</code>. Os nomes, tipos e propriedades dos eventos devem fazer sentido com o que está no <strong>documento de eventos da ArenaCash</strong> — use o <code>06-prototipo/eventos-mapeados.xlsx</code> (gerado no Ex 14) como fonte primária e o <code>guia-de-eventos-arenacash.pdf</code> como referência de convenções (<code>snake_case</code>, padrão <code>tela_ação</code>, propriedades obrigatórias). Se algum clique não estiver mapeado na planilha, sugere o evento seguindo o padrão do guia.</p>
 </div>
 <p>O Claude vai casar cada linha da planilha com o elemento correto no HTML. Se algum elemento não existir no protótipo (porque o Event Mapper sugeriu eventos pra estados que ainda não foram construídos), ele vai sinalizar — você decide se vale criar o elemento ou ignorar o evento.</p>
 </div>

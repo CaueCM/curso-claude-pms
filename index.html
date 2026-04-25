@@ -1105,7 +1105,13 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <h4 class="step-block-title">Baixar e instalar a skill no projeto</h4>
 </div>
 <div class="step-block-body">
-<p>Pra ganhar tempo no curso, a skill <code>thinking-partner</code> já foi criada e está disponível pra download — <strong>ela já encapsula perfis equivalentes aos que você acabou de gerar</strong>. Instala exatamente como a <code>prd-generator</code> do exercício anterior:</p>
+<p>Você tem dois caminhos aqui. <strong>Escolha um:</strong></p>
+<p><strong>Caminho A — Criar a skill do zero a partir do <code>stakeholder-profiles.md</code>.</strong> Mais didático: você vê como uma skill nasce de um insumo seu.</p>
+<div class="prompt-box">
+<p>Lê o <code>04-skills/stakeholder-profiles.md</code>. Cria uma skill <code>thinking-partner</code> em <code>.claude/skills/thinking-partner/SKILL.md</code> que: (1) dispara sempre que o usuário pedir pra discutir, validar ou pressurizar uma decisão/iniciativa de produto; (2) carrega os perfis das 3 personas — Juliana (CFO), Beatriz (CMO) e Diego (CTO) — com prioridades, preocupações e estilo a partir do <code>stakeholder-profiles.md</code>; (3) cruza toda iniciativa com o <code>memo-estrategico-q2.md</code> antes de responder; (4) responde no formato — pra cada C-level: posição (apoia / questiona / rejeita) + argumento em 1-2 linhas; depois síntese de consenso × conflito + pontos de atenção pro PM. Regras: nunca inventar posições, sempre citar argumento específico, sinalizar quando faltar dado, manter o output enxuto.</p>
+</div>
+<p>Depois pergunta no chat: <em>"Quais skills estão disponíveis neste projeto?"</em> — a sua <code>thinking-partner</code> deve aparecer junto com a <code>prd-generator</code>.</p>
+<p><strong>Caminho B — Instalar a skill pronta (recomendado pro curso, pra ganhar tempo).</strong> A versão pronta encapsula perfis equivalentes aos que você gerou. Instala exatamente como a <code>prd-generator</code> do exercício anterior:</p>
 <ol>
 <li>Baixe o pacote <a href="kit/thinking-partner-skill/thinking-partner.skill" download><strong>thinking-partner.skill</strong></a> (clique com o botão direito → "Salvar link como…")</li>
 <li>O arquivo <code>.skill</code> é um zip — descompacte (clique duas vezes no Mac, "Extrair tudo" no Windows)</li>
@@ -1113,7 +1119,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <li>Mova essa pasta inteira pra dentro de <code>ArenaCash-PM/.claude/skills/</code> — a estrutura final fica <code>ArenaCash-PM/.claude/skills/thinking-partner/SKILL.md</code></li>
 <li>Volte ao Cowork e, no chat do projeto, pergunte: <em>"Quais skills estão disponíveis neste projeto?"</em> — a <code>thinking-partner</code> deve aparecer junto com a <code>prd-generator</code></li>
 </ol>
-<p><strong>Abra o <code>SKILL.md</code> no editor</strong> e leia o conteúdo — você vai ver as instruções estruturadas que fazem o Claude se comportar como um comitê de C-levels. <strong class="shout">Essa é a anatomia de uma skill.</strong></p>
+<p><strong>Abra o <code>SKILL.md</code> no editor</strong> (não importa o caminho que você escolheu) e leia o conteúdo — você vai ver as instruções estruturadas que fazem o Claude se comportar como um comitê de C-levels. <strong class="shout">Essa é a anatomia de uma skill.</strong></p>
 <details class="nested">
 <summary>Ver o que está dentro da skill</summary>
 <ul>

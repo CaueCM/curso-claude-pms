@@ -1425,84 +1425,6 @@ Claude lê, analisa e entrega o resultado para você</pre>
 </div>
 </div>
 </details>
-<details class="exercise">
-<summary><span class="ex-num">13</span><span class="ex-title">Conectar ao Git e explorar o repositório da ArenaCash</span><span class="ex-time">15 min</span></summary>
-<div class="ex-body">
-<p class="ex-intro">O Git é o sistema que a engenharia usa pra versionar código. Pra um PM, o valor não é commitar — é <strong>conseguir navegar pelo repositório e entender o que está lá</strong>, sem precisar pedir pra um dev abrir o projeto e explicar. O Claude Code é o tradutor que faz isso possível em português.</p>
-<p class="ex-subentrega"><strong>Entregável:</strong> repositório da ArenaCash clonado na sua máquina + leitura guiada pelo Claude do que está lá dentro.</p>
-
-<div class="step-block">
-<div class="step-block-head">
-<span class="step-block-num">Passo 1</span>
-<span class="step-block-time">1 min</span>
-<h4 class="step-block-title">O que é Git e GitHub em 60 segundos</h4>
-</div>
-<div class="step-block-body">
-<p><strong>Git</strong> é um sistema de controle de versão: registra cada mudança feita em arquivos ao longo do tempo, quem fez, quando e por quê. <strong>GitHub</strong> é o serviço online onde esses repositórios ficam armazenados e compartilhados.</p>
-<p>Pra um PM: Git é <strong>onde o time de engenharia vive</strong>. Saber navegar por lá significa conseguir ver o que mudou no último deploy, entender a estrutura do projeto, ou puxar arquivos atualizados <em>sem depender de ninguém</em>.</p>
-</div>
-</div>
-
-<div class="step-block">
-<div class="step-block-head">
-<span class="step-block-num">Passo 2</span>
-<span class="step-block-time">5 min</span>
-<h4 class="step-block-title">Clonar o repositório da ArenaCash</h4>
-</div>
-<div class="step-block-body">
-<p>Abra o terminal (ou use o mesmo que está aberto do exercício anterior). Saia da pasta <code>ArenaCash-PM</code> e vá pra Documentos:</p>
-<pre class="code-block">cd ~/Documents</pre>
-<p>Agora clone o repositório com o comando abaixo — <strong>o instrutor vai passar a URL exata no chat do curso</strong>:</p>
-<pre class="code-block">git clone https://github.com/[url-do-repositório]/arenacash-kit.git</pre>
-<p>Aguarde o download terminar. Você vai ver os arquivos sendo baixados linha por linha. Ao final, entre na pasta:</p>
-<pre class="code-block">cd arenacash-kit</pre>
-<p>Pra verificar que os arquivos chegaram, liste o conteúdo:</p>
-<pre class="code-block">ls</pre>
-<p>Você deve ver os mesmos arquivos do kit: <code>memo-estrategico-q2.md</code>, <code>organograma-arenacash.md</code>, <code>dados-quarter-q1.csv</code>, e todos os outros.</p>
-</div>
-</div>
-
-<div class="step-block">
-<div class="step-block-head">
-<span class="step-block-num">Passo 3</span>
-<span class="step-block-time">2 min</span>
-<h4 class="step-block-title">Abrir o Claude Code dentro do repositório</h4>
-</div>
-<div class="step-block-body">
-<p>Ainda dentro da pasta <code>arenacash-kit</code>, inicie o Claude Code:</p>
-<pre class="code-block">claude</pre>
-<p>O Claude vai ler a pasta automaticamente. Agora ele está operando <strong>dentro do repositório Git</strong> — e consegue enxergar não só os arquivos, mas também o histórico de mudanças.</p>
-</div>
-</div>
-
-<div class="step-block">
-<div class="step-block-head">
-<span class="step-block-num">Passo 4</span>
-<span class="step-block-time">7 min</span>
-<h4 class="step-block-title">Explorar o repositório com o Claude</h4>
-</div>
-<div class="step-block-body">
-<p>Agora peça ao Claude pra fazer o que levaria horas fazer manualmente:</p>
-<div class="prompt-box">
-<div class="prompt-box-head">M A P A &nbsp; D O &nbsp; R E P O</div>
-<p>Lê todos os arquivos desta pasta e me faz um mapa do repositório: o que cada arquivo contém, como eles se relacionam entre si e qual seria a ordem lógica de leitura pra alguém que está chegando no projeto pela primeira vez.</p>
-</div>
-<p><strong>Observe:</strong> o Claude leu todos os arquivos e entregou uma visão estruturada do repositório — o tipo de coisa que normalmente você pediria pra um dev sênior explicar numa <em>reunião de onboarding</em>.</p>
-<p>Pra ir além, teste:</p>
-<div class="prompt-box">
-<div class="prompt-box-head">D I F F &nbsp; E N T R E &nbsp; V E R S Õ E S</div>
-<p>Tem alguma diferença entre os arquivos desse repositório e os que estão na minha pasta <code>ArenaCash-PM</code>? O que está aqui que não está lá?</p>
-</div>
-<p>Isso simula um uso real: você recebeu um repositório atualizado e quer entender <strong>rapidamente o que mudou</strong> em relação à versão que você tinha.</p>
-</div>
-</div>
-
-<div class="ex-closing">
-<span class="pa-eyebrow pa-eyebrow--red">O &nbsp; Q U E &nbsp; F I X A R</span>
-<p>Você não escreveu uma linha de código. Não precisou entender a sintaxe do Git além de dois comandos. <strong>O Claude fez a leitura, o cruzamento e a explicação.</strong> Pra um PM, essa é a forma certa de usar o Git — como <strong class="shout">fonte de verdade</strong> sobre o produto, acessada em linguagem natural.</p>
-</div>
-</div>
-</details>
 </section>
 </article>
 <!-- BLOCO 6 -->
@@ -1518,7 +1440,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <h3>Exercícios</h3>
 
 <details class="exercise">
-<summary><span class="ex-num">14</span><span class="ex-title">Gerando 3 telas da iniciativa em um único prompt</span><span class="ex-time">10 min</span></summary>
+<summary><span class="ex-num">13</span><span class="ex-title">Gerando 3 telas da iniciativa em um único prompt</span><span class="ex-time">10 min</span></summary>
 <div class="ex-body">
 <p class="ex-intro">Você aprovou a iniciativa com a diretoria. Tem o PPT, a matriz de impacto × esforço, o roadmap. O próximo problema concreto: <strong>como comunicar pro time de design e engenharia o que precisa ser construído</strong>, antes de qualquer sprint de discovery?</p>
 <p>A resposta tradicional é: agenda reunião, explica verbalmente, aguarda o designer fazer um wireframe, revisa, itera — leva dias e depende da agenda de outra pessoa. Com o Claude, você resolve em <strong>um único prompt</strong>: ele lê o seu PPT + o design system e devolve 3 mockups de alta fidelidade prontos.</p>
@@ -1561,7 +1483,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 </details>
 
 <details class="exercise">
-<summary><span class="ex-num">15</span><span class="ex-title">Instalar e usar a skill Event Mapper</span><span class="ex-time">25 min</span></summary>
+<summary><span class="ex-num">14</span><span class="ex-title">Instalar e usar a skill Event Mapper</span><span class="ex-time">25 min</span></summary>
 <div class="ex-body">
 <p class="ex-intro">Você tem as telas. Agora vem um passo que muita equipe esquece — ou faz tarde demais: <strong>definir os eventos de analytics antes do desenvolvimento começar</strong>.</p>
 <p>Pra um PM, isso importa por uma razão simples: se o evento não foi mapeado antes do sprint, ele não vai estar no código quando a feature for ao ar. E sem o evento no ar, você <strong class="shout">não vai ter dados</strong>. E sem dados, você não consegue medir se a iniciativa que levou o quarter inteiro pra construir está funcionando.</p>
@@ -1621,7 +1543,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <h4 class="step-block-title">Mapear os eventos das telas geradas</h4>
 </div>
 <div class="step-block-body">
-<p>Com a skill criada, é hora de usá-la. No Cowork, abra uma nova tarefa e anexe as imagens das telas salvas no Exercício 14:</p>
+<p>Com a skill criada, é hora de usá-la. No Cowork, abra uma nova tarefa e anexe as imagens das telas salvas no Exercício 13:</p>
 <div class="prompt-box">
 <p>Usa a skill <code>event-mapper</code>. Mapeia os eventos de analytics dessas telas: <code>[anexe as imagens tela-[nome].png]</code>. Segue as convenções do guia de eventos da ArenaCash e entrega o Excel e o Word em <code>06-prototipo/</code>.</p>
 </div>
@@ -1699,7 +1621,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <h3>Exercícios</h3>
 
 <details class="exercise">
-<summary><span class="ex-num">16</span><span class="ex-title">Gerar o site a partir das imagens de tela</span><span class="ex-time">20 min</span></summary>
+<summary><span class="ex-num">15</span><span class="ex-title">Gerar o site a partir das imagens de tela</span><span class="ex-time">20 min</span></summary>
 <div class="ex-body">
 <p class="ex-intro">As imagens que você gerou no Bloco 6 não são decoração — são o <strong>briefing visual</strong> do que precisa ser construído. O Claude Code vai lê-las e gerar o site funcional a partir delas, já com os eventos do Excel mapeado no Bloco 6 integrados no código.</p>
 <p class="ex-subentrega"><strong>Entregável:</strong> pasta <code>07-app/</code> com <code>index.html</code>, <code>style.css</code> e <code>script.js</code> — um site funcional que replica as telas aprovadas, com eventos de analytics integrados via <code>console.log</code>.</p>
@@ -1773,7 +1695,7 @@ claude</pre>
 </details>
 
 <details class="exercise">
-<summary><span class="ex-num">17</span><span class="ex-title">Testar os eventos de analytics no DevTools</span><span class="ex-time">10 min</span></summary>
+<summary><span class="ex-num">16</span><span class="ex-title">Testar os eventos de analytics no DevTools</span><span class="ex-time">10 min</span></summary>
 <div class="ex-body">
 <p class="ex-intro">Os eventos estão integrados no código como <code>console.log()</code>. Pra vê-los disparando em tempo real, você vai usar o <strong>DevTools</strong> — a ferramenta de desenvolvedor que vem em todo navegador. Nenhuma instalação necessária.</p>
 <p class="ex-subentrega"><strong>Entregável:</strong> confirmação visual de que cada evento da planilha dispara corretamente quando o usuário interage com o elemento correspondente.</p>
@@ -1837,7 +1759,7 @@ ativacao_tela2_view { tela: "onboarding_step_2", usuario_id: "mock_123" }</pre>
 </details>
 
 <details class="exercise">
-<summary><span class="ex-num">18</span><span class="ex-title">Commitar no Git e publicar o site</span><span class="ex-time">20 min</span></summary>
+<summary><span class="ex-num">17</span><span class="ex-title">Commitar no Git e publicar o site</span><span class="ex-time">20 min</span></summary>
 <div class="ex-body">
 <p class="ex-intro">O site está funcionando e os eventos estão corretos. Agora vamos colocar isso no Git — pra ter <strong>histórico, versão e rastreabilidade</strong> — e publicar com uma <strong>URL real</strong> que qualquer pessoa possa acessar.</p>
 <p class="ex-subentrega"><strong>Entregável:</strong> repositório Git atualizado com o código do site + URL pública funcionando, compartilhada no chat do curso.</p>

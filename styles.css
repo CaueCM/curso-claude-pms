@@ -1648,7 +1648,9 @@ details.nested pre {
 .prompt-box p:last-child { margin-bottom: 0; }
 .prompt-box ul li, .prompt-box ol li { margin-bottom: 4px; }
 .prompt-box code { background: var(--pa-gray-800); color: var(--pa-red); border: 1px solid var(--pa-gray-700); }
-.prompt-box strong { color: var(--pa-white); font-weight: 700; }
+.prompt-box strong,
+.prompt-box p strong,
+.prompt-box li strong { color: var(--pa-white) !important; font-weight: 700; }
 .prompt-box pre.code-block { margin-top: var(--s-4); background: rgba(0,0,0,0.5); border: 1px solid var(--pa-gray-800); }
 
 .rounds { display: grid; gap: var(--s-2); margin: var(--s-4) 0; }

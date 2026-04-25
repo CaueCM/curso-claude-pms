@@ -979,7 +979,66 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <section class="exercises">
 <h3>Exercícios</h3>
 <details class="exercise">
-<summary><span class="ex-num">08</span><span class="ex-title">Criando e usando o Thinking Partner</span><span class="ex-time">20 min</span></summary>
+<summary><span class="ex-num">08</span><span class="ex-title">Instalando uma skill de terceiros: prd-generator</span><span class="ex-time">15 min</span></summary>
+<div class="ex-body">
+<p class="ex-intro">Antes de criar a sua própria skill, é útil entender como <strong>instalar uma skill que outra pessoa já escreveu</strong>. Vamos usar a <code>prd-generator</code> — uma skill que pega artefatos de discovery (CSD, hipótese, transcrição de entrevista, árvore de oportunidades) e produz um PRD completo com histórias de usuário no formato INVEST e critérios de aceite em Gherkin.</p>
+<p class="ex-subentrega"><strong>Entregável:</strong> skill <code>prd-generator</code> instalada no projeto + um PRD gerado a partir da iniciativa #1 da análise estratégica do Bloco 3.</p>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Baixar a skill e adicionar ao projeto</h4>
+</div>
+<div class="step-block-body">
+<ol>
+<li>Baixe o arquivo <a href="kit/prd-generator-skill/SKILL.md" download><strong>SKILL.md da prd-generator</strong></a> (clique com o botão direito → "Salvar link como…")</li>
+<li>Dentro da pasta <code>ArenaCash-PM</code>, crie a estrutura <code>.claude/skills/prd-generator/</code></li>
+<li>Mova o <code>SKILL.md</code> baixado pra dentro dessa pasta — a estrutura final fica <code>ArenaCash-PM/.claude/skills/prd-generator/SKILL.md</code></li>
+<li>Volte ao Cowork e, no chat do projeto, pergunte: <em>"Quais skills estão disponíveis neste projeto?"</em> — a <code>prd-generator</code> deve aparecer na lista</li>
+</ol>
+<p class="tip">💡 Esse é o padrão de instalação de <strong>qualquer skill da comunidade</strong>: você recebe a pasta, joga em <code>.claude/skills/</code> dentro do projeto, e o Claude carrega automaticamente. Não precisa reiniciar nem configurar nada.</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 2</span>
+<span class="step-block-time">8 min</span>
+<h4 class="step-block-title">Executar a skill e gerar um PRD</h4>
+</div>
+<div class="step-block-body">
+<p>Com a skill instalada, ela é acionada <strong>automaticamente</strong> sempre que o Claude detecta que o pedido envolve PRD, histórias de usuário ou discovery. Vamos usá-la pra documentar a iniciativa #1 da análise estratégica:</p>
+<div class="prompt-box">
+<div class="prompt-box-head">G E R A R   P R D   D A   I N I C I A T I V A   #1</div>
+<p>Lê o arquivo <code>analise-estrategica-q2.md</code>. Pega a <strong>iniciativa #1</strong> (a mais bem ranqueada na matriz de impacto × esforço) e usa a skill <code>prd-generator</code> pra transformá-la em um PRD completo com histórias de usuário e critérios de aceite. Salva o resultado em <code>04-skills/prd-iniciativa-1.md</code>.</p>
+</div>
+<p><strong>Observe:</strong> a skill segue um workflow rigoroso — identifica o tipo de input, extrai os insights, monta o story map, escreve o PRD e só depois gera as histórias com cenários Gherkin. Esse nível de estrutura saindo de uma única chamada é o que você não conseguiria com um prompt genérico.</p>
+</div>
+</div>
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 3</span>
+<span class="step-block-time">2 min</span>
+<h4 class="step-block-title">Onde encontrar mais skills</h4>
+</div>
+<div class="step-block-body">
+<p>Não precisa criar tudo do zero. Existem bibliotecas oficiais e da comunidade com centenas de skills prontas pra instalar:</p>
+<ul>
+<li><a href="https://github.com/anthropics/skills" target="_blank" rel="noopener"><strong>github.com/anthropics/skills</strong></a> — repositório oficial da Anthropic</li>
+<li><a href="https://github.com/travisvn/awesome-claude-skills" target="_blank" rel="noopener"><strong>awesome-claude-skills</strong></a> — curadoria da comunidade</li>
+<li><a href="https://github.com/VoltAgent/awesome-agent-skills" target="_blank" rel="noopener"><strong>awesome-agent-skills</strong></a> — 1000+ skills indexadas</li>
+<li><a href="https://www.anthropic.com/news/skills" target="_blank" rel="noopener"><strong>Introducing Agent Skills</strong> (Anthropic)</a> — guia conceitual oficial</li>
+</ul>
+</div>
+</div>
+<div class="ex-closing">
+<span class="pa-eyebrow pa-eyebrow--red">P O R   Q U E   I S S O   I M P O R T A</span>
+<p>Você acabou de fazer o ciclo completo: <strong>baixar uma skill que alguém escreveu, instalar no seu projeto e usar</strong>. É exatamente assim que skills se espalham — alguém resolve um problema bem, empacota num <code>SKILL.md</code>, e qualquer pessoa pode rodar. No próximo exercício, você vai inverter o jogo: criar a sua.</p>
+</div>
+<p class="file-out">📄 <code>.claude/skills/prd-generator/SKILL.md</code> · <code>04-skills/prd-iniciativa-1.md</code></p>
+</div>
+</details>
+<details class="exercise">
+<summary><span class="ex-num">09</span><span class="ex-title">Criando e usando o Thinking Partner</span><span class="ex-time">20 min</span></summary>
 <div class="ex-body">
 <p class="ex-intro">O Bloco 3 gerou 5 iniciativas priorizadas por impacto × esforço e contextualizadas no mercado. <strong>Antes de apostar o quarter em uma delas</strong>, você precisa testá-las contra as prioridades reais de quem vai aprovar o orçamento e o roadmap. É aí que entra o Thinking Partner.</p>
 <p class="ex-subentrega"><strong>Entregável:</strong> skill <code>thinking-partner</code> instalada no projeto + decisão documentada com a iniciativa #1 escolhida e validada pelos C-levels.</p>
@@ -1036,7 +1095,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 </div>
 </details>
 <details class="exercise">
-<summary><span class="ex-num">09</span><span class="ex-title">Skill de Apresentação + PPT para a diretoria</span><span class="ex-time">20 min</span></summary>
+<summary><span class="ex-num">10</span><span class="ex-title">Skill de Apresentação + PPT para a diretoria</span><span class="ex-time">20 min</span></summary>
 <div class="ex-body">
 <p class="ex-intro">Com a iniciativa escolhida e validada, é hora de montar o <strong>argumento visual</strong>. Vamos criar uma skill que conhece o seu tom de voz, o template da ArenaCash e o design system — e gera o PPT já no padrão certo, <strong>sem você ajustar cor por cor ou slide por slide</strong>.</p>
 <p class="ex-subentrega"><strong>Entregável:</strong> arquivo <code>apresentacao-iniciativa.pptx</code> pronto pra apresentar à diretoria — com identidade visual correta, escrito no seu tom de voz, e conteúdo já aprovado pelo Thinking Partner.</p>
@@ -1069,7 +1128,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 </div>
 <div class="step-block-body">
 <div class="prompt-box">
-<p>Usa a skill <code>arena-presentation</code>. Cria uma apresentação de <strong>8 slides</strong> sobre a iniciativa <code>[nome da iniciativa escolhida no Passo 3 do Exercício 8]</code>. O público é a diretoria da ArenaCash — <strong>Paulo (CPO), Juliana (CFO), Beatriz (CMO) e Diego (CTO)</strong>. A apresentação deve incluir:</p>
+<p>Usa a skill <code>arena-presentation</code>. Cria uma apresentação de <strong>8 slides</strong> sobre a iniciativa <code>[nome da iniciativa escolhida no Passo 3 do Exercício 9]</code>. O público é a diretoria da ArenaCash — <strong>Paulo (CPO), Juliana (CFO), Beatriz (CMO) e Diego (CTO)</strong>. A apresentação deve incluir:</p>
 <ul>
 <li>Contexto do quarter e por que essa iniciativa é prioritária agora</li>
 <li>Problema que ela resolve com dados do Q1</li>
@@ -1181,7 +1240,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <h3>Exercícios</h3>
 
 <details class="exercise">
-<summary><span class="ex-num">10</span><span class="ex-title">Setup do Code + continuidade</span><span class="ex-time">15 min</span></summary>
+<summary><span class="ex-num">11</span><span class="ex-title">Setup do Code + continuidade</span><span class="ex-time">15 min</span></summary>
 <div class="ex-body">
 <p class="ex-intro">O Claude Code vai ser a ferramenta da parte da tarde. Primeiro passo: abrir o terminal, iniciar o Code dentro da pasta da ArenaCash e confirmar que os arquivos criados de manhã (tom de voz, skills, análises) continuam <strong>todos acessíveis</strong>.</p>
 
@@ -1250,7 +1309,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 </details>
 
 <details class="exercise">
-<summary><span class="ex-num">11</span><span class="ex-title">Conectar ao Git e explorar o repositório da ArenaCash</span><span class="ex-time">15 min</span></summary>
+<summary><span class="ex-num">12</span><span class="ex-title">Conectar ao Git e explorar o repositório da ArenaCash</span><span class="ex-time">15 min</span></summary>
 <div class="ex-body">
 <p class="ex-intro">O Git é o sistema que a engenharia usa pra versionar código. Pra um PM, o valor não é commitar — é <strong>conseguir navegar pelo repositório e entender o que está lá</strong>, sem precisar pedir pra um dev abrir o projeto e explicar. O Claude Code é o tradutor que faz isso possível em português.</p>
 <p class="ex-subentrega"><strong>Entregável:</strong> repositório da ArenaCash clonado na sua máquina + leitura guiada pelo Claude do que está lá dentro.</p>
@@ -1342,7 +1401,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <h3>Exercícios</h3>
 
 <details class="exercise">
-<summary><span class="ex-num">12</span><span class="ex-title">Gerando as imagens das telas a partir da apresentação</span><span class="ex-time">25 min</span></summary>
+<summary><span class="ex-num">13</span><span class="ex-title">Gerando as imagens das telas a partir da apresentação</span><span class="ex-time">25 min</span></summary>
 <div class="ex-body">
 <p class="ex-intro">Você aprovou a iniciativa com a diretoria. Tem o PPT, a matriz de impacto × esforço, o roadmap. O próximo problema concreto: <strong>como comunicar pro time de design e engenharia o que precisa ser construído</strong>, antes de qualquer sprint de discovery?</p>
 <p>A resposta tradicional é: agenda reunião, explica verbalmente, aguarda o designer fazer um wireframe, revisa, itera. Isso leva dias e depende de agenda de outra pessoa.</p>
@@ -1403,7 +1462,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 </details>
 
 <details class="exercise">
-<summary><span class="ex-num">13</span><span class="ex-title">Criando a skill Event Mapper</span><span class="ex-time">35 min</span></summary>
+<summary><span class="ex-num">14</span><span class="ex-title">Criando a skill Event Mapper</span><span class="ex-time">35 min</span></summary>
 <div class="ex-body">
 <p class="ex-intro">Você tem as telas. Agora vem um passo que muita equipe esquece — ou faz tarde demais: <strong>definir os eventos de analytics antes do desenvolvimento começar</strong>.</p>
 <p>Pra um PM, isso importa por uma razão simples: se o evento não foi mapeado antes do sprint, ele não vai estar no código quando a feature for ao ar. E sem o evento no ar, você <strong class="shout">não vai ter dados</strong>. E sem dados, você não consegue medir se a iniciativa que levou o quarter inteiro pra construir está funcionando.</p>
@@ -1456,7 +1515,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <h4 class="step-block-title">Mapear os eventos das telas geradas</h4>
 </div>
 <div class="step-block-body">
-<p>Com a skill criada, é hora de usá-la. No Cowork, abra uma nova tarefa e anexe as imagens das telas salvas no Exercício 12:</p>
+<p>Com a skill criada, é hora de usá-la. No Cowork, abra uma nova tarefa e anexe as imagens das telas salvas no Exercício 13:</p>
 <div class="prompt-box">
 <p>Usa a skill <code>event-mapper</code>. Mapeia os eventos de analytics dessas telas: <code>[anexe as imagens tela-[nome].png]</code>. Segue as convenções do guia de eventos da ArenaCash e entrega o Excel e o Word em <code>06-prototipo/</code>.</p>
 </div>
@@ -1534,7 +1593,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <h3>Exercícios</h3>
 
 <details class="exercise">
-<summary><span class="ex-num">14</span><span class="ex-title">Gerar o site a partir das imagens de tela</span><span class="ex-time">20 min</span></summary>
+<summary><span class="ex-num">15</span><span class="ex-title">Gerar o site a partir das imagens de tela</span><span class="ex-time">20 min</span></summary>
 <div class="ex-body">
 <p class="ex-intro">As imagens que você gerou no Bloco 6 não são decoração — são o <strong>briefing visual</strong> do que precisa ser construído. O Claude Code vai lê-las e gerar o site funcional a partir delas, já com os eventos do Excel mapeado no Bloco 6 integrados no código.</p>
 <p class="ex-subentrega"><strong>Entregável:</strong> pasta <code>07-app/</code> com <code>index.html</code>, <code>style.css</code> e <code>script.js</code> — um site funcional que replica as telas aprovadas, com eventos de analytics integrados via <code>console.log</code>.</p>
@@ -1608,7 +1667,7 @@ claude</pre>
 </details>
 
 <details class="exercise">
-<summary><span class="ex-num">15</span><span class="ex-title">Testar os eventos de analytics no DevTools</span><span class="ex-time">10 min</span></summary>
+<summary><span class="ex-num">16</span><span class="ex-title">Testar os eventos de analytics no DevTools</span><span class="ex-time">10 min</span></summary>
 <div class="ex-body">
 <p class="ex-intro">Os eventos estão integrados no código como <code>console.log()</code>. Pra vê-los disparando em tempo real, você vai usar o <strong>DevTools</strong> — a ferramenta de desenvolvedor que vem em todo navegador. Nenhuma instalação necessária.</p>
 <p class="ex-subentrega"><strong>Entregável:</strong> confirmação visual de que cada evento da planilha dispara corretamente quando o usuário interage com o elemento correspondente.</p>
@@ -1672,7 +1731,7 @@ ativacao_tela2_view { tela: "onboarding_step_2", usuario_id: "mock_123" }</pre>
 </details>
 
 <details class="exercise">
-<summary><span class="ex-num">16</span><span class="ex-title">Commitar no Git e publicar o site</span><span class="ex-time">20 min</span></summary>
+<summary><span class="ex-num">17</span><span class="ex-title">Commitar no Git e publicar o site</span><span class="ex-time">20 min</span></summary>
 <div class="ex-body">
 <p class="ex-intro">O site está funcionando e os eventos estão corretos. Agora vamos colocar isso no Git — pra ter <strong>histórico, versão e rastreabilidade</strong> — e publicar com uma <strong>URL real</strong> que qualquer pessoa possa acessar.</p>
 <p class="ex-subentrega"><strong>Entregável:</strong> repositório Git atualizado com o código do site + URL pública funcionando, compartilhada no chat do curso.</p>

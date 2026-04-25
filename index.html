@@ -1101,29 +1101,27 @@ Claude lê, analisa e entrega o resultado para você</pre>
 </div>
 </details>
 <details class="exercise">
-<summary><span class="ex-num">10</span><span class="ex-title">Skill de Apresentação + PPT para a diretoria</span><span class="ex-time">20 min</span></summary>
+<summary><span class="ex-num">10</span><span class="ex-title">Apresentação no padrão ArenaCash com a skill arenacash-pptx</span><span class="ex-time">15 min</span></summary>
 <div class="ex-body">
-<p class="ex-intro">Com a iniciativa escolhida e validada, é hora de montar o <strong>argumento visual</strong>. Vamos criar uma skill que conhece o seu tom de voz, o template da ArenaCash e o design system — e gera o PPT já no padrão certo, <strong>sem você ajustar cor por cor ou slide por slide</strong>.</p>
-<p class="ex-subentrega"><strong>Entregável:</strong> arquivo <code>apresentacao-iniciativa.pptx</code> pronto pra apresentar à diretoria — com identidade visual correta, escrito no seu tom de voz, e conteúdo já aprovado pelo Thinking Partner.</p>
+<p class="ex-intro">Com a iniciativa escolhida e validada, é hora de montar o <strong>argumento visual</strong>. Em vez de criar uma skill de apresentação do zero, vamos usar a <code>arenacash-pptx</code> — skill já pronta que aplica o design system oficial da ArenaCash em qualquer deck que você gerar.</p>
+<p class="ex-subentrega"><strong>Entregável:</strong> arquivo <code>apresentacao-iniciativa.pptx</code> com a descrição da iniciativa escolhida — capa, conteúdo e CTA — no padrão visual da ArenaCash, validado pelo Thinking Partner.</p>
 <div class="step-block">
 <div class="step-block-head">
 <span class="step-block-num">Passo 1</span>
-<span class="step-block-time">8 min</span>
-<h4 class="step-block-title">Criar a skill de apresentação</h4>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Baixar e instalar a skill arenacash-pptx</h4>
 </div>
 <div class="step-block-body">
-<div class="prompt-box">
-<div class="prompt-box-head">C R I A R   S K I L L   <code>arena-presentation</code></div>
-<p>Cria uma skill chamada <code>arena-presentation</code> com as seguintes especificações:</p>
-<ul>
-<li><strong>Trigger:</strong> sempre que eu pedir pra criar uma apresentação ou deck</li>
-<li><strong>O que faz:</strong> antes de escrever qualquer slide, lê 3 arquivos — <code>tom-de-voz.md</code> (como eu escrevo), <code>template-apresentacao.pptx</code> (estrutura e estilo visual) e <code>design-system-arenacash.md</code> (cores, fontes, componentes). Com esse contexto, estrutura o conteúdo em slides lógicos pro público especificado.</li>
-<li><strong>Output:</strong> arquivo <code>.pptx</code> salvo na pasta do projeto</li>
-<li><strong>Regras:</strong> máximo 5 bullets por slide; títulos curtos e diretos, sem verbos no infinitivo; sempre incluir slide de agenda no início e slide de "próximos passos" no final; nunca usar fonte ou cor fora do design system</li>
-</ul>
-</div>
-<p><strong>Observe:</strong> a skill reúne <strong class="shout">3 artefatos</strong> que você criou ao longo do dia (tom de voz, template, design system) e os aplica automaticamente em todo PPT que pedir daqui pra frente. <em>Você criou isso uma vez — vai usar pra sempre.</em></p>
-<p class="file-out">📄 <code>.claude/skills/arena-presentation/SKILL.md</code></p>
+<p>A skill <code>arenacash-pptx</code> vem como um pacote (.skill) que contém o <code>SKILL.md</code>, a referência de design system e o script de geração do PPTX:</p>
+<ol>
+<li>Baixe o pacote <a href="kit/arenacash-pptx-skill/arenacash-pptx.skill" download><strong>arenacash-pptx.skill</strong></a> (clique com o botão direito → "Salvar link como…")</li>
+<li>O arquivo <code>.skill</code> é um zip — descompacte-o (no Mac, clique duas vezes; no Windows, "Extrair tudo")</li>
+<li>Vai aparecer uma pasta <code>arenacash-pptx/</code> com 3 arquivos: <code>SKILL.md</code>, <code>references/design-system.md</code> e <code>scripts/generate.js</code></li>
+<li>Mova essa pasta inteira pra dentro de <code>ArenaCash-PM/.claude/skills/</code> — a estrutura final fica <code>ArenaCash-PM/.claude/skills/arenacash-pptx/</code></li>
+<li>Volte ao Cowork e pergunte: <em>"Quais skills estão disponíveis neste projeto?"</em> — a <code>arenacash-pptx</code> deve aparecer ao lado das outras duas</li>
+</ol>
+<p class="tip">💡 Diferente das skills anteriores (que tinham só o <code>SKILL.md</code>), essa traz <strong>arquivos de referência e scripts</strong> que o Claude usa pra montar o PPTX. Esse é um padrão comum quando a skill precisa executar código ou ler tokens de design.</p>
+<p class="file-out">📄 <code>.claude/skills/arenacash-pptx/</code> (pasta com SKILL.md + references + scripts)</p>
 </div>
 </div>
 <div class="step-block">
@@ -1133,25 +1131,24 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <h4 class="step-block-title">Gerar o PPT da iniciativa</h4>
 </div>
 <div class="step-block-body">
+<p>A skill enforce <strong>máximo 3 slides</strong> (capa → conteúdo → encerramento) com o design system da ArenaCash. Vamos usar isso pra apresentar a descrição da iniciativa:</p>
 <div class="prompt-box">
-<p>Usa a skill <code>arena-presentation</code>. Cria uma apresentação de <strong>8 slides</strong> sobre a iniciativa <code>[nome da iniciativa escolhida no Passo 3 do Exercício 9]</code>. O público é a diretoria da ArenaCash — <strong>Paulo (CPO), Juliana (CFO), Beatriz (CMO) e Diego (CTO)</strong>. A apresentação deve incluir:</p>
+<div class="prompt-box-head">G E R A R   P P T   D A   I N I C I A T I V A</div>
+<p>Usa a skill <code>arenacash-pptx</code>. Cria uma apresentação descrevendo a iniciativa <code>[nome da iniciativa escolhida no Passo 3 do Exercício 9]</code> pra diretoria da ArenaCash. A estrutura deve ser:</p>
 <ul>
-<li>Contexto do quarter e por que essa iniciativa é prioritária agora</li>
-<li>Problema que ela resolve com dados do Q1</li>
-<li>Solução proposta</li>
-<li>Score de impacto × esforço com justificativa</li>
-<li>Roadmap de 3 meses</li>
-<li>Riscos e como mitigá-los</li>
-<li>Ask pra liderança — o que você precisa deles pra avançar</li>
+<li><strong>Slide 1 (capa):</strong> nome da iniciativa + frase de impacto em uma linha</li>
+<li><strong>Slide 2 (conteúdo):</strong> problema que resolve (com dado do Q1) + solução proposta + impacto esperado</li>
+<li><strong>Slide 3 (CTA):</strong> próximos passos e o que precisa da diretoria pra avançar</li>
 </ul>
 <p>Salva como <code>04-skills/apresentacao-iniciativa.pptx</code>.</p>
 </div>
+<p><strong>Observe:</strong> a skill leu o <code>references/design-system.md</code>, escolheu cores e fontes corretas, e rodou o <code>generate.js</code> pra entregar um <code>.pptx</code> nativo. <em>Você não precisou tocar em PowerPoint nenhuma vez.</em></p>
 </div>
 </div>
 <div class="step-block">
 <div class="step-block-head">
 <span class="step-block-num">Passo 3</span>
-<span class="step-block-time">5 min</span>
+<span class="step-block-time">3 min</span>
 <h4 class="step-block-title">Revisão final com o Thinking Partner</h4>
 </div>
 <div class="step-block-body">
@@ -1190,7 +1187,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <span class="milestone-col-label">O   F E R R A M E N T A L   P R A   R E P E T I R</span>
 <ul class="milestone-list">
 <li><strong>Skill <code>thinking-partner</code></strong> — valida qualquer decisão com os C-levels da ArenaCash em minutos</li>
-<li><strong>Skill <code>arena-presentation</code></strong> — gera qualquer PPT da ArenaCash no padrão, tom e identidade corretos</li>
+<li><strong>Skill <code>arenacash-pptx</code></strong> — gera qualquer PPT da ArenaCash já no design system oficial, com até 3 slides impactantes</li>
 <li><strong>Auto memory</strong> do projeto — o Claude aprendeu suas preferências ao longo da manhã</li>
 <li><strong>Tarefa agendada</strong> — trabalho recorrente rodando sozinho no fundo</li>
 <li><strong>Fluxo de validação</strong> — dados → cruzamento com mercado → matriz impacto × esforço → Thinking Partner → PPT</li>

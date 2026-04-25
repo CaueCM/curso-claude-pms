@@ -1518,61 +1518,43 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <h3>Exercícios</h3>
 
 <details class="exercise">
-<summary><span class="ex-num">14</span><span class="ex-title">Gerando as imagens das telas a partir da apresentação</span><span class="ex-time">25 min</span></summary>
+<summary><span class="ex-num">14</span><span class="ex-title">Gerando 3 telas da iniciativa em um único prompt</span><span class="ex-time">10 min</span></summary>
 <div class="ex-body">
 <p class="ex-intro">Você aprovou a iniciativa com a diretoria. Tem o PPT, a matriz de impacto × esforço, o roadmap. O próximo problema concreto: <strong>como comunicar pro time de design e engenharia o que precisa ser construído</strong>, antes de qualquer sprint de discovery?</p>
-<p>A resposta tradicional é: agenda reunião, explica verbalmente, aguarda o designer fazer um wireframe, revisa, itera. Isso leva dias e depende de agenda de outra pessoa.</p>
-<p>Com o Claude, você sai dessa reunião com <strong>imagens das telas na mão</strong> — geradas a partir da apresentação que você já tem, aplicando o design system da ArenaCash. Não é o Figma final — é o suficiente pra alinhar o time, ter referência visual concreta pra discutir, e entregar insumo pro próximo exercício.</p>
-<p class="ex-subentrega"><strong>Entregável:</strong> imagens das telas principais da iniciativa salvas em <code>06-prototipo/</code>, prontas pra compartilhar com o time e usar como base do mapeamento de eventos.</p>
+<p>A resposta tradicional é: agenda reunião, explica verbalmente, aguarda o designer fazer um wireframe, revisa, itera — leva dias e depende da agenda de outra pessoa. Com o Claude, você resolve em <strong>um único prompt</strong>: ele lê o seu PPT + o design system e devolve 3 mockups de alta fidelidade prontos.</p>
+<p class="ex-subentrega"><strong>Entregável:</strong> 3 imagens das telas principais salvas em <code>06-prototipo/</code>, geradas em uma única passada e prontas pra usar como insumo do mapeamento de eventos.</p>
 
 <div class="step-block">
 <div class="step-block-head">
 <span class="step-block-num">Passo 1</span>
-<span class="step-block-time">5 min</span>
-<h4 class="step-block-title">Briefing visual</h4>
+<span class="step-block-time">8 min</span>
+<h4 class="step-block-title">Gerar as 3 telas em um único prompt</h4>
 </div>
 <div class="step-block-body">
-<p>Abra o Cowork (pode voltar do Code — os arquivos são os mesmos). Com a apresentação e o design system na pasta, mande:</p>
+<p>Abra o Cowork (pode voltar do Code — os arquivos são os mesmos) e mande o prompt abaixo. Ele junta tudo: leitura do deck, leitura do design system, identificação das 3 telas e geração das 3 imagens.</p>
 <div class="prompt-box">
-<p>Lê o arquivo <code>04-skills/apresentacao-iniciativa.pptx</code> e o <code>design-system-arenacash.md</code>. Com base na iniciativa apresentada, descreve as 2 ou 3 telas principais que essa feature precisaria ter — quais são, o que o usuário faz em cada uma e quais são os elementos de interface presentes (botões, campos, cards, gráficos, navegação).</p>
+<div class="prompt-box-head">G E R A R   3   T E L A S   D A   I N I C I A T I V A</div>
+<p>Lê o arquivo <code>04-skills/apresentacao-iniciativa.pptx</code> e o <code>design-system-arenacash.md</code>. Com base na iniciativa apresentada, identifica as <strong>3 telas principais</strong> que essa feature precisaria ter, com nome curto e descrição de 1-2 linhas pra cada uma. Em seguida, gera <strong>uma imagem por tela</strong> — mockup de alta fidelidade no formato de <em>app iOS</em>, estilo fintech mobile limpo e moderno, usando as <strong>cores e fonte do design system da ArenaCash</strong>. Salva os arquivos em <code>06-prototipo/</code> com nomes <code>tela-1-[nome-curto].png</code>, <code>tela-2-[nome-curto].png</code> e <code>tela-3-[nome-curto].png</code>. No fim, me devolve a lista das 3 telas com descrição e o caminho de cada arquivo gerado.</p>
 </div>
-<p>O Claude vai listar as telas com descrição detalhada. <strong>Revise:</strong> faz sentido com o que você imaginou pra iniciativa? Ajuste a descrição se precisar antes de gerar as imagens.</p>
+<p><strong>Observe:</strong> em vez de descrever tela por tela e gerar uma de cada vez, você delegou o ciclo inteiro — leitura, decisão de quais telas existem, design e salvamento — em uma única chamada. <em>Designer não é mais gargalo.</em></p>
 </div>
 </div>
 
 <div class="step-block">
 <div class="step-block-head">
 <span class="step-block-num">Passo 2</span>
-<span class="step-block-time">15 min</span>
-<h4 class="step-block-title">Gerar as imagens das telas</h4>
+<span class="step-block-time">2 min</span>
+<h4 class="step-block-title">Revisar e ajustar pontual</h4>
 </div>
 <div class="step-block-body">
-<p>Pra cada tela descrita no Passo 1, mande um prompt de geração de imagem usando o design system como referência de identidade:</p>
-<div class="prompt-box">
-<p>Gera uma imagem da <strong>[nome da tela — ex: "tela de onboarding passo 1"]</strong>. A tela deve: <em>[cole a descrição que o Claude gerou no passo anterior pra essa tela]</em>. Usa as cores do design system da ArenaCash: cor primária <code>[cor do arquivo]</code>, fonte <code>[fonte do arquivo]</code>, estilo visual limpo e moderno de fintech mobile. A imagem deve parecer um mockup de alta fidelidade de um app iOS.</p>
-</div>
-<p>Repita pra cada tela. Salve cada imagem com nome claro:</p>
-<div class="prompt-box">
-<p>Salva essa imagem como <code>06-prototipo/tela-[nome].png</code></p>
-</div>
-</div>
-</div>
-
-<div class="step-block">
-<div class="step-block-head">
-<span class="step-block-num">Passo 3</span>
-<span class="step-block-time">5 min</span>
-<h4 class="step-block-title">Revisão e ajuste</h4>
-</div>
-<div class="step-block-body">
-<p>Abra as imagens geradas e avalie:</p>
+<p>Abra as 3 imagens geradas e avalie:</p>
 <ul>
-<li>A identidade visual está alinhada com o design system?</li>
+<li>A identidade visual bate com o design system?</li>
 <li>Os elementos de interface fazem sentido pro fluxo da iniciativa?</li>
-<li>Um designer ou desenvolvedor conseguiria entender o que construir a partir disso?</li>
+<li>Um designer ou dev conseguiria entender o que construir a partir disso?</li>
 </ul>
-<p>Se algo não ficou certo, descreva o ajuste em português e peça pra regerar aquela tela específica. O loop é: <strong>descrever → gerar → revisar → ajustar</strong> — sem Figma, sem esperar.</p>
-<p class="file-out">📄 <code>06-prototipo/tela-[nome].png</code> (uma por tela)</p>
+<p>Se alguma tela ficou fora do tom, descreva o ajuste em português e peça pra <strong>regerar só aquela</strong> — sem refazer as outras duas. O loop é: <em>gerar 3 → revisar → regerar pontual</em>.</p>
+<p class="file-out">📄 <code>06-prototipo/tela-1-[nome].png</code> · <code>tela-2-[nome].png</code> · <code>tela-3-[nome].png</code></p>
 </div>
 </div>
 </div>

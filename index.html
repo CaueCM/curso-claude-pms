@@ -1031,12 +1031,13 @@ Claude lê, analisa e entrega o resultado para você</pre>
 </div>
 <div class="step-block-body">
 <ol>
-<li>Baixe o arquivo <a href="kit/prd-generator-skill/SKILL.md" download><strong>SKILL.md da prd-generator</strong></a> (clique com o botão direito → "Salvar link como…")</li>
-<li>Dentro da pasta <code>ArenaCash-PM</code>, crie a estrutura <code>.claude/skills/prd-generator/</code></li>
-<li>Mova o <code>SKILL.md</code> baixado pra dentro dessa pasta — a estrutura final fica <code>ArenaCash-PM/.claude/skills/prd-generator/SKILL.md</code></li>
+<li>Baixe o pacote <a href="kit/prd-generator-skill/prd-generator.skill" download><strong>prd-generator.skill</strong></a> (clique com o botão direito → "Salvar link como…")</li>
+<li>O arquivo <code>.skill</code> é um zip — descompacte (clique duas vezes no Mac, "Extrair tudo" no Windows)</li>
+<li>Vai aparecer uma pasta <code>prd-generator/</code> com o <code>SKILL.md</code> dentro</li>
+<li>Mova essa pasta inteira pra dentro de <code>ArenaCash-PM/.claude/skills/</code> — a estrutura final fica <code>ArenaCash-PM/.claude/skills/prd-generator/SKILL.md</code></li>
 <li>Volte ao Cowork e, no chat do projeto, pergunte: <em>"Quais skills estão disponíveis neste projeto?"</em> — a <code>prd-generator</code> deve aparecer na lista</li>
 </ol>
-<p class="tip">💡 Esse é o padrão de instalação de <strong>qualquer skill da comunidade</strong>: você recebe a pasta, joga em <code>.claude/skills/</code> dentro do projeto, e o Claude carrega automaticamente. Não precisa reiniciar nem configurar nada.</p>
+<p class="tip">💡 Esse é o padrão de instalação de <strong>qualquer skill da comunidade</strong>: você baixa um pacote <code>.skill</code>, descompacta, joga a pasta em <code>.claude/skills/</code> dentro do projeto, e o Claude carrega automaticamente.</p>
 </div>
 </div>
 <div class="step-block">
@@ -1091,9 +1092,10 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <div class="step-block-body">
 <p>Pra ganhar tempo no curso, a skill <code>thinking-partner</code> já foi criada e está disponível pra download. Você instala exatamente como a <code>prd-generator</code> do exercício anterior:</p>
 <ol>
-<li>Baixe o arquivo <a href="kit/thinking-partner-skill/SKILL.md" download><strong>SKILL.md da thinking-partner</strong></a> (clique com o botão direito → "Salvar link como…")</li>
-<li>Dentro da pasta <code>ArenaCash-PM</code>, crie a estrutura <code>.claude/skills/thinking-partner/</code></li>
-<li>Mova o <code>SKILL.md</code> baixado pra dentro dessa pasta — a estrutura final fica <code>ArenaCash-PM/.claude/skills/thinking-partner/SKILL.md</code></li>
+<li>Baixe o pacote <a href="kit/thinking-partner-skill/thinking-partner.skill" download><strong>thinking-partner.skill</strong></a> (clique com o botão direito → "Salvar link como…")</li>
+<li>O arquivo <code>.skill</code> é um zip — descompacte (clique duas vezes no Mac, "Extrair tudo" no Windows)</li>
+<li>Vai aparecer uma pasta <code>thinking-partner/</code> com o <code>SKILL.md</code> dentro</li>
+<li>Mova essa pasta inteira pra dentro de <code>ArenaCash-PM/.claude/skills/</code> — a estrutura final fica <code>ArenaCash-PM/.claude/skills/thinking-partner/SKILL.md</code></li>
 <li>Volte ao Cowork e, no chat do projeto, pergunte: <em>"Quais skills estão disponíveis neste projeto?"</em> — a <code>thinking-partner</code> deve aparecer junto com a <code>prd-generator</code></li>
 </ol>
 <p><strong>Abra o <code>SKILL.md</code> no editor</strong> e leia o conteúdo — você vai ver as instruções estruturadas que fazem o Claude se comportar como um comitê de C-levels. <strong class="shout">Essa é a anatomia de uma skill.</strong></p>

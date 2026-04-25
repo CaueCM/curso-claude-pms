@@ -575,7 +575,7 @@
 
 ## Como eu trabalho
 - Tom de comunicação: [formal? direto? casual? dê exemplos]
-- Frameworks que uso: [ex: RICE, OKRs, Jobs to Be Done, Story Mapping]
+- Frameworks que uso: [ex: Impacto × Esforço, OKRs, Jobs to Be Done, Story Mapping]
 - Prefiro outputs: [ex: sempre em arquivo, nunca só no chat;
   listas curtas; textos diretos]
 
@@ -829,8 +829,8 @@ Claude lê, analisa e entrega o resultado para você</pre>
 </div>
 <div class="step-block-body">
 <div class="prompt-box">
-<div class="prompt-box-head">C R U Z A M E N T O   +    R I C E</div>
-<p>Agora cruza os dois lados: o que você encontrou nos dados internos da ArenaCash com o que você pesquisou sobre o mercado de fintechs. Com base nisso, propõe 5 iniciativas pro Q2 que enderecem os problemas identificados e estejam alinhadas com as tendências de mercado. Pra cada iniciativa, inclui: descrição em uma linha, por que faz sentido agora (dado interno + contexto de mercado), e estimativa de Reach, Impact, Confidence e Effort (framework RICE). Ranqueie da mais impactante pra menos e salva tudo no arquivo <code>analise-estrategica-q2.md</code>.</p>
+<div class="prompt-box-head">C R U Z A M E N T O   +   I M P A C T O   ×   E S F O R Ç O</div>
+<p>Agora cruza os dois lados: o que você encontrou nos dados internos da ArenaCash com o que você pesquisou sobre o mercado de fintechs. Com base nisso, propõe 5 iniciativas pro Q2 que enderecem os problemas identificados e estejam alinhadas com as tendências de mercado. Pra cada iniciativa, inclui: descrição em uma linha, por que faz sentido agora (dado interno + contexto de mercado), e classificação simples de <strong>Impacto</strong> (alto / médio / baixo) e <strong>Esforço</strong> (alto / médio / baixo). Monta uma matriz <strong>Impacto × Esforço</strong> e ranqueia priorizando <em>alto impacto + baixo esforço</em> primeiro. Salva tudo no arquivo <code>analise-estrategica-q2.md</code>.</p>
 </div>
 </div>
 </div>
@@ -978,7 +978,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <details class="exercise">
 <summary><span class="ex-num">08</span><span class="ex-title">Criando e usando o Thinking Partner</span><span class="ex-time">20 min</span></summary>
 <div class="ex-body">
-<p class="ex-intro">O Bloco 3 gerou 5 iniciativas ranqueadas por RICE e contextualizadas no mercado. <strong>Antes de apostar o quarter em uma delas</strong>, você precisa testá-las contra as prioridades reais de quem vai aprovar o orçamento e o roadmap. É aí que entra o Thinking Partner.</p>
+<p class="ex-intro">O Bloco 3 gerou 5 iniciativas priorizadas por impacto × esforço e contextualizadas no mercado. <strong>Antes de apostar o quarter em uma delas</strong>, você precisa testá-las contra as prioridades reais de quem vai aprovar o orçamento e o roadmap. É aí que entra o Thinking Partner.</p>
 <p class="ex-subentrega"><strong>Entregável:</strong> skill <code>thinking-partner</code> instalada no projeto + decisão documentada com a iniciativa #1 escolhida e validada pelos C-levels.</p>
 <div class="step-block">
 <div class="step-block-head">
@@ -1071,7 +1071,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <li>Contexto do quarter e por que essa iniciativa é prioritária agora</li>
 <li>Problema que ela resolve com dados do Q1</li>
 <li>Solução proposta</li>
-<li>RICE score com justificativa</li>
+<li>Score de impacto × esforço com justificativa</li>
 <li>Roadmap de 3 meses</li>
 <li>Riscos e como mitigá-los</li>
 <li>Ask pra liderança — o que você precisa deles pra avançar</li>
@@ -1112,7 +1112,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <li><strong>Tom de voz documentado</strong> e calibrado com mensagem real testada</li>
 <li><strong>Gmail e Google Drive conectados</strong> via MCP</li>
 <li><strong>Análise estratégica completa</strong> cruzando dados internos + mercado</li>
-<li><strong>5 iniciativas ranqueadas</strong> por RICE salvas como Google Doc compartilhável</li>
+<li><strong>5 iniciativas priorizadas</strong> por impacto × esforço, salvas como Google Doc compartilhável</li>
 <li><strong>Briefing diário automatizado</strong> rodando às 9h todo dia</li>
 <li><strong>1 iniciativa escolhida</strong> e validada pelos C-levels via Thinking Partner</li>
 <li><strong>PPT no padrão da empresa</strong> com o seu tom de voz, pronto pra diretoria</li>
@@ -1125,7 +1125,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <li><strong>Skill <code>arena-presentation</code></strong> — gera qualquer PPT da ArenaCash no padrão, tom e identidade corretos</li>
 <li><strong>Auto memory</strong> do projeto — o Claude aprendeu suas preferências ao longo da manhã</li>
 <li><strong>Tarefa agendada</strong> — trabalho recorrente rodando sozinho no fundo</li>
-<li><strong>Fluxo de validação</strong> — dados → cruzamento com mercado → RICE → Thinking Partner → PPT</li>
+<li><strong>Fluxo de validação</strong> — dados → cruzamento com mercado → matriz impacto × esforço → Thinking Partner → PPT</li>
 </ul>
 </div>
 </div>
@@ -1341,7 +1341,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <details class="exercise">
 <summary><span class="ex-num">12</span><span class="ex-title">Gerando as imagens das telas a partir da apresentação</span><span class="ex-time">25 min</span></summary>
 <div class="ex-body">
-<p class="ex-intro">Você aprovou a iniciativa com a diretoria. Tem o PPT, o RICE, o roadmap. O próximo problema concreto: <strong>como comunicar pro time de design e engenharia o que precisa ser construído</strong>, antes de qualquer sprint de discovery?</p>
+<p class="ex-intro">Você aprovou a iniciativa com a diretoria. Tem o PPT, a matriz de impacto × esforço, o roadmap. O próximo problema concreto: <strong>como comunicar pro time de design e engenharia o que precisa ser construído</strong>, antes de qualquer sprint de discovery?</p>
 <p>A resposta tradicional é: agenda reunião, explica verbalmente, aguarda o designer fazer um wireframe, revisa, itera. Isso leva dias e depende de agenda de outra pessoa.</p>
 <p>Com o Claude, você sai dessa reunião com <strong>imagens das telas na mão</strong> — geradas a partir da apresentação que você já tem, aplicando o design system da ArenaCash. Não é o Figma final — é o suficiente pra alinhar o time, ter referência visual concreta pra discutir, e entregar insumo pro próximo exercício.</p>
 <p class="ex-subentrega"><strong>Entregável:</strong> imagens das telas principais da iniciativa salvas em <code>06-prototipo/</code>, prontas pra compartilhar com o time e usar como base do mapeamento de eventos.</p>

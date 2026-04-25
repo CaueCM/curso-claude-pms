@@ -881,10 +881,10 @@ Claude lê, analisa e entrega o resultado para você</pre>
 </div>
 </details>
 <details class="exercise">
-<summary><span class="ex-num">07</span><span class="ex-title">Tarefa agendada: briefing diário de mercado</span><span class="ex-time">9 min</span></summary>
+<summary><span class="ex-num">07</span><span class="ex-title">Tarefa agendada: Giro de Notícias diário</span><span class="ex-time">9 min</span></summary>
 <div class="ex-body">
 <p class="ex-intro">Tudo o que você fez agora — pesquisar notícias, cruzar com contexto, gerar um documento no Drive — pode rodar sozinho, <strong>todo dia, sem você precisar pedir</strong>. Vamos criar essa automação.</p>
-<p class="ex-subentrega"><strong>Entregável:</strong> uma tarefa agendada ativa que, toda manhã às 9h, busca as principais notícias de economia e mercado, monta um slide de 1 página em PowerPoint com o resumo e salva no Google Drive.</p>
+<p class="ex-subentrega"><strong>Entregável:</strong> uma tarefa agendada ativa que, toda manhã às 9h, busca as 3 notícias mais relevantes do dia anterior, resume cada uma com o link da fonte e cria um rascunho no seu Gmail enviado pra você mesmo.</p>
 <div class="step-block">
 <div class="step-block-head">
 <span class="step-block-num">Passo 1</span>
@@ -893,13 +893,12 @@ Claude lê, analisa e entrega o resultado para você</pre>
 </div>
 <div class="step-block-body">
 <div class="prompt-box">
-<div class="prompt-box-head">B R I E F I N G   D I Á R I O   ·   9 H</div>
-<p>Cria uma tarefa agendada chamada <strong>"Briefing diário de mercado"</strong>. Todo dia às 9h da manhã, ela deve:</p>
+<div class="prompt-box-head">G I R O   D E   N O T Í C I A S   ·   9 H</div>
+<p>Cria uma tarefa agendada chamada <strong>"Giro de Notícias"</strong>. Todo dia às 9h da manhã, ela deve:</p>
 <ol>
-<li>Pesquisar na internet as principais notícias de economia e mercado financeiro do dia anterior — foco em fintechs, juros, regulação financeira e comportamento do consumidor</li>
-<li>Selecionar as 3 a 5 notícias mais relevantes pra um PM de fintech</li>
-<li>Criar um arquivo PowerPoint de 1 página com: título "Briefing de Mercado — [data]", os destaques em bullets curtos e uma linha de "impacto pra ArenaCash" ao final</li>
-<li>Salvar o arquivo no meu Google Drive com o nome <code>briefing-mercado-[data].pptx</code></li>
+<li>Pesquisar na internet as <strong>3 principais notícias</strong> de economia e mercado financeiro do dia anterior — foco em fintechs, juros, regulação financeira e comportamento do consumidor</li>
+<li>Resumir cada notícia em 2-3 linhas, sempre incluindo o <strong>link da fonte original</strong></li>
+<li>Criar um <strong>rascunho no meu Gmail</strong> endereçado pra mim mesmo, com assunto <strong>"Giro de Notícias — [data de hoje]"</strong> e o corpo contendo as 3 notícias resumidas com seus respectivos links</li>
 </ol>
 </div>
 <p><strong>Observe:</strong> o Cowork cria a tarefa, exibe a frequência configurada (diária, 9h) e o fluxo de execução. Você pode ver em <strong>Tasks → Scheduled</strong> no menu lateral.</p>
@@ -913,7 +912,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 </div>
 <div class="step-block-body">
 <p>Não espere até amanhã — clique em <strong>"Run Now"</strong> na tarefa recém-criada pra executá-la imediatamente.</p>
-<p>Após a execução, abra o Google Drive e confirme que o arquivo <code>briefing-mercado-[data].pptx</code> apareceu. Abra o PowerPoint e avalie: as notícias fazem sentido? O formato está como esperava? Se quiser ajustar — foco das notícias, layout, critério de seleção — edite o prompt da tarefa e rode novamente.</p>
+<p>Após a execução, abra o Gmail na aba <strong>Rascunhos</strong> e confirme que o email <strong>"Giro de Notícias — [data de hoje]"</strong> apareceu. Leia e avalie: as notícias fazem sentido? Os resumos estão diretos? Os links estão corretos? Se quiser ajustar — foco das notícias, formato do resumo, critério de seleção — edite o prompt da tarefa e rode novamente.</p>
 </div>
 </div>
 <div class="step-block">
@@ -932,7 +931,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 </div>
 <div class="ex-closing">
 <span class="pa-eyebrow pa-eyebrow--red">O   Q U E   F I X A R</span>
-<p>Você acabou de montar um <strong>assistente que trabalha enquanto você dorme</strong>. Toda manhã, antes do café, o briefing de mercado já está no Drive — sem nenhuma ação sua. Isso é automação real com <strong class="shout">MCP + connectors funcionando juntos</strong>.</p>
+<p>Você acabou de montar um <strong>assistente que trabalha enquanto você dorme</strong>. Toda manhã, antes do café, o giro de notícias já está como rascunho na sua caixa de entrada — sem nenhuma ação sua. Isso é automação real com <strong class="shout">MCP + connectors funcionando juntos</strong>.</p>
 </div>
 </div>
 </details>
@@ -1118,7 +1117,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <li><strong>Gmail e Google Drive conectados</strong> via MCP</li>
 <li><strong>Análise estratégica completa</strong> cruzando dados internos + mercado</li>
 <li><strong>5 iniciativas priorizadas</strong> por impacto × esforço, salvas como Google Doc compartilhável</li>
-<li><strong>Briefing diário automatizado</strong> rodando às 9h todo dia</li>
+<li><strong>Giro de Notícias diário</strong> caindo no Gmail às 9h, todo dia</li>
 <li><strong>1 iniciativa escolhida</strong> e validada pelos C-levels via Thinking Partner</li>
 <li><strong>PPT no padrão da empresa</strong> com o seu tom de voz, pronto pra diretoria</li>
 </ul>
@@ -1769,7 +1768,7 @@ netlify deploy --dir=07-app --prod</pre>
 <li>Conectaram Google Drive e Gmail via MCP</li>
 <li>Cruzaram dados internos com cenário de mercado buscado na internet</li>
 <li>Geraram um Google Doc automaticamente com a análise</li>
-<li>Configuraram um briefing diário de mercado que roda todo dia às 9h</li>
+<li>Configuraram um Giro de Notícias diário que cai como rascunho no Gmail todo dia às 9h</li>
 <li>Criaram a skill Thinking Partner com as personas dos C-levels</li>
 <li>Validaram 5 iniciativas contra Juliana, Beatriz e Diego</li>
 <li>Criaram a skill de apresentação com template, DS e tom de voz</li>
@@ -1847,7 +1846,7 @@ netlify deploy --dir=07-app --prod</pre>
 <tbody>
 <tr><td><strong>1 — Fundamentos</strong></td><td>Entenderam Chat vs. Cowork vs. Code. Conectaram a pasta ArenaCash ao Cowork e fizeram a primeira leitura da empresa.</td></tr>
 <tr><td><strong>2 — Setup</strong></td><td>Montaram o projeto com memória e instruções. Conectaram o Gmail. Extraíram o tom de voz dos próprios e-mails e testaram numa mensagem real pro tech lead.</td></tr>
-<tr><td><strong>3 — MCP e Conexões</strong></td><td>Conectaram o Google Drive. Cruzaram dados internos com cenário de fintechs pesquisado na internet. Geraram um Google Doc. Criaram briefing diário de mercado em PPT que roda todo dia às 9h.</td></tr>
+<tr><td><strong>3 — MCP e Conexões</strong></td><td>Conectaram o Google Drive. Cruzaram dados internos com cenário de fintechs pesquisado na internet. Geraram um Google Doc. Criaram um Giro de Notícias diário que, todo dia às 9h, deixa um rascunho com 3 notícias resumidas no Gmail.</td></tr>
 <tr><td><strong>4 — Skills</strong></td><td>Criaram o Thinking Partner com Juliana, Beatriz e Diego. Validaram 5 iniciativas. Criaram a skill de apresentação. Saíram com iniciativa escolhida e PPT no padrão da ArenaCash.</td></tr>
 <tr><td><strong>5 — Code</strong></td><td>Migraram do Cowork pro Code. Clonaram o repositório Git do curso e navegaram em português. Criaram o <code>CLAUDE.md</code>.</td></tr>
 <tr><td><strong>6 — Protótipo e Eventos</strong></td><td>Geraram imagens das telas a partir do PPT e do design system. Criaram a skill Event Mapper a partir do Guia de Eventos. Mapearam todos os eventos em Excel e Word.</td></tr>
@@ -1867,7 +1866,7 @@ netlify deploy --dir=07-app --prod</pre>
 <h3>T A K E A W A Y  F I N A L</h3>
 <blockquote>O que separa os PMs que tiram resultado do Claude dos que ficam na média não é o prompt. É a arquitetura.</blockquote>
 <p>Projeto com memória. Skills que padronizam outputs recorrentes. Connectors que conectam às ferramentas que já existem. Code quando o output precisa rodar.</p>
-<p>Vocês montaram essa arquitetura hoje. O ArenaCash Kit que receberam antes do curso agora tem ao redor dele um <strong>ambiente completo de PM</strong> — com tom de voz, skills, briefing automático de mercado, e um produto publicado.</p>
+<p>Vocês montaram essa arquitetura hoje. O ArenaCash Kit que receberam antes do curso agora tem ao redor dele um <strong>ambiente completo de PM</strong> — com tom de voz, skills, giro de notícias automático no Gmail, e um produto publicado.</p>
 <p style="margin-top: var(--s-6); font-family: var(--font-display); font-weight: 700; font-size: var(--text-lg); color: var(--pa-white); letter-spacing: -0.01em;">Isso não é demonstração. <strong class="shout">É o fluxo de trabalho.</strong></p>
 </div>
 </article>

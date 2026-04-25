@@ -221,3 +221,141 @@
 
   updateDayProgress();
 })();
+
+
+// =========================================================
+// Analytics ao vivo — exemplo do Bloco 7 / Ex 15
+//
+// Cada clique relevante na página dispara um console.log() seguindo
+// a convenção do Guia de Eventos da ArenaCash (snake_case, padrão
+// tela_acao, propriedades em objeto). Abra o DevTools (Cmd+Option+I
+// no Mac, F12 no Windows), vá na aba Console e clique pelo site —
+// você vai ver os eventos disparando ao vivo, igualzinho ao que os
+// alunos vão ver no protótipo deles.
+// =========================================================
+(() => {
+  const PRODUTO = 'curso_claude_pms';
+
+  const norm = s => (s || '')
+    .toString()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '_')
+    .replace(/^_+|_+$/g, '')
+    .slice(0, 60);
+
+  const findScreen = el => {
+    const article = el.closest && el.closest('article.block');
+    if (article && article.id) return norm(article.id);
+    const section = el.closest && el.closest('details.section[id], section[id]');
+    if (section && section.id) return norm(section.id);
+    if (el.closest && el.closest('.hero')) return 'hero';
+    if (el.closest && el.closest('.topbar')) return 'topbar';
+    return 'pagina';
+  };
+
+  const emit = (name, props) => {
+    console.log(name, { produto: PRODUTO, ...props });
+  };
+
+  // Page view ao carregar
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => emit('site_pageview', { url: location.pathname }));
+  } else {
+    emit('site_pageview', { url: location.pathname });
+  }
+
+  // Cliques
+  document.addEventListener('click', e => {
+    const el = e.target.closest(
+      'a, button, summary, .kit-item, [data-target]'
+    );
+    if (!el) return;
+
+    const tela = findScreen(el);
+    const txt = (el.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 60);
+
+    // Top nav
+    if (el.closest('.top-nav')) {
+      return emit(`topnav_${norm(txt)}_click`, { tela, destino: el.getAttribute('href') });
+    }
+    // Hero CTA
+    if (el.closest('.hero-cta')) {
+      return emit(`hero_cta_${norm(txt)}_click`, { tela: 'hero', destino: el.getAttribute('href') });
+    }
+    // Brand logo no topbar
+    if (el.classList && (el.classList.contains('brand') || el.closest('.brand'))) {
+      return emit('topbar_brand_click', { tela });
+    }
+    // Botão "Começar aula" e outros .btn--primary no topbar
+    if (el.tagName === 'BUTTON' && el.classList.contains('btn--primary') && el.closest('.topbar')) {
+      return emit('topbar_cta_comecar_aula_click', { tela: 'topbar', label: txt });
+    }
+    // Kit download
+    if (el.classList && el.classList.contains('kit-item')) {
+      const arquivo = (el.getAttribute('href') || '').split('/').pop();
+      return emit('kit_download_click', { tela: 'kit', arquivo });
+    }
+    // Botões em geral (.btn) — ex: "Baixar tudo em zip", "Começar pelos pré-requisitos"
+    if (el.classList && (el.classList.contains('btn') || el.closest('.btn'))) {
+      const acao = norm(txt) || 'click';
+      return emit(`${tela}_botao_${acao}_click`, { tela, label: txt });
+    }
+    // Toggle de details (summary)
+    if (el.tagName === 'SUMMARY') {
+      const details = el.closest('details');
+      if (!details) return;
+      const acao = details.open ? 'fechar' : 'abrir';
+      // Exercício
+      if (details.classList.contains('exercise')) {
+        const num = (details.querySelector('.ex-num') || {}).textContent || 'x';
+        const titulo = (details.querySelector('.ex-title') || {}).textContent || '';
+        return emit(`exercicio_${norm(num)}_${acao}`, {
+          tela, exercicio: norm(num), titulo
+        });
+      }
+      // Setup-step (pré-requisitos)
+      if (details.classList.contains('setup-step')) {
+        const passo = (details.querySelector('.step-num') || {}).textContent || 'x';
+        return emit(`prereq_passo_${norm(passo)}_${acao}`, {
+          tela: 'pre_requisitos', passo: norm(passo)
+        });
+      }
+      // Section colapsável (bem-vindo, kit, etc.)
+      if (details.classList.contains('section-collapse')) {
+        return emit(`secao_${norm(details.id || 'x')}_${acao}`, {
+          tela, secao: details.id || ''
+        });
+      }
+      return emit(`${tela}_toggle_${acao}`, { tela, label: txt });
+    }
+    // Agenda items (data-target)
+    if (el.hasAttribute && el.hasAttribute('data-target')) {
+      return emit('agenda_item_click', { tela: 'agenda', destino: el.getAttribute('data-target') });
+    }
+    // Links genéricos
+    if (el.tagName === 'A') {
+      const href = el.getAttribute('href') || '';
+      const externo = el.hostname && el.hostname !== location.hostname;
+      return emit(`${tela}_link_${norm(txt) || 'click'}_click`, {
+        tela, destino: href, externo
+      });
+    }
+    // Fallback genérico
+    emit(`${tela}_clique_${norm(txt) || el.tagName.toLowerCase()}`, { tela, label: txt });
+  }, { capture: true });
+
+  // Tracking checkboxes (marcar exercício/passo como concluído)
+  document.addEventListener('change', e => {
+    const t = e.target;
+    if (t && t.type === 'checkbox') {
+      const ex = t.closest('details.exercise, .step-block');
+      const num = ex && ((ex.querySelector('.ex-num') || ex.querySelector('.step-block-num')) || {}).textContent;
+      emit('tracking_check_change', {
+        tela: findScreen(t),
+        elemento: num ? norm(num) : 'desconhecido',
+        marcado: t.checked
+      });
+    }
+  }, { capture: true });
+})();

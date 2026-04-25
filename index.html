@@ -1579,12 +1579,12 @@ Claude lê, analisa e entrega o resultado para você</pre>
 </details>
 
 <details class="exercise">
-<summary><span class="ex-num">15</span><span class="ex-title">Criando a skill Event Mapper</span><span class="ex-time">35 min</span></summary>
+<summary><span class="ex-num">15</span><span class="ex-title">Instalar e usar a skill Event Mapper</span><span class="ex-time">25 min</span></summary>
 <div class="ex-body">
 <p class="ex-intro">Você tem as telas. Agora vem um passo que muita equipe esquece — ou faz tarde demais: <strong>definir os eventos de analytics antes do desenvolvimento começar</strong>.</p>
 <p>Pra um PM, isso importa por uma razão simples: se o evento não foi mapeado antes do sprint, ele não vai estar no código quando a feature for ao ar. E sem o evento no ar, você <strong class="shout">não vai ter dados</strong>. E sem dados, você não consegue medir se a iniciativa que levou o quarter inteiro pra construir está funcionando.</p>
 <p>Mapear eventos antes do desenvolvimento <strong>não é trabalho de engenharia — é decisão de produto</strong>. Você define o que medir. O time implementa. A skill torna isso rápido e padronizado.</p>
-<p>Em vez de instalar uma skill pronta, vamos criar essa skill do zero — usando um documento real da ArenaCash como base: o <strong>Guia de Eventos</strong>, que está na sua pasta desde o início do dia.</p>
+<p>A skill <code>event-mapper</code> já foi construída em cima de um documento real da ArenaCash: o <strong>Guia de Eventos</strong>, que está na sua pasta desde o início do dia. Vamos baixar, instalar e rodar — você vai entender o que ela faz observando o output, sem precisar ditar a skill do zero.</p>
 <p class="ex-subentrega"><strong>Entregável:</strong> skill <code>event-mapper</code> instalada no projeto + planilha Excel e documento Word com todos os eventos mapeados das telas geradas.</p>
 
 <div class="step-block">
@@ -1594,7 +1594,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <h4 class="step-block-title">Entender o Guia de Eventos</h4>
 </div>
 <div class="step-block-body">
-<p>Antes de criar a skill, o Claude precisa ler e internalizar as regras de mapeamento da ArenaCash:</p>
+<p>Antes de instalar a skill, vale entender em primeira mão as regras de mapeamento da ArenaCash — depois fica fácil revisar o que a skill entrega:</p>
 <div class="prompt-box">
 <p>Lê o arquivo <code>guia-de-eventos-arenacash.pdf</code>. Me explica: quais são as convenções de nomenclatura dos eventos, quais tipos de evento existem (screen view, click, state change...), quais propriedades cada evento deve ter, e quais são as regras que nunca podem ser quebradas no mapeamento.</p>
 </div>
@@ -1605,23 +1605,30 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <div class="step-block">
 <div class="step-block-head">
 <span class="step-block-num">Passo 2</span>
-<span class="step-block-time">15 min</span>
-<h4 class="step-block-title">Criar a skill Event Mapper</h4>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Baixar e instalar a skill event-mapper</h4>
 </div>
 <div class="step-block-body">
-<div class="prompt-box">
-<div class="prompt-box-head">C R I A R   S K I L L   <code>event-mapper</code></div>
-<p>Cria uma skill chamada <code>event-mapper</code> com as seguintes especificações:</p>
+<p>Igual ao fluxo da <code>arenacash-pptx</code>: a skill vem como um pacote (.skill) com <code>SKILL.md</code> + script Python que monta o Excel e o Word. Você baixa, descompacta e joga na pasta de skills do projeto:</p>
+<ol>
+<li>Baixe o pacote <a href="kit/event-mapper-skill/event-mapper.skill" download><strong>event-mapper.skill</strong></a> (clique com o botão direito → "Salvar link como…")</li>
+<li>O arquivo <code>.skill</code> é um zip — descompacte (clique duas vezes no Mac, "Extrair tudo" no Windows)</li>
+<li>Vai aparecer uma pasta <code>event-mapper/</code> com 2 itens: <code>SKILL.md</code> e <code>scripts/build_outputs.py</code></li>
+<li>Mova essa pasta inteira pra dentro de <code>ArenaCash-PM/.claude/skills/</code> — a estrutura final fica <code>ArenaCash-PM/.claude/skills/event-mapper/</code></li>
+<li>Volte ao Cowork e pergunte: <em>"Quais skills estão disponíveis neste projeto?"</em> — a <code>event-mapper</code> deve aparecer junto com as outras</li>
+</ol>
+<p class="tip">💡 Como a <code>arenacash-pptx</code>, essa skill traz <strong>script de geração</strong> além do <code>SKILL.md</code>: o Claude usa o <code>build_outputs.py</code> pra montar o Excel e o Word com a estrutura certa, em vez de gerar os arquivos manualmente bullet por bullet.</p>
+<details class="nested">
+<summary>Ver o que está dentro da skill</summary>
 <ul>
-<li><strong>Trigger:</strong> sempre que eu enviar uma imagem de tela, um conjunto de screenshots ou uma listagem de telas e pedir pra mapear os eventos</li>
-<li><strong>O que faz:</strong> lê o <code>guia-de-eventos-arenacash.pdf</code> pra aplicar as convenções da ArenaCash. Analisa cada tela recebida — identificando todos os elementos interativos: botões, links, campos, toggles, cards clicáveis, mudanças de estado e carregamentos de tela. Pra cada elemento, define o evento correspondente seguindo a nomenclatura do guia.</li>
-<li><strong>Output 1:</strong> planilha Excel com colunas — nome do evento, tipo (<code>screen_view</code> / <code>click</code> / <code>state_change</code>), tela de origem, elemento disparador, propriedades, status (novo / já existe)</li>
-<li><strong>Output 2:</strong> documento Word com contexto de cada evento — descrição em linguagem humana do que ele captura e por que importa pro produto</li>
-<li><strong>Regras:</strong> seguir rigorosamente a convenção de nomenclatura do guia (<code>snake_case</code>, padrão <code>tela_ação</code>); nunca criar eventos duplicados; sinalizar quando um elemento não tiver evento correspondente no guia e sugerir um novo seguindo o padrão</li>
+<li><strong>Trigger:</strong> qualquer mensagem com imagem de tela + pedido pra mapear eventos / tracking / analytics / instrumentação</li>
+<li><strong>O que faz:</strong> procura na pasta o <code>guia-de-eventos-arenacash.pdf</code>, lê as convenções do time (nomenclatura, propriedades obrigatórias, tipos de evento), analisa cada tela anexada e identifica todos os elementos interativos. Pra cada elemento, propõe o evento seguindo o padrão do guia.</li>
+<li><strong>Output 1:</strong> planilha Excel — nome do evento, tipo (<code>screen_view</code> / <code>click</code> / <code>state_change</code>), tela de origem, elemento disparador, propriedades, status</li>
+<li><strong>Output 2:</strong> documento Word — descrição em linguagem humana de cada evento e por que ele importa pro produto</li>
+<li><strong>Regras:</strong> seguir a convenção de nomenclatura do guia (<code>snake_case</code>, padrão <code>tela_ação</code>); nunca duplicar; sinalizar elementos sem evento correspondente em vez de inventar; pedir confirmação quando a imagem estiver ambígua.</li>
 </ul>
-</div>
-<p class="tip">💡 A skill foi construída em cima de um <strong>documento real da sua empresa</strong> — não de uma regra genérica. Isso é a diferença entre uma skill que qualquer um poderia usar e uma skill que só faz sentido na ArenaCash.</p>
-<p class="file-out">📄 <code>.claude/skills/event-mapper/SKILL.md</code></p>
+</details>
+<p class="file-out">📄 <code>.claude/skills/event-mapper/</code> (pasta com SKILL.md + scripts)</p>
 </div>
 </div>
 

@@ -2166,3 +2166,69 @@ details.nested pre {
   .agenda-item .agenda-tag { justify-self: start; }
   .hero h1 { font-size: 42px; }
 }
+
+/* =========================================================
+   Instrutores
+   ========================================================= */
+.instructors-section {
+  padding: var(--s-7) 0 var(--s-6);
+  border-bottom: 1px solid var(--border);
+}
+.instructors-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-5);
+  margin-top: var(--s-5);
+}
+.instructor-card {
+  padding: var(--s-5) var(--s-6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-raised);
+  transition: border-color var(--dur-fast) var(--ease-standard);
+}
+.instructor-card:hover { border-color: var(--pa-red); }
+.instructor-card h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--pa-red);
+  margin: 0 0 4px;
+  letter-spacing: var(--tracking-tight);
+}
+.instructor-card .instructor-role {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--fg-muted);
+  margin: 0 0 var(--s-3);
+}
+.instructor-card .instructor-bio {
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--fg);
+  margin: 0 0 var(--s-4);
+}
+.instructor-card .instructor-bio strong { color: var(--fg); font-weight: 600; }
+.instructor-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.instructor-links li {
+  font-size: var(--text-sm);
+  color: var(--fg-muted);
+}
+.instructor-links a {
+  color: var(--fg);
+  border-bottom: 1px solid transparent;
+  font-weight: 500;
+}
+.instructor-links a:hover { border-bottom-color: var(--pa-red); color: var(--pa-red); }
+@media (max-width: 720px) {
+  .instructors-grid { grid-template-columns: 1fr; }
+}

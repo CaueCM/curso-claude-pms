@@ -1433,50 +1433,76 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <span class="block-pill">B L O C O   ·   0 6   ·   15:30–16:30</span>
 <h2>Prototipagem Visual e Mapeamento de Eventos</h2>
 <p class="block-quote">"PM que prototipa valida mais rápido, erra mais barato e influencia <strong class="shout">mais</strong>."</p>
-<p class="block-obj"><strong>Objetivo:</strong> Transformar a apresentação aprovada de manhã em imagens de tela prontas pra comunicar a iniciativa, criar a skill de mapeamento de eventos a partir do guia da ArenaCash, e sair com o tracking plan documentado em Excel e Word.</p>
+<p class="block-obj"><strong>Objetivo:</strong> Transformar a apresentação aprovada de manhã em um <strong>protótipo navegável de verdade</strong> — HTML, CSS e JS gerados pelo Claude Code com feedback iterativo — e mapear os eventos de analytics direto das telas do protótipo, saindo com o tracking plan em Excel e Word.</p>
 </header>
 
 <section class="exercises">
 <h3>Exercícios</h3>
 
 <details class="exercise">
-<summary><span class="ex-num">13</span><span class="ex-title">Gerando 3 telas da iniciativa em um único prompt</span><span class="ex-time">10 min</span></summary>
+<summary><span class="ex-num">13</span><span class="ex-title">Gerar o protótipo: HTML/CSS primeiro, JS depois</span><span class="ex-time">30 min</span></summary>
 <div class="ex-body">
 <p class="ex-intro">Você aprovou a iniciativa com a diretoria. Tem o PPT, a matriz de impacto × esforço, o roadmap. O próximo problema concreto: <strong>como comunicar pro time de design e engenharia o que precisa ser construído</strong>, antes de qualquer sprint de discovery?</p>
-<p>A resposta tradicional é: agenda reunião, explica verbalmente, aguarda o designer fazer um wireframe, revisa, itera — leva dias e depende da agenda de outra pessoa. Com o Claude, você resolve em <strong>um único prompt</strong>: ele lê o seu PPT + o design system e devolve 3 mockups de alta fidelidade prontos.</p>
-<p class="ex-subentrega"><strong>Entregável:</strong> 3 imagens das telas principais salvas em <code>06-prototipo/</code>, geradas em uma única passada e prontas pra usar como insumo do mapeamento de eventos.</p>
+<p>Em vez de gerar imagens estáticas de tela, vamos direto pro <strong>protótipo funcional</strong>. O Claude Code monta primeiro a estrutura visual (HTML + CSS), você itera o visual com feedback em português, e por último adiciona o JS que faz a navegação e as interações funcionarem. Sem Figma, sem espera por designer.</p>
+<p class="ex-subentrega"><strong>Entregável:</strong> pasta <code>06-prototipo/</code> com <code>index.html</code>, <code>style.css</code> e <code>script.js</code> — protótipo navegável das 3 telas principais da iniciativa, no design system da ArenaCash.</p>
 
 <div class="step-block">
 <div class="step-block-head">
 <span class="step-block-num">Passo 1</span>
-<span class="step-block-time">8 min</span>
-<h4 class="step-block-title">Gerar as 3 telas em um único prompt</h4>
+<span class="step-block-time">10 min</span>
+<h4 class="step-block-title">Gerar HTML + CSS estático</h4>
 </div>
 <div class="step-block-body">
-<p>Abra o Cowork (pode voltar do Code — os arquivos são os mesmos) e mande o prompt abaixo. Ele junta tudo: leitura do deck, leitura do design system, identificação das 3 telas e geração das 3 imagens.</p>
+<p>Abra o Claude Code (terminal ou Desktop — qualquer um dos dois fluxos do Bloco 5 serve) na pasta <code>ArenaCash-PM</code> e mande o briefing:</p>
 <div class="prompt-box">
-<div class="prompt-box-head">G E R A R   3   T E L A S   D A   I N I C I A T I V A</div>
-<p>Lê o arquivo <code>04-skills/apresentacao-iniciativa.pptx</code> e o <code>design-system-arenacash.md</code>. Com base na iniciativa apresentada, identifica as <strong>3 telas principais</strong> que essa feature precisaria ter, com nome curto e descrição de 1-2 linhas pra cada uma. Em seguida, gera <strong>uma imagem por tela</strong> — mockup de alta fidelidade no formato de <em>app iOS</em>, estilo fintech mobile limpo e moderno, usando as <strong>cores e fonte do design system da ArenaCash</strong>. Salva os arquivos em <code>06-prototipo/</code> com nomes <code>tela-1-[nome-curto].png</code>, <code>tela-2-[nome-curto].png</code> e <code>tela-3-[nome-curto].png</code>. No fim, me devolve a lista das 3 telas com descrição e o caminho de cada arquivo gerado.</p>
+<div class="prompt-box-head">G E R A R   H T M L   +   C S S</div>
+<p>Lê o arquivo <code>04-skills/apresentacao-iniciativa.pptx</code> e o <code>design-system-arenacash.md</code>. Com base na iniciativa apresentada, identifica as <strong>3 telas principais</strong> que essa feature precisaria ter (descrição curta de cada uma) e gera um protótipo em <strong>HTML + CSS</strong> com essas 3 telas. Por enquanto, sem JavaScript — só estrutura visual.</p>
+<p>Aplica o design system da ArenaCash: cores, fonte, espaçamento, estilo fintech mobile limpo e moderno. Use dados mockados realistas baseados em <code>kit/dados-quarter-q1.csv</code>. Salva os arquivos em <code>06-prototipo/index.html</code> e <code>06-prototipo/style.css</code>. As telas podem ficar empilhadas verticalmente no HTML — fazer a navegação entre elas é o próximo passo.</p>
 </div>
-<p><strong>Observe:</strong> em vez de descrever tela por tela e gerar uma de cada vez, você delegou o ciclo inteiro — leitura, decisão de quais telas existem, design e salvamento — em uma única chamada. <em>Designer não é mais gargalo.</em></p>
+<p>Quando o Code terminar, peça pra abrir no navegador:</p>
+<div class="prompt-box">
+<p>Abre o <code>06-prototipo/index.html</code> no navegador pra eu ver o resultado.</p>
+</div>
 </div>
 </div>
 
 <div class="step-block">
 <div class="step-block-head">
 <span class="step-block-num">Passo 2</span>
-<span class="step-block-time">2 min</span>
-<h4 class="step-block-title">Revisar e ajustar pontual</h4>
+<span class="step-block-time">10 min</span>
+<h4 class="step-block-title">Iterar o visual com feedback em português</h4>
 </div>
 <div class="step-block-body">
-<p>Abra as 3 imagens geradas e avalie:</p>
+<p>Olhe pro protótipo no navegador e anote o que precisa ajustar. Cada feedback é uma instrução solta, em português:</p>
 <ul>
-<li>A identidade visual bate com o design system?</li>
-<li>Os elementos de interface fazem sentido pro fluxo da iniciativa?</li>
-<li>Um designer ou dev conseguiria entender o que construir a partir disso?</li>
+<li><em>"O header está usando a cor errada — aplica o vermelho primário do design system"</em></li>
+<li><em>"O card de saldo está sem o número grande — coloca o valor de saldo de <code>dados-quarter-q1.csv</code> em destaque"</em></li>
+<li><em>"O botão de ação principal está pequeno demais e desalinhado — aumenta a altura e centraliza no container"</em></li>
+<li><em>"A tipografia dos títulos não bate com o design system — usa Archivo Black peso 900"</em></li>
 </ul>
-<p>Se alguma tela ficou fora do tom, descreva o ajuste em português e peça pra <strong>regerar só aquela</strong> — sem refazer as outras duas. O loop é: <em>gerar 3 → revisar → regerar pontual</em>.</p>
-<p class="file-out">📄 <code>06-prototipo/tela-1-[nome].png</code> · <code>tela-2-[nome].png</code> · <code>tela-3-[nome].png</code></p>
+<p>O Claude vai ajustando arquivo por arquivo. Recarregue o navegador a cada rodada e itere até a versão estática estar boa o suficiente — fiel ao design system e legível pra um designer ou dev olhar.</p>
+<p class="tip">💡 <strong>Não busque perfeição visual.</strong> Você precisa de algo que represente bem a iniciativa pra um stakeholder olhar e entender. Detalhes finos podem ser ajustados depois — o objetivo deste passo é <em>fixar a identidade visual</em>, não competir com Figma.</p>
+</div>
+</div>
+
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 3</span>
+<span class="step-block-time">10 min</span>
+<h4 class="step-block-title">Adicionar JavaScript pra fazer funcionar</h4>
+</div>
+<div class="step-block-body">
+<p>Com o visual aprovado, é hora de transformar as 3 telas estáticas em algo navegável:</p>
+<div class="prompt-box">
+<div class="prompt-box-head">A D I C I O N A R   J S</div>
+<p>Adiciona um <code>06-prototipo/script.js</code> que faça o protótipo funcionar como um app de verdade: navegação entre as 3 telas (mostra uma de cada vez), botão de "voltar" funcionando, formulários validando entradas básicas, e qualquer interação visível nas telas (toggles, selects, modals) respondendo a clique. Atualiza o <code>index.html</code> pra carregar o <code>script.js</code> no final do <code>&lt;body&gt;</code>.</p>
+</div>
+<p>Recarregue e teste: clique nos botões, navegue entre telas, preencha campos. Se algo não funcionar, descreva o problema:</p>
+<div class="prompt-box">
+<p>O botão "Continuar" da tela 1 não está abrindo a tela 2. Corrige.</p>
+</div>
+<p>O loop é: <strong>testar → reportar → corrigir</strong> — exatamente como um PM colabora com engenharia numa sessão de QA. <em>Sem você ter escrito uma linha de código.</em></p>
+<p class="file-out">📄 <code>06-prototipo/index.html</code> · <code>06-prototipo/style.css</code> · <code>06-prototipo/script.js</code></p>
 </div>
 </div>
 </div>
@@ -1489,7 +1515,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <p>Pra um PM, isso importa por uma razão simples: se o evento não foi mapeado antes do sprint, ele não vai estar no código quando a feature for ao ar. E sem o evento no ar, você <strong class="shout">não vai ter dados</strong>. E sem dados, você não consegue medir se a iniciativa que levou o quarter inteiro pra construir está funcionando.</p>
 <p>Mapear eventos antes do desenvolvimento <strong>não é trabalho de engenharia — é decisão de produto</strong>. Você define o que medir. O time implementa. A skill torna isso rápido e padronizado.</p>
 <p>A skill <code>event-mapper</code> já foi construída em cima de um documento real da ArenaCash: o <strong>Guia de Eventos</strong>, que está na sua pasta desde o início do dia. Vamos baixar, instalar e rodar — você vai entender o que ela faz observando o output, sem precisar ditar a skill do zero.</p>
-<p class="ex-subentrega"><strong>Entregável:</strong> skill <code>event-mapper</code> instalada no projeto + planilha Excel e documento Word com todos os eventos mapeados das telas geradas.</p>
+<p class="ex-subentrega"><strong>Entregável:</strong> skill <code>event-mapper</code> instalada no projeto + planilha Excel e documento Word com todos os eventos mapeados das telas do protótipo gerado no Ex 13.</p>
 
 <div class="step-block">
 <div class="step-block-head">
@@ -1543,9 +1569,15 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <h4 class="step-block-title">Mapear os eventos das telas geradas</h4>
 </div>
 <div class="step-block-body">
-<p>Com a skill criada, é hora de usá-la. No Cowork, abra uma nova tarefa e anexe as imagens das telas salvas no Exercício 13:</p>
+<p>Com a skill instalada, é hora de usá-la nas suas próprias telas. Abra o protótipo do Ex 13 no navegador e <strong>tire uma screenshot de cada uma das 3 telas</strong>:</p>
+<div class="two-col">
+<div class="pill-card"><h4>🍎 Mac</h4><p><code>Cmd + Shift + 4</code> → arraste pra selecionar a tela do navegador</p></div>
+<div class="pill-card"><h4>🪟 Windows</h4><p><code>Win + Shift + S</code> → selecione a área da tela do navegador</p></div>
+</div>
+<p>Salve as 3 imagens em <code>06-prototipo/</code> com nomes claros (ex: <code>tela-1-home.png</code>, <code>tela-2-detalhe.png</code>, <code>tela-3-confirmacao.png</code>).</p>
+<p>Em seguida, no Cowork (a skill foi instalada lá), abra uma nova tarefa e anexe as 3 screenshots:</p>
 <div class="prompt-box">
-<p>Usa a skill <code>event-mapper</code>. Mapeia os eventos de analytics dessas telas: <code>[anexe as imagens tela-[nome].png]</code>. Segue as convenções do guia de eventos da ArenaCash e entrega o Excel e o Word em <code>06-prototipo/</code>.</p>
+<p>Usa a skill <code>event-mapper</code>. Mapeia os eventos de analytics dessas 3 telas do protótipo: <code>[anexe as 3 screenshots]</code>. Segue as convenções do guia de eventos da ArenaCash e entrega o Excel e o Word em <code>06-prototipo/</code>.</p>
 </div>
 <p>Enquanto o Claude processa, observe: analisando cada elemento interativo visível, associando ao tipo de evento correspondente, aplicando a nomenclatura do guia.</p>
 <p>Ao receber os arquivos, <strong>revise</strong>:</p>
@@ -1600,7 +1632,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <h4 class="step-block-title">Exportar e substituir</h4>
 </div>
 <div class="step-block-body">
-<p>Ao finalizar, exporte as telas como imagens e salve em <code>06-prototipo/</code>, substituindo as geradas no Ex 12 — ou mantenha as duas versões lado a lado pra mostrar a diferença de fidelidade.</p>
+<p>Ao finalizar, exporte as telas como imagens e salve em <code>06-prototipo/</code>. Use-as como <strong>referência visual de alta fidelidade</strong> ao lado do protótipo HTML do Ex 13 — útil em apresentações pra stakeholders que querem ver o produto polido antes do dev.</p>
 <p class="tip">⭐ <strong>Por que isso importa:</strong> a diferença entre uma imagem gerada por prompt e um protótipo de alta fidelidade no Claude Design é a diferença entre <strong>mostrar uma ideia</strong> e <strong class="shout">vender uma ideia</strong>. Em reunião de stakeholders, o segundo fecha mais rápido.</p>
 </div>
 </div>
@@ -1611,46 +1643,34 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <!-- BLOCO 7 -->
 <article class="block" id="bloco-7">
 <header class="block-head">
-<span class="block-pill">B L O C O   ·   0 7   ·   16:45–17:45</span>
-<h2>Do Código ao Ar: Geração, Eventos, Git e Deploy</h2>
+<span class="block-pill">B L O C O   ·  0 7  ·  16:45–17:45</span>
+<h2>Lançando ao mundo: integrar eventos e publicar</h2>
 <p class="block-quote">"Vocês entraram como PMs da ArenaCash de manhã. Vão sair com um produto <strong class="shout">no ar</strong>."</p>
-<p class="block-obj"><strong>Objetivo:</strong> Usar as imagens de tela do Bloco 6 como briefing visual pro Claude Code gerar o site em HTML/CSS/JS, com os eventos já integrados. Verificar os eventos no DevTools, commitar no Git e publicar com uma URL pública — tudo via Claude Code, sem escrever uma linha de código manualmente.</p>
+<p class="block-obj"><strong>Objetivo:</strong> Pegar a planilha de eventos do Bloco 6 e integrar tudo no código do protótipo via Claude Code, validar o disparo no DevTools e publicar o site numa URL pública via <strong>GitHub Pages</strong> — tudo direto pelo Claude Code Desktop, sem terminal pra quem preferir interface.</p>
 </header>
 
 <section class="exercises">
 <h3>Exercícios</h3>
 
 <details class="exercise">
-<summary><span class="ex-num">15</span><span class="ex-title">Gerar o site a partir das imagens de tela</span><span class="ex-time">20 min</span></summary>
+<summary><span class="ex-num">15</span><span class="ex-title">Integrar os eventos no código e validar no DevTools</span><span class="ex-time">20 min</span></summary>
 <div class="ex-body">
-<p class="ex-intro">As imagens que você gerou no Bloco 6 não são decoração — são o <strong>briefing visual</strong> do que precisa ser construído. O Claude Code vai lê-las e gerar o site funcional a partir delas, já com os eventos do Excel mapeado no Bloco 6 integrados no código.</p>
-<p class="ex-subentrega"><strong>Entregável:</strong> pasta <code>07-app/</code> com <code>index.html</code>, <code>style.css</code> e <code>script.js</code> — um site funcional que replica as telas aprovadas, com eventos de analytics integrados via <code>console.log</code>.</p>
+<p class="ex-intro">Você tem o protótipo funcional do Bloco 6 e a planilha de eventos do Event Mapper. Agora junta os dois: cada evento da planilha vira uma chamada <code>console.log()</code> disparada pelo elemento certo, e você confirma o funcionamento no DevTools.</p>
+<p class="ex-subentrega"><strong>Entregável:</strong> <code>06-prototipo/script.js</code> atualizado com os eventos integrados + confirmação visual no Console do navegador de que cada interação dispara o evento certo.</p>
 
 <div class="step-block">
 <div class="step-block-head">
 <span class="step-block-num">Passo 1</span>
-<span class="step-block-time">5 min</span>
-<h4 class="step-block-title">Briefing para o Claude Code</h4>
+<span class="step-block-time">10 min</span>
+<h4 class="step-block-title">Integrar os eventos da planilha no código</h4>
 </div>
 <div class="step-block-body">
-<p>No terminal, entre na pasta do projeto e inicie o Claude Code:</p>
-<pre class="code-block">cd ~/Documents/ArenaCash-PM
-claude</pre>
-<p>Agora mande o briefing completo, referenciando as imagens e os eventos:</p>
+<p>No Claude Code (terminal ou Desktop, na pasta do projeto), mande:</p>
 <div class="prompt-box">
-<div class="prompt-box-head">B R I E F I N G   C O M P L E T O</div>
-<p>Vou te passar as imagens das telas da nossa iniciativa e a planilha de eventos mapeados. Com base nisso, quero que você gere um site funcional em HTML, CSS e JavaScript.</p>
-<p>As imagens de referência estão em <code>06-prototipo/</code> — são os arquivos <code>tela-[nome].png</code>. O design system está em <code>design-system-arenacash.md</code>. A planilha de eventos está em <code>06-prototipo/eventos-mapeados.xlsx</code>.</p>
-<p><strong>O que quero no site:</strong></p>
-<ol>
-<li>Replicar fielmente o layout e a identidade visual de cada tela das imagens</li>
-<li>Navegação funcional entre as telas</li>
-<li>Dados mockados realistas baseados nos dados de <code>dados-quarter-q1.csv</code></li>
-<li>Todos os eventos da planilha já integrados no código — cada evento deve disparar um <code>console.log()</code> com o nome do evento e suas propriedades quando o usuário interagir com o elemento correspondente</li>
-<li>Um arquivo <code>index.html</code> como ponto de entrada, <code>style.css</code> separado e <code>script.js</code> separado</li>
-<li>Salva tudo na pasta <code>07-app/</code></li>
-</ol>
+<div class="prompt-box-head">I N T E G R A R   E V E N T O S</div>
+<p>Lê a planilha <code>06-prototipo/eventos-mapeados.xlsx</code> com a lista de eventos. Pra cada linha, adiciona no <code>06-prototipo/script.js</code> uma chamada <code>console.log()</code> que dispara o evento no momento certo: eventos do tipo <code>screen_view</code> disparam quando a tela é exibida, <code>click</code> dispara no clique do elemento correspondente, <code>state_change</code> dispara na mudança do estado. O log deve incluir o nome do evento + as propriedades (todos os campos da linha) num objeto JS.</p>
 </div>
+<p>O Claude vai casar cada linha da planilha com o elemento correto no HTML. Se algum elemento não existir no protótipo (porque o Event Mapper sugeriu eventos pra estados que ainda não foram construídos), ele vai sinalizar — você decide se vale criar o elemento ou ignorar o evento.</p>
 </div>
 </div>
 
@@ -1658,163 +1678,100 @@ claude</pre>
 <div class="step-block-head">
 <span class="step-block-num">Passo 2</span>
 <span class="step-block-time">10 min</span>
-<h4 class="step-block-title">Aguardar e revisar a primeira versão</h4>
+<h4 class="step-block-title">Verificar no DevTools</h4>
 </div>
 <div class="step-block-body">
-<p>O Claude vai ler as imagens, o design system, a planilha de eventos e gerar os 3 arquivos. Quando terminar, peça pra abrir o arquivo no navegador:</p>
-<div class="prompt-box">
-<p>Abre o <code>index.html</code> no navegador pra eu ver o resultado.</p>
-</div>
-<p>Avalie visualmente: o layout está fiel às imagens? A navegação entre telas funciona? Se algo estiver errado, descreva em português:</p>
-<ul>
-<li><em>"O header está usando a cor errada — aplica o azul primário do design system"</em></li>
-<li><em>"O card de métricas está sem os dados mockados — popula com os números do CSV"</em></li>
-<li><em>"A tela 2 não está abrindo quando clico no botão de continuar"</em></li>
-</ul>
-<p>Itere até a versão estar boa o suficiente pra avançar.</p>
-</div>
-</div>
-
-<div class="step-block">
-<div class="step-block-head">
-<span class="step-block-num">Passo 3</span>
-<span class="step-block-time">5 min</span>
-<h4 class="step-block-title">Verificar os arquivos gerados na pasta</h4>
-</div>
-<div class="step-block-body">
-<p>Antes de seguir, veja o que foi criado:</p>
-<div class="two-col">
-<div class="pill-card"><h4>🍎 Mac</h4><p>Abra o Finder, vá em Documentos → ArenaCash-PM → 07-app. Você deve ver <code>index.html</code>, <code>style.css</code> e <code>script.js</code></p></div>
-<div class="pill-card"><h4>🪟 Windows</h4><p>Abra o Explorador de Arquivos, navegue até Documentos → ArenaCash-PM → 07-app</p></div>
-</div>
-<p>Clique duas vezes no <code>index.html</code> — ele vai abrir no navegador direto da pasta local. <strong>Isso é o site rodando na sua máquina, sem internet, sem servidor.</strong> Um arquivo que você gerou numa conversa em português.</p>
-<p class="file-out">📄 <code>07-app/index.html</code> · <code>07-app/style.css</code> · <code>07-app/script.js</code></p>
-</div>
-</div>
-</div>
-</details>
-
-<details class="exercise">
-<summary><span class="ex-num">16</span><span class="ex-title">Testar os eventos de analytics no DevTools</span><span class="ex-time">10 min</span></summary>
-<div class="ex-body">
-<p class="ex-intro">Os eventos estão integrados no código como <code>console.log()</code>. Pra vê-los disparando em tempo real, você vai usar o <strong>DevTools</strong> — a ferramenta de desenvolvedor que vem em todo navegador. Nenhuma instalação necessária.</p>
-<p class="ex-subentrega"><strong>Entregável:</strong> confirmação visual de que cada evento da planilha dispara corretamente quando o usuário interage com o elemento correspondente.</p>
-
-<div class="step-block">
-<div class="step-block-head">
-<span class="step-block-num">Passo 1</span>
-<span class="step-block-time">1 min</span>
-<h4 class="step-block-title">Abrir o DevTools</h4>
-</div>
-<div class="step-block-body">
-<p>Com o site aberto no navegador (Chrome ou Edge recomendados):</p>
+<p>Abra o <code>06-prototipo/index.html</code> no navegador (Chrome ou Edge recomendados) e abra o DevTools:</p>
 <div class="two-col">
 <div class="pill-card"><h4>🍎 Mac</h4><p>Pressione <code>Cmd + Option + I</code></p></div>
 <div class="pill-card"><h4>🪟 Windows</h4><p>Pressione <code>F12</code> ou <code>Ctrl + Shift + I</code></p></div>
 </div>
-<p>Uma janela vai abrir na lateral ou embaixo do navegador. Clique na aba <strong>Console</strong> no menu superior do DevTools.</p>
+<p>Clique na aba <strong>Console</strong> e interaja com o protótipo: navegue entre telas, clique em botões, preencha campos. Pra cada interação mapeada, uma linha aparece no Console:</p>
+<pre class="code-block">ativacao_tela1_view { tela: "onboarding_step_1", usuario_id: "mock_123" }
+ativacao_continuar_click { botao: "continuar", etapa: 1 }
+ativacao_tela2_view { tela: "onboarding_step_2", usuario_id: "mock_123" }</pre>
+<p>Cheque pra cada evento da planilha:</p>
+<ul>
+<li>O nome bate com o que está no Excel? (<code>snake_case</code>, <code>tela_ação</code>)</li>
+<li>As propriedades estão sendo enviadas?</li>
+<li>O evento dispara no momento certo — nem antes, nem depois da interação?</li>
+</ul>
+<p>Se algo não estiver disparando, descreva pro Claude:</p>
+<div class="prompt-box">
+<p>O evento <code>ativacao_formulario_submit</code> não está disparando quando clico em Enviar. Adiciona ele no <code>script.js</code> no botão de submit do formulário da tela 3.</p>
+</div>
+<p>Esse ciclo — <strong>testar, descrever o problema, corrigir</strong> — é como um PM colabora com engenharia numa sessão de QA.</p>
+<p class="file-out">📄 <code>06-prototipo/script.js</code> (atualizado com os eventos)</p>
+</div>
+</div>
+</div>
+</details>
+
+<details class="exercise">
+<summary><span class="ex-num">16</span><span class="ex-title">Publicar o site no GitHub Pages via Claude Code Desktop</span><span class="ex-time">25 min</span></summary>
+<div class="ex-body">
+<p class="ex-intro">O protótipo está pronto e os eventos disparando — falta colocar no ar com uma URL pública. Vamos usar o <strong>GitHub Pages</strong>: gratuito, sem cartão, hospedagem direta a partir do repositório. E o melhor: dá pra fazer tudo pelo <strong>Claude Code Desktop</strong>, com a sessão visual do Bloco 5 — sem precisar abrir terminal nem navegar nas configurações do GitHub.</p>
+<p class="ex-subentrega"><strong>Entregável:</strong> repositório no GitHub com o protótipo + URL pública no formato <code>https://[seu-user].github.io/[nome-repo]/</code> funcionando, com os eventos disparando ao vivo.</p>
+
+<div class="step-block">
+<div class="step-block-head">
+<span class="step-block-num">Passo 1</span>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Pré-requisitos rápidos</h4>
+</div>
+<div class="step-block-body">
+<p>Antes de pedir ajuda ao Claude, garanta que tem:</p>
+<ol>
+<li>Conta no <a href="https://github.com" rel="noopener" target="_blank">github.com</a> — gratuita, leva 1 minuto</li>
+<li><a href="https://cli.github.com" rel="noopener" target="_blank">GitHub CLI (<code>gh</code>)</a> instalado — o Claude usa pra autenticar e criar o repo</li>
+<li>Estar logado: na primeira vez, o Claude vai pedir <code>gh auth login</code>. Siga o fluxo no navegador, autorize o token e volte pra sessão de Code</li>
+</ol>
+<p class="tip">💡 Se você nunca usou Git/GitHub, tudo bem — o Claude conduz cada passo. Sua única responsabilidade é confirmar quando ele perguntar.</p>
 </div>
 </div>
 
 <div class="step-block">
 <div class="step-block-head">
 <span class="step-block-num">Passo 2</span>
-<span class="step-block-time">6 min</span>
-<h4 class="step-block-title">Navegar pelo site e observar os eventos</h4>
+<span class="step-block-time">8 min</span>
+<h4 class="step-block-title">Criar o repositório e subir o código</h4>
 </div>
 <div class="step-block-body">
-<p>Com o Console aberto, interaja com o site normalmente: clique nos botões, navegue entre telas, preencha campos. Pra cada interação que tiver um evento mapeado, uma linha vai aparecer no Console com o nome e as propriedades do evento. Por exemplo:</p>
-<pre class="code-block">ativacao_tela1_view { tela: "onboarding_step_1", usuario_id: "mock_123" }
-ativacao_continuar_click { botao: "continuar", etapa: 1 }
-ativacao_tela2_view { tela: "onboarding_step_2", usuario_id: "mock_123" }</pre>
-<p>O que observar:</p>
-<ul>
-<li>O nome do evento segue o padrão da planilha? (<code>snake_case</code>, <code>tela_ação</code>)</li>
-<li>As propriedades estão sendo enviadas junto com o evento?</li>
-<li>O evento dispara no momento certo — nem antes, nem depois da interação?</li>
-</ul>
+<p>Na sessão de Claude Code Desktop apontada pra <code>ArenaCash-PM</code>, mande:</p>
+<div class="prompt-box">
+<div class="prompt-box-head">C R I A R   R E P O   +   P U S H</div>
+<p>Quero publicar o protótipo da pasta <code>06-prototipo/</code> no GitHub Pages. Faz na ordem:</p>
+<ol>
+<li>Inicializa um repositório Git dentro de <code>06-prototipo/</code> (se ainda não tem) e adiciona um <code>.gitignore</code> básico</li>
+<li>Cria o primeiro commit com a mensagem <code>feat: protótipo da iniciativa [nome] com eventos integrados</code></li>
+<li>Cria um repositório novo no meu GitHub usando <code>gh repo create</code> — público, com nome <code>arenacash-prototipo</code>, e faz o push</li>
+<li>Me devolve a URL do repo no GitHub</li>
+</ol>
+</div>
+<p>O Claude executa a sequência inteira mostrando os comandos no painel — você aprova cada um conforme aparecem. Se aparecer prompt de autenticação ou conflito, ele explica e te guia. Quando terminar, abra o link do repo no navegador e confirme que os arquivos <code>index.html</code>, <code>style.css</code> e <code>script.js</code> estão lá.</p>
 </div>
 </div>
 
 <div class="step-block">
 <div class="step-block-head">
 <span class="step-block-num">Passo 3</span>
-<span class="step-block-time">3 min</span>
-<h4 class="step-block-title">Corrigir o que estiver errado</h4>
-</div>
-<div class="step-block-body">
-<p>Se algum evento não aparecer, ou aparecer com nome errado, volte ao Claude Code e descreva o problema:</p>
-<div class="prompt-box">
-<p>O evento <code>ativacao_formulario_submit</code> não está disparando quando clico em Enviar. Adiciona ele no <code>script.js</code> no botão de submit do formulário da tela 3.</p>
-</div>
-<p>O Claude localiza o trecho de código, faz a correção e você testa de novo no DevTools. Esse ciclo — <strong>testar, descrever o problema, corrigir</strong> — é exatamente como um PM colabora com engenharia numa sessão de QA.</p>
-</div>
-</div>
-
-<div class="ex-closing">
-<span class="pa-eyebrow pa-eyebrow--red">O  Q U E  F I X A R</span>
-<p>Você não leu uma linha de JavaScript. Mas você sabe <strong>quais eventos devem existir</strong> (porque você os mapeou), sabe <strong>como verificar se estão funcionando</strong> (DevTools), e sabe <strong>como pedir a correção</strong> (em português). Isso é suficiente pra <strong class="shout">garantir qualidade de instrumentação sem depender de ninguém</strong>.</p>
-</div>
-</div>
-</details>
-
-<details class="exercise">
-<summary><span class="ex-num">17</span><span class="ex-title">Commitar no Git e publicar o site</span><span class="ex-time">20 min</span></summary>
-<div class="ex-body">
-<p class="ex-intro">O site está funcionando e os eventos estão corretos. Agora vamos colocar isso no Git — pra ter <strong>histórico, versão e rastreabilidade</strong> — e publicar com uma <strong>URL real</strong> que qualquer pessoa possa acessar.</p>
-<p class="ex-subentrega"><strong>Entregável:</strong> repositório Git atualizado com o código do site + URL pública funcionando, compartilhada no chat do curso.</p>
-
-<div class="step-block">
-<div class="step-block-head">
-<span class="step-block-num">Passo 1</span>
-<span class="step-block-time">8 min</span>
-<h4 class="step-block-title">Fazer o commit via Claude Code</h4>
-</div>
-<div class="step-block-body">
-<p>No terminal com o Claude Code ativo, peça:</p>
-<div class="prompt-box">
-<p>Faz o commit de tudo que está na pasta <code>07-app/</code> no repositório Git. O commit deve ter a mensagem: <code>feat: adiciona site da iniciativa [nome] com eventos de analytics integrados</code>. Depois faz o push pro repositório remoto.</p>
-</div>
-<p>O Claude vai executar os comandos na sequência:</p>
-<pre class="code-block">git add 07-app/
-git commit -m "feat: adiciona site da iniciativa [nome] com eventos de analytics integrados"
-git push origin main</pre>
-<p>Se aparecer algum erro — conflito de branch, autenticação pendente — descreva pro Claude:</p>
-<div class="prompt-box">
-<p>Apareceu esse erro: <code>[cole o texto do erro]</code>. O que faço?</p>
-</div>
-<p>Ele diagnostica e guia a resolução passo a passo.</p>
-<p>Ao final, confirme que o push funcionou:</p>
-<div class="prompt-box">
-<p>Confirma que o push foi feito e me mostra o link do repositório no GitHub.</p>
-</div>
-</div>
-</div>
-
-<div class="step-block">
-<div class="step-block-head">
-<span class="step-block-num">Passo 2</span>
 <span class="step-block-time">12 min</span>
-<h4 class="step-block-title">Publicar o site com URL pública</h4>
+<h4 class="step-block-title">Habilitar o GitHub Pages e validar a URL pública</h4>
 </div>
 <div class="step-block-body">
-<p>Com o código no Git, vamos publicar usando o <strong>Netlify</strong> — serviço gratuito que transforma uma pasta em um site com URL pública em menos de 2 minutos.</p>
-<p>Peça ao Claude Code:</p>
+<p>Com o código no GitHub, peça ao Claude pra ligar o GitHub Pages — ele faz tudo via API, sem você abrir as configurações do repositório:</p>
 <div class="prompt-box">
-<p>Publica o site que está na pasta <code>07-app/</code> usando o Netlify CLI. Instala o CLI se necessário, faz o deploy e me dá a URL pública.</p>
+<div class="prompt-box-head">L I G A R   G I T H U B   P A G E S</div>
+<p>Habilita o GitHub Pages no repositório que acabamos de criar, servindo a partir da branch <code>main</code> e da raiz do repo (<code>/</code>). Espera o build terminar e me devolve a URL pública.</p>
 </div>
-<p>O Claude vai executar:</p>
-<pre class="code-block"># instala o CLI do Netlify (se ainda não tiver)
-npm install -g netlify-cli
-
-# faz o deploy da pasta 07-app/
-netlify deploy --dir=07-app --prod</pre>
-<p>Na primeira vez, o Netlify vai pedir autenticação — o Claude vai te guiar: gera um link de login, você abre no navegador, autoriza, e volta ao terminal. A partir daí o deploy funciona automaticamente.</p>
-<p>Ao final, você recebe uma URL no formato <code>https://nome-aleatório.netlify.app</code>. Cole essa URL no chat do curso.</p>
-<div class="prompt-box">
-<p>Me confirma a URL pública e abre ela no navegador pra eu verificar.</p>
-</div>
-<p>Abra a URL, navegue pelo site, abra o DevTools e confirme que os eventos continuam disparando — agora em <strong class="shout">produção</strong>, com URL real, acessível de qualquer dispositivo.</p>
+<p>Por baixo dos panos o Claude executa algo como:</p>
+<pre class="code-block">gh api -X POST /repos/[user]/arenacash-prototipo/pages \
+  -f source[branch]=main \
+  -f source[path]=/</pre>
+<p>O primeiro build leva 1-2 minutos. Quando terminar, você recebe a URL no formato <code>https://[seu-user].github.io/arenacash-prototipo/</code>.</p>
+<p>Abra a URL no navegador, navegue pelo protótipo, abra o DevTools → Console e <strong>confirme que os eventos continuam disparando</strong> — agora em <strong class="shout">produção</strong>, com URL real, acessível de qualquer dispositivo do mundo.</p>
+<p class="tip">🔁 <strong>Atualizações futuras:</strong> qualquer commit + push pra <code>main</code> dispara um novo build automaticamente. Pra atualizar o site, basta pedir ao Claude pra fazer commit + push das mudanças — em segundos a URL reflete a nova versão.</p>
+<p class="file-out">🌐 <code>https://[seu-user].github.io/arenacash-prototipo/</code></p>
 </div>
 </div>
 </div>
@@ -1830,7 +1787,7 @@ netlify deploy --dir=07-app --prod</pre>
 <li>Abrem o repositório no GitHub e mostram o commit que fizeram</li>
 <li>Contam a jornada em 30 segundos: qual era a iniciativa, o que o Thinking Partner questionou, e o que eles priorizaram</li>
 </ol>
-<p><strong>O critério não é perfeição visual.</strong> É mostrar o ciclo completo fechado: memo estratégico → análise de dados → validação com C-levels → PPT aprovado → imagens de tela → código gerado → eventos integrados → commit no Git → site no ar com URL real.</p>
+<p><strong>O critério não é perfeição visual.</strong> É mostrar o ciclo completo fechado: memo estratégico → análise de dados → validação com C-levels → PPT aprovado → protótipo navegável → eventos integrados → repositório no GitHub → site no ar com URL real.</p>
 </div>
 </section>
 </article>
@@ -1865,14 +1822,12 @@ netlify deploy --dir=07-app --prod</pre>
 <h4>🌙 De tarde — Code</h4>
 <ul class="warn-list" style="padding-left: var(--s-5); margin: var(--s-3) 0 0;">
 <li>Migraram do Cowork pro Code sem perder nenhum arquivo</li>
-<li>Clonaram o repositório Git e navegaram em linguagem natural</li>
-<li>Geraram imagens das telas a partir da apresentação aprovada</li>
-<li>Criaram a skill Event Mapper a partir do Guia de Eventos</li>
+<li>Geraram um protótipo navegável (HTML/CSS/JS) a partir da apresentação aprovada e do design system</li>
+<li>Instalaram a skill Event Mapper e mapearam eventos das próprias telas do protótipo</li>
 <li>Mapearam todos os eventos em Excel + Word</li>
-<li>Pediram ao Claude Code pra gerar o site HTML/CSS/JS das imagens</li>
 <li>Testaram os eventos de analytics no DevTools</li>
 <li>Commitaram o código no Git com mensagem estruturada</li>
-<li>Publicaram o site com URL pública via Netlify</li>
+<li>Publicaram o site no GitHub Pages com URL pública</li>
 </ul>
 </div>
 </div>
@@ -1934,9 +1889,9 @@ netlify deploy --dir=07-app --prod</pre>
 <tr><td><strong>2 — Setup</strong></td><td>Montaram o projeto com memória e instruções. Conectaram o Gmail. Extraíram o tom de voz dos próprios e-mails e testaram numa mensagem real pro tech lead.</td></tr>
 <tr><td><strong>3 — MCP e Conexões</strong></td><td>Conectaram o Google Drive. Cruzaram dados internos com cenário de fintechs pesquisado na internet. Geraram um Google Doc. Criaram um Giro de Notícias diário que, todo dia às 9h, deixa um rascunho com 3 notícias resumidas no Gmail.</td></tr>
 <tr><td><strong>4 — Skills</strong></td><td>Criaram o Thinking Partner com Juliana, Beatriz e Diego. Validaram 5 iniciativas. Criaram a skill de apresentação. Saíram com iniciativa escolhida e PPT no padrão da ArenaCash.</td></tr>
-<tr><td><strong>5 — Code</strong></td><td>Migraram do Cowork pro Code. Clonaram o repositório Git do curso e navegaram em português. Criaram o <code>CLAUDE.md</code>.</td></tr>
-<tr><td><strong>6 — Protótipo e Eventos</strong></td><td>Geraram imagens das telas a partir do PPT e do design system. Criaram a skill Event Mapper a partir do Guia de Eventos. Mapearam todos os eventos em Excel e Word.</td></tr>
-<tr><td><strong>7 — Código, Git e Deploy</strong></td><td>Transformaram as imagens em site HTML/CSS/JS com eventos integrados. Testaram no DevTools. Commitaram no Git. Publicaram com URL pública via Netlify.</td></tr>
+<tr><td><strong>5 — Code</strong></td><td>Migraram do Cowork pro Code (terminal e Desktop). Validaram que os arquivos da manhã estão acessíveis. Criaram o <code>CLAUDE.md</code> como briefing permanente da pasta.</td></tr>
+<tr><td><strong>6 — Protótipo e Eventos</strong></td><td>Geraram o protótipo navegável (HTML/CSS/JS) a partir do PPT e do design system, com feedback iterativo. Instalaram a skill Event Mapper e mapearam todos os eventos das próprias telas em Excel e Word.</td></tr>
+<tr><td><strong>7 — Lançando ao mundo</strong></td><td>Integraram os eventos do Excel no <code>script.js</code>, validaram no DevTools, criaram repositório no GitHub via Claude Code Desktop e publicaram com URL pública no GitHub Pages.</td></tr>
 </tbody>
 </table>
 </div>

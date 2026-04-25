@@ -1045,21 +1045,27 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <div class="step-block">
 <div class="step-block-head">
 <span class="step-block-num">Passo 1</span>
-<span class="step-block-time">10 min</span>
-<h4 class="step-block-title">Criar a skill Thinking Partner</h4>
+<span class="step-block-time">5 min</span>
+<h4 class="step-block-title">Baixar e instalar a skill no projeto</h4>
 </div>
 <div class="step-block-body">
-<div class="prompt-box">
-<div class="prompt-box-head">C R I A R   S K I L L   <code>thinking-partner</code></div>
-<p>Cria uma skill chamada <code>thinking-partner</code> com as seguintes especificações:</p>
+<p>Pra ganhar tempo no curso, a skill <code>thinking-partner</code> já foi criada e está disponível pra download. Você instala exatamente como a <code>prd-generator</code> do exercício anterior:</p>
+<ol>
+<li>Baixe o arquivo <a href="kit/thinking-partner-skill/SKILL.md" download><strong>SKILL.md da thinking-partner</strong></a> (clique com o botão direito → "Salvar link como…")</li>
+<li>Dentro da pasta <code>ArenaCash-PM</code>, crie a estrutura <code>.claude/skills/thinking-partner/</code></li>
+<li>Mova o <code>SKILL.md</code> baixado pra dentro dessa pasta — a estrutura final fica <code>ArenaCash-PM/.claude/skills/thinking-partner/SKILL.md</code></li>
+<li>Volte ao Cowork e, no chat do projeto, pergunte: <em>"Quais skills estão disponíveis neste projeto?"</em> — a <code>thinking-partner</code> deve aparecer junto com a <code>prd-generator</code></li>
+</ol>
+<p><strong>Abra o <code>SKILL.md</code> no editor</strong> e leia o conteúdo — você vai ver as instruções estruturadas que fazem o Claude se comportar como um comitê de C-levels. <strong class="shout">Essa é a anatomia de uma skill.</strong></p>
+<details class="nested">
+<summary>Ver o que está dentro da skill</summary>
 <ul>
-<li><strong>Trigger:</strong> sempre que eu pedir pra discutir, avaliar ou validar uma decisão, iniciativa ou priorização</li>
-<li><strong>O que faz:</strong> lê <code>organograma-arenacash.md</code>, <code>memo-estrategico-q2.md</code>, <code>transcricao-cfo.md</code>, <code>transcricao-cmo.md</code> e <code>transcricao-cto.md</code>. Com base nisso, cria 3 personas — <strong>Juliana (CFO)</strong>, <strong>Beatriz (CMO)</strong> e <strong>Diego (CTO)</strong> — cada uma com perfil de preocupações, prioridades e estilo de comunicação extraídos das transcrições reais. Quando eu apresentar uma iniciativa, cada persona se posiciona: apoia, questiona ou rejeita — com os argumentos que aquele C-level usaria de verdade. <strong>Sempre cruza a iniciativa com as metas e prioridades do <code>memo-estrategico-q2.md</code></strong> antes de gerar a resposta.</li>
-<li><strong>Output:</strong> formato <strong>resumido e direto</strong>, sem prosa longa. Para cada C-level: posição (apoia / questiona / rejeita) + argumento principal em 1-2 linhas. Depois: síntese de consenso × conflito (1-2 linhas), aderência ao memo do quarter (1 linha) e os pontos de atenção que o PM deve endereçar antes de apresentar (bullets curtos)</li>
-<li><strong>Regras:</strong> nunca inventar posições que não estejam nas transcrições; sempre citar o argumento específico do C-level; sempre validar a iniciativa contra as prioridades do <code>memo-estrategico-q2.md</code>; se não houver dado suficiente, sinalizar em vez de inventar; <strong>manter o output enxuto</strong> — bullets curtos, sem parágrafos longos</li>
+<li><strong>Trigger:</strong> sempre que o usuário pedir pra discutir, avaliar ou validar uma decisão, iniciativa ou priorização</li>
+<li><strong>O que faz:</strong> lê <code>organograma-arenacash.md</code>, <code>memo-estrategico-q2.md</code>, <code>transcricao-cfo.md</code>, <code>transcricao-cmo.md</code> e <code>transcricao-cto.md</code>. Constrói 3 personas — <strong>Juliana (CFO)</strong>, <strong>Beatriz (CMO)</strong> e <strong>Diego (CTO)</strong> — com preocupações, prioridades e estilo extraídos das transcrições reais. Cruza toda iniciativa com o memo do Q2 antes de responder.</li>
+<li><strong>Output:</strong> formato resumido e direto. Para cada C-level: posição (apoia / questiona / rejeita) + argumento em 1-2 linhas. Depois: síntese de consenso × conflito, aderência ao memo do quarter, pontos de atenção pro PM endereçar.</li>
+<li><strong>Regras:</strong> nunca inventar posições; sempre citar o argumento específico; sempre validar contra o memo; se faltar dado, sinalizar em vez de inventar; manter o output enxuto.</li>
 </ul>
-</div>
-<p><strong>Observe:</strong> o Claude criou a pasta <code>.claude/skills/thinking-partner/</code> com o arquivo <code>SKILL.md</code> dentro. Abra o arquivo e leia — você vai ver as instruções que acabou de ditar transformadas em um briefing estruturado. <strong class="shout">Essa é a anatomia de uma skill.</strong></p>
+</details>
 <p class="file-out">📄 <code>.claude/skills/thinking-partner/SKILL.md</code></p>
 </div>
 </div>
@@ -1070,7 +1076,7 @@ Claude lê, analisa e entrega o resultado para você</pre>
 <h4 class="step-block-title">Validar as iniciativas com os C-levels</h4>
 </div>
 <div class="step-block-body">
-<p>Agora use a skill que acabou de criar. Copie a lista de iniciativas que veio do Bloco 3 e mande:</p>
+<p>Agora use a skill que acabou de instalar. Copie a lista de iniciativas que veio do Bloco 3 e mande:</p>
 <div class="prompt-box">
 <p>Usa a skill <code>thinking-partner</code>. Apresento as 5 iniciativas priorizadas que geramos pro Q2 da ArenaCash: <code>[cole aqui a lista do arquivo analise-estrategica-q2.md]</code>. Quero ouvir a Juliana, a Beatriz e o Diego sobre cada uma: quem apoia qual, onde há conflito de prioridade entre eles, e qual iniciativa teria mais chance de aprovação da diretoria hoje.</p>
 </div>
